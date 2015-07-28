@@ -122,12 +122,14 @@
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
-						<img v-attr="src: 'img/' + chapterNum + '-' + exerciseNum + '-' + ($index + 1) + '.png'" alt="">
-						<span class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
-							<i class="fa fa-square-o" v-show="!answer.selected"></i>
-							<i class="fa fa-check-square" v-show="answer.selected"></i>
-							{{ answer.text }}<br>
-						</span>
+						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
+							<div class="exercise__answer-text-inner">
+								<img class="exercise__answer-image" v-attr="src: 'img/' + chapterNum + '-' + exerciseNum + '-' + ($index + 1) + '.png'" alt="">
+								<i class="fa fa-square-o" v-show="!answer.selected"></i>
+								<i class="fa fa-check-square" v-show="answer.selected"></i>
+								{{ answer.text }}<br>
+							</div>
+						</div>
 					</li>
 				</ol>
 			</div>
