@@ -78,7 +78,7 @@ a:focus {
 	
 }
 .exercise__name {
-	  font-size: 3em;
+	  font-size: 2.8em;
 	  font-weight: bold;
 	  margin-bottom: 12px;
 }
@@ -119,9 +119,9 @@ a:focus {
 	background-size: contain;
 	
 }
-.exercise__question .fa-check-circle {
-	color: #ED4D51;
-}
+.exercise__question .fa-check-circle { color: #1EB53B; }
+.exercise__question .fa-times-circle { color: #ED4D51; }
+
 .exercise__answer-list {
 	list-style-type: upper-alpha;
 	list-style-position: inside;
@@ -265,7 +265,17 @@ a:focus {
 }
 .actions--exercise {
 	margin-bottom: 14px;
-	display: none;
+}
+.actions--exercise,
+.first-question .owl-prev,
+.last-question .owl-next,
+.first-question.last-question .owl-nav {
+	opacity: 0.3;
+	pointer-events: none;
+}
+.last-question .actions--exercise {
+	opacity: 1;
+	pointer-events: all;
 }
 
 /* ==========================================================================
@@ -286,7 +296,7 @@ a:focus {
 	left: 0;
 	right: 0;
 	height: 0;
-	top: -45px;
+	top: -103px;
 }
 .owl-theme .owl-nav {
 	margin-top: 0;
@@ -312,19 +322,6 @@ a:focus {
 /* ==========================================================================
    States control
    ========================================================================== */
-.last-question .actions--exercise {
-	display: block;
-}
-.last-question .owl-controls {
-	top: -103px;
-}
-.first-question .owl-prev,
-.last-question .owl-next,
-.first-question.last-question .owl-nav {
-	opacity: 0.3;
-	pointer-events: none;
-}
-
 .answer-revealed .is-correct-answer {
 	color: #0B7E0D;
 }
@@ -333,4 +330,12 @@ a:focus {
 }
 .answer-revealed .exercise__answer-text .fa-check-square {
 	/*display: none;*/
+}
+/* ==========================================================================
+   Layout Specific
+   ========================================================================== */
+.layout-3 .exercise__answer {
+	float: left;
+	width: 33%;
+	padding: 0 4%;
 }

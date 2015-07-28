@@ -51,13 +51,15 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 	    	chapterNum: vue.chapterNum,
 			exerciseNum: vue.exerciseNum,
 		},
+
+		methods: validateMethods[exercise.template],
+		
 		ready: function() {
 			initCarousel();
 		},
 		attached: function() {
 
-		},
-		methods: validateMethods[exercise.template]
+		}
 	})
 	// Mount the vuew instance to #exercise
 	questionView.$mount('#exercise')
