@@ -21,15 +21,15 @@
 </head>
 <body>
 	<div class="container">
-		<div id="chapter" class="content chapter">
-			<div id="app" v-class="all-correct: allCorrect">
+		<div id="book" class="content book">
+			<div id="chapter" class="chapter" v-class="all-correct: allCorrect">
 				<div class="row header">
 					<div class="col-xs-9">
 						<div class="exercise__name-outer">
 							<div id="boy"></div>
 							<div class="exercise__name">{{exerciseName}}</div>
-							<div class="exercise__description">
-								{{{exerciseDescription}}}
+							<div class="exercise__instruction">
+								{{{exerciseInstruction}}}
 							</div>
 						</div>
 					</div>
@@ -43,7 +43,7 @@
 					</div>
 				</div>
 
-				<div class="exercise-container" v-class="answer-revealed:isAnswerRevealed">
+				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed">
 					<div class="pager">
 						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
 					</div>
@@ -60,7 +60,7 @@
 
 		</div>
 	</div>
-	<script id="layout-1-template" type="x-template">
+<script id="layout-1-template" type="x-template">
 	<div class="actions actions--exercise">
 		<div class="button button--exercise small" v-on="click: reset(questions)"><i class="fa fa-refresh"></i> 重設</div>
 		<div class="button button--exercise" v-on="click: showAnswer(questions)"><i class="fa fa-search"></i> 正確答案</div>
@@ -78,9 +78,9 @@
 			<div class="exercise__wrong-notification" v-show="question.wrong">答錯了，請再選擇。</div>
 		</div>
 	</div>
-	</script>
+</script>
 	
-	<script id="layout-2-template" type="x-template">
+<script id="layout-2-template" type="x-template">
 	<div class="actions actions--exercise">
 		<div class="button button--exercise small" v-on="click: reset(questions)"><i class="fa fa-refresh"></i> 重設</div>
 		<div class="button button--exercise" v-on="click: checkAnswer(questions)"><i class="fa fa-check"></i> 提交答案</div>
@@ -98,16 +98,16 @@
 						<span class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
 							<i class="fa fa-square-o" v-show="!answer.selected"></i>
 							<i class="fa fa-check-square" v-show="answer.selected"></i>
-							{{ answer.text }}<br>
+							{{ answer.text }}
 						</span>
 					</li>
 				</ol>
 			</div>
 		</div>
 	</div>
-	</script>
+</script>
 
-	<script id="layout-3-template" type="x-template">
+<script id="layout-3-template" type="x-template">
 	<div class="actions actions--exercise">
 		<div class="button button--exercise small" v-on="click: reset(questions)"><i class="fa fa-refresh"></i> 重設</div>
 		<div class="button button--exercise" v-on="click: checkAnswer(questions)"><i class="fa fa-check"></i> 提交答案</div>
@@ -124,10 +124,10 @@
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
 							<div class="exercise__answer-text-inner">
-								<img class="exercise__answer-image" v-attr="src: 'img/' + chapterNum + '-' + exerciseNum + '-' + ($index + 1) + '.png'" alt="">
+								<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
 								<i class="fa fa-square-o" v-show="!answer.selected"></i>
 								<i class="fa fa-check-square" v-show="answer.selected"></i>
-								{{ answer.text }}<br>
+								{{ answer.text }}
 							</div>
 						</div>
 					</li>
@@ -135,7 +135,82 @@
 			</div>
 		</div>
 	</div>
-	</script>
+</script>
+
+<script id="layout-4-template" type="x-template">
+	<div class="actions actions--exercise">
+		<div class="button button--exercise small" v-on="click: reset(questions)"><i class="fa fa-refresh"></i> 重設</div>
+		<div class="button button--exercise" v-on="click: checkAnswer(questions)"><i class="fa fa-check"></i> 提交答案</div>
+		<div class="button button--exercise" v-show="isAnswerChecked" v-on="click: showAnswer(questions)"><i class="fa fa-search"></i> 正確答案</div>
+	</div>
+	<div class="owl-carousel">
+		<div class="layout-4" v-repeat="question: questions">
+			<div class="exercise__question clearfix">
+				<div class="exercise__question-number">
+					{{question.index+1}}.
+					<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+				</div>
+				<div class="exercise__question-content" v-repeat="text: question.questionContent">
+					<img class="exercise__question-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
+					<div class="exercise__question-text">
+						{{text}}
+					</div>
+				</div>
+			</div>
+			<div class="exercise__answer-list-outer">
+				<ol class="exercise__answer-list">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers)">
+								<i class="fa fa-check-square" 
+								v-class="
+								fa-check-square:$index == 0,
+								fa-times-circle: $index == 1,
+								selected: answer.selected
+								"></i>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="layout-5-template" type="x-template">
+	<div class="actions actions--exercise">
+		<div class="button button--exercise small" v-on="click: reset(questions)"><i class="fa fa-refresh"></i> 重設</div>
+		<div class="button button--exercise" v-on="click: checkAnswer(questions)"><i class="fa fa-check"></i> 提交答案</div>
+		<div class="button button--exercise" v-show="isAnswerChecked" v-on="click: showAnswer(questions)"><i class="fa fa-search"></i> 正確答案</div>
+	</div>
+	<div class="owl-carousel">
+		<div class="layout-5 row" v-repeat="question: questions">
+			<div class="exercise__question  col-xs-6">
+				<div class="exercise__question-number">
+					{{question.index+1}}.
+					<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+				</div>
+				<div class="exercise__question-content">
+					<img class="exercise__question-image" v-attr="src: imagePath + ($index + 1) + '-1.png'" alt="">
+					<div class="exercise__question-text">
+						{{text}}
+					</div>
+				</div>
+			</div>
+			<div class="exercise__answer-list-outer col-xs-6">
+				<ol class="exercise__answer-list">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers)">
+							<div class="exercise__answer-text-inner">
+								<i class="fa fa-square-o" v-show="!answer.selected"></i>
+								<i class="fa fa-check-square" v-show="answer.selected"></i>
+								{{ answer.text }}
+							</div>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</script>
 	
 	<script src="vendor/owl.carousel/owl.carousel.js"></script>
 	<script src="js/book.js"></script>

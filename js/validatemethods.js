@@ -3,7 +3,7 @@ function removeFlash () {
 	if(this.isAllCorrect()) {
 		clearTimeout(timer);
 		timer = setTimeout(function() {
-			document.getElementById('app').className = "";
+			document.getElementById('chapter').className = "";
 		}, 2000);
 	}
 }
@@ -44,7 +44,7 @@ function reset (questions) {
 	vue.isAnswerRevealed = false;
 }
 
-function checkAnswer_SingleAnswers (question, answer, answerIndex, answers) {
+function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 	// Reset all the answer to unchecked state
 	for (var i = 0; i < answers.length; i++) {
@@ -106,6 +106,17 @@ function isAllCorrect_MultipleAnswers () {
 	return true;
 }
 
+function chooseAnswer_SingleAnswers (question, answer, answers) {
+	for (var i = 0; i < answers.length; i++) {
+		answers[i].selected = false;
+	};
+
+	question.correctAnswerCount = ~~answer.correct;
+	question.wrongAnswerCount = ~~!answer.correct;
+
+	answer.selected = !answer.selected;
+}
+
 function chooseAnswer_MultipleAnswers (question, answer) {
 	if(answer.correct) {
 		question.correctAnswerCount = (answer.selected)
@@ -125,7 +136,7 @@ window.validateMethods = {
 	 * Layout 1 - MC 純文字, 二選一
 	 */
 	'layout-1': {
-		checkAnswer: checkAnswer_SingleAnswers,
+		checkAnswer: checkAnswer_Immediate,
 		isAllCorrect: isAllCorrect_SingleAnswer,
 		showAnswer: showAnswer,
 		reset: reset
@@ -145,6 +156,26 @@ window.validateMethods = {
 	 */
 	'layout-3': {
 		chooseAnswer: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
+		isAllCorrect: isAllCorrect_MultipleAnswers,
+		showAnswer: showAnswer,
+		reset: reset
+	},
+	/**
+	 * Layout 4 - MC 長型圖, 選對錯
+	 */
+	'layout-4': {
+		chooseAnswer: chooseAnswer_SingleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
+		isAllCorrect: isAllCorrect_MultipleAnswers,
+		showAnswer: showAnswer,
+		reset: reset
+	},
+	/**
+	 * Layout 5 - MC 細圖, 三選一
+	 */
+	'layout-5': {
+		chooseAnswer: chooseAnswer_SingleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 		isAllCorrect: isAllCorrect_MultipleAnswers,
 		showAnswer: showAnswer,

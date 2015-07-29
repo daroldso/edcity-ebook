@@ -110,6 +110,7 @@ a:focus {
 	
 }
 .exercise {
+
 }
 .exercise__question {
 	font-size: 2em;
@@ -121,6 +122,10 @@ a:focus {
 }
 .exercise__question .fa-check-circle { color: #1EB53B; }
 .exercise__question .fa-times-circle { color: #ED4D51; }
+
+.exercise__question-number {
+	font-size: 2em;
+}
 
 .exercise__answer-list {
 	list-style-type: upper-alpha;
@@ -155,10 +160,14 @@ a:focus {
 .exercise__wrong-notification {
 	color: #B50E0E;
 }
+.exercise__question-image,
 .exercise__answer-image {
 	margin-bottom: 0.3em;
-	max-height: 192px;
+	width: auto!important;
 	max-width: 100%;
+	max-height: 192px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .flash {
 	display: none;
@@ -330,11 +339,11 @@ a:focus {
 .answer-revealed .is-correct-answer {
 	color: #0B7E0D;
 }
-.answer-revealed .exercise__answer-text .fa-square-o {
-	/*display: inline-block;*/
+.answer-revealed .is-correct-answer .exercise__answer-text .fa {
+	color: #0B7E0D;
 }
-.answer-revealed .exercise__answer-text .fa-check-square {
-	/*display: none;*/
+.fa.selected {
+	color: #7B0F12;
 }
 /* ==========================================================================
    Layout Specific
@@ -358,3 +367,38 @@ a:focus {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.layout-4 .exercise__question,
+.layout-5 .exercise__question {
+	background: none;
+	padding-left: 0;
+	font-size: 1.3em;
+}
+
+.layout-4 .exercise__question-content {
+	float: left;
+	width: 33%;
+	padding: 0 1%;
+}
+.layout-4 .exercise__question .exercise__question-image {
+	max-width: none;
+	width: auto;
+	margin: 0 auto 0.3em;
+}
+.layout-4 .exercise__answer-list {
+	list-style: none;
+	display: block;
+	text-align: center;
+}
+.layout-4 .exercise__answer {
+	text-align: center;
+	display: inline-block;
+	width: 100px;
+	margin: 0 10px;
+}
+
+.layout-5 .exercise__answer-list {
+	display: block;
+	margin-top: 3.6em;
+}
+

@@ -1,15 +1,15 @@
 var vue,
 QuestionView,
 questionView,
-$exercise = $('#exercise');
+$exerciseContainer = $('#exercise-container');
 
 vue = new Vue({
-    el:"#app",
+    el:"#chapter",
     data: {
     	chapterNum: "",
     	exerciseNum: "",
     	exerciseName: "",
-    	exerciseDescription: "",
+    	exerciseInstruction: "",
 		currentQuestion: 0,
 		totalNumOfQuestion: 0,
 		totalNumOfCorrect: 0,
@@ -33,8 +33,8 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 	vue.questions = exercise.questions;
 	// assign exercise name to Vue
 	vue.exerciseName = exercise.name;
-	// assign exercise description to Vue
-	vue.exerciseDescription = exercise.description;
+	// assign exercise instruction to Vue
+	vue.exerciseInstruction = exercise.instruction;
 
 	// instantiate question view
 	QuestionView = Vue.extend({
@@ -50,10 +50,11 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 	    	questions : exercise.questions,
 	    	chapterNum: vue.chapterNum,
 			exerciseNum: vue.exerciseNum,
+			imagePath: 'img/ch' + vue.chapterNum + '/ex' + vue.exerciseNum + '/' + vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
 
 		methods: validateMethods[exercise.template],
-		
+
 		ready: function() {
 			initCarousel();
 		},
@@ -91,8 +92,8 @@ function initCarousel () {
 		touchDrag: false,
 		onInitialized: function(e) {
 			var totalNumOfQuestion = this._items.length;
-			$exercise.addClass('first-question');
-			if(totalNumOfQuestion === 1) {$exercise.addClass('last-question');}
+			$exerciseContainer.addClass('first-question');
+			if(totalNumOfQuestion === 1) {$exerciseContainer.addClass('last-question');}
 			vue.totalNumOfQuestion = totalNumOfQuestion;
 		}
 	});
@@ -100,14 +101,14 @@ function initCarousel () {
 	.on('translated.owl.carousel', function(e) {
 		var totalNumOfQuestion = e.item.count;
 		var index = e.item.index;
-		$exercise.removeClass('first-question last-question');
+		$exerciseContainer.removeClass('first-question last-question');
 		vue.currentQuestion = index;
 		if( index === 0 ) {
-			$exercise.addClass('first-question');
+			$exerciseContainer.addClass('first-question');
 			// Emit a at first page event
 			
 		} else if (index === totalNumOfQuestion - 1) {
-			$exercise.addClass('last-question');
+			$exerciseContainer.addClass('last-question');
 			// Emit a at last page event
 			
 		}
