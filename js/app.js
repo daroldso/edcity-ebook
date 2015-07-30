@@ -1,10 +1,12 @@
 var vue,
 QuestionView,
 questionView,
+ActionsView,
+actionsView,
 $exerciseContainer = $('#exercise-container');
 
 vue = new Vue({
-    el:"#chapter",
+    el:"#chapter",	
     data: {
     	chapterNum: "",
     	exerciseNum: "",
@@ -16,9 +18,12 @@ vue = new Vue({
 		isAnswerChecked: false,
 		isAnswerRevealed: false,
         allCorrect: false,
-    },
+        layoutNumber: "",
+    }
 });
 
+
+console.log(vue);
 var router = Router();
 
 router.on('/exercise/:chapter/:ex', function(chapter, ex) {
@@ -29,6 +34,8 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 	// getting all the exercises in the chapter
 	var exercise = chapter.exercises['ex'+vue.exerciseNum];
 
+	vue.layoutNumber = exercise.template;
+
 	// assign all the questions in the exercise 1-3 to Vue
 	vue.questions = exercise.questions;
 	// assign exercise name to Vue
@@ -38,14 +45,13 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 
 	// instantiate question view
 	QuestionView = Vue.extend({
-		template: "#"+exercise.template+"-template"
+		template: "#layout-"+exercise.template+"-template"
 	});
 
 	// instantiate question vue instance
 	questionView = new QuestionView({
 		replace: false,
 		data: {
-			isAnswerChecked: vue.isAnswerChecked,
 			currentQuestion: vue.currentQuestion,
 	    	questions : exercise.questions,
 	    	chapterNum: vue.chapterNum,
@@ -53,24 +59,56 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 			imagePath: 'img/ch' + vue.chapterNum + '/ex' + vue.exerciseNum + '/' + vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
 
-		methods: validateMethods[exercise.template],
+		methods: validateMethods['layout-'+exercise.template],
 
 		ready: function() {
 			initCarousel();
-		},
-		attached: function() {
-
 		}
 	})
 	// Mount the vuew instance to #exercise
-	questionView.$mount('#exercise')
+	questionView.$mount('#exercise');
 
-	// Vue.component('my-component', {
-	// 	template: "#"+exercise.template+"-template"
-	// });
+	ActionsView = Vue.extend({
+		template: "#actions-template"
+	});
+
+	actionsView = new ActionsView({
+		data: {
+			isAnswerChecked: vue.isAnswerChecked,
+		},
+		methods: {
+	    	showAnswer: function() {
+				vue.isAnswerRevealed = true;
+			},
+			reset: function() {
+				var questions = vue.questions;
+				for (var i = 0; i < questions.length; i++) {
+					var answers =  questions[i].answers;
+					for (var j = 0; j < answers.length; j++) {
+						answers[j].selected = false;
+					};
+					questions[i].correct = false;
+					questions[i].wrong = false;
+					questions[i].isCorrect = false;
+					questions[i].correctAnswerCount = 0;
+					questions[i].wrongAnswerCount = 0;
+				};
+				vue.totalNumOfCorrect = 0;
+				vue.isAnswerRevealed = false;
+			},
+			checkAnswer: validateMethods['layout-'+exercise.template].checkAnswer,
+		}
+	});
+
+	actionsView.$mount('#actions');
+
+
+
 });
 
 router.init('/exercise/1/1');
+
+
 
 function initCarousel () {
 	var owl = $(".owl-carousel").owlCarousel({

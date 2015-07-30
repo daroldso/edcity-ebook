@@ -1,48 +1,33 @@
 var timer;
 function removeFlash () {
-	if(this.isAllCorrect()) {
+	if(questionView.isAllCorrect()) {
 		clearTimeout(timer);
 		timer = setTimeout(function() {
-			document.getElementById('chapter').className = "";
+			$('#chapter').removeClass('all-correct');
+			// document.getElementById('chapter').className = "";
 		}, 2000);
 	}
 }
 
-function showAnswer (questions) {
-	// for (var i = 0; i < questions.length; i++) {
-	// 	var answers =  questions[i].answers;
-	// 	for (var j = 0; j < answers.length; j++) {
-	// 		// remove all the selected state
-	// 		answers[j].selected = false;
-	// 		if(answers[j].correct) {
-	// 			// set the correct answer in selected state
-	// 			answers[j].selected = true;
-	// 			// set question to correct state
-	// 			questions[i].correct = true;
-	// 			questions[i].wrong = false;
-	// 		}
-	// 	};
-	// };
+// function showAnswer (questions) {
+// 	// for (var i = 0; i < questions.length; i++) {
+// 	// 	var answers =  questions[i].answers;
+// 	// 	for (var j = 0; j < answers.length; j++) {
+// 	// 		// remove all the selected state
+// 	// 		answers[j].selected = false;
+// 	// 		if(answers[j].correct) {
+// 	// 			// set the correct answer in selected state
+// 	// 			answers[j].selected = true;
+// 	// 			// set question to correct state
+// 	// 			questions[i].correct = true;
+// 	// 			questions[i].wrong = false;
+// 	// 		}
+// 	// 	};
+// 	// };
 
-	// vue.allCorrect = this.isAllCorrect();
-	vue.isAnswerRevealed = true;
-}
-function reset (questions) {
-	for (var i = 0; i < questions.length; i++) {
-		var answers =  questions[i].answers;
-		for (var j = 0; j < answers.length; j++) {
-			answers[j].selected = false;
-		};
-		questions[i].correct = false;
-		questions[i].wrong = false;
-		questions[i].isCorrect = false;
-		questions[i].correctAnswerCount = 0;
-		questions[i].wrongAnswerCount = 0;
-	};
-	vue.totalNumOfCorrect = 0;
-	vue.allCorrect = this.isAllCorrect();
-	vue.isAnswerRevealed = false;
-}
+// 	// vue.allCorrect = this.isAllCorrect();
+// 	vue.isAnswerRevealed = true;
+// }
 
 function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
@@ -65,7 +50,8 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 		question.isCorrect = true;
 	}
 	// Show "正確答案" button
-	this.isAnswerChecked = true;
+	// vue.$data.isAnswerChecked = true;
+	// vue.isAnswerChecked = true;
 
 	// Check if all the questions are correct
 	vue.allCorrect = this.isAllCorrect();
@@ -74,7 +60,8 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 }
 
-function checkAnswer_MultipleAnswers (questions) {
+function checkAnswer_MultipleAnswers () {
+	var questions = vue.questions;
 	vue.totalNumOfCorrect = 0;
 	for (var i = 0; i < questions.length; i++) {
 		if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
@@ -86,12 +73,12 @@ function checkAnswer_MultipleAnswers (questions) {
 			questions[i].wrong = true;
 		}
 	};
-
+	console.log(this);
 	// Show "正確答案" button
 	this.$data.isAnswerChecked = true;
 	vue.$data.isAnswerChecked = true;
 
-	vue.allCorrect = this.isAllCorrect();
+	vue.allCorrect = questionView.isAllCorrect();
 	removeFlash.call(this);
 }
 
@@ -136,10 +123,9 @@ window.validateMethods = {
 	 * Layout 1 - MC 純文字, 二選一
 	 */
 	'layout-1': {
+		chooseAnswer: "",
 		checkAnswer: checkAnswer_Immediate,
 		isAllCorrect: isAllCorrect_SingleAnswer,
-		showAnswer: showAnswer,
-		reset: reset
 	},
 	/**
 	 * Layout 2 - MC 純文字, 可選多於一項
@@ -148,8 +134,6 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 		isAllCorrect: isAllCorrect_MultipleAnswers,
-		showAnswer: showAnswer,
-		reset: reset
 	},
 	/**
 	 * Layout 3 - MC 細圖, 選對錯
@@ -158,8 +142,6 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 		isAllCorrect: isAllCorrect_MultipleAnswers,
-		showAnswer: showAnswer,
-		reset: reset
 	},
 	/**
 	 * Layout 4 - MC 長型圖, 選對錯
@@ -168,8 +150,6 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_SingleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 		isAllCorrect: isAllCorrect_MultipleAnswers,
-		showAnswer: showAnswer,
-		reset: reset
 	},
 	/**
 	 * Layout 5 - MC 細圖, 三選一
@@ -178,8 +158,6 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_SingleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 		isAllCorrect: isAllCorrect_MultipleAnswers,
-		showAnswer: showAnswer,
-		reset: reset
 	},
 }
 

@@ -9,7 +9,7 @@ window.Book = {
 			'ex1': {
 				name: "練習講多謝",
 				instruction: "在以下的情況下，我們要說什麼？",
-				template: 'layout-1',
+				template: 1,
 				questions:  [
 					{
 						index: 0,
@@ -71,7 +71,7 @@ window.Book = {
 			'ex3': {
 				name: "如何說多謝",
 				instruction: '請在適當的 ☐ 內加上「✔」。',
-				template: 'layout-2',
+				template: 2,
 				questions:  [
 					{
 						index: 0,
@@ -114,7 +114,7 @@ window.Book = {
 			'ex1': {
 				name: "何時要說唔好意思",
 				instruction: "看過基本故事「亞偉講：唔好意思！」之後，你還記得何時要說「唔好意思！」嗎？請在適當情境圖的 ☐ 加上 ✔ 號。",
-				template: 'layout-3',
+				template: 3,
 				questions:  [
 					{
 						index: 0,
@@ -137,7 +137,7 @@ window.Book = {
 			'ex2': {
 				name: "阿偉練習講 “唔好意思”",
 				instruction: "你認為阿偉要說唔好意思嗎？請按下正確的答案。",
-				template: 'layout-4',
+				template: 4,
 				questions:  [
 					{
 						index: 0,
@@ -252,7 +252,7 @@ window.Book = {
 			'ex3': {
 				name: "怎樣才是正確的表達方式？",
 				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？請「✔」出正確的答案。",
-				template: 'layout-5',
+				template: 5,
 				questions:  [
 					{
 						index: 0,

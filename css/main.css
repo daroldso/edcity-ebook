@@ -348,6 +348,12 @@ a:focus {
 /* ==========================================================================
    Layout Specific
    ========================================================================== */
+.layout-1 .show-answer-button {
+	display: inline-block!important;
+}
+.layout-1 .check-answer-button {
+	display: none;
+}
 .layout-3 .exercise__answer-list {
 	text-align: center;
 }
