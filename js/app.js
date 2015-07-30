@@ -3,7 +3,8 @@ QuestionView,
 questionView,
 ActionsView,
 actionsView,
-$exerciseContainer = $('#exercise-container');
+$exerciseContainer = $('#exercise-container'),
+owl;
 
 vue = new Vue({
     el:"#chapter",	
@@ -22,8 +23,6 @@ vue = new Vue({
     }
 });
 
-
-console.log(vue);
 var router = Router();
 
 router.on('/exercise/:chapter/:ex', function(chapter, ex) {
@@ -95,6 +94,10 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 				};
 				vue.totalNumOfCorrect = 0;
 				vue.isAnswerRevealed = false;
+				vue.isAnswerChecked = false;
+
+				// Back to first question
+				owl.trigger('to.owl.carousel', [0,200,true]);
 			},
 			checkAnswer: validateMethods['layout-'+exercise.template].checkAnswer,
 		}
@@ -111,7 +114,7 @@ router.init('/exercise/1/1');
 
 
 function initCarousel () {
-	var owl = $(".owl-carousel").owlCarousel({
+	owl = $(".owl-carousel").owlCarousel({
 		nav:true,
 		navText: ['<i class="fa fa-backward"></i> 上一頁','下一頁 <i class="fa fa-forward"></i>'],
 		responsive:{

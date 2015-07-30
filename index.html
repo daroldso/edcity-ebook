@@ -43,11 +43,11 @@
 					</div>
 				</div>
 
-				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed">
+				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked">
 					<div class="pager">
 						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
 					</div>
-					<div id="actions" is-answer-checked="isAnswerChecked"></div>
+					<div id="actions"></div>
 					<div id="exercise" class="exercise">
 						
 					</div>
@@ -72,15 +72,14 @@
 <script id="layout-1-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
-			<h1 class="exercise__question">{{question.index+1}}. {{question.questionText}} <i class="fa fa-check-circle" v-show="question.correct"></i></h1>
-			<div class="exercise__answer-list-outer">
+			<h1 class="exercise__question">{{question.index+1}}. {{question.questionText}} </h1>
+			<div class="exercise__answer-list-outer" v-class="answer-checked: isAnswerChecked">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
-						<span class="exercise__answer-text" v-on="click: checkAnswer(question, answer, $index, question.answers)" v-class="is-selected: answer.selected">{{ answer.text }}</span>
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
+						<span class="exercise__answer-text" v-on="click: checkAnswer(question, answer, $index, question.answers)">{{ answer.text }}</span>
 					</li>
 				</ol>
 			</div>
-			<div class="exercise__wrong-notification" v-show="question.wrong">答錯了，請再選擇。</div>
 		</div>
 	</div>
 </script>
@@ -94,7 +93,7 @@
 			</h1>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<span class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
 							<i class="fa fa-square-o" v-show="!answer.selected"></i>
 							<i class="fa fa-check-square" v-show="answer.selected"></i>
@@ -116,7 +115,7 @@
 			</h1>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
 							<div class="exercise__answer-text-inner">
 								<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
@@ -135,11 +134,11 @@
 <script id="layout-4-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
+			<div class="exercise__question-number">
+				{{question.index+1}}.
+				<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</div>
 			<div class="exercise__question clearfix">
-				<div class="exercise__question-number">
-					{{question.index+1}}.
-					<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
-				</div>
 				<div class="exercise__question-content" v-repeat="text: question.questionContent">
 					<img class="exercise__question-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
 					<div class="exercise__question-text">
@@ -149,7 +148,7 @@
 			</div>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers)">
 								<i class="fa fa-check-square" 
 								v-class="
@@ -168,11 +167,10 @@
 <script id="layout-5-template" type="x-template">
 	<div class="owl-carousel">
 		<div class="row" v-repeat="question: questions">
+			<div class="exercise__question-number">
+				{{question.index+1}}.
+			</div>
 			<div class="exercise__question  col-xs-6">
-				<div class="exercise__question-number">
-					{{question.index+1}}.
-					<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
-				</div>
 				<div class="exercise__question-content">
 					<img class="exercise__question-image" v-attr="src: imagePath + ($index + 1) + '-1.png'" alt="">
 					<div class="exercise__question-text">
@@ -182,7 +180,7 @@
 			</div>
 			<div class="exercise__answer-list-outer col-xs-6">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers)">
 							<div class="exercise__answer-text-inner">
 								<i class="fa fa-square-o" v-show="!answer.selected"></i>

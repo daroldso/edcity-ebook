@@ -78,9 +78,9 @@ a:focus {
 	
 }
 .exercise__name {
-	  font-size: 2.8em;
-	  font-weight: bold;
-	  margin-bottom: 12px;
+	font-size: 2.4em;
+	font-weight: bold;
+	margin-bottom: 12px;
 }
 .exercise__description {
 	color: #B1572B;
@@ -120,8 +120,8 @@ a:focus {
 	background-size: contain;
 	
 }
-.exercise__question .fa-check-circle { color: #1EB53B; }
-.exercise__question .fa-times-circle { color: #ED4D51; }
+.fa-check-circle { color: #1EB53B; }
+.fa-times-circle { color: #ED4D51; }
 
 .exercise__question-number {
 	font-size: 2em;
@@ -136,26 +136,24 @@ a:focus {
 .exercise__answer {
 	margin-bottom: 4px;
 	font-size: 1.5em;
+	position: relative;
+	background-color: #FFEBB5;
 }
 .exercise__answer .fa {
 	font-size: 1.5em;
-	color: #ED4D51;
+	color: #C56700;
 	margin-right: 2px;
 }
 .exercise__answer-text {
-	display: block;
 	cursor: pointer;
-	background-color: #FFD3B0;
-	padding: 3px 5px;
+	padding: 7px 5px;
+	display: block;
 }
-.exercise__answer-text:hover {
-	background-color: #FFB57A;
-}
+/*.exercise__answer-text:hover {
+	background-color: #FFEBB5;
+}*/
 .exercise__answer-text:active {
 	/*background-color: #eee;*/
-}
-.exercise__answer-text.is-selected {
-	background-color: #FF879D;
 }
 .exercise__wrong-notification {
 	color: #B50E0E;
@@ -163,11 +161,10 @@ a:focus {
 .exercise__question-image,
 .exercise__answer-image {
 	margin-bottom: 0.3em;
-	width: auto!important;
 	max-width: 100%;
-	max-height: 192px;
 	margin-left: auto;
 	margin-right: auto;
+	height: 192px;
 }
 .flash {
 	display: none;
@@ -280,14 +277,17 @@ a:focus {
 .actions--exercise {
 	margin-bottom: 14px;
 }
-.actions--exercise,
+
+.check-answer-button,
+.show-answer-button,
 .first-question .owl-prev,
 .last-question .owl-next,
 .first-question.last-question .owl-nav {
 	opacity: 0.3;
 	pointer-events: none;
 }
-.last-question .actions--exercise {
+.last-question .check-answer-button,
+.last-question .show-answer-button {
 	opacity: 1;
 	pointer-events: all;
 }
@@ -303,7 +303,7 @@ a:focus {
 }
 .owl-carousel .owl-item {
 	min-height: 300px;
-	padding: 30px 40px;
+	padding: 30px 40px 40px;
 }
 .owl-controls {
 	position: absolute;
@@ -336,18 +336,82 @@ a:focus {
 /* ==========================================================================
    States control
    ========================================================================== */
-.answer-revealed .is-correct-answer {
-	color: #0B7E0D;
+.answer-checked .exercise__answer.is-selected.is-correct-answer:after {
+	content: "答對了！";
+	color: #1EB53B;
 }
-.answer-revealed .is-correct-answer .exercise__answer-text .fa {
-	color: #0B7E0D;
+.answer-checked .exercise__answer.is-selected.is-correct-answer:before {
+	content: "\f058";
+	color: #1EB53B;
 }
+.answer-checked .exercise__answer.is-selected:before,
+.answer-checked .exercise__answer.is-selected:after {
+	position: absolute;
+	top: 50%;
+	font-weight: bold;
+	font-size: 1.2em;
+	
+}
+.answer-checked .exercise__answer.is-selected:before {
+	content: "\f057";
+	color: #ED4D51;
+	font: normal normal normal 27px/1 FontAwesome;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	margin-top: -15px;
+	right: -41px;
+}
+.answer-checked .exercise__answer.is-selected:after {
+	content: "答錯了！";
+	color: #ED4D51;
+	right: -150px;
+	margin-top: -19px;
+}
+.layout-4 .answer-checked .exercise__answer.is-selected:before {
+	bottom: -35px;
+	top: inherit;
+	left: 50%;
+	margin-left: -206px;;
+}
+.layout-4 .answer-checked .exercise__answer.is-selected:after {
+	bottom: -39px;
+	top: inherit;
+	left: 50%;
+	margin-left: -179px;;
+}
+.layout-5 .exercise__answer-list {
+	position: relative;
+}
+.layout-5 .exercise__answer {
+	position: static;
+}
+.layout-5 .answer-checked .exercise__answer.is-selected:before,
+.layout-5 .answer-checked .exercise__answer.is-selected:after {
+	top: -19px;
+	left: 50%;
+	right: inherit;
+}
+.layout-5 .answer-checked .exercise__answer.is-selected:before {
+	margin-left: -57px;
+}
+.layout-5 .answer-checked .exercise__answer.is-selected:after {
+	margin-left: -29px;
+}
+.answer-revealed .is-correct-answer .exercise__answer-text {
+	border: 2px dashed #0B7E0D;
+}
+
 .fa.selected {
-	color: #7B0F12;
+	color: #563209;
 }
 /* ==========================================================================
    Layout Specific
    ========================================================================== */
+.layout-1 .exercise__answer.is-selected {
+	background-color: #FF879D;
+}
 .layout-1 .show-answer-button {
 	display: inline-block!important;
 }
@@ -363,7 +427,6 @@ a:focus {
 	display: inline-block;
 	vertical-align: top;
 	margin-bottom: 1em;
-	height: 238px;
 }
 .layout-3 .exercise__answer-text {
 	height: 100%;
@@ -384,12 +447,27 @@ a:focus {
 .layout-4 .exercise__question-content {
 	float: left;
 	width: 33%;
-	padding: 0 1%;
+	padding: 0 2%;
+	position: relative;
+}
+.layout-4 .exercise__question-content:after {
+	content: '';
+	width: 0;
+	height: 0;
+	border: 10px solid rgba(0, 0, 0, 0);
+	border-left-color: #985239;
+	position: absolute;
+	top: 89px;
+	right: -16px;
+}
+.layout-4 .exercise__question-content:last-child:after {
+	content: none;
 }
 .layout-4 .exercise__question .exercise__question-image {
 	max-width: none;
-	width: auto;
 	margin: 0 auto 0.3em;
+	height: 192px;
+	border: 3px solid #985239;
 }
 .layout-4 .exercise__answer-list {
 	list-style: none;
@@ -399,12 +477,11 @@ a:focus {
 .layout-4 .exercise__answer {
 	text-align: center;
 	display: inline-block;
-	width: 100px;
+	width: 140px;
 	margin: 0 10px;
 }
 
 .layout-5 .exercise__answer-list {
 	display: block;
-	margin-top: 3.6em;
 }
 

@@ -40,18 +40,19 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	question.wrong = !answer.correct;
 
 	// Uncomment if once choose wrong, cannot increase score again
-	// if(answer.correct && !question.isCorrect) vue.totalNumOfCorrect++;
-	// // Set the state of question to answered to prevent double answer
-	// question.isCorrect = true;
+	if(answer.correct && !question.isCorrect) vue.totalNumOfCorrect++;
+	// Set the state of question to answered to prevent double answer
+	question.isCorrect = true;
 
 	// even choose wrong, when you choose right the score will increase
-	if(answer.correct && !question.isCorrect) {
-		vue.totalNumOfCorrect++;
-		question.isCorrect = true;
-	}
+	// if(answer.correct && !question.isCorrect) {
+	// 	vue.totalNumOfCorrect++;
+	// 	question.isCorrect = true;
+	// }
+
 	// Show "正確答案" button
-	// vue.$data.isAnswerChecked = true;
-	// vue.isAnswerChecked = true;
+	this.$data.isAnswerChecked = true;
+	vue.$data.isAnswerChecked = true;
 
 	// Check if all the questions are correct
 	vue.allCorrect = this.isAllCorrect();
@@ -73,7 +74,7 @@ function checkAnswer_MultipleAnswers () {
 			questions[i].wrong = true;
 		}
 	};
-	console.log(this);
+	// console.log(vue.totalNumOfCorrect);
 	// Show "正確答案" button
 	this.$data.isAnswerChecked = true;
 	vue.$data.isAnswerChecked = true;
