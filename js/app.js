@@ -99,6 +99,10 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 			},
+			setCheckAnswerState: function(state) {
+				this.$data.isAnswerChecked = state;
+				vue.$data.isAnswerChecked = state;
+			},
 			checkAnswer: validateMethods['layout-'+exercise.template].checkAnswer,
 		}
 	});

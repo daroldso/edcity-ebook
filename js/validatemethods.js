@@ -51,8 +51,7 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	// }
 
 	// Show "正確答案" button
-	this.$data.isAnswerChecked = true;
-	vue.$data.isAnswerChecked = true;
+	actionsView.setCheckAnswerState(true);
 
 	// Check if all the questions are correct
 	vue.allCorrect = this.isAllCorrect();
@@ -74,10 +73,9 @@ function checkAnswer_MultipleAnswers () {
 			questions[i].wrong = true;
 		}
 	};
-	// console.log(vue.totalNumOfCorrect);
+
 	// Show "正確答案" button
-	this.$data.isAnswerChecked = true;
-	vue.$data.isAnswerChecked = true;
+	actionsView.setCheckAnswerState(true);
 
 	vue.allCorrect = questionView.isAllCorrect();
 	removeFlash.call(this);
@@ -95,6 +93,8 @@ function isAllCorrect_MultipleAnswers () {
 }
 
 function chooseAnswer_SingleAnswers (question, answer, answers) {
+	actionsView.setCheckAnswerState(false);
+
 	for (var i = 0; i < answers.length; i++) {
 		answers[i].selected = false;
 	};
@@ -106,6 +106,8 @@ function chooseAnswer_SingleAnswers (question, answer, answers) {
 }
 
 function chooseAnswer_MultipleAnswers (question, answer) {
+	actionsView.setCheckAnswerState(false);
+
 	if(answer.correct) {
 		question.correctAnswerCount = (answer.selected)
 			? question.correctAnswerCount-1 // uncheck correct answer
