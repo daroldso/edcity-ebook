@@ -369,6 +369,15 @@ a:focus {
 	right: -150px;
 	margin-top: -19px;
 }
+.layout-3 .answer-checked .exercise__answer.is-selected:before,
+.layout-3 .answer-checked .exercise__answer.is-selected:after {
+	top: inherit;
+	right: inherit;
+	left: 50%;
+}
+.layout-3 .answer-checked .exercise__answer.is-selected:before { margin-left: -62px; bottom: -36px;}
+.layout-3 .answer-checked .exercise__answer.is-selected:after { margin-left: -32px; bottom: -40px;}
+
 .layout-4 .answer-checked .exercise__answer.is-selected:before {
 	bottom: -35px;
 	top: inherit;
@@ -426,7 +435,7 @@ a:focus {
 	padding: 0 1%;
 	display: inline-block;
 	vertical-align: top;
-	margin-bottom: 1em;
+	margin-bottom: 2.7em;
 }
 .layout-3 .exercise__answer-text {
 	height: 100%;
