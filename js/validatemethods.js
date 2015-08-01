@@ -1,6 +1,6 @@
 var timer;
 function removeFlash () {
-	if(questionView.isAllCorrect()) {
+	if(actionsView.isAllCorrect()) {
 		clearTimeout(timer);
 		timer = setTimeout(function() {
 			$('#chapter').removeClass('all-correct');
@@ -9,25 +9,44 @@ function removeFlash () {
 	}
 }
 
-// function showAnswer (questions) {
-// 	// for (var i = 0; i < questions.length; i++) {
-// 	// 	var answers =  questions[i].answers;
-// 	// 	for (var j = 0; j < answers.length; j++) {
-// 	// 		// remove all the selected state
-// 	// 		answers[j].selected = false;
-// 	// 		if(answers[j].correct) {
-// 	// 			// set the correct answer in selected state
-// 	// 			answers[j].selected = true;
-// 	// 			// set question to correct state
-// 	// 			questions[i].correct = true;
-// 	// 			questions[i].wrong = false;
-// 	// 		}
-// 	// 	};
-// 	// };
+function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
+	actionsView.setCheckAnswerState(false);
 
-// 	// vue.allCorrect = this.isAllCorrect();
-// 	vue.isAnswerRevealed = true;
-// }
+	// answers = (filterProp)
+	// 	? answers.filter(function(item) { return item.type === filterProp;	})
+	// 	: answers;
+
+	for (var i = 0; i < answers.length; i++) {
+		answers[i].selected = false;
+	};
+
+	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
+	question.correctAnswerCount = ~~answer.correct;
+	question.wrongAnswerCount = ~~!answer.correct;
+
+	console.log("correctAnswerCount: "+question.correctAnswerCount);
+	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
+
+	answer.selected = !answer.selected;
+}
+
+function chooseAnswer_MultipleAnswers (question, answer) {
+	actionsView.setCheckAnswerState(false);
+
+	if(answer.correct) {
+		question.correctAnswerCount = (answer.selected)
+			? question.correctAnswerCount-1 // uncheck correct answer
+			: question.correctAnswerCount+1; // check correct answer
+	} else {
+		question.wrongAnswerCount = (answer.selected)
+			? question.wrongAnswerCount-1 // uncheck wrong answer
+			: question.wrongAnswerCount+1; // check wrong answer
+	}
+	console.log("correctAnswerCount: "+question.correctAnswerCount);
+	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
+
+	answer.selected = !answer.selected;
+}
 
 function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
@@ -54,7 +73,7 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	actionsView.setCheckAnswerState(true);
 
 	// Check if all the questions are correct
-	vue.allCorrect = this.isAllCorrect();
+	vue.allCorrect = actionsView.isAllCorrect();
 	// Remove alert with setTimeout
 	removeFlash.call(this);
 
@@ -77,90 +96,100 @@ function checkAnswer_MultipleAnswers () {
 	// Show "正確答案" button
 	actionsView.setCheckAnswerState(true);
 
-	vue.allCorrect = questionView.isAllCorrect();
+	vue.allCorrect = actionsView.isAllCorrect();
 	removeFlash.call(this);
 }
 
-function isAllCorrect_SingleAnswer () {
-    return (vue.totalNumOfCorrect === vue.totalNumOfQuestion);
-}
+// function isAllCorrect_SingleAnswer () {
+//     return (vue.totalNumOfCorrect === vue.totalNumOfQuestion);
+// }
 
-function isAllCorrect_MultipleAnswers () {
-	for (var i = 0; i < this.questions.length; i++) {
-	    if(this.questions[i].correct === false) { return false; }
-	};
-	return true;
-}
-
-function chooseAnswer_SingleAnswers (question, answer, answers) {
-	actionsView.setCheckAnswerState(false);
-
-	for (var i = 0; i < answers.length; i++) {
-		answers[i].selected = false;
-	};
-
-	question.correctAnswerCount = ~~answer.correct;
-	question.wrongAnswerCount = ~~!answer.correct;
-
-	answer.selected = !answer.selected;
-}
-
-function chooseAnswer_MultipleAnswers (question, answer) {
-	actionsView.setCheckAnswerState(false);
-
-	if(answer.correct) {
-		question.correctAnswerCount = (answer.selected)
-			? question.correctAnswerCount-1 // uncheck correct answer
-			: question.correctAnswerCount+1; // check correct answer
-	} else {
-		question.wrongAnswerCount = (answer.selected)
-			? question.wrongAnswerCount-1 // uncheck wrong answer
-			: question.wrongAnswerCount+1; // check wrong answer
-	}
-	answer.selected = !answer.selected;
-}
+// function isAllCorrect_MultipleAnswers () {
+// 	for (var i = 0; i < this.questions.length; i++) {
+// 	    if(this.questions[i].correct === false) { return false; }
+// 	};
+// 	return true;
+// }
 
 
 window.validateMethods = {
 	/**
-	 * Layout 1 - MC 純文字, 二選一
+	 * MC 二選一, 即時回饋
 	 */
-	'layout-1': {
+	'chooseSingleCheckImmediate': {
 		chooseAnswer: "",
 		checkAnswer: checkAnswer_Immediate,
-		isAllCorrect: isAllCorrect_SingleAnswer,
 	},
 	/**
-	 * Layout 2 - MC 純文字, 可選多於一項
+	 * MC 可選多於一項, 
 	 */
-	'layout-2': {
+	'chooseMultipleAnswer': {
 		chooseAnswer: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
-		isAllCorrect: isAllCorrect_MultipleAnswers,
 	},
 	/**
-	 * Layout 3 - MC 細圖, 選對錯
+	 * Layout 4 - MC 多選一
 	 */
-	'layout-3': {
-		chooseAnswer: chooseAnswer_MultipleAnswers,
+	'chooseSingleAnswer': {
+		chooseAnswer: chooseAnswer_SingleAnswer,
 		checkAnswer: checkAnswer_MultipleAnswers,
-		isAllCorrect: isAllCorrect_MultipleAnswers,
 	},
 	/**
-	 * Layout 4 - MC 長型圖, 選對錯
+	 * Layout 8 - MC 影片, 選對錯
 	 */
-	'layout-4': {
-		chooseAnswer: chooseAnswer_SingleAnswers,
+	'chooseSingleAndMultipleAnswers': {
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
-		isAllCorrect: isAllCorrect_MultipleAnswers,
 	},
 	/**
-	 * Layout 5 - MC 細圖, 三選一
+	 * Layout 9 - 配對 句字放在一個方格
 	 */
-	'layout-5': {
-		chooseAnswer: chooseAnswer_SingleAnswers,
-		checkAnswer: checkAnswer_MultipleAnswers,
-		isAllCorrect: isAllCorrect_MultipleAnswers,
+	'layout-9': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 10 - 配對 一堆圖片分到兩個方格
+	 */
+	'layout-10': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 11 - 配對 三圖片排序分到三格
+	 */
+	'layout-11': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 12 - 配對 一堆字格分到三個地方
+	 */
+	'layout-12': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 13 - 配對 一堆字咭分到四方格
+	 */
+	'layout-13': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 14 - 連線 句字
+	 */
+	'layout-14': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
+	},
+	/**
+	 * Layout 15 - MC 加連線 加對錯
+	 */
+	'layout-15': {
+		// chooseAnswer: ,
+		// checkAnswer: ,
 	},
 }
 
