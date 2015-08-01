@@ -13,13 +13,26 @@ vue = new Vue({
     	exerciseNum: "",
     	exerciseName: "",
     	exerciseInstruction: "",
-		currentQuestion: 0,
+		currentQuestion: 1,
 		totalNumOfQuestion: 0,
 		totalNumOfCorrect: 0,
 		isAnswerChecked: false,
 		isAnswerRevealed: false,
         allCorrect: false,
         layoutNumber: "",
+    },
+    computed: {
+    	status: function() {
+    		return (this.isAnswerChecked) ? 'submitted' : 'working';
+    	},
+    	display_model_ans: function() {
+    		return this.isAnswerRevealed;
+    	},
+    	user_ans: function() {
+    		var o = {};
+    		o[this.currentQuestion] = questionView.questions[this.currentQuestion];
+    		return o;
+    	}
     }
 });
 
@@ -33,7 +46,7 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 	// getting all the exercises in the chapter
 	var exercise = chapter.exercises['ex'+vue.exerciseNum];
 
-	vue.layoutNumber = exercise.template;
+	vue.layoutNumber = exercise.layout;
 
 	// assign all the questions in the exercise 1-3 to Vue
 	vue.questions = exercise.questions;
@@ -44,7 +57,7 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 
 	// instantiate question view
 	QuestionView = Vue.extend({
-		template: "#layout-"+exercise.template+"-template"
+		template: "#layout-"+exercise.layout+"-template"
 	});
 
 	// instantiate question vue instance
@@ -58,7 +71,7 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 			imagePath: 'img/ch' + vue.chapterNum + '/ex' + vue.exerciseNum + '/' + vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
 
-		methods: validateMethods['layout-'+exercise.template],
+		methods: validateMethods[exercise.type],
 
 		ready: function() {
 			initCarousel();
@@ -99,11 +112,18 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 			},
+			isAllCorrect: function() {
+				var questions = vue.questions;
+				for (var i = 0; i < questions.length; i++) {
+				    if(questions[i].correct === false) { return false; }
+				};
+				return true;
+			},
 			setCheckAnswerState: function(state) {
 				this.$data.isAnswerChecked = state;
 				vue.$data.isAnswerChecked = state;
 			},
-			checkAnswer: validateMethods['layout-'+exercise.template].checkAnswer,
+			checkAnswer: validateMethods[exercise.type].checkAnswer,
 		}
 	});
 
@@ -147,7 +167,7 @@ function initCarousel () {
 		var totalNumOfQuestion = e.item.count;
 		var index = e.item.index;
 		$exerciseContainer.removeClass('first-question last-question');
-		vue.currentQuestion = index;
+		vue.currentQuestion = index + 1;
 		if( index === 0 ) {
 			$exerciseContainer.addClass('first-question');
 			// Emit a at first page event

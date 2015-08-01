@@ -45,7 +45,7 @@
 
 				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked">
 					<div class="pager">
-						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
+						頁 {{currentQuestion}} / {{totalNumOfQuestion}}
 					</div>
 					<div id="actions"></div>
 					<div id="exercise" class="exercise">
@@ -95,8 +95,10 @@
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<span class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
-							<i class="fa fa-square-o" v-show="!answer.selected"></i>
-							<i class="fa fa-check-square" v-show="answer.selected"></i>
+							<i class="fa " v-class="
+								fa-square-o: !answer.selected,
+								fa-check-square: answer.selected
+							"></i>
 							{{ answer.text }}
 						</span>
 					</li>
@@ -119,8 +121,10 @@
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer)">
 							<div class="exercise__answer-text-inner">
 								<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
-								<i class="fa fa-square-o" v-show="!answer.selected"></i>
-								<i class="fa fa-check-square" v-show="answer.selected"></i>
+								<i class="fa " v-class="
+									fa-square-o: !answer.selected,
+									fa-check-square: answer.selected
+								"></i>
 								{{ answer.text }}
 							</div>
 						</div>
@@ -150,12 +154,12 @@
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 						<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers)">
-								<i class="fa fa-check-square" 
-								v-class="
-								fa-check-square:$index == 0,
-								fa-times-circle: $index == 1,
-								selected: answer.selected
-								"></i>
+							<i class="fa" 
+							v-class="
+							fa-check-square: $index == 0,
+							fa-times-circle: $index == 1,
+							selected: answer.selected
+							"></i>
 						</div>
 					</li>
 				</ol>
@@ -190,6 +194,58 @@
 						</div>
 					</li>
 				</ol>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="layout-6-template" type="x-template">
+	<div class="owl-carousel">
+		<div v-repeat="question: questions">
+			<div class="exercise__question-number">
+				{{question.index+1}}.
+			</div>
+			<div class="row">
+				<div class="exercise__question  col-xs-10">
+					<div class="exercise__question-content">
+						<img class="exercise__question-image" v-attr="src: imagePath + ($index + 1) + '-1.png'" alt="">
+						<div class="exercise__question-text">
+							{{text}}
+						</div>
+					</div>
+				</div>
+				<div class="exercise__answer-list-outer col-xs-2 qtype__tof">
+					<ol class="exercise__answer-list">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
+							<div class="exercise__answer-text" v-on="click: chooseSingleAnswer(question, answer, question.answers, 'tof')">
+								<div class="exercise__answer-text-inner">
+									<i class="fa" v-class="
+										fa-check-square: $index == 0,
+										fa-times-circle: $index == 1,
+										selected: answer.selected
+									"></i>
+									{{ answer.text }}
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="exercise__answer-list-outer col-xs-12 qtype__mc">
+					<p>{{question.text}}</p>
+					<ol class="exercise__answer-list">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'mc'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
+							<div class="exercise__answer-text" v-on="click: chooseMultipleAnswers(question, answer, question.answers)">
+								<div class="exercise__answer-text-inner">
+									<i class="fa fa-square-o" v-show="!answer.selected"></i>
+									<i class="fa fa-check-square" v-show="answer.selected"></i>
+									{{ answer.text }}
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
 			</div>
 		</div>
 	</div>

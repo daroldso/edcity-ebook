@@ -114,7 +114,7 @@ a:focus {
 }
 .exercise__question {
 	font-size: 2em;
-	margin: 0 0 20px;
+	margin: 0 0 14px;
 	padding-left: 33px;
 	background: url(../img/flower.png) no-repeat;
 	background-size: contain;
@@ -292,6 +292,14 @@ a:focus {
 	pointer-events: all;
 }
 
+.qtype__tof .exercise__answer-list {
+	list-style: none;
+	display: block;
+}
+.qtype__mc  {
+
+}
+
 /* ==========================================================================
    Owl Carousel customization
    ========================================================================== */
@@ -406,6 +414,12 @@ a:focus {
 .layout-5 .answer-checked .exercise__answer.is-selected:after {
 	margin-left: -29px;
 }
+.layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:before {
+	right: -31px;
+}
+.layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after {
+	content: none;
+}
 .answer-revealed .is-correct-answer .exercise__answer-text {
 	border: 2px dashed #0B7E0D;
 }
@@ -446,7 +460,8 @@ a:focus {
 }
 
 .layout-4 .exercise__question,
-.layout-5 .exercise__question {
+.layout-5 .exercise__question,
+.layout-6 .exercise__question {
 	background: none;
 	padding-left: 0;
 	font-size: 1.3em;
@@ -493,3 +508,9 @@ a:focus {
 	display: block;
 }
 
+.layout-6 .qtype__tof .exercise__answer {
+	text-align: center;
+}
+.layout-6 .exercise__question-image {
+	height: auto;
+}

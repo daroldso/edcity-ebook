@@ -7,9 +7,11 @@ window.Book = {
 	'ch1': {
 		exercises: {
 			'ex1': {
+				clientref: 1,
+				layout: 1,
 				name: "練習講多謝",
 				instruction: "在以下的情況下，我們要說什麼？",
-				template: 1,
+				type: "chooseSingleCheckImmediate",
 				questions:  [
 					{
 						index: 0,
@@ -69,9 +71,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				clientref: 2,
+				layout: 2,
 				name: "如何說多謝",
 				instruction: '請在適當的 ☐ 內加上「✔」。',
-				template: 2,
+				type: "chooseMultipleAnswer",
 				questions:  [
 					{
 						index: 0,
@@ -112,9 +116,11 @@ window.Book = {
 	'ch2': {
 		exercises: {
 			'ex1': {
+				clientref: 3,
+				layout: 3,
 				name: "何時要說唔好意思",
 				instruction: "看過基本故事「亞偉講：唔好意思！」之後，你還記得何時要說「唔好意思！」嗎？請在適當情境圖的 ☐ 加上 ✔ 號。",
-				template: 3,
+				type: "chooseMultipleAnswer",
 				questions:  [
 					{
 						index: 0,
@@ -135,9 +141,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				clientref: 4,
+				layout: 4,
 				name: "阿偉練習講 “唔好意思”",
 				instruction: "你認為阿偉要說唔好意思嗎？請按下正確的答案。",
-				template: 4,
+				type: "chooseSingleAnswer",
 				questions:  [
 					{
 						index: 0,
@@ -250,9 +258,11 @@ window.Book = {
 	'ch4': {
 		exercises: {
 			'ex3': {
+				clientref: 5,
+				layout: 5,
 				name: "怎樣才是正確的表達方式？",
 				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？請「✔」出正確的答案。",
-				template: 5,
+				type: "chooseSingleAnswer",
 				questions:  [
 					{
 						index: 0,
@@ -290,6 +300,336 @@ window.Book = {
 							{correct: false, selected: false, text: "躺在地上大聲哭叫"}
 						],
 						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+		}
+	},
+	/**
+	 * Chapter 6
+	 */
+	'ch6': {
+		exercises: {
+			'ex2': {
+				clientref: 6,
+				layout: 5,
+				name: "分辨忙碌不忙碌？",
+				instruction: "哪些人正忙碌，不宜打擾？哪些人不忙碌，可以跟他談話？請按下適當的答案。",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: false, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: true, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: true, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: false, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: false, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "正忙碌，不宜打擾"},
+							{correct: true, selected: false, text: "不忙碌，可以談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex3': {
+				clientref: 6,
+				layout: 5,
+				name: "適宜和哪些人談話？",
+				instruction: "我們適宜和以下哪些人談話呢？請按下適當的答案。",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "適宜談話"},
+							{correct: false, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "適宜談話"},
+							{correct: false, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "適宜談話"},
+							{correct: false, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "適宜談話"},
+							{correct: true, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "適宜談話"},
+							{correct: false, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "適宜談話"},
+							{correct: true, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "適宜談話"},
+							{correct: true, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 7,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "適宜談話"},
+							{correct: true, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 8,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "適宜談話"},
+							{correct: true, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 9,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "適宜談話"},
+							{correct: false, selected: false, text: "不適宜談話"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+		}
+	},
+	/**
+	 * Chapter 8
+	 */
+	'ch8': {
+		exercises: {
+			'ex1': {
+				clientref: 7,
+				layout: 6,
+				name: "被人取笑考考你",
+				instruction: "以下人物被取笑時，他做得對嗎？請圈出對或錯，並按下適當的回應。",
+				type: "chooseSingleAndMultipleAnswers",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						text: "適當的回應是甚麼？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: false, selected: false, text: "“你先係排骨仔呀。”", type: "mc"},
+							{correct: false, selected: false, text: "“作死呀。”", type: "mc"},
+							{correct: true, selected: false, text: "“你咁樣好無禮貌。”", type: "mc"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						text: "適當的回應是甚麼？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: false, selected: false, text: "“你好叻咩！”", type: "mc"},
+							{correct: false, selected: false, text: "把紙張撕破。", type: "mc"},
+							{correct: true, selected: false, text: "不理會她，繼續摺飛機。", type: "mc"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						text: "適當的回應是甚麼？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: false, selected: false, text: "“你唔抵得呀。”", type: "mc"},
+							{correct: false, selected: false, text: "請老師幫忙。", type: "mc"},
+							{correct: true, selected: false, text: "“你好乞人憎呀。”", type: "mc"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						text: "還有其他適當的回應嗎？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: false, selected: false, text: "“關你咩事！”", type: "mc"},
+							{correct: false, selected: false, text: "哭起來。", type: "mc"},
+							{correct: true, selected: false, text: "冷靜下來，繼續抹枱。", type: "mc"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						text: "適當的回應是甚麼？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "不理他，轉身走開。", type: "mc"},
+							{correct: false, selected: false, text: "用粉擦擲向同學。", type: "mc"},
+							{correct: false, selected: false, text: "大叫。", type: "mc"},
+							
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						text: "還有其他適當的回應嗎？請按下正確的答案：",
+						answers: [
+							{correct: false, selected: false, text: "", type: "tof"},
+							{correct: true, selected: false, text: "", type: "tof"},
+							{correct: false, selected: false, text: "大力推他。", type: "mc"},
+							{correct: false, selected: false, text: "繼續行樓梯，保持冷靜。", type: "mc"},
+							{correct: true, selected: false, text: "用腳踢同學。", type: "mc"},
+						],
+						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					},
