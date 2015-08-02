@@ -113,11 +113,8 @@ a:focus {
 
 }
 .exercise__question {
-	font-size: 2em;
+	font-size: 1.5em;
 	margin: 0 0 14px;
-	padding-left: 33px;
-	background: url(../img/flower.png) no-repeat;
-	background-size: contain;
 	
 }
 .fa-check-circle { color: #1EB53B; }
@@ -125,6 +122,9 @@ a:focus {
 
 .exercise__question-number {
 	font-size: 2em;
+	padding-left: 40px;
+	background: url(../img/flower.png) no-repeat;
+	background-size: contain;
 }
 
 .exercise__answer-list {
@@ -299,6 +299,9 @@ a:focus {
 .qtype__mc  {
 
 }
+.dropzone {
+	min-height: 300px;
+}
 
 /* ==========================================================================
    Owl Carousel customization
@@ -384,13 +387,15 @@ a:focus {
 .layout-3 .answer-checked .exercise__answer.is-selected:before {top: 4px;right: 1px;}
 .layout-3 .answer-checked .exercise__answer.is-selected:after {content: none;}
 
-.layout-4 .answer-checked .exercise__answer.is-selected:before {
+.layout-4 .answer-checked .exercise__answer.is-selected:before,
+.layout-7 .answer-checked .exercise__answer.is-selected:before {
 	bottom: -35px;
 	top: inherit;
 	left: 50%;
 	margin-left: -206px;;
 }
-.layout-4 .answer-checked .exercise__answer.is-selected:after {
+.layout-4 .answer-checked .exercise__answer.is-selected:after,
+.layout-7 .answer-checked .exercise__answer.is-selected:after {
 	bottom: -39px;
 	top: inherit;
 	left: 50%;
@@ -459,14 +464,6 @@ a:focus {
 	vertical-align: middle;
 }
 
-.layout-4 .exercise__question,
-.layout-5 .exercise__question,
-.layout-6 .exercise__question {
-	background: none;
-	padding-left: 0;
-	font-size: 1.3em;
-}
-
 .layout-4 .exercise__question-content {
 	float: left;
 	width: 33%;
@@ -492,12 +489,14 @@ a:focus {
 	height: 192px;
 	border: 3px solid #985239;
 }
-.layout-4 .exercise__answer-list {
+.layout-4 .exercise__answer-list,
+.layout-7 .exercise__answer-list {
 	list-style: none;
 	display: block;
 	text-align: center;
 }
-.layout-4 .exercise__answer {
+.layout-4 .exercise__answer,
+.layout-7 .exercise__answer {
 	text-align: center;
 	display: inline-block;
 	width: 140px;
@@ -513,4 +512,15 @@ a:focus {
 }
 .layout-6 .exercise__question-image {
 	height: auto;
+}
+
+.layout-7 .exercise__question-video {
+	text-align: center;
+	height: 200px;
+	line-height: 200px;
+	background-color: #aaa;
+}
+.layout-7 .owl-carousel .owl-item {
+	padding: 30px 0px 40px 20px;
+
 }

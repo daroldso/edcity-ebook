@@ -70,6 +70,39 @@ window.Book = {
 					},
 				]
 			},
+			// 配對 句字放在一個方格
+			'ex2': {
+				clientref: 9,
+				layout: 8,
+				name: "說多謝的不同方式",
+				instruction: "別人送禮物給你，除了說「多謝」以外，還可以有很多不同方式表達謝意。請看看下面的句子，將不適當的句子放進垃圾箱內。",
+				type: "chooseMultipleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "句子：",
+						answers: [
+							{correct: false, selected: false, text: "嘩！我好鍾意！"},
+							{correct: true, selected: false, text: "都唔靚嘅！"},
+							{correct: false, selected: false, text: "嘩！我想即刻試吓！"},
+							{correct: false, selected: false, text: "嘩！好靚呀！"},
+							{correct: false, selected: false, text: "我鍾意呢個顏色！"},
+							{correct: true, selected: false, text: "我覺得無乜用喎！"},
+							{correct: false, selected: false, text: "嘩！好嘢！"},
+							{correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
+							{correct: false, selected: false, text: "我啱啱想買…"},
+							{correct: true, selected: false, text: "呢個麻麻地啦…"},
+							{correct: false, selected: false, text: "啱晒，我無呢個。"},
+						],
+						numOfCorrectAnswers: 3,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex3': {
 				clientref: 2,
 				layout: 2,
@@ -243,6 +276,106 @@ window.Book = {
 						answers: [
 							{correct: true, selected: false},
 							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex4': {
+				clientref: 8,
+				layout: 7,
+				name: "何時要說唔好意思",
+				instruction: "哪一種做法是正確的，哪一種是不對的？",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						text: "做了令人不舒服的事情",
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						text: "做了令人不舒服的事情",
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						text: "做了令人不舒服的事情",
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						text: "想得到別人的注意",
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						text: "想得到別人的注意",
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						text: "想得到別人的注意",
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						text: "危急的情況",
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false}
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
