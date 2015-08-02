@@ -75,6 +75,7 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 
 		ready: function() {
 			initCarousel();
+			initDragnDrop();
 		}
 	})
 	// Mount the vuew instance to #exercise
@@ -178,4 +179,8 @@ function initCarousel () {
 			
 		}
 	});
+}
+
+function initDragnDrop () {
+	dragula([document.getElementById('dragzone'), document.getElementById('dropzone')]);
 }
