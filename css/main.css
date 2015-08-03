@@ -301,6 +301,12 @@ a:focus {
 }
 .dropzone {
 	min-height: 300px;
+	background: #541D00;
+	padding: 12px;
+}
+.dropzone .exercise__answer {
+	margin-bottom: 8px;
+	padding-right: 36px;
 }
 
 /* ==========================================================================
@@ -425,7 +431,11 @@ a:focus {
 .layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after {
 	content: none;
 }
-.answer-revealed .is-correct-answer .exercise__answer-text {
+.layout-8 .answer-checked .exercise__answer.is-selected:after {content: none;}
+.layout-8 .answer-checked .exercise__answer.is-selected:before {right: 6px;
+
+}
+.answer-revealed .exercise__answer.is-correct-answer {
 	border: 2px dashed #0B7E0D;
 }
 
@@ -490,9 +500,14 @@ a:focus {
 	border: 3px solid #985239;
 }
 .layout-4 .exercise__answer-list,
-.layout-7 .exercise__answer-list {
+.layout-7 .exercise__answer-list,
+.layout-8 .exercise__answer-list,
+.exercise__answer.gu-mirror {
 	list-style: none;
 	display: block;
+}
+.layout-4 .exercise__answer-list,
+.layout-7 .exercise__answer-list {
 	text-align: center;
 }
 .layout-4 .exercise__answer,
@@ -522,5 +537,15 @@ a:focus {
 }
 .layout-7 .owl-carousel .owl-item {
 	padding: 30px 0px 40px 20px;
+}
+.layout-8 .exercise__answer {
+	padding-left: 10px;
+}
+.layout-8 .exercise__answer.is-selected {
+	/*display: none;*/
+}
+.layout-8 .dropzone .exercise__answer {
+	background-color: #CC9A14;
+	color: #fff;
 
 }

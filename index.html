@@ -290,7 +290,7 @@
 <!-- Drag and Drop -->
 <script id="layout-8-template" type="x-template">
 	<div class="owl-carousel">
-		<div v-repeat="question: questions">
+		<div class="question" v-repeat="question: questions">
 			<h1 class="exercise__question exercise__question-number ">
 				{{question.index+1}}. {{question.questionText}}
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
@@ -301,10 +301,6 @@
 						<ol id="dragzone" class="exercise__answer-list">
 							<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer)">
 								<span class="exercise__answer-text">
-									<i class="fa " v-class="
-										fa-square-o: !answer.selected,
-										fa-check-square: answer.selected
-									"></i>
 									{{ answer.text }}
 								</span>
 							</li>
@@ -312,7 +308,8 @@
 					</div>
 				</div>
 				<div class="col-xs-6">
-					<div id="dropzone" class="dropzone"></div>
+					<ol id="dropzone" class="dropzone exercise__answer-list">
+					</ol>
 				</div>
 			</div>
 		</div>

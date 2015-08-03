@@ -4,7 +4,8 @@ questionView,
 ActionsView,
 actionsView,
 $exerciseContainer = $('#exercise-container'),
-owl;
+owl,
+drake;
 
 vue = new Vue({
     el:"#chapter",	
@@ -38,7 +39,11 @@ vue = new Vue({
 
 var router = Router();
 
-router.on('/exercise/:chapter/:ex', function(chapter, ex) {
+router.on('/exercise/:chapter/:ex', init);
+
+router.init('/exercise/1/1');
+
+function init(chapter, ex) {
 	// for getting the chapter name only
 	vue.chapterNum = chapter;
 	vue.exerciseNum = ex;
@@ -112,6 +117,11 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
+				if(drake.containers[0] !== null) {
+					var elInDropzone = $('#dropzone').find('.exercise__answer').detach();
+					$('#dragzone').append(elInDropzone);
+					sortAnswers();
+				}
 			},
 			isAllCorrect: function() {
 				var questions = vue.questions;
@@ -130,13 +140,7 @@ router.on('/exercise/:chapter/:ex', function(chapter, ex) {
 
 	actionsView.$mount('#actions');
 
-
-
-});
-
-router.init('/exercise/1/1');
-
-
+}
 
 function initCarousel () {
 	owl = $(".owl-carousel").owlCarousel({
@@ -182,5 +186,34 @@ function initCarousel () {
 }
 
 function initDragnDrop () {
-	dragula([document.getElementById('dragzone'), document.getElementById('dropzone')]);
+	drake = dragula([document.getElementById('dragzone'), document.getElementById('dropzone')], {
+		// copy: true,
+		// removeOnSpill: true,
+		// accepts: function(el, target, source, sibling) {
+			// if(source.id === 'dropzone') {
+			// 	drake.remove(source);
+			// 	return false;
+			// }
+			// return true;
+		// }
+	});
+	drake
+	.on('drop', function(el, container, source) {
+		if(container.id === source.id) {
+			return false;
+		}
+		// if(container.id === 'dropzone'){
+			questionView.chooseAnswer(questionView.questions[vue.currentQuestion-1], el.__vue__.answer);
+		// }
+		// console.dir(el);
+		// console.dir(container);
+		// console.dir(source);
+	})
+	;
+}
+
+function sortAnswers () {
+	questionView.questions[vue.currentQuestion-1].answers.sort(function(a, b) {
+		return a.__v_repeat_2.$index - b.__v_repeat_2.$index;
+	});
 }
