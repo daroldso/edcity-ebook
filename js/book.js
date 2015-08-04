@@ -62,10 +62,10 @@ window.Book = {
 						correct: false,
 						wrong: false,
 						isCorrect: false,
-						questionText: "朋友請我吃東西,我要講：",
+						questionText: "朋友請我吃東西，我要講：",
 						answers: [
 							{correct: false, selected: false, text: "我想食多D！"},
-							{correct: true, selected: false, text: "多謝你,好好味呀！"}
+							{correct: true, selected: false, text: "多謝你，好好味呀！"}
 						]
 					},
 				]

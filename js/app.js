@@ -21,6 +21,8 @@ vue = new Vue({
 		isAnswerRevealed: false,
         allCorrect: false,
         layoutNumber: "",
+        baseScore: 0,
+        studentScore: 0,
     },
     computed: {
     	status: function() {
@@ -59,6 +61,8 @@ function init(chapter, ex) {
 	vue.exerciseName = exercise.name;
 	// assign exercise instruction to Vue
 	vue.exerciseInstruction = exercise.instruction;
+
+	vue.baseScore = getBaseScore();
 
 	// instantiate question view
 	QuestionView = Vue.extend({
@@ -112,6 +116,7 @@ function init(chapter, ex) {
 					questions[i].wrongAnswerCount = 0;
 				};
 				vue.totalNumOfCorrect = 0;
+				vue.studentScore = 0;
 				vue.isAnswerRevealed = false;
 				vue.isAnswerChecked = false;
 
@@ -216,4 +221,18 @@ function sortAnswers () {
 	questionView.questions[vue.currentQuestion-1].answers.sort(function(a, b) {
 		return a.__v_repeat_2.$index - b.__v_repeat_2.$index;
 	});
+}
+
+function getBaseScore () {
+	var answers = _.map(vue.questions, 'answers');
+	var baseScore = 0;
+
+	_.map(answers, function (item) {
+		_.times(item.length, function (i) {
+			baseScore += ~~item[i].correct;
+		})
+	});
+
+	return baseScore;
+	
 }

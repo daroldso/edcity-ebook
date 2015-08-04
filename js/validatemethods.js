@@ -59,7 +59,10 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	question.wrong = !answer.correct;
 
 	// Uncomment if once choose wrong, cannot increase score again
-	if(answer.correct && !question.isCorrect) vue.totalNumOfCorrect++;
+	if(answer.correct && !question.isCorrect) {
+		vue.totalNumOfCorrect++;
+		vue.studentScore ++;
+	}
 	// Set the state of question to answered to prevent double answer
 	question.isCorrect = true;
 
@@ -82,6 +85,7 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 function checkAnswer_MultipleAnswers () {
 	var questions = vue.questions;
 	vue.totalNumOfCorrect = 0;
+	vue.studentScore = 0;
 	for (var i = 0; i < questions.length; i++) {
 		if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
 			questions[i].correct = true;
@@ -91,7 +95,10 @@ function checkAnswer_MultipleAnswers () {
 			questions[i].correct = false;
 			questions[i].wrong = true;
 		}
+		vue.studentScore += questions[i].correctAnswerCount;
 	};
+
+
 
 	// Show "正確答案" button
 	actionsView.setCheckAnswerState(true);
