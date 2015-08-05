@@ -49,8 +49,18 @@ a:focus {
 }
 .button--exercise {
 	background: url(../img/button-exercise.png) no-repeat;
-	padding: 10px 30px 10px 13px;
+	padding: 3px;
 	width: 136px;
+	overflow: hidden;
+	position: relative;
+	background-image: none;
+	background-color: #FFF;
+	text-align: left;
+}
+.button-inner {
+	border: 2px dashed #E96D84;
+	padding: 4px 0 2px 10px;;
+	
 }
 .button--exercise.small {
 	background-position: 0px -45px;
@@ -58,6 +68,27 @@ a:focus {
 }
 .button--exercise .fa {
 	color: #91CDBB;
+}
+.button--exercise:before,
+.button--exercise:after {
+	content: '';
+	display: block;
+	position: absolute;
+	transform: rotate(236deg) skewX(17deg);
+	width: 320px;
+	height: 320px;
+	right: -338px;
+}
+.button--exercise:before {
+	background-color: #FFFFFF;
+	border: 2px dashed #E96D84;
+	bottom: -141px;
+	right: -332px;
+}
+.button--exercise:after {
+	bottom: -141px;
+	/*right: -394px;*/
+	background-color: #E96D84;
 }
 /* ==========================================================================
    Modules
@@ -122,10 +153,11 @@ a:focus {
 
 .exercise__question-number {
 	font-size: 2em;
-	padding-left: 40px;
+	padding-left: 46px;
 	background: url(../img/flower.png) no-repeat;
 	background-size: contain;
 }
+.exercise__question-number .fa {display: none;}
 
 .exercise__answer-list {
 	list-style-type: upper-alpha;
@@ -278,6 +310,11 @@ a:focus {
 	margin-bottom: 14px;
 }
 
+.show-answer-button,
+.show-answer-button:before {
+	background-color: #FFFBA0;
+}
+
 .check-answer-button,
 .show-answer-button,
 .first-question .owl-prev,
@@ -287,7 +324,8 @@ a:focus {
 	pointer-events: none;
 }
 .last-question .check-answer-button,
-.last-question .show-answer-button {
+.last-question .show-answer-button,
+.answer-checked .show-answer-button {
 	opacity: 1;
 	pointer-events: all;
 }
@@ -353,13 +391,16 @@ a:focus {
 /* ==========================================================================
    States control
    ========================================================================== */
+/* User can only choose answer when they click "Reset" to remove the .answer-checked */
+.answer-checked .exercise__answer {
+	pointer-events: none;
+}
 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {
 	content: "答對了！";
 	color: #1EB53B;
 }
 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
-	content: "\f058";
-	color: #1EB53B;
+	background-image: url(../img/smile_face.svg);
 }
 .answer-checked .exercise__answer.is-selected:before,
 .answer-checked .exercise__answer.is-selected:after {
@@ -371,13 +412,13 @@ a:focus {
 	
 }
 .answer-checked .exercise__answer.is-selected:before {
-	content: "\f057";
-	color: #ED4D51;
-	font: normal normal normal 27px/1 FontAwesome;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	transform: translate(0, 0);
+	content: '';
+	background-image: url(../img/sad_face.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 26px;
+	height: 26px;
+
 	margin-top: -15px;
 	right: -41px;
 }
@@ -398,7 +439,7 @@ a:focus {
 	bottom: -35px;
 	top: inherit;
 	left: 50%;
-	margin-left: -206px;;
+	margin-left: -62px;;
 }
 .layout-4 .answer-checked .exercise__answer.is-selected:after,
 .layout-7 .answer-checked .exercise__answer.is-selected:after {
@@ -436,7 +477,8 @@ a:focus {
 
 }
 .answer-revealed .exercise__answer.is-correct-answer {
-	border: 2px dashed #0B7E0D;
+	border: 3px dashed #0B7E0D;
+	background-color: #FFEBB5;
 }
 
 .fa.selected {
@@ -448,11 +490,20 @@ a:focus {
 .layout-1 .exercise__answer.is-selected {
 	background-color: #FF879D;
 }
-.layout-1 .show-answer-button {
-	display: inline-block!important;
-}
+.layout-1 .show-answer-button,
 .layout-1 .check-answer-button {
 	display: none;
+}
+.layout-1 .answer-checked .exercise__answer.is-selected:after {
+	content: "答錯了，請再選擇。";
+	right: -280px;
+}
+.layout-1 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {
+	content: "答對了！";
+	right: -150px;
+}
+.layout-1 .answer-checked .exercise__answer {
+	pointer-events: all;
 }
 .layout-3 .exercise__answer-list {
 	text-align: center;

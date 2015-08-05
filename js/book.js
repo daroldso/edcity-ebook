@@ -115,6 +115,7 @@ window.Book = {
 						correct: false,
 						wrong: false,
 						questionText: "當別人送禮物給我們時，我們要說：",
+						questionText2: "",
 						answers: [
 							{correct: false, selected: false, text: "呀！我不想要這個！"},
 							{correct: true, selected: false, text: "多謝！"}
@@ -128,6 +129,7 @@ window.Book = {
 						correct: false,
 						wrong: false,
 						questionText: "有沒有其他方法說「多謝」？",
+						questionText2: "（可選擇多於一個答案）",
 						answers: [
 							{correct: true, selected: false, text: "哈，多謝！"},
 							{correct: true, selected: false, text: "噢，嘩！多謝！"},

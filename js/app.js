@@ -193,7 +193,7 @@ function initCarousel () {
 function initDragnDrop () {
 	drake = dragula([document.getElementById('dragzone'), document.getElementById('dropzone')], {
 		// copy: true,
-		// removeOnSpill: true,
+		// revertOnSpill: true,
 		// accepts: function(el, target, source, sibling) {
 			// if(source.id === 'dropzone') {
 			// 	drake.remove(source);

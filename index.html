@@ -65,9 +65,15 @@
 	</div>
 <script id="actions-template" type="x-template">
 <div class="actions actions--exercise">
-	<div class="button button--exercise small reset-button" v-on="click: reset"><i class="fa fa-refresh"></i> 重設</div>
-	<div class="button button--exercise check-answer-button" v-on="click: checkAnswer"><i class="fa fa-check"></i> 提交答案</div>
-	<div class="button button--exercise show-answer-button" v-show="isAnswerChecked" v-on="click: showAnswer"><i class="fa fa-search"></i> 正確答案</div>
+	<div class="button button--exercise small reset-button" v-on="click: reset">
+		<div class="button-inner"><i class="fa fa-refresh"></i> 重設</div>
+	</div>
+	<div class="button button--exercise check-answer-button" v-on="click: checkAnswer">
+		<div class="button-inner"><i class="fa fa-check"></i> 提交答案</div>
+	</div>
+	<div class="button button--exercise show-answer-button" v-show="isAnswerChecked" v-on="click: showAnswer">
+		<div class="button-inner"><i class="fa fa-search"></i> 正確答案</div>
+	</div>
 </div>
 </script>
 
@@ -93,6 +99,7 @@
 				{{question.index+1}}. {{question.questionText}}
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
+			<p>{{question.questionText2}}</p>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer)">
