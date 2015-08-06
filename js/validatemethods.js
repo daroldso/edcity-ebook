@@ -16,7 +16,7 @@ function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 	// 	? answers.filter(function(item) { return item.type === filterProp;	})
 	// 	: answers;
 
-	for (var i = 0; i < answers.length; i++) {
+	_.times(answers.length, function (i) {
 		answers[i].selected = false;
 	};
 
@@ -51,7 +51,7 @@ function chooseAnswer_MultipleAnswers (question, answer) {
 function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 	// Reset all the answer to unchecked state
-	for (var i = 0; i < answers.length; i++) {
+	_.times(answers.length, function (i) {
 		answers[i].selected = false;
 	};
 	answers[answerIndex].selected = true;
@@ -86,7 +86,7 @@ function checkAnswer_MultipleAnswers () {
 	var questions = vue.questions;
 	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
-	for (var i = 0; i < questions.length; i++) {
+	_.times(questions.length, function (i) {
 		if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
 			questions[i].correct = true;
 			questions[i].wrong = false;
@@ -96,7 +96,7 @@ function checkAnswer_MultipleAnswers () {
 			questions[i].wrong = true;
 		}
 		vue.studentScore += questions[i].correctAnswerCount;
-	};
+	});
 
 
 
