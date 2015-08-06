@@ -448,20 +448,20 @@ a:focus {
 	content: none;
 }
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
-.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {content: ''}
+.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
+.layout-7 .answer-checked .exercise__answer.is-selected:before {content: ''}
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
-.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: "答對了！"}
+.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
+.layout-7 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: "答對了！"}
 
-.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
-.layout-7 .answer-checked .exercise__answer.is-selected:before {
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
 	bottom: -35px;
 	top: inherit;
 	left: 50%;
 	margin-left: 18px;
 }
 
-.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
-.layout-7 .answer-checked .exercise__answer.is-selected:after {
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {
 	bottom: -39px;
 	top: inherit;
 	left: 50%;
@@ -490,7 +490,6 @@ a:focus {
 	right: 58px;
 }
 
-
 .layout-5 .exercise__answer-list {
 	position: relative;
 }
@@ -515,6 +514,19 @@ a:focus {
 .layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after {
 	content: none;
 }
+.layout-7 .answer-checked .exercise__answer.is-selected:before,
+.layout-7 .is-wrong .exercise__answer-list:before {
+	top: 70px;
+	left: 50%;
+	margin-left: -54px;
+}
+.layout-7 .answer-checked .exercise__answer.is-selected:after,
+.layout-7 .is-wrong .exercise__answer-list:after {
+	top: 70px;
+	margin-left: -70px;
+	right: 224px;
+}
+
 .layout-8 .answer-checked .exercise__answer.is-selected:after {content: none;}
 .layout-8 .answer-checked .exercise__answer.is-selected:before {right: 6px;
 
@@ -613,8 +625,7 @@ a:focus {
 .layout-7 .exercise__answer-list {
 	text-align: center;
 }
-.layout-4 .exercise__answer,
-.layout-7 .exercise__answer {
+.layout-4 .exercise__answer {
 	text-align: center;
 	display: inline-block;
 	width: 140px;
@@ -631,7 +642,13 @@ a:focus {
 .layout-6 .exercise__question-image {
 	height: auto;
 }
-
+.layout-7 .exercise__answer {
+	background-color: transparent;
+	position: static;
+}
+.layout-7 .exercise__answer-text {
+	background-color: #FFEBB5;
+}
 .layout-7 .exercise__question-video {
 	text-align: center;
 	height: 200px;
