@@ -19,7 +19,15 @@
 	<script src="vendor/jquery.min.js"></script>
 	<script src="vendor/bootstrap/bootstrap.js"></script>
 	<script src="vendor/lodash.min.js"></script>
+	<script src="vendor/fastclick.js"></script>
 	<script src="vendor/director.min.js"></script>
+	<script>
+	if ('addEventListener' in document) {
+	    document.addEventListener('DOMContentLoaded', function() {
+	        FastClick.attach(document.body);
+	    }, false);
+	}
+	</script>
 </head>
 <body>
 	<div class="container">
