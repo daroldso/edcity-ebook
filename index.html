@@ -127,7 +127,7 @@
 
 <script id="layout-3-template" type="x-template">
 	<div class="owl-carousel">
-		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
+		<div v-repeat="question: questions">
 			<h1 class="exercise__question exercise__question-number">
 				{{question.index+1}}. {{question.questionText}}
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>

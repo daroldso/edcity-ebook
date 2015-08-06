@@ -173,6 +173,7 @@ a:focus {
 	font-size: 1.5em;
 	position: relative;
 	background-color: #FFEBB5;
+	border: 3px dashed transparent;
 }
 .exercise__answer .fa {
 	font-size: 1.5em;
@@ -516,13 +517,13 @@ a:focus {
 }
 .layout-7 .answer-checked .exercise__answer.is-selected:before,
 .layout-7 .is-wrong .exercise__answer-list:before {
-	top: 70px;
+	top: 75px;
 	left: 50%;
 	margin-left: -54px;
 }
 .layout-7 .answer-checked .exercise__answer.is-selected:after,
 .layout-7 .is-wrong .exercise__answer-list:after {
-	top: 70px;
+	top: 75px;
 	margin-left: -70px;
 	right: 224px;
 }
@@ -533,9 +534,11 @@ a:focus {
 }
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
-	background-color: #FFEBB5;
+	background-color: #FFCD47;
 }
-
+.layout-7 .answer-revealed .is-correct-answer .exercise__answer-text {
+	background-color: transparent;
+}
 .fa.selected {
 	color: #563209;
 }
@@ -565,7 +568,7 @@ a:focus {
 }
 .layout-3 .exercise__answer {
 	/*width: 33%;*/
-	padding: 0 1%;
+	padding: 0 0.3%;
 	display: inline-block;
 	vertical-align: top;
 	background-color: transparent;
