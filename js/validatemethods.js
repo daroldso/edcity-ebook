@@ -18,7 +18,7 @@ function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 
 	_.times(answers.length, function (i) {
 		answers[i].selected = false;
-	};
+	});
 
 	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
 	question.correctAnswerCount = ~~answer.correct;
@@ -53,7 +53,7 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	// Reset all the answer to unchecked state
 	_.times(answers.length, function (i) {
 		answers[i].selected = false;
-	};
+	});
 	answers[answerIndex].selected = true;
 	question.correct = answer.correct;
 	question.wrong = !answer.correct;
