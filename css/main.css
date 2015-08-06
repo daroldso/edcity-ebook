@@ -511,11 +511,12 @@ a:focus {
 	text-align: center;
 }
 .layout-3 .exercise__answer {
-	width: 33%;
+	/*width: 33%;*/
 	padding: 0 1%;
 	display: inline-block;
 	vertical-align: top;
 	background-color: transparent;
+	margin-bottom: 50px;
 }
 .layout-3 .exercise__answer-text {
 	height: 100%;
@@ -525,6 +526,12 @@ a:focus {
 .layout-3 .exercise__answer-text-inner {
 	display: table-cell;
 	vertical-align: middle;
+}
+.layout-3 .exercise__answer-text .exercise__answer-image {
+	width: auto;
+	max-width: none;
+	height: 125px;
+
 }
 
 .layout-4 .exercise__question-content {
