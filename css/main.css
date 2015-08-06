@@ -478,8 +478,10 @@ a:focus {
 }
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
-	background-color: #FFEBB5;
+	background-color: #CC9A14;
 }
+.answer-revealed .exercise__answer.is-correct-answer,
+.answer-revealed .exercise__answer.is-correct-answer .fa {color: #fff}
 
 .fa.selected {
 	color: #563209;
