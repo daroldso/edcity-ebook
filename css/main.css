@@ -164,6 +164,7 @@ a:focus {
 	list-style-position: inside;
 	display: inline-block;
 	padding: 0;
+	position: relative;
 }
 .exercise__answer {
 	margin-bottom: 4px;
@@ -402,17 +403,22 @@ a:focus {
 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
 	background-image: url(../img/smile_face.svg);
 }
+
+.is-wrong .exercise__answer-list:before,
+.is-wrong .exercise__answer-list:after,
 .answer-checked .exercise__answer.is-selected:before,
 .answer-checked .exercise__answer.is-selected:after {
 	position: absolute;
 	top: 50%;
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 25px;
 	z-index: 10;
 	
 }
+.is-wrong .exercise__answer-list:before,
 .answer-checked .exercise__answer.is-selected:before {
 	content: '';
+	display: block;
 	background-image: url(../img/sad_face.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -422,32 +428,67 @@ a:focus {
 	margin-top: -15px;
 	right: -41px;
 }
+.is-wrong .exercise__answer-list:after,
 .answer-checked .exercise__answer.is-selected:after {
 	content: "答錯了！";
 	color: #ED4D51;
 	right: -150px;
 	margin-top: -19px;
 }
-.layout-3 .answer-checked .exercise__answer.is-selected:before,
-.layout-3 .answer-checked .exercise__answer.is-selected:after {
-}
+
 .layout-3 .answer-checked .exercise__answer.is-selected:before {top: 4px;right: 1px;}
 .layout-3 .answer-checked .exercise__answer.is-selected:after {content: none;}
 
 .layout-4 .answer-checked .exercise__answer.is-selected:before,
+.layout-4 .answer-checked .exercise__answer.is-selected:after,
+.layout-5 .answer-checked .exercise__answer.is-selected:before,
+.layout-5 .answer-checked .exercise__answer.is-selected:after {
+	content: none;
+}
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
+.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {content: ''}
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
+.layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: "答對了！"}
+
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
 .layout-7 .answer-checked .exercise__answer.is-selected:before {
 	bottom: -35px;
 	top: inherit;
 	left: 50%;
-	margin-left: -62px;;
+	margin-left: 18px;
 }
-.layout-4 .answer-checked .exercise__answer.is-selected:after,
+
+.layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
 .layout-7 .answer-checked .exercise__answer.is-selected:after {
 	bottom: -39px;
 	top: inherit;
 	left: 50%;
-	margin-left: -179px;;
+	margin-left: -8px;;
 }
+
+.layout-4 .is-wrong .exercise__answer-list:before {
+	top: 70px;
+	left: 50%;
+	margin-left: -62px;
+}
+
+.layout-4 .is-wrong .exercise__answer-list:after {
+	top: 70px;
+	left: 50%;
+	margin-left: -25px;
+	right: inherit;
+}
+.layout-5 .is-wrong .exercise__answer-list:before {
+	top: -18px;
+	right: 164px;
+}
+
+.layout-5 .is-wrong .exercise__answer-list:after {
+	top: -18px;
+	right: 58px;
+}
+
+
 .layout-5 .exercise__answer-list {
 	position: relative;
 }

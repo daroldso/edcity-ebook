@@ -119,7 +119,7 @@
 
 <script id="layout-3-template" type="x-template">
 	<div class="owl-carousel">
-		<div v-repeat="question: questions">
+		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
 			<h1 class="exercise__question exercise__question-number">
 				{{question.index+1}}. {{question.questionText}}
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
@@ -146,7 +146,7 @@
 
 <script id="layout-4-template" type="x-template">
 	<div class="owl-carousel">
-		<div v-repeat="question: questions">
+		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
 			<div class="exercise__question-number">
 				{{question.index+1}}.
 				<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
@@ -179,7 +179,7 @@
 
 <script id="layout-5-template" type="x-template">
 	<div class="owl-carousel">
-		<div class="row" v-repeat="question: questions">
+		<div class="row" v-repeat="question: questions" v-class="is-wrong: question.wrong">
 			<div class="exercise__question-number">
 				{{question.index+1}}.
 			</div>
