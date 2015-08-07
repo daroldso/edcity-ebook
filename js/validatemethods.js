@@ -4,9 +4,41 @@ function removeFlash () {
 		clearTimeout(timer);
 		timer = setTimeout(function() {
 			$('#chapter').removeClass('all-correct');
-			// document.getElementById('chapter').className = "";
 		}, 2000);
 	}
+}
+
+window.validateMethods = {
+	/**
+	 * MC 二選一, 即時回饋
+	 */
+	'chooseSingleCheckImmediate': {
+		chooseAnswer: "",
+		checkAnswer: checkAnswer_Immediate,
+	},
+	/**
+	 * MC 可選多於一項, 
+	 */
+	'chooseMultipleAnswer': {
+		chooseAnswer: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
+	},
+	/**
+	 * MC 多選一
+	 */
+	'chooseSingleAnswer': {
+		chooseAnswer: chooseAnswer_SingleAnswer,
+		checkAnswer: checkAnswer_MultipleAnswers,
+	},
+	/**
+	 * MC 多選一 + 多選多
+	 */
+	'chooseSingleAndMultipleAnswers': {
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
+	},
+
 }
 
 function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
@@ -106,97 +138,3 @@ function checkAnswer_MultipleAnswers () {
 	vue.allCorrect = actionsView.isAllCorrect();
 	removeFlash.call(this);
 }
-
-// function isAllCorrect_SingleAnswer () {
-//     return (vue.totalNumOfCorrect === vue.totalNumOfQuestion);
-// }
-
-// function isAllCorrect_MultipleAnswers () {
-// 	for (var i = 0; i < this.questions.length; i++) {
-// 	    if(this.questions[i].correct === false) { return false; }
-// 	};
-// 	return true;
-// }
-
-
-window.validateMethods = {
-	/**
-	 * MC 二選一, 即時回饋
-	 */
-	'chooseSingleCheckImmediate': {
-		chooseAnswer: "",
-		checkAnswer: checkAnswer_Immediate,
-	},
-	/**
-	 * MC 可選多於一項, 
-	 */
-	'chooseMultipleAnswer': {
-		chooseAnswer: chooseAnswer_MultipleAnswers,
-		checkAnswer: checkAnswer_MultipleAnswers,
-	},
-	/**
-	 * Layout 4 - MC 多選一
-	 */
-	'chooseSingleAnswer': {
-		chooseAnswer: chooseAnswer_SingleAnswer,
-		checkAnswer: checkAnswer_MultipleAnswers,
-	},
-	/**
-	 * Layout 8 - MC 影片, 選對錯
-	 */
-	'chooseSingleAndMultipleAnswers': {
-		chooseSingleAnswer: chooseAnswer_SingleAnswer,
-		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
-		checkAnswer: checkAnswer_MultipleAnswers,
-	},
-	/**
-	 * Layout 9 - 配對 句字放在一個方格
-	 */
-	'layout-9': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 10 - 配對 一堆圖片分到兩個方格
-	 */
-	'layout-10': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 11 - 配對 三圖片排序分到三格
-	 */
-	'layout-11': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 12 - 配對 一堆字格分到三個地方
-	 */
-	'layout-12': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 13 - 配對 一堆字咭分到四方格
-	 */
-	'layout-13': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 14 - 連線 句字
-	 */
-	'layout-14': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-	/**
-	 * Layout 15 - MC 加連線 加對錯
-	 */
-	'layout-15': {
-		// chooseAnswer: ,
-		// checkAnswer: ,
-	},
-}
-
