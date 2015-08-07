@@ -14,7 +14,7 @@ vue = new Vue({
     	exerciseNum: "",
     	exerciseName: "",
     	exerciseInstruction: "",
-		currentQuestion: 1,
+		currentQuestion: 0,
 		totalNumOfQuestion: 0,
 		totalNumOfCorrect: 0,
 		isAnswerChecked: false,
@@ -179,7 +179,7 @@ function initCarousel () {
 		var totalNumOfQuestion = e.item.count;
 		var index = e.item.index;
 		$exerciseContainer.removeClass('first-question last-question');
-		vue.currentQuestion = index + 1;
+		vue.currentQuestion = index;
 		if( index === 0 ) {
 			$exerciseContainer.addClass('first-question');
 			// Emit a at first page event
@@ -193,7 +193,7 @@ function initCarousel () {
 }
 
 function sortAnswers () {
-	questionView.questions[vue.currentQuestion-1].answers.sort(function(a, b) {
+	questionView.questions[vue.currentQuestion].answers.sort(function(a, b) {
 		return a.__v_repeat_2.$index - b.__v_repeat_2.$index;
 	});
 }

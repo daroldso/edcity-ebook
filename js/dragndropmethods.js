@@ -21,7 +21,7 @@ function dragnDrop_MultipleToOne () {
 			return false;
 		}
 		// if(container.id === 'dropzone'){
-			questionView.chooseAnswer(questionView.questions[vue.currentQuestion-1], el.__vue__.answer);
+			questionView.chooseAnswer(questionView.questions[vue.currentQuestion], el.__vue__.answer);
 		// }
 		// console.dir(el);
 		// console.dir(container);
