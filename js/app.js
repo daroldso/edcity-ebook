@@ -84,7 +84,9 @@ function init(chapter, ex) {
 
 		ready: function() {
 			initCarousel();
-			initDragnDrop();
+			if(typeof exercise.dragndropType !== "undefined") {
+				dragnDropMethods[exercise.dragndropType]();
+			}
 		}
 	})
 	// Mount the vuew instance to #exercise
@@ -188,33 +190,6 @@ function initCarousel () {
 			
 		}
 	});
-}
-
-function initDragnDrop () {
-	drake = dragula([document.getElementById('dragzone'), document.getElementById('dropzone')], {
-		// copy: true,
-		// revertOnSpill: true,
-		// accepts: function(el, target, source, sibling) {
-			// if(source.id === 'dropzone') {
-			// 	drake.remove(source);
-			// 	return false;
-			// }
-			// return true;
-		// }
-	});
-	drake
-	.on('drop', function(el, container, source) {
-		if(container.id === source.id) {
-			return false;
-		}
-		// if(container.id === 'dropzone'){
-			questionView.chooseAnswer(questionView.questions[vue.currentQuestion-1], el.__vue__.answer);
-		// }
-		// console.dir(el);
-		// console.dir(container);
-		// console.dir(source);
-	})
-	;
 }
 
 function sortAnswers () {

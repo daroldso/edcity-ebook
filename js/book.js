@@ -77,6 +77,7 @@ window.Book = {
 				name: "說多謝的不同方式",
 				instruction: "別人送禮物給你，除了說「多謝」以外，還可以有很多不同方式表達謝意。請看看下面的句子，將不適當的句子放進垃圾箱內。",
 				type: "chooseMultipleAnswer",
+				dragndropType: "multipleToOne",
 				questions:  [
 					{
 						index: 0,
