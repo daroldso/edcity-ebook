@@ -77,7 +77,7 @@ window.Book = {
 				name: "說多謝的不同方式",
 				instruction: "別人送禮物給你，除了說「多謝」以外，還可以有很多不同方式表達謝意。請看看下面的句子，將不適當的句子放進垃圾箱內。",
 				type: "chooseMultipleAnswer",
-				dragndropType: "multipleToOne",
+				dragndropType: "oneToOne",
 				questions:  [
 					{
 						index: 0,
@@ -86,17 +86,17 @@ window.Book = {
 						isCorrect: false,
 						questionText: "句子：",
 						answers: [
-							{correct: false, selected: false, text: "嘩！我好鍾意！"},
-							{correct: true, selected: false, text: "都唔靚嘅！"},
-							{correct: false, selected: false, text: "嘩！我想即刻試吓！"},
-							{correct: false, selected: false, text: "嘩！好靚呀！"},
-							{correct: false, selected: false, text: "我鍾意呢個顏色！"},
-							{correct: true, selected: false, text: "我覺得無乜用喎！"},
-							{correct: false, selected: false, text: "嘩！好嘢！"},
-							{correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
-							{correct: false, selected: false, text: "我啱啱想買…"},
-							{correct: true, selected: false, text: "呢個麻麻地啦…"},
-							{correct: false, selected: false, text: "啱晒，我無呢個。"},
+							{ index: 0,correct: false, selected: false, text: "嘩！我好鍾意！"},
+							{ index: 1,correct: true, selected: false, text: "都唔靚嘅！"},
+							{ index: 2,correct: false, selected: false, text: "嘩！我想即刻試吓！"},
+							{ index: 3,correct: false, selected: false, text: "嘩！好靚呀！"},
+							{ index: 4,correct: false, selected: false, text: "我鍾意呢個顏色！"},
+							{ index: 5,correct: true, selected: false, text: "我覺得無乜用喎！"},
+							{ index: 6,correct: false, selected: false, text: "嘩！好嘢！"},
+							{ index: 7,correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
+							{ index: 8,correct: false, selected: false, text: "我啱啱想買…"},
+							{ index: 9,correct: true, selected: false, text: "呢個麻麻地啦…"},
+							{ index: 10,correct: false, selected: false, text: "啱晒，我無呢個。"},
 						],
 						numOfCorrectAnswers: 3,
 						correctAnswerCount: 0,
@@ -142,6 +142,42 @@ window.Book = {
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					}
+				]
+			},
+			// 配對 句字放在一個方格
+			'ex4': {
+				clientref: 10,
+				layout: 9,
+				name: "何時說「唔該」",
+				instruction: "請分辨下列的情景是說「多謝」還是說「唔該」，然後將它們放到適當的方格內。",
+				type: "dragnDrop_OneToMultiple",
+				dragndropType: "oneToMultiple",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "說多謝"},
+							{type: 2, text: "說唔該"}
+						],
+						answers: [
+							{ index: 0, type: 2, correct: false, selected: false, text: "圖書館職員替你完成借書手續"},
+							{ index: 1, type: 1, correct: false, selected: false, text: "別人送禮物給你"},
+							{ index: 2, type: 1, correct: false, selected: false, text: "別人稱讚你"},
+							{ index: 3, type: 2, correct: false, selected: false, text: "別人替你取東西"},
+							{ index: 4, type: 2, correct: false, selected: false, text: "別人替你理髮"},
+							{ index: 5, type: 1, correct: false, selected: false, text: "別人出席你的生日會"},
+						],
+						// numOfCorrectAnswers: 3,
+						correctAnswerCount: 0,
+						// wrongAnswerCount: 0
+					},
 				]
 			},
 		}

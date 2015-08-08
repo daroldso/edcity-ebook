@@ -38,7 +38,76 @@ window.validateMethods = {
 		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 	},
+	/**
+	 * Drag n Drop One to Multiple
+	 */
+	'dragnDrop_OneToMultiple': {
+		chooseAnswer: chooseAnswer_OneToMultiple,
+		checkAnswer: checkAnswer_OneToMultiple,
+	},
+}
 
+function chooseAnswer_OneToMultiple (question, answer, container, source) {
+	if($(container).hasClass('dragzone')) {
+		if (answer.correct) {
+			question.correctAnswerCount--
+		}
+		answer.correct = false;
+	} else {
+		// check whether answer.type equal to dropPool.type
+		if(container.__vue__.dropPool.type === answer.type) {
+			// if true, correctAnswerCount++
+			question.correctAnswerCount++;
+			// set answer.correct = to  true;
+			answer.correct = true;
+		} else {
+			if (answer.correct) {
+				question.correctAnswerCount--
+			} 
+			// if false, set answer.correct to false
+			answer.correct = false;
+		}
+		
+	}
+
+	answer.selected = !answer.selected;
+	console.log("correctAnswerCount: "+question.correctAnswerCount);
+}
+
+function checkAnswer_OneToMultiple () {
+	var question = vue.questions[vue.currentQuestion];
+	vue.totalNumOfCorrect = 0;
+	vue.studentScore = 0;
+	console.log(question.correctAnswerCount);
+	
+
+	// _.times(questions.length, function (i) {
+	// 	if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
+	// 		questions[i].correct = true;
+	// 		questions[i].wrong = false;
+	// 		vue.totalNumOfCorrect++;
+	// 	} else {
+	// 		questions[i].correct = false;
+	// 		questions[i].wrong = true;
+	// 	}
+	// 	vue.studentScore += questions[i].correctAnswerCount;
+	// });
+	
+	// check if correctAnswerCount = answers.length
+	if(question.correctAnswerCount === vue.baseScore) {
+		question.correct = true;
+	} else {
+		question.correct = false;
+	}
+
+	vue.studentScore = question.correctAnswerCount;
+
+	// Show "正確答案" button
+	actionsView.setCheckAnswerState(true);
+
+	vue.allCorrect = actionsView.isAllCorrect();
+	removeFlash.call(this);
+	console.log("correctAnswerCount: "+question.correctAnswerCount);
 }
 
 function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
@@ -129,8 +198,6 @@ function checkAnswer_MultipleAnswers () {
 		}
 		vue.studentScore += questions[i].correctAnswerCount;
 	});
-
-
 
 	// Show "正確答案" button
 	actionsView.setCheckAnswerState(true);

@@ -125,8 +125,16 @@ function init(chapter, ex) {
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 				if(drake.containers[0] !== null) {
-					var elInDropzone = $('#dropzone').find('.exercise__answer').detach();
-					$('#dragzone').append(elInDropzone);
+					var elInDropzone = $('.dropzone').find('.exercise__answer').detach();
+					console.log(elInDropzone);
+					if($('.dragzone').length !== 1) {
+						$('.dragzone').append(elInDropzone);
+					} else {
+						_.map(elInDropzone, function(item) {
+							var type = item.__vue__.$data.answer.type;
+							$('.dragzone.type-'+type).append(item);
+						});
+					}
 					sortAnswers();
 				}
 			},
@@ -194,7 +202,7 @@ function initCarousel () {
 
 function sortAnswers () {
 	questionView.questions[vue.currentQuestion].answers.sort(function(a, b) {
-		return a.__v_repeat_2.$index - b.__v_repeat_2.$index;
+		return a.index - b.index;
 	});
 }
 
@@ -204,7 +212,13 @@ function getBaseScore () {
 
 	_.map(answers, function (item) {
 		_.times(item.length, function (i) {
-			baseScore += ~~item[i].correct;
+			// if item has type property which only drag and drop type questions have
+			if(typeof item[i].type !== 'undefined') {
+				baseScore = item.length;
+			} else {
+				baseScore += ~~item[i].correct;
+
+			}
 		})
 	});
 

@@ -55,7 +55,7 @@
 
 				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked">
 					<div class="pager">
-						頁 {{currentQuestion}} / {{totalNumOfQuestion}}
+						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
 					</div>
 					<div id="actions"></div>
 					<div id="exercise" class="exercise">
@@ -315,7 +315,7 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="exercise__answer-list-outer">
-						<ol id="dragzone" class="exercise__answer-list">
+						<ol id="dragzone" class="dragzone exercise__answer-list">
 							<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer)">
 								<span class="exercise__answer-text">
 									{{ answer.text }}
@@ -326,6 +326,38 @@
 				</div>
 				<div class="col-xs-6">
 					<ol id="dropzone" class="dropzone exercise__answer-list">
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="layout-9-template" type="x-template">
+	<div class="owl-carousel">
+		<div class="question" v-repeat="question: questions">
+			<h1 class="exercise__question exercise__question-number">
+				{{question.index+1}}. {{question.questionText}}
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="exercise__answer-list-outer">
+						<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
+							<li class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
+								v-class="
+									is-correct-answer: answer.correct,
+									is-selected: answer.selected
+								" v-on="click: chooseAnswer(question, answer)">
+								<span class="exercise__answer-text">
+									{{ answer.text }}
+								</span>
+							</li>
+						</ol>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
 					</ol>
 				</div>
 			</div>

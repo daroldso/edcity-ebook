@@ -19,7 +19,7 @@ a:focus {
 .container {
 	background: url(../img/bg.png) repeat;
 	width: 750px;
-	max-height: 890px;
+	/*max-height: 890px;*/
 	padding: 40px 30px 20px;
 	overflow: auto;
 	position: relative;
@@ -341,14 +341,40 @@ a:focus {
 .qtype__mc  {
 
 }
+.dragzone,
 .dropzone {
 	min-height: 300px;
-	background: #541D00;
 	padding: 12px;
+	width: 100%;
 }
+.dropzone {
+	background: #541D00;
+}
+.answer-revealed .dropzone.type-1,
+.answer-revealed .exercise__answer.type-1 { background: #CE1739!important; color: #fff; }
+
+.answer-revealed .dropzone.type-2,
+.answer-revealed .exercise__answer.type-2 { background: #1EC392!important; color: #fff; }
+
 .dropzone .exercise__answer {
 	margin-bottom: 8px;
 	padding-right: 36px;
+}
+.dragzone .exercise__answer,
+.dropzone .exercise__answer {
+	padding-left: 10px;
+	border-color: transparent!important;
+}
+.dropzone .exercise__answer {
+	background-color: #CC9A14;
+	color: #fff;
+}
+.dropzone:before {
+	content: attr(data-text);
+	display: block;
+	color: #fff;
+	margin-bottom: 10px;
+	font-size: 18px;
 }
 
 /* ==========================================================================
@@ -428,7 +454,7 @@ a:focus {
 	width: 26px;
 	height: 26px;
 
-	margin-top: -15px;
+	margin-top: -13px;
 	right: -41px;
 }
 .is-wrong .exercise__answer-list:after,
@@ -440,12 +466,14 @@ a:focus {
 }
 
 .layout-3 .answer-checked .exercise__answer.is-selected:before {top: 4px;right: 1px;}
-.layout-3 .answer-checked .exercise__answer.is-selected:after {content: none;}
 
+.layout-3 .answer-checked .exercise__answer.is-selected:after,
 .layout-4 .answer-checked .exercise__answer.is-selected:before,
 .layout-4 .answer-checked .exercise__answer.is-selected:after,
 .layout-5 .answer-checked .exercise__answer.is-selected:before,
-.layout-5 .answer-checked .exercise__answer.is-selected:after {
+.layout-5 .answer-checked .exercise__answer.is-selected:after,
+.layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after,
+.layout-9 .answer-checked .exercise__answer.is-selected:after {
 	content: none;
 }
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
@@ -453,7 +481,7 @@ a:focus {
 .layout-7 .answer-checked .exercise__answer.is-selected:before {content: ''}
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
 .layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
-.layout-7 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: "答對了！"}
+.layout-7 .answer-checked .exercise__answer.is-selected.is-correct-answer:after, {content: "答對了！"}
 
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
 	bottom: -35px;
@@ -512,9 +540,7 @@ a:focus {
 .layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:before {
 	right: -31px;
 }
-.layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after {
-	content: none;
-}
+
 .layout-7 .answer-checked .exercise__answer.is-selected:before,
 .layout-7 .is-wrong .exercise__answer-list:before {
 	top: 75px;
@@ -527,17 +553,20 @@ a:focus {
 	margin-left: -70px;
 	right: 224px;
 }
+.layout-7 .answer-revealed .is-correct-answer .exercise__answer-text {
+	background-color: transparent;
+}
 
 .layout-8 .answer-checked .exercise__answer.is-selected:after {content: none;}
-.layout-8 .answer-checked .exercise__answer.is-selected:before {right: 6px;
-
+.layout-8 .answer-checked .exercise__answer.is-selected:before {
+	right: 6px;
+}
+.layout-9 .answer-checked .exercise__answer.is-selected:before {right: 5px;
+	
 }
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
 	background-color: #FFCD47;
-}
-.layout-7 .answer-revealed .is-correct-answer .exercise__answer-text {
-	background-color: transparent;
 }
 .fa.selected {
 	color: #563209;
@@ -617,7 +646,8 @@ a:focus {
 }
 .layout-4 .exercise__answer-list,
 .layout-7 .exercise__answer-list,
-.layout-8 .exercise__answer-list,
+.dragzone.exercise__answer-list,
+.dropzone.exercise__answer-list,
 .exercise__answer.gu-mirror {
 	list-style: none;
 	display: block;
@@ -659,14 +689,7 @@ a:focus {
 .layout-7 .owl-carousel .owl-item {
 	padding: 30px 0px 40px 20px;
 }
-.layout-8 .exercise__answer {
-	padding-left: 10px;
-}
+
 .layout-8 .exercise__answer.is-selected {
 	/*display: none;*/
-}
-.layout-8 .dropzone .exercise__answer {
-	background-color: #CC9A14;
-	color: #fff;
-
 }
