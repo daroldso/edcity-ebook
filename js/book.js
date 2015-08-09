@@ -433,6 +433,86 @@ window.Book = {
 		}
 	},
 	/**
+	 * Chapter 3
+	 */
+	'ch3': {
+		exercises: {
+			// 配對 三圖片排序分到三格
+			'ex2': {
+				clientref: 11,
+				layout: 10,
+				name: "打招呼程序",
+				instruction: "你知道打招呼的程序嗎？把下面的圖片按次序排列於下面的方格內。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "1"},
+							{type: 2, text: "2"},
+							{type: 3, text: "3"}
+						],
+						answers: [
+							{ index: 0, type: 3, correct: false, selected: false, text: "同對方打招呼"},
+							{ index: 1, type: 1, correct: false, selected: false, text: "走近佢"},
+							{ index: 2, type: 2, correct: false, selected: false, text: "望住對方"},
+						],
+						// numOfCorrectAnswers: 3,
+						correctAnswerCount: 0,
+						// wrongAnswerCount: 0
+					},
+				]
+			},
+			// 配對 一堆字格分到三個地方
+			'ex3': {
+				clientref: 12,
+				layout: 11,
+				name: "打招呼的方法",
+				instruction: "你們懂得打招呼的方法嗎？請把不同的打招呼方法拉放在○內。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "有時間性"},
+							{type: 2, text: "沒有時間性"},
+							{type: 3, text: "非語言"}
+						],
+						answers: [
+							{ index: 0, type: 3, correct: false, selected: false, text: "點頭"},
+							{ index: 1, type: 1, correct: false, selected: false, text: "早晨"},
+							{ index: 2, type: 2, correct: false, selected: false, text: "咁啱呀"},
+							{ index: 3, type: 2, correct: false, selected: false, text: "Hi"},
+							{ index: 4, type: 2, correct: false, selected: false, text: "你好"},
+							{ index: 5, type: 1, correct: false, selected: false, text: "午安"},
+							{ index: 6, type: 2, correct: false, selected: false, text: "Hello"},
+							{ index: 7, type: 3, correct: false, selected: false, text: "揮手"},
+						],
+						correctAnswerCount: 0,
+					},
+				]
+			},
+		}
+	},
+	/**
 	 * Chapter 4
 	 */
 	'ch4': {
@@ -699,6 +779,68 @@ window.Book = {
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
+					},
+				]
+			},
+		}
+	},
+	/**
+	 * Chapter 7
+	 */
+	'ch7': {
+		exercises: {
+			// 配對 一堆字咭分到四方格
+			'ex2': {
+				clientref: 13,
+				layout: 12,
+				name: "距離的變化",
+				instruction: "細心觀察字卡上的關係，想一想在這種關係中最近的接觸距離會是怎樣？請把字卡拉放在適當的籃子裡。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "hiddenOnCorrect",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "身體接觸", correctCount: 0},
+							{type: 2, text: "半隻手", correctCount: 0},
+							{type: 3, text: "一隻手", correctCount: 0},
+							{type: 4, text: "盡量遠", correctCount: 0}
+						],
+						answers: [
+							{ index: 0, type: 2, correct: false, selected: false, text: "相熟同學"},
+							{ index: 1, type: 3, correct: false, selected: false, text: "上司"},
+							{ index: 2, type: 1, correct: false, selected: false, text: "姐姐"},
+							{ index: 3, type: 1, correct: false, selected: false, text: "爺爺"},
+							{ index: 4, type: 2, correct: false, selected: false, text: "姐夫"},
+							{ index: 5, type: 3, correct: false, selected: false, text: "工人"},
+							{ index: 6, type: 3, correct: false, selected: false, text: "店務員"},
+							{ index: 7, type: 2, correct: false, selected: false, text: "姨丈"},
+							{ index: 8, type: 1, correct: false, selected: false, text: "情侶"},
+							{ index: 9, type: 1, correct: false, selected: false, text: "丈夫"},
+							{ index: 10, type: 2, correct: false, selected: false, text: "表兄弟"},
+							{ index: 11, type: 3, correct: false, selected: false, text: "老師"},
+							{ index: 12, type: 3, correct: false, selected: false, text: "鄰居"},
+							{ index: 13, type: 1, correct: false, selected: false, text: "婆婆"},
+							{ index: 14, type: 2, correct: false, selected: false, text: "姑母"},
+							{ index: 15, type: 2, correct: false, selected: false, text: "舅父"},
+							{ index: 16, type: 4, correct: false, selected: false, text: "陌生人"},
+							{ index: 17, type: 2, correct: false, selected: false, text: "叔伯"},
+							{ index: 18, type: 1, correct: false, selected: false, text: "公公"},
+							{ index: 19, type: 2, correct: false, selected: false, text: "知己"},
+							{ index: 20, type: 1, correct: false, selected: false, text: "爸爸"},
+							{ index: 21, type: 2, correct: false, selected: false, text: "相熟朋友"},
+							{ index: 22, type: 3, correct: false, selected: false, text: "同學"},
+							{ index: 23, type: 3, correct: false, selected: false, text: "同事"}
+						],
+						correctAnswerCount: 0,
 					},
 				]
 			},

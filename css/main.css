@@ -349,12 +349,23 @@ a:focus {
 }
 .dropzone {
 	background: #541D00;
+	color: #fff;
 }
 .answer-revealed .dropzone.type-1,
-.answer-revealed .exercise__answer.type-1 { background: #CE1739!important; color: #fff; }
+.answer-revealed .exercise__answer.type-1 { background: #CE1739!important; color: #fff;  }
+.answer-revealed .exercise__answer.type-1 {border: 3px dashed #800A20!important;}
 
 .answer-revealed .dropzone.type-2,
 .answer-revealed .exercise__answer.type-2 { background: #1EC392!important; color: #fff; }
+.answer-revealed .exercise__answer.type-2 {border: 3px dashed #0F7154!important;}
+
+.answer-revealed .dropzone.type-3,
+.answer-revealed .exercise__answer.type-3 { background: #1757DC!important; color: #fff; }
+.answer-revealed .exercise__answer.type-3 {border: 3px dashed #0E3586!important;}
+
+.answer-revealed .dropzone.type-4,
+.answer-revealed .exercise__answer.type-4 { background: #A29E12!important; color: #fff; }
+.answer-revealed .exercise__answer.type-4 {border: 3px dashed #585607!important;}
 
 .dropzone .exercise__answer {
 	margin-bottom: 8px;
@@ -372,9 +383,22 @@ a:focus {
 .dropzone:before {
 	content: attr(data-text);
 	display: block;
-	color: #fff;
 	margin-bottom: 10px;
 	font-size: 18px;
+}
+.layout-12 .dropzone:after {
+	content: attr(data-correct);
+	display: block;
+	position: absolute;
+	bottom: -59px;
+	left: 50%;
+	margin-left: -25px;
+	width: 50px;
+	padding: 4px;
+	border: 2px solid;
+	background-color: #fff;
+	text-align: center;
+	font-size: 24px;
 }
 
 /* ==========================================================================
@@ -473,7 +497,9 @@ a:focus {
 .layout-5 .answer-checked .exercise__answer.is-selected:before,
 .layout-5 .answer-checked .exercise__answer.is-selected:after,
 .layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after,
-.layout-9 .answer-checked .exercise__answer.is-selected:after {
+.layout-9 .answer-checked .exercise__answer.is-selected:after,
+.layout-11 .answer-checked .exercise__answer.is-selected:after
+{
 	content: none;
 }
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before,
@@ -561,8 +587,23 @@ a:focus {
 .layout-8 .answer-checked .exercise__answer.is-selected:before {
 	right: 6px;
 }
-.layout-9 .answer-checked .exercise__answer.is-selected:before {right: 5px;
-	
+.layout-9 .answer-checked .exercise__answer.is-selected:before {
+	right: 5px;
+}
+.layout-10 .answer-checked .exercise__answer.is-selected:before {
+	right: inherit;
+	top: -76px;
+	left: 20px;
+}
+.layout-10 .answer-checked .exercise__answer.is-selected:after {
+	right: 0px;
+	top: -74px;
+}
+.layout-11 .answer-checked .exercise__answer.is-selected:before {
+	right: inherit;
+	top: -1px;
+	left: 50%;
+	margin-left: -13px;;
 }
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
@@ -690,6 +731,56 @@ a:focus {
 	padding: 30px 0px 40px 20px;
 }
 
-.layout-8 .exercise__answer.is-selected {
-	/*display: none;*/
+.layout-8 .answer-revealed .exercise__answer.is-correct-answer {
+	background: #CE1739;
+	color: #fff;
+	border: 3px dashed #800A20!important;
+}
+.layout-10 .dragzone {min-height: 100px}
+.layout-10 .dropzone {min-height: 320px;}
+
+.layout-10 .dragzone .exercise__answer {
+	display: inline-block;
+	padding-left: 0;
+	margin: 0 3px;
+}
+.layout-10 .dragzone .exercise__answer-image {
+	width: auto;
+    max-width: none;
+    height: 216px;
+}
+.layout-10 .dropzone,
+.layout-11 .dropzone,
+.layout-12 .dropzone
+{
+	float: left;
+	background: #fff;
+	border: 2px solid #000;
+	margin: 0 -2px 0 0;
+	color: #000
+}
+.layout-10 .dropzone,
+.layout-11 .dropzone {
+	width: 33%;
+
+}
+.layout-10 .dropzone .exercise__answer {
+	padding: 0;
+
+}
+
+.layout-11 .dragzone {min-height: 156px}
+.layout-11 .dragzone .exercise__answer,
+.layout-11 .dropzone .exercise__answer,
+.layout-12 .dragzone .exercise__answer
+{
+	display: inline-block;
+	padding: 0;
+	margin-right: 10px;
+	margin-bottom: 16px;
+}
+.layout-12 .dropzone {
+	width: 25%;
+	margin-bottom: 30px;
+
 }
