@@ -1,3 +1,4 @@
 sftp-config.json
 comments.TODO
 /node_modules
+/bower_components
