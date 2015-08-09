@@ -1,3 +1,5 @@
+var dragulaContainers = [];
+
 window.dragnDropInit = {
 	// 'oneDropzone': dragnDrop_OneDropzone,
 	'multipleDropzone': dragnDrop_MultipleDropzone,
@@ -5,7 +7,7 @@ window.dragnDropInit = {
 
 window.dragnDropBehaviors = {
 	'normal': dragnDropBehavior_normal,
-	'hiddenOnCorrect': dragnDropBehavior_hiddenOnCorrect,
+	'revertAndWarningOnWrong': dragnDropBehavior_revertAndWarningOnWrong,
 }
 
 // function dragnDrop_OneDropzone () {
@@ -31,16 +33,15 @@ window.dragnDropBehaviors = {
 // }
 
 function dragnDrop_MultipleDropzone () {
-	var containers = [];
 	var question = questionView.questions[vue.currentQuestion];
 	_.times(question.dragPools.length, function(i) {
-		containers.push(document.getElementById('dragzone-'+i));
+		dragulaContainers.push(document.getElementById('dragzone-'+i));
 	});
 	_.times(question.dropPools.length, function(i) {
-		containers.push(document.getElementById('dropzone-'+i));
+		dragulaContainers.push(document.getElementById('dropzone-'+i));
 	});
 
-	drake = dragula(containers, {
+	drake = dragula(dragulaContainers, {
 		// copy: true,
 		// revertOnSpill: true,
 		// accepts: function(el, target, source, sibling) {
@@ -67,16 +68,31 @@ function dragnDropBehavior_normal () {
 	;
 }
 
-function dragnDropBehavior_hiddenOnCorrect (argument) {
+function dragnDropBehavior_revertAndWarningOnWrong () {
 	var question = questionView.questions[vue.currentQuestion];
 	drake
 	.on('drop', function(el, container, source) {
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
 			return false;
 		}
+		if(container.__vue__.dropPool.type !== el.__vue__.answer.type) {
+			this.cancel(true);
+			$(container).addClass('warning');
+			setTimeout( function() { $(container).removeClass('warning') }, 1000);
+			return false;
+		} else {
+			$(container).addClass('correct');
+			setTimeout( function() { $(container).removeClass('correct') }, 1000)
+		}
 
 		questionView.chooseAnswer(question, el.__vue__.answer, container, source);
 
+	})
+	.on('over', function (el, container) {
+		$(container).addClass('over');
+	})
+	.on('out', function (el, container) {
+		$(container).removeClass('over');
 	})
 	;
 }

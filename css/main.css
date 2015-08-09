@@ -350,7 +350,12 @@ a:focus {
 .dropzone {
 	background: #541D00;
 	color: #fff;
+	transition: background-color 0.3s;
 }
+
+.dropzone.over {background-color: #ddd!important;}
+.dropzone.warning {background-color: #CE1739!important;}
+.dropzone.correct {background-color: #1EC392!important;}
 .answer-revealed .dropzone.type-1,
 .answer-revealed .exercise__answer.type-1 { background: #CE1739!important; color: #fff;  }
 .answer-revealed .exercise__answer.type-1 {border: 3px dashed #800A20!important;}
@@ -782,5 +787,29 @@ a:focus {
 .layout-12 .dropzone {
 	width: 25%;
 	margin-bottom: 30px;
-
+	min-height: 130px;
+}
+.layout-12 .exercise__answer {
+	opacity: 1;
+	height: 50px;
+	transition: all 0.3s;
+}
+.layout-12 .dropzone .exercise__answer.is-correct-answer {
+	opacity: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	visibility: hidden;
+}
+.layout-12 .answer-checked .exercise__answer {
+	pointer-events: all;
+}
+.layout-12 .gu-transit {
+	display: none;
+}
+.layout-12 .answer-checked .exercise__answer.is-selected:before,
+.layout-12 .answer-checked .exercise__answer.is-selected:after
+{
+	content: none;
 }

@@ -52,43 +52,21 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_MultipleDropzone,
 		checkAnswer: checkAnswer_MultipleDropzone,
 	},
-	// /**
-	//  * Drag n Drop Multiple Dropzone - Hidden On Correct
-	//  */
-	// 'dragnDrop_MultipleDropzone': {
-	// 	chooseAnswer: chooseAnswer_MultipleDropzone,
-	// 	checkAnswer: checkAnswer_MultipleDropzone,
-	// },
+	/**
+	 * Drag n Drop Multiple Dropzone - Hidden On Correct
+	 */
+	'dragnDrop_MultipleDropzone_HiddenOnCorrect': {
+		chooseAnswer: chooseAnswer_MultipleDropzone_HiddenOnCorrect,
+		checkAnswer: checkAnswer_MultipleDropzone,
+	},
 }
 
-// function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {
-// 	if($(container).hasClass('dragzone')) {
-// 		if (answer.correct) {
-// 			question.correctAnswerCount--
-// 		}
-// 		answer.correct = false;
-// 		answer.selected = false;
-// 	} else {
-// 		// check whether answer.type equal to dropPool.type
-// 		if(container.__vue__.dropPool.type === answer.type) {
-// 			// if true, correctAnswerCount++
-// 			question.correctAnswerCount++;
-// 			// set answer.correct = to  true;
-// 			answer.correct = true;
-// 		} else {
-// 			if (answer.correct) {
-// 				question.correctAnswerCount--
-// 			} 
-// 			// if false, set answer.correct to false
-// 			answer.correct = false;
-// 		}
-// 		answer.selected = true;
-// 	}
+function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {
+	chooseAnswer_MultipleDropzone(question, answer, container, source, true);
+	checkAnswer_MultipleDropzone();
+}
 
-// 	console.log("correctAnswerCount: "+question.correctAnswerCount);
-// }
-
-function chooseAnswer_MultipleDropzone (question, answer, container, source) {
+function chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
 	if($(container).hasClass('dragzone')) {
 		if (answer.correct) {
 			question.correctAnswerCount--
@@ -102,6 +80,9 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source) {
 			question.correctAnswerCount++;
 			// set answer.correct = to  true;
 			answer.correct = true;
+			if(increaseDragpoolCorrectCount) {
+				container.__vue__.dropPool.correctCount++;
+			}
 		} else {
 			if (answer.correct) {
 				question.correctAnswerCount--

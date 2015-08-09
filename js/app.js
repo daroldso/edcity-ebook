@@ -128,6 +128,9 @@ function init(chapter, ex) {
 				if(drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
+					_.times(questions[vue.currentQuestion].dropPools.length, function(i) {
+						questions[vue.currentQuestion].dropPools[i].correctCount = 0;
+					});
 				}
 			},
 			isAllCorrect: function() {

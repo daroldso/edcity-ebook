@@ -795,9 +795,9 @@ window.Book = {
 				layout: 12,
 				name: "距離的變化",
 				instruction: "細心觀察字卡上的關係，想一想在這種關係中最近的接觸距離會是怎樣？請把字卡拉放在適當的籃子裡。",
-				type: "dragnDrop_MultipleDropzone",
+				type: "dragnDrop_MultipleDropzone_HiddenOnCorrect",
 				dragndropType: "multipleDropzone",
-				dragndropBehavior: "hiddenOnCorrect",
+				dragndropBehavior: "revertAndWarningOnWrong",
 				questions:  [
 					{
 						index: 0,
