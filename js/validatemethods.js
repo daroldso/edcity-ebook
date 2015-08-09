@@ -39,20 +39,62 @@ window.validateMethods = {
 		checkAnswer: checkAnswer_MultipleAnswers,
 	},
 	/**
-	 * Drag n Drop One to Multiple
+	 * Drag n Drop One Dropzone
 	 */
-	'dragnDrop_OneToMultiple': {
-		chooseAnswer: chooseAnswer_OneToMultiple,
-		checkAnswer: checkAnswer_OneToMultiple,
+	'dragnDrop_OneDropzone': {
+		chooseAnswer: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
 	},
+	/**
+	 * Drag n Drop Multiple Dropzone
+	 */
+	'dragnDrop_MultipleDropzone': {
+		chooseAnswer: chooseAnswer_MultipleDropzone,
+		checkAnswer: checkAnswer_MultipleDropzone,
+	},
+	// /**
+	//  * Drag n Drop Multiple Dropzone - Hidden On Correct
+	//  */
+	// 'dragnDrop_MultipleDropzone': {
+	// 	chooseAnswer: chooseAnswer_MultipleDropzone,
+	// 	checkAnswer: checkAnswer_MultipleDropzone,
+	// },
 }
 
-function chooseAnswer_OneToMultiple (question, answer, container, source) {
+// function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {
+// 	if($(container).hasClass('dragzone')) {
+// 		if (answer.correct) {
+// 			question.correctAnswerCount--
+// 		}
+// 		answer.correct = false;
+// 		answer.selected = false;
+// 	} else {
+// 		// check whether answer.type equal to dropPool.type
+// 		if(container.__vue__.dropPool.type === answer.type) {
+// 			// if true, correctAnswerCount++
+// 			question.correctAnswerCount++;
+// 			// set answer.correct = to  true;
+// 			answer.correct = true;
+// 		} else {
+// 			if (answer.correct) {
+// 				question.correctAnswerCount--
+// 			} 
+// 			// if false, set answer.correct to false
+// 			answer.correct = false;
+// 		}
+// 		answer.selected = true;
+// 	}
+
+// 	console.log("correctAnswerCount: "+question.correctAnswerCount);
+// }
+
+function chooseAnswer_MultipleDropzone (question, answer, container, source) {
 	if($(container).hasClass('dragzone')) {
 		if (answer.correct) {
 			question.correctAnswerCount--
 		}
 		answer.correct = false;
+		answer.selected = false;
 	} else {
 		// check whether answer.type equal to dropPool.type
 		if(container.__vue__.dropPool.type === answer.type) {
@@ -67,31 +109,16 @@ function chooseAnswer_OneToMultiple (question, answer, container, source) {
 			// if false, set answer.correct to false
 			answer.correct = false;
 		}
-		
+		answer.selected = true;
 	}
 
-	answer.selected = !answer.selected;
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 }
 
-function checkAnswer_OneToMultiple () {
+function checkAnswer_MultipleDropzone () {
 	var question = vue.questions[vue.currentQuestion];
 	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
-	console.log(question.correctAnswerCount);
-	
-
-	// _.times(questions.length, function (i) {
-	// 	if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
-	// 		questions[i].correct = true;
-	// 		questions[i].wrong = false;
-	// 		vue.totalNumOfCorrect++;
-	// 	} else {
-	// 		questions[i].correct = false;
-	// 		questions[i].wrong = true;
-	// 	}
-	// 	vue.studentScore += questions[i].correctAnswerCount;
-	// });
 	
 	// check if correctAnswerCount = answers.length
 	if(question.correctAnswerCount === vue.baseScore) {

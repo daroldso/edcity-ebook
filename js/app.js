@@ -85,7 +85,8 @@ function init(chapter, ex) {
 		ready: function() {
 			initCarousel();
 			if(typeof exercise.dragndropType !== "undefined") {
-				dragnDropMethods[exercise.dragndropType]();
+				dragnDropInit[exercise.dragndropType]();
+				dragnDropBehaviors[exercise.dragndropBehavior]();
 			}
 		}
 	})
@@ -125,16 +126,7 @@ function init(chapter, ex) {
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 				if(drake.containers[0] !== null) {
-					var elInDropzone = $('.dropzone').find('.exercise__answer').detach();
-					console.log(elInDropzone);
-					if($('.dragzone').length !== 1) {
-						$('.dragzone').append(elInDropzone);
-					} else {
-						_.map(elInDropzone, function(item) {
-							var type = item.__vue__.$data.answer.type;
-							$('.dragzone.type-'+type).append(item);
-						});
-					}
+					moveAnswersBacktoDragzone();
 					sortAnswers();
 				}
 			},
@@ -212,9 +204,12 @@ function getBaseScore () {
 
 	_.map(answers, function (item) {
 		_.times(item.length, function (i) {
-			// if item has type property which only drag and drop type questions have
-			if(typeof item[i].type !== 'undefined') {
-				baseScore = item.length;
+			// if answer has type property which only drag and drop type questions have
+			if(typeof item[i].type !== 'undefined'
+				// && item[i].type !== 0
+			) {
+				baseScore++;
+				// baseScore = item.length;
 			} else {
 				baseScore += ~~item[i].correct;
 
@@ -224,4 +219,18 @@ function getBaseScore () {
 
 	return baseScore;
 	
+}
+
+function moveAnswersBacktoDragzone () {
+	var elInDropzone = $('.dropzone').find('.exercise__answer').detach();
+	if($('.dragzone').length === 1) {
+		console.log('.dragzone == 1');
+		$('.dragzone').append(elInDropzone);
+	} else {
+		console.log('.dragzone > 1');
+		_.map(elInDropzone, function(item) {
+			var type = item.__vue__.$data.answer.type;
+			$('.dragzone.type-'+type).append(item);
+		});
+	}
 }

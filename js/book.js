@@ -76,8 +76,9 @@ window.Book = {
 				layout: 8,
 				name: "說多謝的不同方式",
 				instruction: "別人送禮物給你，除了說「多謝」以外，還可以有很多不同方式表達謝意。請看看下面的句子，將不適當的句子放進垃圾箱內。",
-				type: "chooseMultipleAnswer",
-				dragndropType: "oneToOne",
+				type: "dragnDrop_OneDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
 				questions:  [
 					{
 						index: 0,
@@ -85,18 +86,24 @@ window.Book = {
 						wrong: false,
 						isCorrect: false,
 						questionText: "句子：",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: ""}
+						],
 						answers: [
-							{ index: 0,correct: false, selected: false, text: "嘩！我好鍾意！"},
-							{ index: 1,correct: true, selected: false, text: "都唔靚嘅！"},
-							{ index: 2,correct: false, selected: false, text: "嘩！我想即刻試吓！"},
-							{ index: 3,correct: false, selected: false, text: "嘩！好靚呀！"},
-							{ index: 4,correct: false, selected: false, text: "我鍾意呢個顏色！"},
-							{ index: 5,correct: true, selected: false, text: "我覺得無乜用喎！"},
-							{ index: 6,correct: false, selected: false, text: "嘩！好嘢！"},
-							{ index: 7,correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
-							{ index: 8,correct: false, selected: false, text: "我啱啱想買…"},
-							{ index: 9,correct: true, selected: false, text: "呢個麻麻地啦…"},
-							{ index: 10,correct: false, selected: false, text: "啱晒，我無呢個。"},
+							{ index: 0, correct: false, selected: false, text: "嘩！我好鍾意！"},
+							{ index: 1, correct: true, selected: false, text: "都唔靚嘅！"},
+							{ index: 2, correct: false, selected: false, text: "嘩！我想即刻試吓！"},
+							{ index: 3, correct: false, selected: false, text: "嘩！好靚呀！"},
+							{ index: 4, correct: false, selected: false, text: "我鍾意呢個顏色！"},
+							{ index: 5, correct: true, selected: false, text: "我覺得無乜用喎！"},
+							{ index: 6, correct: false, selected: false, text: "嘩！好嘢！"},
+							{ index: 7, correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
+							{ index: 8, correct: false, selected: false, text: "我啱啱想買…"},
+							{ index: 9, correct: true, selected: false, text: "呢個麻麻地啦…"},
+							{ index: 10, correct: false, selected: false, text: "啱晒，我無呢個。"},
 						],
 						numOfCorrectAnswers: 3,
 						correctAnswerCount: 0,
@@ -150,8 +157,9 @@ window.Book = {
 				layout: 9,
 				name: "何時說「唔該」",
 				instruction: "請分辨下列的情景是說「多謝」還是說「唔該」，然後將它們放到適當的方格內。",
-				type: "dragnDrop_OneToMultiple",
-				dragndropType: "oneToMultiple",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
 				questions:  [
 					{
 						index: 0,
