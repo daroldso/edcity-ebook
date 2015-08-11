@@ -271,6 +271,7 @@
 	</div>
 </script>
 
+<!-- Video Question -->
 <script id="layout-7-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
@@ -279,10 +280,10 @@
 				<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</div>
 			<div class="exercise__question row">
-				<div class="col-xs-6" v-repeat="2">
+				<div class="col-xs-6" v-repeat="video: question.videos">
 					<div class="exercise__question-content">
 						<div class="exercise__question-video">
-							Video Here
+							<iframe v-attr="src: video" scrolling='no' frameborder='0' style='width: 100%; height: 100%;'>[Your browser does not support frames or is currently configured not to display frames. Please use an up-to-date browser that is capable of displaying frames.]</iframe>	
 						</div>
 					</div>
 				</div>
@@ -291,12 +292,8 @@
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer col-xs-6" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer, question.answers)">
 						<div class="exercise__answer-text">
-							<i class="fa" 
-							v-class="
-							fa-check-square: $index == 0,
-							fa-times-circle: $index == 1,
-							selected: answer.selected
-							"></i>
+							<i class="fa fa-check-square" 
+							v-class="selected: answer.selected"></i>
 						</div>
 					</li>
 				</ol>
