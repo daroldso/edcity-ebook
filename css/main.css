@@ -608,6 +608,15 @@ a:focus {
 	right: 0px;
 	top: -74px;
 }
+.layout-10 .answer-revealed .dropzone:after {
+	content: "答案: " attr(data-answer);
+    display: block;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #FEF9FA;
+}
 .layout-11 .answer-checked .exercise__answer.is-selected:before {
 	right: inherit;
 	top: -1px;

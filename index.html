@@ -392,7 +392,7 @@
 					</ol>
 				</div>
 				<div class="dropzones-outer">
-					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text, data-answer: dropPool.answer">
 					</ol>
 				</div>
 			</div>

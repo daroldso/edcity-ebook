@@ -457,9 +457,9 @@ window.Book = {
 							{type: 0, text: ""}
 						],
 						dropPools: [
-							{type: 1, text: "1"},
-							{type: 2, text: "2"},
-							{type: 3, text: "3"}
+							{type: 1, text: "1", answer: "走近佢"},
+							{type: 2, text: "2", answer: "望住對方"},
+							{type: 3, text: "3", answer: "同對方打招呼"}
 						],
 						answers: [
 							{ index: 0, type: 3, correct: false, selected: false, text: "同對方打招呼"},
