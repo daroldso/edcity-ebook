@@ -67,6 +67,9 @@ function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, contai
 }
 
 function chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
+	if(typeof container === 'undefined' || typeof source === 'undefined') {
+		return false;
+	}
 	if($(container).hasClass('dragzone')) {
 		if (answer.correct) {
 			question.correctAnswerCount--
@@ -92,6 +95,7 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		}
 		answer.selected = true;
 	}
+	console.log("answer.correct: "+answer.correct);
 
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 }

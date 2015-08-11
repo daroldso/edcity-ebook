@@ -87,6 +87,7 @@ function init(chapter, ex) {
 			if(typeof exercise.dragndropType !== "undefined") {
 				dragnDropInit[exercise.dragndropType]();
 				dragnDropBehaviors[exercise.dragndropBehavior]();
+				initPlumb();
 			}
 		}
 	})
@@ -128,8 +129,17 @@ function init(chapter, ex) {
 				if(drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
-					_.times(questions[vue.currentQuestion].dropPools.length, function(i) {
-						questions[vue.currentQuestion].dropPools[i].correctCount = 0;
+					resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers);
+
+					// only invoke for 7-2 when there need to have a box to show correctcount of each droppool
+					resetDroppoolCorrectCount(questions[vue.currentQuestion].dropPools);
+				}
+				// This is a line matching game
+				if($('#draw-panel').length > 0) {
+					_.times(questions.length, function(i) {
+						_.times(questions[i].lines.length, function(j) {
+							questions[i].lines[j].remove();
+						});
 					});
 				}
 			},
@@ -224,6 +234,12 @@ function getBaseScore () {
 	
 }
 
+function resetDroppoolCorrectCount (dropPools) {
+	_.times(dropPools.length, function(i) {
+		dropPools[i].correctCount = 0;
+	});
+}
+
 function moveAnswersBacktoDragzone () {
 	var elInDropzone = $('.dropzone').find('.exercise__answer').detach();
 	if($('.dragzone').length === 1) {
@@ -236,4 +252,49 @@ function moveAnswersBacktoDragzone () {
 			$('.dragzone.type-'+type).append(item);
 		});
 	}
+}
+
+function resetAnswersCorrectToFalse (answers) {
+	_.times(answers.length, function(i) {
+		answers[i].correct = false;
+	});
+}
+
+var line, vis, line0, line1, line2, line3;
+function initPlumb () {
+
+	vis = d3.select("#draw-panel")
+	    // .attr("width", 570)
+	    // .attr("height", 100)
+	    // .on("mousedown", startLine)
+	    // .on("mouseup", endLine);
+
+}
+
+function startLine(x, y) {
+	// console.log(x, y);
+    line = vis.append("line")
+        .attr("x1", x)
+        .attr("y1", y)
+        .attr("x2", x)
+        .attr("y2", y);
+    
+}
+
+function moveLine(x, y) {
+	// console.log(x, y);
+    line.attr("x2", x)
+        .attr("y2", y);
+}
+
+function drawLine (x1, y1, x2, y2, lines, index) {
+	lines[index] = vis.append("line")
+        .attr("x1", x1)
+        .attr("y1", y1)
+        .attr("x2", x2)
+        .attr("y2", y2);
+}
+
+function endLine() {
+    vis.on("mousemove", null);
 }

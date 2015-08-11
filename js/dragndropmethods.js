@@ -1,36 +1,19 @@
 var dragulaContainers = [];
 
 window.dragnDropInit = {
-	// 'oneDropzone': dragnDrop_OneDropzone,
+	'oneDropzone': dragnDrop_OneDropzone,
 	'multipleDropzone': dragnDrop_MultipleDropzone,
 }
 
 window.dragnDropBehaviors = {
 	'normal': dragnDropBehavior_normal,
 	'revertAndWarningOnWrong': dragnDropBehavior_revertAndWarningOnWrong,
+	'drawLines': dragnDropBehavior_drawLines
 }
 
-// function dragnDrop_OneDropzone () {
-// 	drake = dragula([document.getElementById('dragzone'), document.getElementById('dropzone')], {
-// 		// copy: true,
-// 		// revertOnSpill: true,
-// 		// accepts: function(el, target, source, sibling) {
-// 			// if(source.id === 'dropzone') {
-// 			// 	drake.remove(source);
-// 			// 	return false;
-// 			// }
-// 			// return true;
-// 		// }
-// 	});
-// 	drake
-// 	.on('drop', function(el, container, source) {
-// 		if(container.id === source.id) {
-// 			return false;
-// 		}
-// 		questionView.chooseAnswer(questionView.questions[vue.currentQuestion], el.__vue__.answer);
-// 	})
-// 	;
-// }
+function dragnDrop_OneDropzone () {
+	dragnDrop_MultipleDropzone();
+}
 
 function dragnDrop_MultipleDropzone () {
 	var question = questionView.questions[vue.currentQuestion];
@@ -41,6 +24,10 @@ function dragnDrop_MultipleDropzone () {
 		dragulaContainers.push(document.getElementById('dropzone-'+i));
 	});
 
+}
+
+function dragnDropBehavior_normal () {
+	var question = questionView.questions[vue.currentQuestion];
 	drake = dragula(dragulaContainers, {
 		// copy: true,
 		// revertOnSpill: true,
@@ -52,10 +39,6 @@ function dragnDrop_MultipleDropzone () {
 			// return true;
 		// }
 	});
-}
-
-function dragnDropBehavior_normal () {
-	var question = questionView.questions[vue.currentQuestion];
 	drake
 	.on('drop', function(el, container, source) {
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
@@ -70,6 +53,7 @@ function dragnDropBehavior_normal () {
 
 function dragnDropBehavior_revertAndWarningOnWrong () {
 	var question = questionView.questions[vue.currentQuestion];
+	drake = dragula(dragulaContainers);
 	drake
 	.on('drop', function(el, container, source) {
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
@@ -86,6 +70,87 @@ function dragnDropBehavior_revertAndWarningOnWrong () {
 		}
 
 		questionView.chooseAnswer(question, el.__vue__.answer, container, source);
+
+	})
+	.on('over', function (el, container) {
+		$(container).addClass('over');
+	})
+	.on('out', function (el, container) {
+		$(container).removeClass('over');
+	})
+	;
+}
+
+function dragnDropBehavior_drawLines () {
+	$('body').addClass('layout-'+vue.layoutNumber);
+	var question = questionView.questions[vue.currentQuestion];
+	var answer;
+	var svgOffset, elX, elY, svgX, svgY, dropX, dropY;
+	drake = dragula(dragulaContainers, {
+		copy: true,
+		revertOnSpill: true,
+	});
+	drake
+	.on('drag', function(el, source) {
+		answer = el.__vue__.answer;
+
+		if (question.lines[answer.index] !== undefined) {
+			question.lines[answer.index].remove();
+		}
+
+		svgOffset = $("#draw-panel").offset();
+		// clientXXX = content + padding
+		// offsetXXX = content + padding + border
+		elX = (el.offsetWidth * answer.index) + el.offsetWidth / 2;
+		elY = el.clientHeight;
+		startLine(elX, elY);
+
+		$('body').on('mousemove', function(e) {
+			svgX = e.pageX - svgOffset.left;
+			svgY = e.pageY - svgOffset.top;
+			moveLine(svgX, svgY);
+		});
+
+		document.addEventListener('touchmove', function(e) {
+			e.preventDefault();
+			var touch = e.touches[0];
+			svgX = touch.pageX - svgOffset.left;
+			svgY = touch.pageY - svgOffset.top;
+			moveLine(svgX, svgY);
+		}, false);
+
+		if($(source).hasClass('dropzone')) {
+			return false;
+		}
+
+		// if el is correct, set it back to correct = false and decrease correct count
+		if(answer.correct) {
+			answer.correct = false;
+			question.correctAnswerCount--;
+		}
+
+	})
+	.on('drop', function(el, container, source) {
+		$('body').off('mousemove');
+		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
+			return false;
+		}
+		drake.remove();
+		dropX = (container.offsetWidth * (container.__vue__.dropPool.type-1)) + container.offsetWidth / 2;
+		dropY = $('.dragzones-outer')[0].offsetHeight;
+
+
+		console.log(elX, elY);
+		console.log(dropX, dropY);
+		drawLine(elX, elY, dropX, dropY, question.lines, answer.index);
+
+		questionView.chooseAnswer(question, answer, container, source);
+		// return false;
+
+	})
+	.on('cancel', function(el, source) {
+		line.remove();
+		$('body').off('mousemove');
 
 	})
 	.on('over', function (el, container) {

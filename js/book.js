@@ -789,6 +789,42 @@ window.Book = {
 	 */
 	'ch7': {
 		exercises: {
+			// 連線 句字
+			'ex1': {
+				clientref: 14,
+				layout: 13,
+				name: "距離的變化",
+				instruction: "和下列的人相處，我們應保持多遠的距離呢？請把適當的距離與對象連起來。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "半隻手", correctCount: 0},
+							{type: 2, text: "身體接觸", correctCount: 0},
+							{type: 3, text: "一隻手", correctCount: 0},
+							{type: 4, text: "盡量遠", correctCount: 0}
+						],
+						answers: [
+							{ index: 0, type: 2, correct: false, selected: false, text: "家人"},
+							{ index: 1, type: 4, correct: false, selected: false, text: "陌生人"},
+							{ index: 2, type: 1, correct: false, selected: false, text: "熟朋友"},
+							{ index: 3, type: 3, correct: false, selected: false, text: "一般朋友"}
+						],
+						correctAnswerCount: 0,
+					},
+				]
+			},
 			// 配對 一堆字咭分到四方格
 			'ex2': {
 				clientref: 13,
