@@ -59,6 +59,31 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_MultipleDropzone_HiddenOnCorrect,
 		checkAnswer: checkAnswer_MultipleDropzone,
 	},
+	/**
+	 * Drag n Drop Multiple Dropzone + True or False
+	 */
+	'dragnDrop_MultipleDropzone_TrueOrFalse': {
+		chooseAnswer: chooseAnswer_MultipleDropzone,
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalse,
+	},
+}
+
+function checkAnswer_MultipleDropzone_TrueOrFalse () {
+	vue.studentScore = 0;
+	var question = vue.questions[vue.currentQuestion];
+	question.correctAnswerCount = 0;
+	console.log(question.correctAnswerCount);
+	var trueOrFalseAnswers = question.answers.tof;
+	var dragAndDropAnswers = question.answers.dnd;
+	_.times(trueOrFalseAnswers.length, function(i) {
+		question.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
+	});
+	_.times(dragAndDropAnswers.length, function(i) {
+		question.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
+	});
+	checkAnswer_MultipleDropzone();
+	console.log(question.correctAnswerCount);
 }
 
 function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {

@@ -600,6 +600,91 @@ window.Book = {
 	 */
 	'ch6': {
 		exercises: {
+			// 連線 加對錯
+			'ex1': {
+				clientref: 15,
+				layout: 14,
+				name: "騷擾人的阿傑",
+				instruction: "看完基本故事後，請把相關的人和事連起來，然後再判斷阿傑應否和他們談話。",
+				type: "dragnDrop_MultipleDropzone_TrueOrFalse",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
+				questions:  [
+					{
+						index: 0,
+						baseScore: 10,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "傾電話"},
+							{type: 2, text: "同人傾緊偈"},
+							{type: 3, text: "返緊工"},
+							{type: 4, text: "閒坐公園"},
+							{type: 5, text: "做緊嘢"}
+						],
+						answers: {
+							'dnd': [
+								{ index: 0, type: 5, correct: false, selected: false, text: "小美", atype: "dnd" },
+								{ index: 1, type: 2, correct: false, selected: false, text: "陳老師", atype: "dnd" },
+								{ index: 2, type: 1, correct: false, selected: false, text: "鍾仔", atype: "dnd" },
+								{ index: 3, type: 3, correct: false, selected: false, text: "阿強", atype: "dnd" },
+								{ index: 4, type: 4, correct: false, selected: false, text: "嘉兒", atype: "dnd" }
+							],
+							'tof': [
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,								
+									answers:[
+										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: true, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: false, selected: false, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+									]	
+								}
+							],
+						},
+						numOfCorrectAnswers: 10,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex2': {
 				clientref: 6,
 				layout: 5,
@@ -838,10 +923,10 @@ window.Book = {
 							{type: 0, text: ""}
 						],
 						dropPools: [
-							{type: 1, text: "半隻手", correctCount: 0},
-							{type: 2, text: "身體接觸", correctCount: 0},
-							{type: 3, text: "一隻手", correctCount: 0},
-							{type: 4, text: "盡量遠", correctCount: 0}
+							{ type: 1, text: "半隻手" },
+							{ type: 2, text: "身體接觸" },
+							{ type: 3, text: "一隻手" },
+							{ type: 4, text: "盡量遠" }
 						],
 						answers: [
 							{ index: 0, type: 2, correct: false, selected: false, text: "家人"},

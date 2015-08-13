@@ -375,6 +375,10 @@ a:focus {
 .answer-revealed .exercise__answer.type-4 { background: #A29E12!important; color: #fff; }
 .answer-revealed .exercise__answer.type-4 {border: 3px dashed #585607!important;}
 
+.answer-revealed .dropzone.type-5,
+.answer-revealed .exercise__answer.type-5 { background: #911CB1!important; color: #fff; }
+.answer-revealed .exercise__answer.type-5 {border: 3px dashed #480C58!important;}
+
 .dropzone .exercise__answer {
 	margin-bottom: 8px;
 	padding-right: 36px;
@@ -507,7 +511,8 @@ a:focus {
 .layout-6 .answer-checked .qtype__tof .exercise__answer.is-selected:after,
 .layout-9 .answer-checked .exercise__answer.is-selected:after,
 .layout-11 .answer-checked .exercise__answer.is-selected:after,
-.layout-13 .answer-checked .exercise__answer.is-selected:after
+.layout-13 .answer-checked .exercise__answer.is-selected:after,
+.layout-14 .answer-checked .exercise__answer.is-selected:after
 {
 	content: none;
 }
@@ -627,8 +632,11 @@ a:focus {
 	right: 50%;
 	top: 53px;
 	margin-right: -13px;
-
 }
+
+.layout-14 .answer-checked .dragzone .exercise__answer.is-selected:before { right: -31px;}
+.layout-14 .answer-checked .qtype__tof .exercise__answer.is-selected:before { right: -35px;}
+
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
 	background-color: #FFCD47;
@@ -776,7 +784,8 @@ a:focus {
 .layout-10 .dropzone,
 .layout-11 .dropzone,
 .layout-12 .dropzone,
-.layout-13 .dropzone
+.layout-13 .dropzone,
+.layout-14 .dropzone
 {
 	float: left;
 	background: #fff;
@@ -827,7 +836,9 @@ a:focus {
 	pointer-events: all;
 }
 .layout-12 .gu-transit,
-.layout-13 .gu-transit {
+.layout-13 .gu-transit,
+.layout-14 .gu-transit
+{
 	display: none;
 }
 .layout-12 .answer-checked .exercise__answer.is-selected:before,
@@ -835,28 +846,44 @@ a:focus {
 {
 	content: none;
 }
-.layout-13 .dragzone {min-height: 0;margin: 0;padding: 0;}
-.layout-13 .dragzone .exercise__answer {
+.layout-13 .dragzone,
+.layout-14 .dragzone
+{
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+}
+.layout-13 .dragzone .exercise__answer,
+.layout-14 .dragzone .exercise__answer
+{
 	margin: 0;
 	background-color: transparent;
 	text-align: center;
 	padding: 0px 0 10px;
 }
+.layout-13 .dropzone,
+.layout-14 .dropzone
+{
+	background-color: transparent;
+	text-align: center;
+	border: 0;
+}
 .layout-13 .dropzone {
 	width: 25%;
 	min-height: 130px;
-	background-color: transparent;
-	text-align: center;
 	margin: 0 0 30px 0;
-	border: 0;
 	padding-top: 30px;
 }
-.layout-13 .dragzones-outer {
+.layout-13 .dragzones-outer
+{
 	padding-bottom: 100px;
 	margin-bottom: 0px;
 }
 .layout-13 .exercise__answer-text:after,
-.layout-13 .dropzone:after {
+.layout-13 .dropzone:after,
+.layout-14 .dragzone .exercise__answer-text:after,
+.layout-14 .dropzone:after
+{
 	content: '';
 	display: block;
 	width: 10px;
@@ -864,28 +891,94 @@ a:focus {
 	border-radius: 5px;
 	background-color: #4682B4;
 	position: absolute;
+}
+.layout-13 .exercise__answer-text:after,
+.layout-13 .dropzone:after {
 	left: 50%;
 	margin-left: -5px;
 }
-.layout-13 .exercise__answer-text:after {
+.layout-13 .exercise__answer-text:after,
+.layout-14 .exercise__answer-text:after
+{
 	bottom: -1px;
 
 }
-.layout-13 .dropzone:after {
+.layout-13 .dropzone:after
+{
 	top: -4px;
 }
-.layout-13 .gu-mirror {
+.layout-13 .gu-mirror,
+.layout-14 .gu-mirror
+{
 	display: none!important;
 }
-.layout-13 .dropzone.over {
+.layout-13 .dropzone.over,
+.layout-14 .dropzone.over
+{
 	background-color: transparent!important;
 	color: #4682B4;
     font-weight: bold;
 }
 
-svg {
-    /*border: 1px solid grey;*/
+.layout-14 .dnd {
+	height: 540px;
 }
+.layout-14 .dragzones-outer,
+.layout-14 .dropzones-outer {
+	height: 100%;
+	float: left;
+}
+.layout-14 .dragzones-outer {
+	width: 66%;
+	padding-right: 33%;
+}
+.layout-14 .dropzones-outer {
+	width: 33%;
+}
+.layout-14 .dragzone .exercise__answer,
+.layout-14 .dropzone
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: 100px;
+	/*background-color: #eee;*/
+	/*margin-bottom: 10px;*/
+	line-height: 100px;
+}
+.layout-14 .dropzone {
+	min-height: 0;
+}
+.layout-14 .dragzone .exercise__answer {
+	border: 0;
+}
+.layout-14 .dragzone .exercise__answer-text {
+	height: 100%;
+	padding: 0;
+}
+.layout-14 .exercise__answer-text:after,
+.layout-14 .dropzone:after {
+	top: 50%;
+	margin-top: -5px;
+}
+.layout-14 .exercise__answer-text:after {
+	right: -18px;
+}
+.layout-14 .dropzone:after {
+	left: -19px;
+}
+.layout-14 .qtype__tof .exercise__answer-list {
+	margin: 20px 0;
+}
+.layout-14 .qtype__tof .exercise__answer-text {
+	padding: 2px 0;
+	text-align: center;
+	font-size: 18px;
+}
+.layout-14 .qtype__tof .exercise__answer.is-selected {
+	/*background-color: #FF879D;*/
+}
+
 #draw-panel {
 	top: 0;
 	bottom: 0;
@@ -896,7 +989,7 @@ svg {
 	position: absolute;
 	z-index: -1;
 }
-line {
+svg line {
     stroke: steelblue;
     stroke-width: 2px;
     stroke-linecap: round;
