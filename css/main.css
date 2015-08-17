@@ -290,30 +290,27 @@ a:focus {
 .dropzone.over {background-color: #ddd!important;}
 .dropzone.warning {background-color: #CE1739!important;}
 .dropzone.correct {background-color: #1EC392!important;}
+
 .answer-revealed .dropzone[class*="type-"],
 .answer-revealed .exercise__answer[class*="type-"] {
 	color: #fff;
+	border-width: 3px; border-style: dashed;
 }
-.answer-revealed .exercise__answer[class*="type-"] { border-width: 3px; border-style: dashed;}
+
 .answer-revealed .dropzone.type-1,
-.answer-revealed .exercise__answer.type-1 { background-color: #CE1739!important }
-.answer-revealed .exercise__answer.type-1 {border-color: #800A20!important;}
+.answer-revealed .exercise__answer.type-1 { background-color: #E4693B!important; border-color: #883212!important;}
 
 .answer-revealed .dropzone.type-2,
-.answer-revealed .exercise__answer.type-2 { background-color: #1EC392!important }
-.answer-revealed .exercise__answer.type-2 {border-color: #0F7154!important;}
+.answer-revealed .exercise__answer.type-2 { background-color: #BEAD4E!important; border-color: #6D6014!important;}
 
 .answer-revealed .dropzone.type-3,
-.answer-revealed .exercise__answer.type-3 { background-color: #1757DC!important }
-.answer-revealed .exercise__answer.type-3 {border-color: #0E3586!important;}
+.answer-revealed .exercise__answer.type-3 { background-color: #609E8C!important; border-color: #0F5642!important;}
 
 .answer-revealed .dropzone.type-4,
-.answer-revealed .exercise__answer.type-4 { background-color: #A29E12!important }
-.answer-revealed .exercise__answer.type-4 {border-color: #585607!important;}
+.answer-revealed .exercise__answer.type-4 { background-color: #6577BA!important; border-color: #122054!important;}
 
 .answer-revealed .dropzone.type-5,
-.answer-revealed .exercise__answer.type-5 { background-color: #911CB1!important }
-.answer-revealed .exercise__answer.type-5 {border-color: #480C58!important;}
+.answer-revealed .exercise__answer.type-5 { background-color: #C57486!important; border-color: #6B1427!important;}
 
 .dropzone .exercise__answer {
 	margin-bottom: 8px;
