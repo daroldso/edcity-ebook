@@ -27,8 +27,14 @@ a:focus {
 .header {
 	margin-bottom: 20px;
 }
-.pager {margin: 0 0 14px;color: #fff;font-size: 1.3em;
-
+.pager {
+	margin: 0 0 14px;
+	color: #fff;
+	font-size: 1.3em;
+}
+.pager.single-question-ex {
+	opacity: 0;
+	visibility: hidden;
 }
 /* ==========================================================================
    Icons
