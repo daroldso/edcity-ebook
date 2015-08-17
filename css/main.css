@@ -360,7 +360,7 @@ a:focus {
 }
 .owl-carousel .owl-item {
 	min-height: 300px;
-	padding: 30px 40px 40px;
+	padding: 30px 37px 40px;
 }
 .owl-controls {
 	position: absolute;
@@ -886,7 +886,6 @@ a:focus {
 	min-height: 0;
 }
 .layout-14 .dragzone .exercise__answer {
-	border: 0;
 }
 .layout-14 .dragzone .exercise__answer-text {
 	height: 100%;
@@ -901,7 +900,7 @@ a:focus {
 	right: -18px;
 }
 .layout-14 .dropzone:after {
-	left: -19px;
+	left: -22px;
 }
 .layout-14 .qtype__tof .exercise__answer-list {
 	margin: 20px 0;
