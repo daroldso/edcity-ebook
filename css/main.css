@@ -163,7 +163,7 @@ a:focus {
 	font-size: 2em;
 	padding-left: 46px;
 	background: url(../img/flower.png) no-repeat;
-	background-size: contain;
+	background-size: 28px;
 }
 .exercise__question-number .fa {display: none;}
 .exercise__answer-list-outer {
