@@ -188,6 +188,70 @@ window.Book = {
 					},
 				]
 			},
+			'ex5': {
+				clientref: 1,
+				layout: 1,
+				name: "多謝唔該考考你",
+				instruction: "在以下的情況下，我們要說什麼？",
+				type: "chooseSingleCheckImmediate",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "朋友邀請我參加派對，我應該說？",
+						answers: [
+							{correct: true, selected: false, text: "多謝你的邀請"},
+							{correct: false, selected: false, text: "唔該"}
+						]
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "朋友載（送）我一程，我應該說？",
+						answers: [
+							{correct: true, selected: false, text: "多謝你送我一程"},
+							{correct: false, selected: false, text: "唔該哂"}
+						]
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "朋友請我吃飯，我應該說？",
+						answers: [
+							{correct: true, selected: false, text: "多謝你請我吃飯"},
+							{correct: false, selected: false, text: "唔該"}
+						]
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "朋友讚我做的食物好吃時，我應該說？",
+						answers: [
+							{correct: true, selected: false, text: "多謝"},
+							{correct: false, selected: false, text: "唔該"}
+						]
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "當朋友想起我，寫信給我時，我應該說？",
+						answers: [
+							{correct: true, selected: false, text: "多謝你"},
+							{correct: false, selected: false, text: "唔該"}
+						]
+					},
+				]
+			},
 		}
 	},
 	/**
