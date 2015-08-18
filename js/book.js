@@ -660,6 +660,47 @@ window.Book = {
 		}
 	},
 	/**
+	 * Chapter 5
+	 */
+	'ch5': {
+		exercises: {
+			'ex1': {
+				clientref: 2,
+				layout: 2,
+				name: "何時送禮物？",
+				instruction: '何時是送禮物給別人的好時機呢？請在適當的方格內加上「✔」吧。',
+				type: "chooseMultipleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "時機",
+						questionText2: "我的判斷",
+						answers: [
+							{correct: true, selected: false, text: "別人的生日"},
+							{correct: false, selected: false, text: "乘車時"},
+							{correct: false, selected: false, text: "探病時"},
+							{correct: true, selected: false, text: "聖誕節"},
+							{correct: false, selected: false, text: "清明節"},
+							{correct: false, selected: false, text: "上課日"},
+							{correct: true, selected: false, text: "母親節"},
+							{correct: true, selected: false, text: "畢業禮"},
+							{correct: false, selected: false, text: "睡覺時"},
+							{correct: true, selected: false, text: "父親節"},
+							{correct: true, selected: false, text: "參加婚禮"},
+							{correct: true, selected: false, text: "中秋節"}
+						],
+						numOfCorrectAnswers: 7,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					}
+				]
+			},
+
+		}
+	},
+	/**
 	 * Chapter 6
 	 */
 	'ch6': {

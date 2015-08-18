@@ -126,7 +126,7 @@ function init(chapter, ex) {
 
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
-				if(drake.containers[0] !== null) {
+				if(typeof drake !== "undefined" && drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
 					resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers);
@@ -156,7 +156,6 @@ function init(chapter, ex) {
 						
 					});
 				}
-				console.log(vue.questions[vue.currentQuestion]);
 			},
 			isAllCorrect: function() {
 				var questions = vue.questions;

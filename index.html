@@ -105,10 +105,10 @@
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
 			<h1 class="exercise__question exercise__question-number">
-				{{question.index+1}}. {{question.questionText}}
+				<span class="question-number">{{question.index+1}}.</span> <span class="exercise__question-text">{{question.questionText}}</span>
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
-			<p>{{question.questionText2}}</p>
+			<p class="exercise__question-text">{{question.questionText2}}</p>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer)">
