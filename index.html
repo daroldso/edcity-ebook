@@ -86,6 +86,7 @@
 </div>
 </script>
 
+<!-- True or False: Text -->
 <script id="layout-1-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
@@ -100,7 +101,8 @@
 		</div>
 	</div>
 </script>
-	
+
+<!-- MC: Text -->
 <script id="layout-2-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
@@ -126,6 +128,7 @@
 	</div>
 </script>
 
+<!-- MC: Text + Image -->
 <script id="layout-3-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
@@ -153,6 +156,7 @@
 	</div>
 </script>
 
+<!-- True or False: Text + Image -->
 <script id="layout-4-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
@@ -186,6 +190,7 @@
 	</div>
 </script>
 
+<!-- True or False: Text + Image: 2 columns -->
 <script id="layout-5-template" type="x-template">
 	<div class="owl-carousel">
 		<div class="row" v-repeat="question: questions" v-class="is-wrong: question.wrong">
@@ -219,6 +224,7 @@
 	</div>
 </script>
 
+<!-- True or False + MC: Text + 1 Image -->
 <script id="layout-6-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
@@ -271,7 +277,7 @@
 	</div>
 </script>
 
-<!-- Video Question -->
+<!-- True or False: Video -->
 <script id="layout-7-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
