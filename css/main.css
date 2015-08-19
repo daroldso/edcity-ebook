@@ -1011,27 +1011,29 @@ svg line {
 /* ==========================================================================
    Exercise Specific
    ========================================================================== */
-.ch5.ex1.layout-2 .question-number {display: none;}
-.ch5.ex1.layout-2 .exercise__question-number {
+.ch5.ex1 .question-number {display: none;}
+.ch5.ex1 .exercise__question-number {
 	float: left;
 	background: none;
 	padding-left: 46px;
 }
-.ch5.ex1.layout-2 .exercise__question-text {
+.ch5.ex1 .exercise__question-text {
 	text-align: right;
 	font-size: 22px;
 	padding-right: 30px;
 }
-.ch5.ex1.layout-2 .exercise__answer-list {
+.ch5.ex1 .exercise__answer-list {
 	display: block;
 	list-style-type: decimal;
 }
-.ch5.ex1.layout-2 .exercise__answer-text {padding-left: 20px;
+.ch5.ex1 .exercise__answer-text {padding-left: 20px;
 
 }
-.ch5.ex1.layout-2 .exercise__answer .fa {
+.ch5.ex1 .exercise__answer .fa {
 	float: right;
 	margin-right: 54px;
 }
-.ch5.ex1.layout-2 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: none;}
-.ch5.ex1.layout-2 .answer-checked .exercise__answer.is-selected:before {right: 15px;}
+.ch5.ex1 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: none;}
+.ch5.ex1 .answer-checked .exercise__answer.is-selected:before {right: 15px;}
+
+.ch5.ex2 .question-number {visibility: hidden;}

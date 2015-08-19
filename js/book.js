@@ -697,7 +697,33 @@ window.Book = {
 					}
 				]
 			},
-
+			'ex2': {
+				clientref: 2,
+				layout: 3,
+				name: "何處買禮物？",
+				instruction: '我可以到哪裡購買禮物呢？請在正確地方的圖片加上「✔」號。',
+				type: "chooseMultipleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: "旅行社"},
+							{correct: true, selected: false, text: "商場"},
+							{correct: false, selected: false, text: "圖書館"},
+							{correct: true, selected: false, text: "超級市場"},
+							{correct: false, selected: false, text: "學校"},
+							{correct: false, selected: false, text: "快餐店"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					}
+				]
+			},
 		}
 	},
 	/**
