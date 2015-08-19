@@ -90,7 +90,10 @@
 <script id="layout-1-template" type="x-template">
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
-			<h1 class="exercise__question exercise__question-number">{{question.index+1}}. {{question.questionText}} </h1>
+			<h1 class="exercise__question exercise__question-number">
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+			</h1>
 			<div class="exercise__answer-list-outer" v-class="answer-checked: isAnswerChecked">
 				<ol class="exercise__answer-list">
 					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
@@ -107,7 +110,8 @@
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
 			<h1 class="exercise__question exercise__question-number">
-				<span class="question-number">{{question.index+1}}.</span> <span class="exercise__question-text">{{question.questionText}}</span>
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
 			<p class="exercise__question-text">{{question.questionText2}}</p>
@@ -133,7 +137,8 @@
 	<div class="owl-carousel">
 		<div v-repeat="question: questions">
 			<h1 class="exercise__question exercise__question-number">
-				{{question.index+1}}. {{question.questionText}}
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
 			<div class="exercise__answer-list-outer">
