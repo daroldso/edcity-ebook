@@ -1238,6 +1238,65 @@ window.Book = {
 				]
 			},
 		}
+	},
+	/**
+	 * Chapter 9
+	 */
+	'ch9': {
+		exercises: {
+			
+		}
+	},
+	/**
+	 * Chapter 10
+	 */
+	'ch10': {
+		exercises: {
+			'ex1': {
+				clientref: 2,
+				layout: 2,
+				name: "故事理解1",
+				instruction: '聽完「講錯話的亞南」故事後，請回答下列問題。',
+				type: "chooseMultipleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "請選出故事的主角，按下方格選出合適的答案。",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: "亞明"},
+							{correct: true, selected: false, text: "亞南"},
+							{correct: false, selected: false, text: "亞輝"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "下面哪些是令人不開心的話題，請按下方格選出合適的答案。",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: "讚美對方"},
+							{correct: true, selected: false, text: "批評對方的外表、衣著和身材等"},
+							{correct: false, selected: false, text: "一些好玩的活動"},
+							{correct: true, selected: false, text: "有關死亡、重病"},
+							{correct: true, selected: false, text: "內衣褲"},
+							{correct: false, selected: false, text: "好看的電視節目"},
+							{correct: false, selected: false, text: "大減價貨品"},
+							{correct: true, selected: false, text: "說出對方有體味"},
+						],
+						numOfCorrectAnswers: 4,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					}
+				]
+			},
+		}
 	}
 }
 
