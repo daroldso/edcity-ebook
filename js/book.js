@@ -529,6 +529,105 @@ window.Book = {
 	 */
 	'ch3': {
 		exercises: {
+			'ex1': {
+				clientref: 3,
+				layout: 4,
+				name: "打招呼時會說甚麼呢？",
+				instruction: "以下哪些是正確的打招呼用語呢？把它們找出來吧！",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			// 配對 三圖片排序分到三格
 			'ex2': {
 				clientref: 11,

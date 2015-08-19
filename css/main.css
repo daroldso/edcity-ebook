@@ -1037,3 +1037,23 @@ svg line {
 .ch5.ex1 .answer-checked .exercise__answer.is-selected:before {right: 15px;}
 
 .ch5.ex2 .question-number {visibility: hidden;}
+
+.ch3.ex1 .exercise__question {
+	float: left;
+}
+.ch3.ex1 .exercise__question-content {
+	float: none;
+	width: 100%;
+}
+.ch3.ex1 .exercise__question .exercise__question-image {
+	width: auto;
+	height: auto;
+}
+.ch3.ex1 .exercise__answer-list-outer {
+	margin-left: 256px;
+}
+.ch3.ex1 .exercise__answer {
+	margin-bottom: 7px;
+	display: block;
+	width: 100%;
+}
