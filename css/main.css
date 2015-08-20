@@ -32,9 +32,11 @@ a:focus {
 	color: #fff;
 	font-size: 1.3em;
 }
-.pager.single-question-ex {
-	opacity: 0;
-	visibility: hidden;
+.single-question-ex .pager {
+	display: none;
+}
+.single-question-ex .owl-controls {
+	top: -62px;
 }
 /* ==========================================================================
    Icons
@@ -113,7 +115,7 @@ a:focus {
 .exercise__name-outer {
 	margin-bottom: 30px;
 	background-color: #fff;
-	padding: 30px 40px 40px 130px;
+	padding: 20px 40px 24px 130px;
 	
 }
 .exercise__name {
@@ -163,7 +165,7 @@ a:focus {
 	font-size: 2em;
 	padding-left: 36px;
 	background: url(../img/flower.png) no-repeat;
-	background-size: 28px;
+	background-size: 33px;
 }
 .exercise__question-number .fa {display: none;}
 .exercise__answer-list-outer {
@@ -363,7 +365,7 @@ a:focus {
 }
 .owl-carousel .owl-item {
 	min-height: 300px;
-	padding: 30px 37px 40px;
+	padding: 30px 37px 10px;
 }
 .owl-controls {
 	position: absolute;
@@ -460,7 +462,7 @@ a:focus {
 .layout-7 .answer-checked .exercise__answer.is-selected:before {content: ''}
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
 .layout-5 .answer-checked .exercise__answer.is-selected.is-correct-answer:after,
-.layout-7 .answer-checked .exercise__answer.is-selected.is-correct-answer:after, {content: "答對了！"}
+.layout-7 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {content: "答對了！"}
 
 .layout-4 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
 	bottom: -35px;
@@ -1038,22 +1040,101 @@ svg line {
 
 .ch5.ex2 .question-number {visibility: hidden;}
 
-.ch3.ex1 .exercise__question {
+.ch3.ex1 .exercise__question,
+.ch2.ex3 .exercise__question,
+.ch5.ex3 .exercise__question,
+.ch8.ex2 .exercise__question
+{
 	float: left;
 }
-.ch3.ex1 .exercise__question-content {
+.ch3.ex1 .exercise__question-content
+{
 	float: none;
 	width: 100%;
 }
-.ch3.ex1 .exercise__question .exercise__question-image {
+.ch3.ex1 .exercise__question .exercise__question-image,
+.ch2.ex3 .exercise__question .exercise__question-image,
+.ch5.ex3 .exercise__question .exercise__question-image,
+.ch8.ex2 .exercise__question .exercise__question-image
+{
 	width: auto;
 	height: auto;
 }
-.ch3.ex1 .exercise__answer-list-outer {
+.ch3.ex1 .exercise__answer-list-outer
+{
 	margin-left: 256px;
 }
-.ch3.ex1 .exercise__answer {
+.ch3.ex1 .exercise__answer,
+.ch2.ex3 .exercise__answer,
+.ch5.ex3 .exercise__answer,
+.ch8.ex2 .exercise__answer
+{
 	margin-bottom: 7px;
 	display: block;
 	width: 100%;
+}
+.ch3.ex4 .exercise__answer {
+	margin-bottom: 20px;
+}
+.ch3.ex4 .exercise__answer-text .exercise__answer-image {
+	height: 173px;
+
+}
+.ch2.ex3 .exercise__question,
+.ch5.ex3 .exercise__question,
+.ch8.ex2 .exercise__question
+{
+	width: 56%;
+}
+.ch2.ex3 .exercise__question-content,
+.ch5.ex3 .exercise__question-content,
+.ch8.ex2 .exercise__question-content
+{width: 100%;
+}
+.ch2.ex3 .exercise__question .exercise__question-image,
+.ch5.ex3 .exercise__question .exercise__question-image,
+.ch8.ex2 .exercise__question .exercise__question-image
+{
+	max-height: 280px;
+	max-width: 100%;
+}
+.ch2.ex3 .exercise__answer-list-outer,
+.ch5.ex3 .exercise__answer-list-outer,
+.ch8.ex2 .exercise__answer-list-outer
+{
+	margin-left: 320px;
+}
+.ch2.ex3 .answer-checked .exercise__answer.is-selected:before,
+.ch5.ex3 .answer-checked .exercise__answer.is-selected:before
+{
+	bottom: 11px;
+	margin-left: 42px;
+}
+.ch2.ex3 .is-wrong .exercise__answer-list:before,
+.ch5.ex3 .is-wrong .exercise__answer-list:before,
+.ch8.ex2 .is-wrong .exercise__answer-list:before,
+.ch8.ex2 .answer-checked .exercise__answer.is-selected:before
+{
+	top: inherit;
+	bottom: -40px;
+}
+.ch2.ex3 .is-wrong .exercise__answer-list:after,
+.ch5.ex3 .is-wrong .exercise__answer-list:after,
+.ch8.ex2 .is-wrong .exercise__answer-list:after,
+.ch8.ex2 .answer-checked .exercise__answer.is-selected:after
+{
+	top: inherit;
+	bottom: -45px;
+}
+
+.ch8.ex2 .exercise__answer {
+	position: static;
+}
+.ch8.ex2 .answer-checked .exercise__answer.is-selected:before{
+	right: inherit;
+	margin-left: -50px;
+}
+.ch8.ex2 .answer-checked .exercise__answer.is-selected:after {
+	right: inherit;
+	margin-left: -17px;
 }

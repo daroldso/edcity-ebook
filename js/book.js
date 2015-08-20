@@ -394,6 +394,159 @@ window.Book = {
 					},
 				]
 			},
+			'ex3': {
+				clientref: 4,
+				layout: 4,
+				name: "打招呼時會說甚麼呢？",
+				instruction: "以下哪些是正確的打招呼用語呢？把它們找出來吧！",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "情境一﹕身體不適，向救護人員求助。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "情境二﹕遇到意外要求救。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionText: "情境三：被人搶劫要求救。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionText: "情境四：遺失重要物品要和上司報告，而上司正在工作。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionText: "情境五﹕遇到意外要求救。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						questionText: "情境六﹕主角想與人閒談，而那個人正在做家務。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						questionText: "情境七﹕廚房的水煲滾了，而媽媽正在接聽電話。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 7,
+						correct: false,
+						wrong: false,
+						questionText: "情境八﹕有重要事情要向對方說，而他正在看圖書。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 8,
+						correct: false,
+						wrong: false,
+						questionText: "情境九﹕想與人閒談，而那個人正在聽歌。",
+						questionContent: [
+							"唔好意思！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex4': {
 				clientref: 8,
 				layout: 7,
@@ -701,6 +854,33 @@ window.Book = {
 					},
 				]
 			},
+			'ex4': {
+				clientref: 3,
+				layout: 3,
+				name: "何處買禮物？",
+				instruction: '我可以到哪裡購買禮物呢？請在正確地方的圖片加上「✔」號。',
+				type: "chooseMultipleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: ""},
+							{correct: true, selected: false, text: "你好"},
+							{correct: false, selected: false, text: ""},
+							{correct: false, selected: false, text: ""},
+							{correct: false, selected: false, text: ""},
+							{correct: true, selected: false, text: "午安"},
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					}
+				]
+			},
 		}
 	},
 	/**
@@ -749,6 +929,54 @@ window.Book = {
 							{correct: true, selected: false, text: "說：『我害怕動物』"},
 							{correct: false, selected: false, text: "保持安靜"},
 							{correct: false, selected: false, text: "躺在地上大聲哭叫"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex4': {
+				clientref: 5,
+				layout: 5,
+				name: "怎樣才是正確的表達方式？ ",
+				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？請「✔」出正確的答案。",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "打自己"},
+							{correct: true, selected: false, text: "說：『我想吃壽司』"},
+							{correct: false, selected: false, text: "保持安靜"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "躺在地上大聲叫"},
+							{correct: true, selected: false, text: "說：『我想看卡通片』"},
+							{correct: false, selected: false, text: "拍打媽媽"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "推開對方"},
+							{correct: false, selected: false, text: "說：『早晨!』"},
+							{correct: true, selected: false, text: "說：『演唱會好嘈！』"},
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
@@ -821,6 +1049,135 @@ window.Book = {
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					}
+				]
+			},
+			'ex3': {
+				clientref: 4,
+				layout: 4,
+				name: "送禮物時，可以講乜嘢？",
+				instruction: "以下哪些是送禮物時可以說的說話呢？請按「✔」或「×」顯示對錯吧！",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，祝你生日快樂，希望你鍾意啦！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，係我唔要嘅！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，係你鍾意嘅車仔！"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，祝你聖誕快樂，希望你鍾意啦！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，你病咗好耐啦！有無好返ｄ呀？"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"你無錢買，所以我送俾你嫁。"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你，你終於都畢業啦！祝你前程似錦！"
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 7,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							"送俾你！你係唔係雙失青年呀？"
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
 				]
 			},
 		}
@@ -1331,6 +1688,120 @@ window.Book = {
 							{correct: true, selected: false, text: "用腳踢同學。", type: "mc"},
 						],
 						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex2': {
+				clientref: 4,
+				layout: 4,
+				name: "可以不可以？",
+				instruction: "以下哪些是正確的做法？請按「✔」或「×」顯示對錯吧！",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: true, selected: false},
+							{correct: false, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						questionContent: [
+							""
+						],
+						answers: [
+							{correct: false, selected: false},
+							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					},

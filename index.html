@@ -54,8 +54,8 @@
 					</div>
 				</div>
 
-				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked">
-					<div class="pager" v-class="single-question-ex: totalNumOfQuestion == 1">
+				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked, single-question-ex: totalNumOfQuestion == 1">
+					<div class="pager">
 						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
 					</div>
 					<div id="actions"></div>
@@ -166,8 +166,9 @@
 	<div class="owl-carousel">
 		<div v-repeat="question: questions" v-class="is-wrong: question.wrong">
 			<div class="exercise__question-number">
-				{{question.index+1}}.
-				<i class="fa" v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</div>
 			<div class="exercise__question clearfix">
 				<div class="exercise__question-content" v-repeat="text: question.questionContent">
