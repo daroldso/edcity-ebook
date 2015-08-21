@@ -201,7 +201,8 @@
 	<div class="owl-carousel">
 		<div class="row" v-repeat="question: questions" v-class="is-wrong: question.wrong">
 			<div class="exercise__question-number">
-				{{question.index+1}}.
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
 			</div>
 			<div class="exercise__question  col-xs-6">
 				<div class="exercise__question-content">
