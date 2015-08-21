@@ -939,7 +939,7 @@ window.Book = {
 			'ex4': {
 				clientref: 5,
 				layout: 5,
-				name: "怎樣才是正確的表達方式？ ",
+				name: "怎樣才是正確的表達方式？",
 				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？請「✔」出正確的答案。",
 				type: "chooseSingleAnswer",
 				questions:  [
@@ -977,6 +977,54 @@ window.Book = {
 							{correct: false, selected: false, text: "推開對方"},
 							{correct: false, selected: false, text: "說：『早晨!』"},
 							{correct: true, selected: false, text: "說：『演唱會好嘈！』"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex5': {
+				clientref: 5,
+				layout: 5,
+				name: "怎樣才是正確的表達方式？",
+				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？請「✔」出正確的答案。",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "推開媽媽"},
+							{correct: true, selected: false, text: "說：『我想要一件新衣』"},
+							{correct: false, selected: false, text: "自己走開"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: true, selected: false, text: "說：『我打破了』"},
+							{correct: false, selected: false, text: "躺在地上大聲叫"},
+							{correct: false, selected: false, text: "打自己"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						answers: [
+							{correct: false, selected: false, text: "大哭"},
+							{correct: false, selected: false, text: "大笑"},
+							{correct: true, selected: false, text: "說：『同學踢我』"},
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
@@ -1800,6 +1848,155 @@ window.Book = {
 						answers: [
 							{correct: false, selected: false},
 							{correct: true, selected: false},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex3': {
+				clientref: 5,
+				layout: 5,
+				name: "被取笑時，怎麼辦？",
+				instruction: "被人取笑時，你會怎麼辦呢？請按下適當的答案。",
+				type: "chooseSingleAnswer",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "在街上，有人笑我…",
+						answers: [
+							{correct: false, selected: false, text: "會打那人"},
+							{correct: false, selected: false, text: "“ 你先係傻仔！”"},
+							{correct: true, selected: false, text: "深呼吸，不理會。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "在巴士站，有人笑我…",
+						answers: [
+							{correct: false, selected: false, text: "立即哭起來。"},
+							{correct: true, selected: false, text: "冷靜下來繼續上車，不理會他。"},
+							{correct: false, selected: false, text: "向司機投訴。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionText: "在快餐店，有職員笑我…",
+						answers: [
+							{correct: true, selected: false, text: "“你好無禮貌，我向經理投訴。”"},
+							{correct: false, selected: false, text: "“我想買一杯可樂。”"},
+							{correct: false, selected: false, text: "大力拍枱。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionText: "在家被哥哥笑",
+						answers: [
+							{correct: false, selected: false, text: "打哥哥。"},
+							{correct: true, selected: false, text: "不理他，不發脾氣，繼續做功課。"},
+							{correct: false, selected: false, text: "“豬頭炳，你好叻咩!”"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionText: "在學校操場，有同學笑我",
+						answers: [
+							{correct: true, selected: false, text: "站起來找老師幫忙。"},
+							{correct: false, selected: false, text: "向同學吐口水。"},
+							{correct: false, selected: false, text: "坐在地上大哭。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 5,
+						correct: false,
+						wrong: false,
+						questionText: "在課室，有同學笑我",
+						answers: [
+							{correct: false, selected: false, text: "撕爛默書簿。"},
+							{correct: true, selected: false, text: "轉身行開，收起默書簿。"},
+							{correct: false, selected: false, text: "搶別人的默書簿。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 6,
+						correct: false,
+						wrong: false,
+						questionText: "在廁所，有同學笑我",
+						answers: [
+							{correct: false, selected: false, text: "用水潑同學。"},
+							{correct: false, selected: false, text: "“關你鬼事咩!”"},
+							{correct: true, selected: false, text: "“你咁講係無禮貌。”"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 7,
+						correct: false,
+						wrong: false,
+						questionText: "在走廊，有同學笑我",
+						answers: [
+							{correct: true, selected: false, text: "深呼吸，轉身行開。"},
+							{correct: false, selected: false, text: "用腳踢同學。"},
+							{correct: false, selected: false, text: "打自己心口。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 8,
+						correct: false,
+						wrong: false,
+						questionText: "上體育堂時，有同學笑我",
+						answers: [
+							{correct: false, selected: false, text: "用腳踢同學。"},
+							{correct: true, selected: false, text: "繼續打波，保持冷靜。"},
+							{correct: false, selected: false, text: "向老師投訴。"},
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 9,
+						correct: false,
+						wrong: false,
+						questionText: "吃午餐時，有同學笑我",
+						answers: [
+							{correct: true, selected: false, text: "收起飯盒不吃飯。"},
+							{correct: false, selected: false, text: "告訴老師或家人。"},
+							{correct: false, selected: false, text: "推倒同學的飯盒。"},
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
