@@ -888,6 +888,162 @@ window.Book = {
 	 */
 	'ch4': {
 		exercises: {
+			'ex1a': {
+				clientref: 7,
+				layout: 6,
+				name: "基本故事理解",
+				instruction: "根據「唔識表達嘅亞美」故事內容，回答下列各題。",
+				type: "chooseSingleAndMultipleAnswers",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "誰是主角？請「✔」出正確的答案。",
+						answers: [
+							{correct: false, selected: false, text: "亞明", atype: "tof"},
+							{correct: false, selected: false, text: "亞東", atype: "tof"},
+							{correct: true, selected: false, text: "亞美", atype: "tof"},
+							{correct: false, selected: false, text: "保持安靜", atype: "mc"},       	
+							{correct: false, selected: false, text: "躺在地上大聲哭鬧", atype: "mc"},
+							{correct: false, selected: false, text: "大聲叫", atype: "mc"},	
+							{correct: true, selected: false, text: "說出/寫出自己的想法", atype: "mc"},
+							{correct: true, selected: false, text: "說出自己的感受", atype: "mc"},	
+							{correct: false, selected: false, text: "拍打身邊的人", atype: "mc"},
+							{correct: false, selected: false, text: "打自己", atype: "mc"},	
+							{correct: true, selected: false, text: "說出自己的要求", atype: "mc"},
+						],
+						numOfCorrectAnswers: 4,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
+			'ex1b': {
+				clientref: 7,
+				layout: 16,
+				name: "基本故事理解",
+				instruction: "根據「唔識表達嘅亞美」故事內容， 選出正確的情景，並依照故事內容，圈出亞美的表達方法是否正確。",
+				baseScore: 10,
+				type: "chooseSingleAnswerTwice",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "小美吃早餐時，她如何表達自己？",
+						answers: [
+							[
+								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
+								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
+								{correct: true, selected: false, text: "大聲叫", atype: "tof0"},
+								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
+								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
+							],
+							[
+								{correct: false, selected: false, text: "正確", atype: "tof1"},
+								{correct: true, selected: false, text: "不正確", atype: "tof1"}
+							],
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						correctAnswerCount0: 0,
+						correctAnswerCount1: 0,
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "派發試卷時，她如何表達自己？",
+						answers: [
+							[
+								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
+								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
+								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
+								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
+								{correct: true, selected: false, text: "打自己個頭", atype: "tof0"}
+							],
+							[
+								{correct: false, selected: false, text: "正確", atype: "tof1"},
+								{correct: true, selected: false, text: "不正確", atype: "tof1"}
+							],
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						correctAnswerCount0: 0,
+						correctAnswerCount1: 0,
+					},
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						questionText: "小美飯後找李老師，她如何表達自己？",
+						answers: [
+							[
+								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
+								{correct: true, selected: false, text: "打身邊的人", atype: "tof0"},
+								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
+								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
+								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
+							],
+							[
+								{correct: false, selected: false, text: "正確", atype: "tof1"},
+								{correct: true, selected: false, text: "不正確", atype: "tof1"}
+							],
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						correctAnswerCount0: 0,
+						correctAnswerCount1: 0,
+					},
+					{
+						index: 3,
+						correct: false,
+						wrong: false,
+						questionText: "亞輝取去小美的新筆，她如何表達自己？",
+						answers: [
+							[
+								{correct: true, selected: false, text: "坐在地上", atype: "tof0"},
+								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
+								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
+								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
+								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
+							],
+							[
+								{correct: false, selected: false, text: "正確", atype: "tof1"},
+								{correct: true, selected: false, text: "不正確", atype: "tof1"}
+							],
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						correctAnswerCount0: 0,
+						correctAnswerCount1: 0,
+					},
+					{
+						index: 4,
+						correct: false,
+						wrong: false,
+						questionText: "派發試卷時，她如何表達自己？",
+						answers: [
+							[
+								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
+								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
+								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
+								{correct: true, selected: false, text: "把所想要求說出", atype: "tof0"},
+								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
+							],
+							[
+								{correct: true, selected: false, text: "正確", atype: "tof1"},
+								{correct: false, selected: false, text: "不正確", atype: "tof1"}
+							],
+						],
+						numOfCorrectAnswers: 2,
+						correctAnswerCount: 0,
+						correctAnswerCount0: 0,
+						correctAnswerCount1: 0,
+					},
+				]
+			},
 			'ex2': {
 				clientref: 10,
 				layout: 10,
@@ -1279,13 +1435,13 @@ window.Book = {
 				layout: 14,
 				name: "騷擾人的阿傑",
 				instruction: "看完基本故事後，請把相關的人和事連起來，然後再判斷阿傑應否和他們談話。",
+				baseScore: 10,
 				type: "dragnDrop_MultipleDropzone_TrueOrFalse",
 				dragndropType: "multipleDropzone",
 				dragndropBehavior: "drawLines_vertical",
 				questions:  [
 					{
 						index: 0,
-						baseScore: 10,
 						correct: false,
 						wrong: false,
 						isCorrect: false,
@@ -1684,13 +1840,13 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						text: "適當的回應是甚麼？請按下正確的答案：",
+						questionText: "適當的回應是甚麼？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: false, selected: false, text: "“你先係排骨仔呀。”", type: "mc"},
-							{correct: false, selected: false, text: "“作死呀。”", type: "mc"},
-							{correct: true, selected: false, text: "“你咁樣好無禮貌。”", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof"},
+							{correct: true, selected: false, text: "", atype: "tof"},
+							{correct: false, selected: false, text: "“你先係排骨仔呀。”", atype: "mc"},
+							{correct: false, selected: false, text: "“作死呀。”", atype: "mc"},
+							{correct: true, selected: false, text: "“你咁樣好無禮貌。”", atype: "mc"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
@@ -2180,13 +2336,13 @@ window.Book = {
 				layout: 14,
 				name: "故事理解 2",
 				instruction: "依「講錯嘢嘅亞南」故事內容，把有關的話題回應連接起來。，然後再決定說話內容是否正確。",
+				baseScore: 10,
 				type: "dragnDrop_MultipleDropzone_TrueOrFalse",
 				dragndropType: "multipleDropzone",
 				dragndropBehavior: "drawLines_vertical",
 				questions:  [
 					{
 						index: 0,
-						baseScore: 10,
 						correct: false,
 						wrong: false,
 						isCorrect: false,

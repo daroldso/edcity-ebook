@@ -11,6 +11,7 @@ vue = new Vue({
     el:"#chapter",	
     data: {
     	chapterNum: "",
+    	exercise: "",
     	exerciseNum: "",
     	exerciseName: "",
     	exerciseInstruction: "",
@@ -54,7 +55,7 @@ function init(chapter, ex) {
 	var exercise = chapter.exercises['ex'+vue.exerciseNum];
 
 	vue.layoutNumber = exercise.layout;
-
+	vue.exercise = exercise;
 	// assign all the questions in the exercise 1-3 to Vue
 	vue.questions = exercise.questions;
 	// assign exercise name to Vue
@@ -110,9 +111,17 @@ function init(chapter, ex) {
 				var questions = vue.questions;
 				for (var i = 0; i < questions.length; i++) {
 					var answers =  questions[i].answers;
-					for (var j = 0; j < answers.length; j++) {
-						answers[j].selected = false;
-					};
+					if(questions[i].correctAnswerCount0 !== undefined) {
+						for (var j = 0; j < answers.length; j++) {
+							_.times(answers[j].length, function(k) {
+								answers[j][k].selected = false;
+							});
+						};
+					} else {
+						for (var j = 0; j < answers.length; j++) {
+							answers[j].selected = false;
+						};
+					}
 					questions[i].correct = false;
 					questions[i].wrong = false;
 					questions[i].isCorrect = false;
@@ -234,8 +243,8 @@ function sortAnswers () {
 }
 
 function getBaseScore () {
-	if(vue.questions[vue.currentQuestion].baseScore) {
-		return vue.questions[vue.currentQuestion].baseScore;
+	if(vue.exercise.baseScore) {
+		return vue.exercise.baseScore;
 	}
 
 	var answers = _.map(vue.questions, 'answers');

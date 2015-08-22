@@ -38,6 +38,10 @@ window.validateMethods = {
 		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 	},
+	'chooseSingleAnswerTwice': {
+		chooseAnswer: chooseAnswer_MultipleSingleAnswers,
+		checkAnswer: checkAnswer_MultipleSingleAnswers,
+	},
 	/**
 	 * Drag n Drop One Dropzone
 	 */
@@ -226,6 +230,46 @@ function checkAnswer_MultipleAnswers () {
 	vue.studentScore = 0;
 	_.times(questions.length, function (i) {
 		if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
+			questions[i].correct = true;
+			questions[i].wrong = false;
+			vue.totalNumOfCorrect++;
+		} else {
+			questions[i].correct = false;
+			questions[i].wrong = true;
+		}
+		vue.studentScore += questions[i].correctAnswerCount;
+	});
+
+	// Show "正確答案" button
+	actionsView.setCheckAnswerState(true);
+
+	vue.allCorrect = actionsView.isAllCorrect();
+	removeFlash.call(this);
+}
+
+function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
+	actionsView.setCheckAnswerState(false);
+
+	_.times(answers.length, function (i) {
+		answers[i].selected = false;
+	});
+
+	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
+	question['correctAnswerCount'+index] = ~~answer.correct;
+
+	console.log("correctAnswerCount: "+question['correctAnswerCount'+index]);
+
+	answer.selected = !answer.selected;
+}
+
+function checkAnswer_MultipleSingleAnswers () {
+	var questions = vue.questions;
+	vue.totalNumOfCorrect = 0;
+	vue.studentScore = 0;
+
+	_.times(questions.length, function (i) {
+		questions[i].correctAnswerCount = questions[i].correctAnswerCount0 + questions[i].correctAnswerCount1;
+		if(questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
 			questions[i].correct = true;
 			questions[i].wrong = false;
 			vue.totalNumOfCorrect++;
