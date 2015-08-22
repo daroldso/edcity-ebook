@@ -888,6 +888,44 @@ window.Book = {
 	 */
 	'ch4': {
 		exercises: {
+			'ex2': {
+				clientref: 10,
+				layout: 10,
+				name: "怎樣才是正確的表達方式？",
+				instruction: "當我們感到別人不明白我們的想法或不滿時，怎樣才是恰當的表達方式？什麼是不恰當的表達呢？把下面的圖片分類，並拉到正確的方格內。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "恰當的表達", answer: ""},
+							{type: 2, text: "不恰當的表達", answer: ""},
+						],
+						answers: [
+							{ index: 0, type: 2, correct: false, selected: false, text: ""},
+							{ index: 1, type: 2, correct: false, selected: false, text: ""},
+							{ index: 2, type: 1, correct: false, selected: false, text: ""},
+							{ index: 3, type: 1, correct: false, selected: false, text: ""},
+							{ index: 4, type: 2, correct: false, selected: false, text: ""},
+							{ index: 5, type: 1, correct: false, selected: false, text: ""},
+							{ index: 6, type: 1, correct: false, selected: false, text: ""},
+							{ index: 7, type: 2, correct: false, selected: false, text: ""},
+						],
+						// numOfCorrectAnswers: 3,
+						correctAnswerCount: 0,
+						// wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex3': {
 				clientref: 5,
 				layout: 5,
@@ -2061,6 +2099,40 @@ window.Book = {
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					}
+				]
+			},
+			'ex3': {
+				clientref: 10,
+				layout: 10,
+				name: "恰當和沒有禮貌的說話",
+				instruction: "當我們和朋友談話時，甚麼是恰當的說話，甚麼是沒有禮貌的說話呢？請把以下情境圖片拉放在適當的欄內。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "normal",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "恰當的話", answer: ""},
+							{type: 2, text: "沒有禮貌的話", answer: ""},
+						],
+						answers: [
+							{ index: 0, type: 2, correct: false, selected: false, text: ""},
+							{ index: 1, type: 1, correct: false, selected: false, text: ""},
+							{ index: 2, type: 2, correct: false, selected: false, text: ""},
+							{ index: 3, type: 1, correct: false, selected: false, text: ""},
+						],
+						// numOfCorrectAnswers: 3,
+						correctAnswerCount: 0,
+						// wrongAnswerCount: 0
+					},
 				]
 			},
 		}

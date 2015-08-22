@@ -1139,3 +1139,47 @@ svg line {
 	right: inherit;
 	margin-left: -17px;
 }
+
+.ch4.ex2 .dropzone,
+.ch10.ex3 .dropzone
+{width: 50%;}
+.ch4.ex2 .dragzone,
+.ch10.ex3 .dragzone
+{padding: 0;}
+.ch4.ex2 .dragzone .exercise__answer {width: 32.1%;}
+.ch10.ex3 .dragzone .exercise__answer {width: 48%;}
+
+.ch4.ex2 .dropzone .exercise__answer,
+.ch10.ex3 .dropzone .exercise__answer
+{
+	display: inline-block;
+	margin: 0 1% 10px;
+}
+.ch4.ex2 .dropzone .exercise__answer {width: 48%;}
+.ch4.ex2 .exercise__answer-image,
+.ch10.ex3 .exercise__answer-image
+{
+	margin-bottom: 0;
+	width: 100%;
+}
+.ch4.ex2 .exercise__answer-image { height: 124px; }
+.ch4.ex2 .dropzone .exercise__answer-image {height: 80px;}
+.ch4.ex2 .exercise__answer-text,
+.ch10.ex3 .exercise__answer-text
+{display: none;}
+.ch4.ex2 .answer-checked .exercise__answer.is-selected:before,
+.ch10.ex3 .answer-checked .exercise__answer.is-selected:before
+{
+	top: 0px;
+	left: 50%;
+	margin-left: -13px;
+}
+.ch4.ex2 .answer-checked .exercise__answer.is-selected:after,
+.ch10.ex3 .answer-checked .exercise__answer.is-selected:after,
+.ch4.ex2 .answer-revealed .dropzone:after,
+.ch10.ex3 .answer-revealed .dropzone:after
+{content: none;}
+
+.ch10.ex3 .exercise__answer-image {	height: 174px; }
+.ch10.ex3 .dropzone .exercise__answer {width: 100%;}
+.ch10.ex3 .dropzone .exercise__answer-image {height: 174px;}
