@@ -182,7 +182,7 @@ a:focus {
 }
 .exercise__answer {
 	margin-bottom: 4px;
-	font-size: 1.5em;
+	font-size: 21px;
 	position: relative;
 	background-color: #FFEBB5;
 	border: 3px dashed transparent;
@@ -321,6 +321,9 @@ a:focus {
 .answer-revealed .dropzone.type-5,
 .answer-revealed .exercise__answer.type-5 { background-color: #C57486!important; border-color: #6B1427!important;}
 
+.answer-revealed .dropzone.type-6,
+.answer-revealed .exercise__answer.type-6 { background-color: #7F5C83!important; border-color: #421248!important;}
+
 .dropzone .exercise__answer {
 	margin-bottom: 8px;
 	padding-right: 36px;
@@ -338,7 +341,7 @@ a:focus {
 	content: attr(data-text);
 	display: block;
 	margin-bottom: 10px;
-	font-size: 18px;
+	font-size: 21px;
 }
 .layout-12 .dropzone:after {
 	content: attr(data-correct);
