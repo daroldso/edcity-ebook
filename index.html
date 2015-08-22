@@ -568,6 +568,43 @@
 		</div>
 	</div>
 </script>
+
+<!-- Drag and Drop (line matching) vertical: Left Drag - Right Drop -->
+<script id="layout-15-template" type="x-template">
+	<div class="owl-carousel">
+		<div class="question" v-repeat="question: questions">
+			<h1 class="exercise__question exercise__question-number">
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<div class="exercise__answer-list-outer">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="dragzones-outer">
+							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
+									v-class="
+										is-correct-answer: answer.correct,
+										is-selected: answer.selected
+									" v-on="click: chooseAnswer(question, answer)">
+									<span class="exercise__answer-text">
+										{{ answer.text }}
+									</span>
+								</li>
+							</ol>
+						</div>
+						<div class="dropzones-outer clearfix">
+							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+							</ol>
+						</div>
+						<svg id="draw-panel"></svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
 	
 	<script src="vendor/owl.carousel/owl.carousel.js"></script>
 	<script src="vendor/dragula/dragula.min.js"></script>

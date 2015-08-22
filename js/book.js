@@ -2049,7 +2049,80 @@ window.Book = {
 	 */
 	'ch9': {
 		exercises: {
-			
+			'ex2': {
+				clientref: 14,
+				layout: 15,
+				name: "回應話題",
+				instruction: "請用線把相同話題聯起來。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{ type: 1, text: "嘩！好似好好味。" },
+							{ type: 2, text: "有咩節目呀？" },
+							{ type: 3, text: "成日落雨，都未停過。無得去啦。" },
+							{ type: 4, text: "新書包囉。" },
+							{ type: 5, text: "有呀，好精彩呀！" },
+							{ type: 6, text: "我借比你啦！" },
+						],
+						answers: [
+							{ index: 0, type: 4, correct: false, selected: false, text: "你買咗咩呀？"},
+							{ index: 1, type: 1, correct: false, selected: false, text: "今晚食蒸魚。"},
+							{ index: 2, type: 6, correct: false, selected: false, text: "哎呀！我唔記得帶水彩呢！"},
+							{ index: 3, type: 3, correct: false, selected: false, text: "今個夏天有冇去游水呀？"},
+							{ index: 4, type: 5, correct: false, selected: false, text: "有冇睇星期日套卡通片呀？"},
+							{ index: 5, type: 2, correct: false, selected: false, text: "星期六得唔得閒呀？"},
+						],
+						correctAnswerCount: 0,
+					},
+				]
+			},
+			'ex3': {
+				clientref: 14,
+				layout: 15,
+				name: "回應話題",
+				instruction: "請用線把相同話題聯起來。",
+				type: "dragnDrop_MultipleDropzone",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
+				questions:  [
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{ type: 1, text: "有呀！我睇完套劇集先瞓。" },
+							{ type: 2, text: "唔多，只得兩樣功課。" },
+							{ type: 3, text: "好呀，我都想去借書。" },
+							{ type: 4, text: "係呀，天氣報告話只得十度。" },
+						],
+						answers: [
+							{ index: 0, type: 4, correct: false, selected: false, text: "今日天氣好凍呀！"},
+							{ index: 1, type: 3, correct: false, selected: false, text: "不如我地小息一齊去圖書館囉。"},
+							{ index: 2, type: 2, correct: false, selected: false, text: "今日多唔多功課呀？"},
+							{ index: 3, type: 1, correct: false, selected: false, text: "你噚晚有冇睇電視呀？"},
+						],
+						correctAnswerCount: 0,
+					},
+				]
+			},
 		}
 	},
 	/**
