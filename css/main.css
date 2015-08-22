@@ -115,7 +115,7 @@ a:focus {
 .exercise__name-outer {
 	margin-bottom: 30px;
 	background-color: #fff;
-	padding: 20px 40px 24px 130px;
+	padding: 20px 30px 24px 130px;
 	
 }
 .exercise__name {
@@ -166,6 +166,7 @@ a:focus {
 	padding-left: 36px;
 	background: url(../img/flower.png) no-repeat;
 	background-size: 33px;
+	min-height: 35px;
 }
 .exercise__question-number .fa {display: none;}
 .exercise__answer-list-outer {
