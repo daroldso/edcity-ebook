@@ -2174,6 +2174,91 @@ window.Book = {
 					}
 				]
 			},
+			// 連線 加對錯
+			'ex2': {
+				clientref: 15,
+				layout: 14,
+				name: "故事理解 2",
+				instruction: "依「講錯嘢嘅亞南」故事內容，把有關的話題回應連接起來。，然後再決定說話內容是否正確。",
+				type: "dragnDrop_MultipleDropzone_TrueOrFalse",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
+				questions:  [
+					{
+						index: 0,
+						baseScore: 10,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "醫生會照顧她。"},
+							{type: 2, text: "你的髮型很難看。"},
+							{type: 3, text: "收到禮物時，你們的媽媽會好開心。"},
+							{type: 4, text: "你有口氣！"},
+							{type: 5, text: "你太肥，令到我們比賽輸。"}
+						],
+						answers: {
+							'dnd': [
+								{ index: 0, type: 2, correct: false, selected: false, text: "芬女", atype: "dnd" },
+								{ index: 1, type: 4, correct: false, selected: false, text: "亞強", atype: "dnd" },
+								{ index: 2, type: 5, correct: false, selected: false, text: "光仔", atype: "dnd" },
+								{ index: 3, type: 1, correct: false, selected: false, text: "亞美", atype: "dnd" },
+								{ index: 4, type: 3, correct: false, selected: false, text: "亞明和淑玲", atype: "dnd" }
+							],
+							'tof': [
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,								
+									answers:[
+										{ correct: true, selected: false, text: "正確", atype: "tof" },
+										{ correct: false, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: true, selected: false, text: "正確", atype: "tof" },
+										{ correct: false, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]	
+								}
+							],
+						},
+						numOfCorrectAnswers: 10,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex3': {
 				clientref: 10,
 				layout: 10,
