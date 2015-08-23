@@ -2205,6 +2205,110 @@ window.Book = {
 	 */
 	'ch9': {
 		exercises: {
+			'ex1': {
+				clientref: 15,
+				layout: 17,
+				name: "基本故事理解",
+				instruction: "聽完基本故事後，請回答下列問題。",
+				baseScore: 10,
+				type: "dragnDrop_MultipleDropzone_TrueOrFalseMultiple",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
+				questions:  [
+					{
+						index: 2,
+						correct: false,
+						wrong: false,
+						isCorrect: false,
+						questionText: "請根據故事內容，將相關情節連在一起，然後按「✔」或「×」判斷這是否正確的做法。",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "城巴有幾多款"},
+							{type: 2, text: "搵到張遊戲卡"},
+							{type: 3, text: "件衫好靚"},
+							{type: 4, text: "塊牛扒好好味"},
+						],
+						answers: {
+							'dnd': [
+								{ index: 0, type: 1, correct: false, selected: false, text: "放假時活動", atype: "dnd" },
+								{ index: 1, type: 3, correct: false, selected: false, text: "天氣", atype: "dnd" },
+								{ index: 2, type: 4, correct: false, selected: false, text: "行街買東西", atype: "dnd" },
+								{ index: 3, type: 2, correct: false, selected: false, text: "體育節目", atype: "dnd" },
+							],
+							'tof': [
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,								
+									answers:[
+										{ correct: false, selected: false, text: "", atype: "tof" },
+										{ correct: true, selected: false, text: "", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "", atype: "tof" },
+										{ correct: true, selected: false, text: "", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "", atype: "tof" },
+										{ correct: true, selected: false, text: "", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "", atype: "tof" },
+										{ correct: true, selected: false, text: "", atype: "tof" },
+									]
+								}
+							],
+						},
+						numOfCorrectAnswers: 8,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 0,
+						correct: false,
+						wrong: false,
+						questionText: "誰是主角？",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: "亞明"},
+							{correct: false, selected: false, text: "亞東"},
+							{correct: true, selected: false, text: "亞輝"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "與別人談話時，要：",
+						questionText2: "",
+						answers: [
+							{correct: false, selected: false, text: "停一停，留心聽別人所講的話題"},
+							{correct: false, selected: false, text: "立即說出心裡的話"},
+							{correct: true, selected: false, text: "要與別人講相同的話題"}
+						],
+						numOfCorrectAnswers: 1,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
+				]
+			},
 			'ex2': {
 				clientref: 14,
 				layout: 15,

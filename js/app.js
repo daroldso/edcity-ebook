@@ -132,39 +132,67 @@ function init(chapter, ex) {
 				vue.studentScore = 0;
 				vue.isAnswerRevealed = false;
 				vue.isAnswerChecked = false;
+				vue.allCorrect = false;
 
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 				if(typeof drake !== "undefined" && drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
-					resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers);
+					console.log(vue.exercise.type);
+					
+					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple") {
+						resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers);
+					}
 
 					// only invoke for 7-2 when there need to have a box to show correctcount of each droppool
-					resetDroppoolCorrectCount(questions[vue.currentQuestion].dropPools);
+					if(questions[vue.currentQuestion].dropPools !== undefined) {
+						resetDroppoolCorrectCount(questions[vue.currentQuestion].dropPools);
+					}
 				}
 				// This is a line matching game
 				if($('#draw-panel').length > 0) {
 					_.times(questions.length, function(i) {
+						if(questions[i].lines == undefined) return;
 						_.times(questions[i].lines.length, function(j) {
 							questions[i].lines[j].remove();
 						});
 					});
 				}
-				if(vue.questions[vue.currentQuestion].answers.dnd) {
-					resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers.dnd);
-				}
-				if(vue.questions[vue.currentQuestion].answers.tof) {
-					var trueOrFalseAnswers = vue.questions[vue.currentQuestion].answers.tof;
-					_.times(trueOrFalseAnswers.length, function(i) {
-						trueOrFalseAnswers[i].correctAnswerCount = 0;
-						trueOrFalseAnswers[i].wrongAnswerCount = 0;
-						_.times(trueOrFalseAnswers[i].answers.length, function(j) {
-							trueOrFalseAnswers[i].answers[j].selected = false;
+				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple") {
+					if(vue.questions[0].answers.dnd) {
+						resetAnswersCorrectToFalse(questions[0].answers.dnd);
+					}
+					if(vue.questions[0].answers.tof) {
+						var trueOrFalseAnswers = vue.questions[0].answers.tof;
+						_.times(trueOrFalseAnswers.length, function(i) {
+							trueOrFalseAnswers[i].correctAnswerCount = 0;
+							trueOrFalseAnswers[i].wrongAnswerCount = 0;
+							_.times(trueOrFalseAnswers[i].answers.length, function(j) {
+								trueOrFalseAnswers[i].answers[j].selected = false;
+							});
+							
 						});
-						
-					});
+					}
+				} else {
+					if(vue.questions[vue.currentQuestion].answers.dnd) {
+						resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers.dnd);
+					}
+					if(vue.questions[vue.currentQuestion].answers.tof) {
+						var trueOrFalseAnswers = vue.questions[vue.currentQuestion].answers.tof;
+						_.times(trueOrFalseAnswers.length, function(i) {
+							trueOrFalseAnswers[i].correctAnswerCount = 0;
+							trueOrFalseAnswers[i].wrongAnswerCount = 0;
+							_.times(trueOrFalseAnswers[i].answers.length, function(j) {
+								trueOrFalseAnswers[i].answers[j].selected = false;
+							});
+							
+						});
+					}
+					
 				}
+
+
 			},
 			isAllCorrect: function() {
 				var questions = vue.questions;
@@ -277,7 +305,7 @@ function resetDroppoolCorrectCount (dropPools) {
 function moveAnswersBacktoDragzone () {
 	var elInDropzone = $('.dropzone').find('.exercise__answer').detach();
 	if($('.dragzone').length === 1) {
-		console.log('.dragzone == 1');
+		// console.log('.dragzone == 1');
 		$('.dragzone').append(elInDropzone);
 	} else {
 		console.log('.dragzone > 1');
@@ -289,6 +317,7 @@ function moveAnswersBacktoDragzone () {
 }
 
 function resetAnswersCorrectToFalse (answers) {
+	console.log(answers);
 	_.times(answers.length, function(i) {
 		answers[i].correct = false;
 	});

@@ -458,6 +458,7 @@ a:focus {
 .layout-11 .answer-checked .exercise__answer.is-selected:after,
 .layout-13 .answer-checked .exercise__answer.is-selected:after,
 .layout-14 .answer-checked .exercise__answer.is-selected:after,
+.layout-17 .answer-checked .exercise__answer.is-selected:after,
 .layout-15 .answer-checked .exercise__answer.is-selected:after
 {
 	content: none;
@@ -581,9 +582,12 @@ a:focus {
 }
 
 .layout-14 .answer-checked .dragzone .exercise__answer.is-selected:before,
+.layout-17 .answer-checked .dragzone .exercise__answer.is-selected:before,
 .layout-15 .answer-checked .dragzone .exercise__answer.is-selected:before
 { right: -31px;}
-.layout-14 .answer-checked .qtype__tof .exercise__answer.is-selected:before { right: -35px;}
+.layout-14 .answer-checked .qtype__tof .exercise__answer.is-selected:before,
+.layout-17 .answer-checked .qtype__tof .exercise__answer.is-selected:before
+{ right: -35px;}
 
 .answer-revealed .exercise__answer.is-correct-answer {
 	border: 3px dashed #0B7E0D;
@@ -734,6 +738,7 @@ a:focus {
 .layout-12 .dropzone,
 .layout-13 .dropzone,
 .layout-14 .dropzone,
+.layout-17 .dropzone,
 .layout-15 .dropzone
 {
 	float: left;
@@ -787,6 +792,7 @@ a:focus {
 .layout-12 .gu-transit,
 .layout-13 .gu-transit,
 .layout-14 .gu-transit,
+.layout-17 .gu-transit,
 .layout-15 .gu-transit
 {
 	display: none;
@@ -798,6 +804,7 @@ a:focus {
 }
 .layout-13 .dragzone,
 .layout-14 .dragzone,
+.layout-17 .dragzone,
 .layout-15 .dragzone
 {	min-height: 0;
 	margin: 0;
@@ -805,6 +812,7 @@ a:focus {
 }
 .layout-13 .dragzone .exercise__answer,
 .layout-14 .dragzone .exercise__answer,
+.layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer
 {
 	margin: 0;
@@ -814,6 +822,7 @@ a:focus {
 }
 .layout-13 .dropzone,
 .layout-14 .dropzone,
+.layout-17 .dropzone,
 .layout-15 .dropzone
 {
 	background-color: transparent;
@@ -834,8 +843,10 @@ a:focus {
 .layout-13 .exercise__answer-text:after,
 .layout-13 .dropzone:after,
 .layout-14 .dragzone .exercise__answer-text:after,
+.layout-17 .dragzone .exercise__answer-text:after,
 .layout-15 .dragzone .exercise__answer-text:after,
 .layout-14 .dropzone:after,
+.layout-17 .dropzone:after,
 .layout-15 .dropzone:after
 {
 	content: '';
@@ -853,6 +864,7 @@ a:focus {
 }
 .layout-13 .exercise__answer-text:after,
 .layout-14 .exercise__answer-text:after,
+.layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
 	bottom: -1px;
@@ -864,12 +876,14 @@ a:focus {
 }
 .layout-13 .gu-mirror,
 .layout-14 .gu-mirror,
+.layout-17 .gu-mirror,
 .layout-15 .gu-mirror
 {
 	display: none!important;
 }
 .layout-13 .dropzone.over,
 .layout-14 .dropzone.over,
+.layout-17 .dropzone.over,
 .layout-15 .dropzone.over
 {
 	background-color: transparent!important;
@@ -877,32 +891,39 @@ a:focus {
     font-weight: bold;
 }
 
-.layout-14 .dnd
+.layout-14 .dnd,
+.layout-17 .dnd
 {
 	height: 540px;
 }
 .layout-14 .dragzones-outer,
+.layout-17 .dragzones-outer,
 .layout-15 .dragzones-outer,
 .layout-14 .dropzones-outer,
+.layout-17 .dropzones-outer,
 .layout-15 .dropzones-outer
 {
 	height: 100%;
 	float: left;
 }
 .layout-14 .dragzones-outer,
+.layout-17 .dragzones-outer,
 .layout-15 .dragzones-outer
 {
 	width: 66%;
 	padding-right: 33%;
 }
 .layout-14 .dropzones-outer,
+.layout-17 .dropzones-outer,
 .layout-15 .dropzones-outer
 {
 	width: 33%;
 }
 .layout-14 .dragzone .exercise__answer,
+.layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer,
 .layout-14 .dropzone,
+.layout-17 .dropzone,
 .layout-15 .dropzone
 {
 	width: 100%;
@@ -914,16 +935,20 @@ a:focus {
 	/*margin-bottom: 10px;*/
 }
 .layout-14 .dropzone,
+.layout-17 .dropzone,
 .layout-15 .dropzone
 {
 	min-height: 0;
 }
 .layout-14 .dragzone .exercise__answer,
+.layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer
 {
 }
 .layout-14 .dragzone .exercise__answer-text,
+.layout-17 .dragzone .exercise__answer-text,
 .layout-14 .dropzone:before,
+.layout-17 .dropzone:before,
 .layout-15 .dragzone .exercise__answer-text,
 .layout-15 .dropzone:before
 {
@@ -936,34 +961,41 @@ a:focus {
 	-webkit-transform: translateY(-50%);
 }
 .layout-14 .exercise__answer-text:after,
+.layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after,
 .layout-14 .dropzone:after,
+.layout-17 .dropzone:after,
 .layout-15 .dropzone:after
 {
 	top: 50%;
 	margin-top: -5px;
 }
 .layout-14 .exercise__answer-text:after,
+.layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
 	right: -21px;
 }
 .layout-14 .dropzone:after,
+.layout-17 .dropzone:after,
 .layout-15 .dropzone:after
 {
 	left: -22px;
 }
-.layout-14 .qtype__tof .exercise__answer-list
+.layout-14 .qtype__tof .exercise__answer-list,
+.layout-17 .qtype__tof .exercise__answer-list
 {
 	margin: 20px 0;
 }
-.layout-14 .qtype__tof .exercise__answer-text
+.layout-14 .qtype__tof .exercise__answer-text,
+.layout-17 .qtype__tof .exercise__answer-text
 {
 	padding: 2px 0;
 	text-align: center;
 	font-size: 18px;
 }
-.layout-14 .qtype__tof .exercise__answer.is-selected
+.layout-14 .qtype__tof .exercise__answer.is-selected,
+.layout-17 .qtype__tof .exercise__answer.is-selected
 {
 	/*background-color: #FF879D;*/
 }

@@ -71,13 +71,59 @@ window.validateMethods = {
 		chooseSingleAnswer: chooseAnswer_SingleAnswer,
 		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalse,
 	},
+	/**
+	 * True or False + (Drag n Drop Multiple Dropzone + True or False)
+	 */
+	'dragnDrop_MultipleDropzone_TrueOrFalseMultiple': {
+		chooseAnswer: chooseAnswer_MultipleDropzone,
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalseMultiple,
+	},
+}
+
+// Cannot be reuse
+function checkAnswer_MultipleDropzone_TrueOrFalseMultiple () {
+	vue.studentScore = 0;
+	var dndQuestion = vue.questions[0];
+	var tof1stQuestion = vue.questions[1];
+	var tof2ndQuestion = vue.questions[2];
+	dndQuestion.correctAnswerCount = 0;
+
+	// DND Question
+	var trueOrFalseAnswers = dndQuestion.answers.tof;
+	var dragAndDropAnswers = dndQuestion.answers.dnd;
+	_.times(trueOrFalseAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
+	});
+	_.times(dragAndDropAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
+	});
+
+	console.log(dndQuestion.correctAnswerCount);
+	// check if correctAnswerCount = answers.length
+	dndQuestion.correct = (dndQuestion.correctAnswerCount === dndQuestion.numOfCorrectAnswers);
+
+	// ToF Question
+	tof1stQuestion.correct = (tof1stQuestion.correctAnswerCount == tof1stQuestion.numOfCorrectAnswers);
+	tof2ndQuestion.correct = (tof2ndQuestion.correctAnswerCount == tof2ndQuestion.numOfCorrectAnswers);
+
+	vue.studentScore = dndQuestion.correctAnswerCount + tof1stQuestion.correctAnswerCount + tof2ndQuestion.correctAnswerCount;
+
+	// Show "正確答案" button
+	actionsView.setCheckAnswerState(true);
+
+	vue.allCorrect = actionsView.isAllCorrect();
+	removeFlash.call(this);
+	console.log("correctAnswerCount: "+dndQuestion.correctAnswerCount);
+
+	console.log(vue.questions);
 }
 
 function checkAnswer_MultipleDropzone_TrueOrFalse () {
 	vue.studentScore = 0;
 	var question = vue.questions[vue.currentQuestion];
 	question.correctAnswerCount = 0;
-	console.log(question.correctAnswerCount);
+
 	var trueOrFalseAnswers = question.answers.tof;
 	var dragAndDropAnswers = question.answers.dnd;
 	_.times(trueOrFalseAnswers.length, function(i) {

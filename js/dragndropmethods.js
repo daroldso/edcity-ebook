@@ -18,6 +18,7 @@ function dragnDrop_OneDropzone () {
 
 function dragnDrop_MultipleDropzone () {
 	var question = questionView.questions[vue.currentQuestion];
+	if(question.dragPools == undefined) return;
 	_.times(question.dragPools.length, function(i) {
 		dragulaContainers.push(document.getElementById('dragzone-'+i));
 	});

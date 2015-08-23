@@ -659,6 +659,106 @@
 		</div>
 	</div>
 </script>
+
+<!-- True or False*2 + Drag and Drop (line matching) vertical: Left Drag - Right Drop -->
+<script id="layout-17-template" type="x-template">
+	<div class="owl-carousel">
+		<div v-repeat="question: questions | filterBy 0 in 'index'">
+			<h1 class="exercise__question exercise__question-number">
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<p class="exercise__question-text">{{question.questionText2}}</p>
+			<div class="exercise__answer-list-outer">
+				<ol class="exercise__answer-list">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers)">
+						<span class="exercise__answer-text">
+							<i class="fa " v-class="
+								fa-square-o: !answer.selected,
+								fa-check-square: answer.selected
+							"></i>
+							{{ answer.text }}
+						</span>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<div v-repeat="question: questions | filterBy 1 in 'index'">
+			<h1 class="exercise__question exercise__question-number">
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<p class="exercise__question-text">{{question.questionText2}}</p>
+			<div class="exercise__answer-list-outer">
+				<ol class="exercise__answer-list">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers)">
+						<span class="exercise__answer-text">
+							<i class="fa " v-class="
+								fa-square-o: !answer.selected,
+								fa-check-square: answer.selected
+							"></i>
+							{{ answer.text }}
+						</span>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<div class="question" v-repeat="question: questions | filterBy 2 in 'index'">
+			<h1 class="exercise__question exercise__question-number">
+				<span class="question-number">{{question.index+1}}.</span>
+				<span class="exercise__question-text">{{question.questionText}}</span>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<div class="exercise__answer-list-outer">
+				<div class="row">
+					<div class="col-xs-9 dnd">
+						<div class="dragzones-outer">
+							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
+									v-class="
+										is-correct-answer: answer.correct,
+										is-selected: answer.selected
+									">
+									<span class="exercise__answer-text">
+										{{ answer.text }}
+									</span>
+								</li>
+							</ol>
+						</div>
+						<div class="dropzones-outer clearfix">
+							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+							</ol>
+						</div>
+						<svg id="draw-panel"></svg>
+					</div>
+					<div class="col-xs-3">
+						<div class="qtype__tof-outer">
+							<div class="qtype__tof">
+								<ol class="exercise__answer-list" v-repeat="answerSet: question.answers.tof" >
+									<li class="exercise__answer" v-repeat="answer: answerSet.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(answerSet, answer, answerSet.answers)">
+										<div class="exercise__answer-text">
+											<div class="exercise__answer-text-inner">
+												<i class="fa" 
+												v-class="
+												fa-check-square: $index == 0,
+												fa-times-circle: $index == 1,
+												selected: answer.selected
+												"></i>
+												{{ answer.text }}
+											</div>
+										</div>
+									</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
 	
 	<script src="vendor/owl.carousel/owl.carousel.js"></script>
 	<script src="vendor/dragula/dragula.min.js"></script>
