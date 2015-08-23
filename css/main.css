@@ -770,6 +770,9 @@ a:focus {
 	margin-right: 10px;
 	margin-bottom: 16px;
 }
+.layout-12 .dropzones-outer {
+	height: 200px;
+}
 .layout-12 .dropzone {
 	width: 25%;
 	margin-bottom: 30px;
@@ -845,12 +848,12 @@ a:focus {
 }
 .layout-13 .exercise__answer-text:after,
 .layout-13 .dropzone:after,
-.layout-14 .dragzone .exercise__answer-text:after,
-.layout-17 .dragzone .exercise__answer-text:after,
+.layout-14 .dragzone .exercise__answer:after,
 .layout-15 .dragzone .exercise__answer-text:after,
+.layout-17 .dragzone .exercise__answer-text:after,
 .layout-14 .dropzone:after,
-.layout-17 .dropzone:after,
-.layout-15 .dropzone:after
+.layout-15 .dropzone:after,
+.layout-17 .dropzone:after
 {
 	content: '';
 	display: block;
@@ -866,7 +869,7 @@ a:focus {
 	margin-left: -5px;
 }
 .layout-13 .exercise__answer-text:after,
-.layout-14 .exercise__answer-text:after,
+.layout-14 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
@@ -894,10 +897,9 @@ a:focus {
     font-weight: bold;
 }
 
-.layout-14 .dnd,
-.layout-17 .dnd
+.layout-14 .dnd
 {
-	height: 540px;
+	height: 610px;
 }
 .layout-14 .dragzones-outer,
 .layout-17 .dragzones-outer,
@@ -932,10 +934,20 @@ a:focus {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	height: 100px;
 	position: relative;
 	/*background-color: #eee;*/
 	/*margin-bottom: 10px;*/
+}
+.layout-14 .dragzone .exercise__answer,
+.layout-17 .dragzone .exercise__answer,
+.layout-15 .dragzone .exercise__answer,
+.layout-14 .dropzone,
+.layout-17 .dropzone,
+.layout-15 .dropzone,
+.layout-14 .qtype__tof .exercise__answer-list,
+.layout-17 .qtype__tof .exercise__answer-list {
+	height: 120px;
+
 }
 .layout-14 .dropzone,
 .layout-17 .dropzone,
@@ -963,7 +975,7 @@ a:focus {
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
 }
-.layout-14 .exercise__answer-text:after,
+.layout-14 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after,
 .layout-14 .dropzone:after,
@@ -973,7 +985,7 @@ a:focus {
 	top: 50%;
 	margin-top: -5px;
 }
-.layout-14 .exercise__answer-text:after,
+.layout-14 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
@@ -988,7 +1000,8 @@ a:focus {
 .layout-14 .qtype__tof .exercise__answer-list,
 .layout-17 .qtype__tof .exercise__answer-list
 {
-	margin: 20px 0;
+	margin: 0;
+	padding: 20px 0;
 }
 .layout-14 .qtype__tof .exercise__answer-text,
 .layout-17 .qtype__tof .exercise__answer-text
@@ -1003,6 +1016,20 @@ a:focus {
 	/*background-color: #FF879D;*/
 }
 
+.layout-14 .exercise__answer .exercise__answer-image {
+	width: auto;
+	height: 70px;
+}
+.layout-14 .dragzone .exercise__answer .exercise__answer-text,
+.layout-14 .dropzone:before,
+.layout-17 .dropzone:before {
+	top: 73px;
+	transform: none;
+	-webkit-transform: none;
+	font-size: 16px;
+	margin-bottom: 0;
+}
+.layout-14 .dropzone:before {}
 
 /* ==========================================================================
    SVG
@@ -1229,27 +1256,37 @@ svg line {
 .ch4.ex2 .dragzone,
 .ch10.ex3 .dragzone
 {padding: 0;}
-.ch4.ex2 .dragzone .exercise__answer {width: 32.1%;}
-.ch10.ex3 .dragzone .exercise__answer {width: 48%;}
+.ch4.ex2 .dragzone .exercise__answer,
+.ch10.ex3 .dragzone .exercise__answer
+{width: 32.1%;}
 
 .ch4.ex2 .dropzone .exercise__answer,
 .ch10.ex3 .dropzone .exercise__answer
 {
 	display: inline-block;
 	margin: 0 1% 10px;
+	width: 48%;
 }
-.ch4.ex2 .dropzone .exercise__answer {width: 48%;}
+
 .ch4.ex2 .exercise__answer-image,
 .ch10.ex3 .exercise__answer-image
 {
 	margin-bottom: 0;
 	width: 100%;
 }
-.ch4.ex2 .exercise__answer-image { height: 124px; }
-.ch4.ex2 .dropzone .exercise__answer-image {height: 80px;}
+.ch4.ex2 .exercise__answer-image,
+.ch10.ex3 .exercise__answer-image,
+.ch10.ex3 .dropzone .exercise__answer-image
+{ height: 124px; }
+
+.ch4.ex2 .dropzone .exercise__answer-image,
+.ch10.ex3 .dropzone .exercise__answer-image
+{ height: 80px; }
+
 .ch4.ex2 .exercise__answer-text,
 .ch10.ex3 .exercise__answer-text
-{display: none;}
+{ display: none; }
+
 .ch4.ex2 .answer-checked .exercise__answer.is-selected:before,
 .ch10.ex3 .answer-checked .exercise__answer.is-selected:before
 {
@@ -1262,10 +1299,6 @@ svg line {
 .ch4.ex2 .answer-revealed .dropzone:after,
 .ch10.ex3 .answer-revealed .dropzone:after
 {content: none;}
-
-.ch10.ex3 .exercise__answer-image {	height: 174px; }
-.ch10.ex3 .dropzone .exercise__answer {width: 100%;}
-.ch10.ex3 .dropzone .exercise__answer-image {height: 174px;}
 
 .ch8.ex1 .exercise__answer-text-inner > .fa:first-child,
 .ch4 .qtype__tof-mc .exercise__answer-text-inner > .fa-check-circle,
@@ -1315,3 +1348,30 @@ svg line {
 .ch4 .answer-checked .qtype__tof-mc .qtype__tof .exercise__answer.is-selected:after,
 .ch4 .answer-checked .qtype__tofx2 .exercise__answer.is-selected:after
 {content: none;}
+
+.ch6.ex1 .dropzone,
+.ch10.ex2 .dropzone,
+.ch9.ex1 .dropzone {
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+.ch6.ex1 .dropzone {background-size: 82px 70px;}
+.ch6.ex1 .dropzone:nth-child(1) { background-image: url(../img/ch6/ex1/6-1-1-6.png); }
+.ch6.ex1 .dropzone:nth-child(2) { background-image: url(../img/ch6/ex1/6-1-1-7.png); }
+.ch6.ex1 .dropzone:nth-child(3) { background-image: url(../img/ch6/ex1/6-1-1-8.png); }
+.ch6.ex1 .dropzone:nth-child(4) { background-image: url(../img/ch6/ex1/6-1-1-9.png); }
+.ch6.ex1 .dropzone:nth-child(5) { background-image: url(../img/ch6/ex1/6-1-1-10.png); }
+
+.ch10.ex2 .dropzone {background-size: 82px 70px;}
+.ch10.ex2 .dropzone:nth-child(1) { background-image: url(../img/ch10/ex2/10-2-1-6.png); }
+.ch10.ex2 .dropzone:nth-child(2) { background-image: url(../img/ch10/ex2/10-2-1-7.png); }
+.ch10.ex2 .dropzone:nth-child(3) { background-image: url(../img/ch10/ex2/10-2-1-8.png); }
+.ch10.ex2 .dropzone:nth-child(4) { background-image: url(../img/ch10/ex2/10-2-1-9.png); }
+.ch10.ex2 .dropzone:nth-child(5) { background-image: url(../img/ch10/ex2/10-2-1-10.png); }
+
+.ch9.ex1 .dropzone {background-size: 82px 70px;}
+.ch9.ex1 .dropzone:nth-child(1) { background-image: url(../img/ch9/ex1/9-1-3-1.png); }
+.ch9.ex1 .dropzone:nth-child(2) { background-image: url(../img/ch9/ex1/9-1-3-2.png); }
+.ch9.ex1 .dropzone:nth-child(3) { background-image: url(../img/ch9/ex1/9-1-3-3.png); }
+.ch9.ex1 .dropzone:nth-child(4) { background-image: url(../img/ch9/ex1/9-1-3-4.png); }
+.ch9.ex1 .dropzone:nth-child(5) { background-image: url(../img/ch9/ex1/9-1-3-5.png); }
