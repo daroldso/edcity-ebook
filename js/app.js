@@ -126,7 +126,7 @@ function init(chapter, ex) {
 					}
 					questions[i].correct = false;
 					questions[i].wrong = false;
-					questions[i].isCorrect = false;
+					questions[i].isAnswered = false;
 					questions[i].correctAnswerCount = 0;
 					questions[i].wrongAnswerCount = 0;
 				};

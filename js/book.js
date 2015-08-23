@@ -17,7 +17,7 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "收到禮物時要講：",
 						answers: [
 							{correct: false, selected: false, text: "我唔鍾意呢個。"},
@@ -28,7 +28,7 @@ window.Book = {
 						index: 1,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "校長讚我表現好時，要講：",
 						answers: [
 							{correct: true, selected: false, text: "多謝！"},
@@ -39,7 +39,7 @@ window.Book = {
 						index: 2,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "人地讚我時，要講：",
 						answers: [
 							{correct: false, selected: false, text: "差不多時候啦！"},
@@ -50,7 +50,7 @@ window.Book = {
 						index: 3,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友邀請我參加活動時，要講：",
 						answers: [
 							{correct: false, selected: false, text: "我想去廁所呀。"},
@@ -61,7 +61,7 @@ window.Book = {
 						index: 4,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友請我吃東西，我要講：",
 						answers: [
 							{correct: false, selected: false, text: "我想食多D！"},
@@ -84,7 +84,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "句子：",
 						dragPools: [
 							{type: 0, text: ""}
@@ -165,7 +164,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}
@@ -199,7 +197,7 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友邀請我參加派對，我應該說？",
 						answers: [
 							{correct: true, selected: false, text: "多謝你的邀請"},
@@ -210,7 +208,7 @@ window.Book = {
 						index: 1,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友載（送）我一程，我應該說？",
 						answers: [
 							{correct: true, selected: false, text: "多謝你送我一程"},
@@ -221,7 +219,7 @@ window.Book = {
 						index: 2,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友請我吃飯，我應該說？",
 						answers: [
 							{correct: true, selected: false, text: "多謝你請我吃飯"},
@@ -232,7 +230,7 @@ window.Book = {
 						index: 3,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "朋友讚我做的食物好吃時，我應該說？",
 						answers: [
 							{correct: true, selected: false, text: "多謝"},
@@ -243,7 +241,7 @@ window.Book = {
 						index: 4,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
+						isAnswered: false,
 						questionText: "當朋友想起我，寫信給我時，我應該說？",
 						answers: [
 							{correct: true, selected: false, text: "多謝你"},
@@ -795,7 +793,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}
@@ -830,7 +827,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}
@@ -1055,7 +1051,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}
@@ -1442,7 +1437,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						lines: [],
 						dragPools: [
@@ -1743,7 +1737,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						lines: [],
 						dragPools: [
@@ -1779,7 +1772,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}
@@ -2217,7 +2209,6 @@ window.Book = {
 						index: 2,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "請根據故事內容，將相關情節連在一起，然後按「✔」或「×」判斷這是否正確的做法。",
 						lines: [],
 						dragPools: [
@@ -2320,7 +2311,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						lines: [],
 						dragPools: [
@@ -2359,7 +2349,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						lines: [],
 						dragPools: [
@@ -2447,7 +2436,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						lines: [],
 						dragPools: [
@@ -2530,7 +2518,6 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						isCorrect: false,
 						questionText: "",
 						dragPools: [
 							{type: 0, text: ""}

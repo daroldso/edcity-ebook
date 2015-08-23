@@ -249,17 +249,17 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	question.wrong = !answer.correct;
 
 	// Uncomment if once choose wrong, cannot increase score again
-	if(answer.correct && !question.isCorrect) {
+	if(answer.correct && !question.isAnswered) {
 		vue.totalNumOfCorrect++;
 		vue.studentScore ++;
 	}
 	// Set the state of question to answered to prevent double answer
-	question.isCorrect = true;
+	question.isAnswered = true;
 
 	// even choose wrong, when you choose right the score will increase
-	// if(answer.correct && !question.isCorrect) {
+	// if(answer.correct && !question.isAnswered) {
 	// 	vue.totalNumOfCorrect++;
-	// 	question.isCorrect = true;
+	// 	question.isAnswered = true;
 	// }
 
 	// Show "正確答案" button
