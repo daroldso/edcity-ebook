@@ -112,6 +112,8 @@ function init(chapter, ex) {
 				for (var i = 0; i < questions.length; i++) {
 					var answers =  questions[i].answers;
 					if(questions[i].correctAnswerCount0 !== undefined) {
+						questions[i].correctAnswerCount0 = 0;
+						questions[i].correctAnswerCount1 = 0;
 						for (var j = 0; j < answers.length; j++) {
 							_.times(answers[j].length, function(k) {
 								answers[j][k].selected = false;

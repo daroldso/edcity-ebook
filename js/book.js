@@ -888,18 +888,21 @@ window.Book = {
 	 */
 	'ch4': {
 		exercises: {
-			'ex1a': {
+			'ex1': {
 				clientref: 7,
-				layout: 6,
+				layout: 18,
 				name: "基本故事理解",
-				instruction: "根據「唔識表達嘅亞美」故事內容，回答下列各題。",
-				type: "chooseSingleAndMultipleAnswers",
+				instruction: "根據「唔識表達嘅亞美」故事內容，回答下列各題。從第2至6題，選出正確的情景，並依照故事內容，圈出亞美的表達方法是否正確。",
+				baseScore: 14,
+				type: "chooseSingleAndMultipleAnswers_SingleAnswerTwice",
 				questions:  [
 					{
 						index: 0,
+						qtype: "tof-mc",
 						correct: false,
 						wrong: false,
 						questionText: "誰是主角？請「✔」出正確的答案。",
+						questionText2: "下面哪些是適當的表達方法？",
 						answers: [
 							{correct: false, selected: false, text: "亞明", atype: "tof"},
 							{correct: false, selected: false, text: "亞東", atype: "tof"},
@@ -917,18 +920,9 @@ window.Book = {
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					},
-				]
-			},
-			'ex1b': {
-				clientref: 7,
-				layout: 16,
-				name: "基本故事理解",
-				instruction: "根據「唔識表達嘅亞美」故事內容， 選出正確的情景，並依照故事內容，圈出亞美的表達方法是否正確。",
-				baseScore: 10,
-				type: "chooseSingleAnswerTwice",
-				questions:  [
 					{
-						index: 0,
+						index: 1,
+						qtype: "tofx2",
 						correct: false,
 						wrong: false,
 						questionText: "小美吃早餐時，她如何表達自己？",
@@ -951,7 +945,8 @@ window.Book = {
 						correctAnswerCount1: 0,
 					},
 					{
-						index: 1,
+						index: 2,
+						qtype: "tofx2",
 						correct: false,
 						wrong: false,
 						questionText: "派發試卷時，她如何表達自己？",
@@ -974,7 +969,8 @@ window.Book = {
 						correctAnswerCount1: 0,
 					},
 					{
-						index: 2,
+						index: 3,
+						qtype: "tofx2",
 						correct: false,
 						wrong: false,
 						questionText: "小美飯後找李老師，她如何表達自己？",
@@ -997,7 +993,8 @@ window.Book = {
 						correctAnswerCount1: 0,
 					},
 					{
-						index: 3,
+						index: 4,
+						qtype: "tofx2",
 						correct: false,
 						wrong: false,
 						questionText: "亞輝取去小美的新筆，她如何表達自己？",
@@ -1020,7 +1017,8 @@ window.Book = {
 						correctAnswerCount1: 0,
 					},
 					{
-						index: 4,
+						index: 5,
+						qtype: "tofx2",
 						correct: false,
 						wrong: false,
 						questionText: "派發試卷時，她如何表達自己？",

@@ -38,9 +38,11 @@ window.validateMethods = {
 		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 	},
-	'chooseSingleAnswerTwice': {
-		chooseAnswer: chooseAnswer_MultipleSingleAnswers,
-		checkAnswer: checkAnswer_MultipleSingleAnswers,
+	'chooseSingleAndMultipleAnswers_SingleAnswerTwice': {
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
+		chooseMultipleSingleAnswers: chooseAnswer_MultipleSingleAnswers,
+		checkAnswer: checkAnswer_SingleAndMultipleAnswers_SingleAnswerTwice,
 	},
 	/**
 	 * Drag n Drop One Dropzone
@@ -308,20 +310,31 @@ function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
 	answer.selected = !answer.selected;
 }
 
-function checkAnswer_MultipleSingleAnswers () {
+function checkAnswer_SingleAndMultipleAnswers_SingleAnswerTwice () {
 	var questions = vue.questions;
 	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
 
 	_.times(questions.length, function (i) {
-		questions[i].correctAnswerCount = questions[i].correctAnswerCount0 + questions[i].correctAnswerCount1;
-		if(questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
-			questions[i].correct = true;
-			questions[i].wrong = false;
-			vue.totalNumOfCorrect++;
+		if(i === 0) {
+			if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
+				questions[i].correct = true;
+				questions[i].wrong = false;
+				vue.totalNumOfCorrect++;
+			} else {
+				questions[i].correct = false;
+				questions[i].wrong = true;
+			}
 		} else {
-			questions[i].correct = false;
-			questions[i].wrong = true;
+			questions[i].correctAnswerCount = questions[i].correctAnswerCount0 + questions[i].correctAnswerCount1;
+			if(questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
+				questions[i].correct = true;
+				questions[i].wrong = false;
+				vue.totalNumOfCorrect++;
+			} else {
+				questions[i].correct = false;
+				questions[i].wrong = true;
+			}	
 		}
 		vue.studentScore += questions[i].correctAnswerCount;
 	});

@@ -162,11 +162,14 @@ a:focus {
 .fa-times-circle { color: #ED4D51; }
 
 .exercise__question-number {
-	font-size: 2em;
+	font-size: 28px;
 	padding-left: 36px;
 	background: url(../img/flower.png) no-repeat;
 	background-size: 33px;
 	min-height: 35px;
+}
+.exercise__question-text {
+	font-size: 28px;
 }
 .exercise__question-number .fa {display: none;}
 .exercise__answer-list-outer {
@@ -1265,44 +1268,50 @@ svg line {
 .ch10.ex3 .dropzone .exercise__answer-image {height: 174px;}
 
 .ch8.ex1 .exercise__answer-text-inner > .fa:first-child,
-.ch4.ex1a .exercise__answer-text-inner > .fa-check-circle,
-.ch4.ex1a .exercise__answer-text-inner > .fa-times-circle,
-.ch4.ex1b .exercise__answer-text-inner > .fa-check-circle,
-.ch4.ex1b .exercise__answer-text-inner > .fa-times-circle
+.ch4 .qtype__tof-mc .exercise__answer-text-inner > .fa-check-circle,
+.ch4 .qtype__tof-mc .exercise__answer-text-inner > .fa-times-circle,
+.ch4 .qtype__tofx2 .exercise__answer-text-inner > .fa-check-circle,
+.ch4 .qtype__tofx2 .exercise__answer-text-inner > .fa-times-circle
 { display: none; }
 
-.ch4.ex1a .exercise__question-image {
+.ch4 .qtype__tof-mc .exercise__question-image {
 	width: auto;
 }
-.ch4.ex1b .exercise__question-number {
+.ch4 .qtype__tofx2 .exercise__question-number {
 	margin-bottom: 8px;
 }
-.ch4.ex1b .tof0 .exercise__answer,
-.ch4.ex1b .tof1 .exercise__answer {
+.ch4 .qtype__tofx2 .tof0 .exercise__answer,
+.ch4 .qtype__tofx2 .tof1 .exercise__answer {
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
 }
-.ch4.ex1b .tof0 .exercise__answer {
+.ch4 .qtype__tofx2 .tof0 .exercise__answer {
 	width: 20%;
 	font-size: 18px;
 	height: 209px;
 	
 }
-.ch4.ex1b .tof0 .exercise__answer .fa-square-o,
-.ch4.ex1b .tof0 .exercise__answer .fa-check-square
+.ch4 .qtype__tofx2 .tof0 .exercise__answer .fa-square-o,
+.ch4 .qtype__tofx2 .tof0 .exercise__answer .fa-check-square
 {
 	display: block;
 }
-.ch4.ex1b .tof1 .exercise__answer {
+.ch4 .qtype__tofx2 .tof1 .exercise__answer {
 	width: 48%;
 	margin: 0 1%;
 }
-.ch4.ex1b .exercise__question-image {
+.ch4 .qtype__tofx2 .exercise__question-image {
 	height: 107px;
 }
-
-.ch4.ex1b .answer-checked .exercise__answer.is-selected:before {top: -3px;right: 50%;margin-right: -13px;
-
+.ch4 .answer-checked .qtype__tof-mc .qtype__tof .exercise__answer.is-selected:before {
+	right: 8px;
 }
-.ch4.ex1b .answer-checked .exercise__answer.is-selected:after {content: none;}
+.ch4 .answer-checked .qtype__tofx2 .exercise__answer.is-selected:before {
+	top: -3px;
+	right: 50%;
+	margin-right: -13px;
+}
+.ch4 .answer-checked .qtype__tof-mc .qtype__tof .exercise__answer.is-selected:after,
+.ch4 .answer-checked .qtype__tofx2 .exercise__answer.is-selected:after
+{content: none;}
