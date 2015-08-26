@@ -1,4 +1,6 @@
 var vue,
+chapter,
+exercise,
 QuestionView,
 questionView,
 ActionsView,
@@ -17,7 +19,6 @@ vue = new Vue({
     	exerciseInstruction: "",
 		currentQuestion: 0,
 		totalNumOfQuestion: 0,
-		totalNumOfCorrect: 0,
 		isAnswerChecked: false,
 		isAnswerRevealed: false,
         allCorrect: false,
@@ -43,16 +44,44 @@ vue = new Vue({
 var router = Router();
 
 router.on('/exercise/:chapter/:ex', init);
+router.on('/exercise/load/', load);
 
 router.init('/exercise/1/1');
+
+function load () {
+	exercise = exerciseToLoad;
+
+	vue.chapterNum = exercise.chapterNum;
+	vue.exerciseNum = exercise.exerciseNum;
+
+	vue.layoutNumber = exercise.layout;
+	vue.exercise = exercise;
+	// assign all the questions in the exercise 1-3 to Vue
+	vue.questions = exercise.questions;
+	// assign exercise name to Vue
+	vue.exerciseName = exercise.name;
+	// assign exercise instruction to Vue
+	vue.exerciseInstruction = exercise.instruction;
+
+	vue.baseScore = getBaseScore();
+	vue.studentScore = exercise.studentScore;
+
+	vue.isAnswerChecked = exercise.isAnswerChecked;
+	vue.isAnswerRevealed = exercise.isAnswerRevealed;
+
+	// instantiate question view and mount to #exercise
+	initQuestionView();
+	// instantiate action view and mount to #actions
+	initActionView();
+}
 
 function init(chapter, ex) {
 	// for getting the chapter name only
 	vue.chapterNum = chapter;
 	vue.exerciseNum = ex;
-	var chapter = Book['ch'+vue.chapterNum];
+	chapter = Book['ch'+vue.chapterNum];
 	// getting all the exercises in the chapter
-	var exercise = chapter.exercises['ex'+vue.exerciseNum];
+	exercise = chapter.exercises['ex'+vue.exerciseNum];
 
 	vue.layoutNumber = exercise.layout;
 	vue.exercise = exercise;
@@ -65,7 +94,14 @@ function init(chapter, ex) {
 
 	vue.baseScore = getBaseScore();
 
-	// instantiate question view
+	// instantiate question view and mount to #exercise
+	initQuestionView();
+	// instantiate action view and mount to #actions
+	initActionView();
+
+}
+
+function initQuestionView () {
 	QuestionView = Vue.extend({
 		template: "#layout-"+exercise.layout+"-template"
 	});
@@ -88,13 +124,15 @@ function init(chapter, ex) {
 			if(typeof exercise.dragndropType !== "undefined") {
 				dragnDropInit[exercise.dragndropType]();
 				dragnDropBehaviors[exercise.dragndropBehavior]();
-				initPlumb();
+				initSvgCanvas();
 			}
 		}
 	})
-	// Mount the vuew instance to #exercise
+	// Mount the vue instance to #exercise
 	questionView.$mount('#exercise');
+}
 
+function initActionView () {
 	ActionsView = Vue.extend({
 		template: "#actions-template"
 	});
@@ -108,6 +146,11 @@ function init(chapter, ex) {
 				vue.isAnswerRevealed = true;
 			},
 			reset: function() {
+				vue.studentScore = 0;
+				vue.isAnswerRevealed = false;
+				vue.isAnswerChecked = false;
+				vue.allCorrect = false;
+
 				var questions = vue.questions;
 				for (var i = 0; i < questions.length; i++) {
 					var answers =  questions[i].answers;
@@ -130,21 +173,15 @@ function init(chapter, ex) {
 					questions[i].correctAnswerCount = 0;
 					questions[i].wrongAnswerCount = 0;
 				};
-				vue.totalNumOfCorrect = 0;
-				vue.studentScore = 0;
-				vue.isAnswerRevealed = false;
-				vue.isAnswerChecked = false;
-				vue.allCorrect = false;
 
 				// Back to first question
 				owl.trigger('to.owl.carousel', [0,200,true]);
 				if(typeof drake !== "undefined" && drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
-					console.log(vue.exercise.type);
 					
-					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple") {
-						resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers);
+					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse") {
+						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers);
 					}
 
 					// only invoke for 7-2 when there need to have a box to show correctcount of each droppool
@@ -161,9 +198,9 @@ function init(chapter, ex) {
 						});
 					});
 				}
-				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple") {
+				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse") {
 					if(vue.questions[0].answers.dnd) {
-						resetAnswersCorrectToFalse(questions[0].answers.dnd);
+						resetAnswersCorrectAndSelectedToFalse(questions[0].answers.dnd);
 					}
 					if(vue.questions[0].answers.tof) {
 						var trueOrFalseAnswers = vue.questions[0].answers.tof;
@@ -178,7 +215,7 @@ function init(chapter, ex) {
 					}
 				} else {
 					if(vue.questions[vue.currentQuestion].answers.dnd) {
-						resetAnswersCorrectToFalse(questions[vue.currentQuestion].answers.dnd);
+						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers.dnd);
 					}
 					if(vue.questions[vue.currentQuestion].answers.tof) {
 						var trueOrFalseAnswers = vue.questions[vue.currentQuestion].answers.tof;
@@ -212,7 +249,6 @@ function init(chapter, ex) {
 	});
 
 	actionsView.$mount('#actions');
-
 }
 
 function initCarousel () {
@@ -318,15 +354,16 @@ function moveAnswersBacktoDragzone () {
 	}
 }
 
-function resetAnswersCorrectToFalse (answers) {
+function resetAnswersCorrectAndSelectedToFalse (answers) {
 	console.log(answers);
 	_.times(answers.length, function(i) {
 		answers[i].correct = false;
+		answers[i].selected = false;
 	});
 }
 
-var line, vis, line0, line1, line2, line3;
-function initPlumb () {
+var line, vis;
+function initSvgCanvas () {
 
 	vis = d3.select("#draw-panel")
 	    // .attr("width", 570)
@@ -352,7 +389,7 @@ function moveLine(x, y) {
         .attr("y2", y);
 }
 
-function drawLine (x1, y1, x2, y2, lines, index) {
+function drawLine(x1, y1, x2, y2, lines, index) {
 	lines[index] = vis.append("line")
         .attr("x1", x1)
         .attr("y1", y1)
