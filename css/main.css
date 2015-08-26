@@ -461,6 +461,7 @@ a:focus {
 .layout-11 .answer-checked .exercise__answer.is-selected:after,
 .layout-13 .answer-checked .exercise__answer.is-selected:after,
 .layout-14 .answer-checked .exercise__answer.is-selected:after,
+.layout-18 .answer-checked .exercise__answer.is-selected:after,
 .layout-17 .answer-checked .exercise__answer.is-selected:after,
 .layout-15 .answer-checked .exercise__answer.is-selected:after
 {
@@ -585,10 +586,12 @@ a:focus {
 }
 
 .layout-14 .answer-checked .dragzone .exercise__answer.is-selected:before,
+.layout-18 .answer-checked .dragzone .exercise__answer.is-selected:before,
 .layout-17 .answer-checked .dragzone .exercise__answer.is-selected:before,
 .layout-15 .answer-checked .dragzone .exercise__answer.is-selected:before
 { right: -31px;}
 .layout-14 .answer-checked .qtype__tof .exercise__answer.is-selected:before,
+.layout-18 .answer-checked .qtype__tof .exercise__answer.is-selected:before,
 .layout-17 .answer-checked .qtype__tof .exercise__answer.is-selected:before
 { right: -35px;}
 
@@ -741,6 +744,7 @@ a:focus {
 .layout-12 .dropzone,
 .layout-13 .dropzone,
 .layout-14 .dropzone,
+.layout-18 .dropzone,
 .layout-17 .dropzone,
 .layout-15 .dropzone
 {
@@ -798,6 +802,7 @@ a:focus {
 .layout-12 .gu-transit,
 .layout-13 .gu-transit,
 .layout-14 .gu-transit,
+.layout-18 .gu-transit,
 .layout-17 .gu-transit,
 .layout-15 .gu-transit
 {
@@ -810,6 +815,7 @@ a:focus {
 }
 .layout-13 .dragzone,
 .layout-14 .dragzone,
+.layout-18 .dragzone,
 .layout-17 .dragzone,
 .layout-15 .dragzone
 {	min-height: 0;
@@ -818,6 +824,7 @@ a:focus {
 }
 .layout-13 .dragzone .exercise__answer,
 .layout-14 .dragzone .exercise__answer,
+.layout-18 .dragzone .exercise__answer,
 .layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer
 {
@@ -828,6 +835,7 @@ a:focus {
 }
 .layout-13 .dropzone,
 .layout-14 .dropzone,
+.layout-18 .dropzone,
 .layout-17 .dropzone,
 .layout-15 .dropzone
 {
@@ -849,9 +857,11 @@ a:focus {
 .layout-13 .exercise__answer-text:after,
 .layout-13 .dropzone:after,
 .layout-14 .dragzone .exercise__answer:after,
+.layout-18 .dragzone .exercise__answer:after,
 .layout-15 .dragzone .exercise__answer-text:after,
 .layout-17 .dragzone .exercise__answer-text:after,
 .layout-14 .dropzone:after,
+.layout-18 .dropzone:after,
 .layout-15 .dropzone:after,
 .layout-17 .dropzone:after
 {
@@ -870,6 +880,7 @@ a:focus {
 }
 .layout-13 .exercise__answer-text:after,
 .layout-14 .exercise__answer:after,
+.layout-18 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
@@ -882,6 +893,7 @@ a:focus {
 }
 .layout-13 .gu-mirror,
 .layout-14 .gu-mirror,
+.layout-18 .gu-mirror,
 .layout-17 .gu-mirror,
 .layout-15 .gu-mirror
 {
@@ -889,6 +901,7 @@ a:focus {
 }
 .layout-13 .dropzone.over,
 .layout-14 .dropzone.over,
+.layout-18 .dropzone.over,
 .layout-17 .dropzone.over,
 .layout-15 .dropzone.over
 {
@@ -897,14 +910,17 @@ a:focus {
     font-weight: bold;
 }
 
-.layout-14 .dnd
+.layout-14 .dnd,
+.layout-18 .dnd
 {
 	height: 610px;
 }
 .layout-14 .dragzones-outer,
+.layout-18 .dragzones-outer,
 .layout-17 .dragzones-outer,
 .layout-15 .dragzones-outer,
 .layout-14 .dropzones-outer,
+.layout-18 .dropzones-outer,
 .layout-17 .dropzones-outer,
 .layout-15 .dropzones-outer
 {
@@ -912,6 +928,7 @@ a:focus {
 	float: left;
 }
 .layout-14 .dragzones-outer,
+.layout-18 .dragzones-outer,
 .layout-17 .dragzones-outer,
 .layout-15 .dragzones-outer
 {
@@ -919,15 +936,18 @@ a:focus {
 	padding-right: 33%;
 }
 .layout-14 .dropzones-outer,
+.layout-18 .dropzones-outer,
 .layout-17 .dropzones-outer,
 .layout-15 .dropzones-outer
 {
 	width: 33%;
 }
 .layout-14 .dragzone .exercise__answer,
+.layout-18 .dragzone .exercise__answer,
 .layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer,
 .layout-14 .dropzone,
+.layout-18 .dropzone,
 .layout-17 .dropzone,
 .layout-15 .dropzone
 {
@@ -939,30 +959,37 @@ a:focus {
 	/*margin-bottom: 10px;*/
 }
 .layout-14 .dragzone .exercise__answer,
+.layout-18 .dragzone .exercise__answer,
 .layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer,
 .layout-14 .dropzone,
+.layout-18 .dropzone,
 .layout-17 .dropzone,
 .layout-15 .dropzone,
 .layout-14 .qtype__tof .exercise__answer-list,
-.layout-17 .qtype__tof .exercise__answer-list {
+.layout-18 .qtype__tof .exercise__answer-list,
+.layout-17 .qtype__tof .exercise__answer-list
+{
 	height: 120px;
-
 }
 .layout-14 .dropzone,
+.layout-18 .dropzone,
 .layout-17 .dropzone,
 .layout-15 .dropzone
 {
 	min-height: 0;
 }
 .layout-14 .dragzone .exercise__answer,
+.layout-18 .dragzone .exercise__answer,
 .layout-17 .dragzone .exercise__answer,
 .layout-15 .dragzone .exercise__answer
 {
 }
 .layout-14 .dragzone .exercise__answer-text,
+.layout-18 .dragzone .exercise__answer-text,
 .layout-17 .dragzone .exercise__answer-text,
 .layout-14 .dropzone:before,
+.layout-18 .dropzone:before,
 .layout-17 .dropzone:before,
 .layout-15 .dragzone .exercise__answer-text,
 .layout-15 .dropzone:before
@@ -976,9 +1003,11 @@ a:focus {
 	-webkit-transform: translateY(-50%);
 }
 .layout-14 .exercise__answer:after,
+.layout-18 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after,
 .layout-14 .dropzone:after,
+.layout-18 .dropzone:after,
 .layout-17 .dropzone:after,
 .layout-15 .dropzone:after
 {
@@ -986,24 +1015,28 @@ a:focus {
 	margin-top: -5px;
 }
 .layout-14 .exercise__answer:after,
+.layout-18 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
 .layout-15 .exercise__answer-text:after
 {
 	right: -21px;
 }
 .layout-14 .dropzone:after,
+.layout-18 .dropzone:after,
 .layout-17 .dropzone:after,
 .layout-15 .dropzone:after
 {
 	left: -22px;
 }
 .layout-14 .qtype__tof .exercise__answer-list,
+.layout-18 .qtype__tof .exercise__answer-list,
 .layout-17 .qtype__tof .exercise__answer-list
 {
 	margin: 0;
 	padding: 20px 0;
 }
 .layout-14 .qtype__tof .exercise__answer-text,
+.layout-18 .qtype__tof .exercise__answer-text,
 .layout-17 .qtype__tof .exercise__answer-text
 {
 	padding: 2px 0;
@@ -1011,25 +1044,31 @@ a:focus {
 	font-size: 18px;
 }
 .layout-14 .qtype__tof .exercise__answer.is-selected,
+.layout-18 .qtype__tof .exercise__answer.is-selected,
 .layout-17 .qtype__tof .exercise__answer.is-selected
 {
 	/*background-color: #FF879D;*/
 }
 
-.layout-14 .exercise__answer .exercise__answer-image {
+.layout-14 .exercise__answer .exercise__answer-image,
+.layout-18 .exercise__answer .exercise__answer-image
+{
 	width: auto;
 	height: 70px;
 }
 .layout-14 .dragzone .exercise__answer .exercise__answer-text,
+.layout-18 .dragzone .exercise__answer .exercise__answer-text,
 .layout-14 .dropzone:before,
-.layout-17 .dropzone:before {
+.layout-18 .dropzone:before,
+.layout-17 .dropzone:before
+{
 	top: 73px;
 	transform: none;
 	-webkit-transform: none;
 	font-size: 16px;
 	margin-bottom: 0;
 }
-.layout-14 .dropzone:before {}
+
 
 /* ==========================================================================
    SVG
@@ -1349,12 +1388,20 @@ svg line {
 .ch4 .answer-checked .qtype__tofx2 .exercise__answer.is-selected:after
 {content: none;}
 
+.ch4.ex1 .dropzone,
 .ch6.ex1 .dropzone,
 .ch10.ex2 .dropzone,
 .ch9.ex1 .dropzone {
 	background-repeat: no-repeat;
 	background-position: top center;
 }
+.ch4.ex1 .dropzone {background-size: 82px 70px;}
+.ch4.ex1 .dropzone:nth-child(1) { background-image: url(../img/ch4/ex1/4-1-2-6.png); }
+.ch4.ex1 .dropzone:nth-child(2) { background-image: url(../img/ch4/ex1/4-1-2-7.png); }
+.ch4.ex1 .dropzone:nth-child(3) { background-image: url(../img/ch4/ex1/4-1-2-8.png); }
+.ch4.ex1 .dropzone:nth-child(4) { background-image: url(../img/ch4/ex1/4-1-2-9.png); }
+.ch4.ex1 .dropzone:nth-child(5) { background-image: url(../img/ch4/ex1/4-1-2-10.png); }
+
 .ch6.ex1 .dropzone {background-size: 82px 70px;}
 .ch6.ex1 .dropzone:nth-child(1) { background-image: url(../img/ch6/ex1/6-1-1-6.png); }
 .ch6.ex1 .dropzone:nth-child(2) { background-image: url(../img/ch6/ex1/6-1-1-7.png); }

@@ -817,47 +817,56 @@
 				</div>
 			</div>
 		</div>
-		<div v-repeat="question: questions | filterBy 'tofx2' in 'qtype'" class="qtype__{{question.qtype}}">
-			<div class="exercise__question-number">
+		<div class="question" v-repeat="question: questions | filterBy 1 in 'index'">
+			<h1 class="exercise__question exercise__question-number">
 				<span class="question-number">{{question.index+1}}.</span>
 				<span class="exercise__question-text">{{question.questionText}}</span>
-			</div>
-			<div class="row">
-				<div class="exercise__answer-list-outer col-xs-12 qtype__tof tof0">
-					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers[0]" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseMultipleSingleAnswers(question, answer, question.answers[0], 0)">
-							<img class="exercise__question-image" v-attr="src: imagePath + '2-' + ($index + 1) + '.png'" alt="">
-							<div class="exercise__answer-text">
-								<div class="exercise__answer-text-inner">
-									<i class="fa " v-class="
-										fa-square-o: !answer.selected,
-										fa-check-square: answer.selected
-									"></i>
-									<i class="fa" v-class="
-										fa-check-circle: $index == 0,
-										fa-times-circle: $index == 1,
-										selected: answer.selected
-									"></i>
-									{{ answer.text }}
-								</div>
+				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
+			</h1>
+			<div class="exercise__answer-list-outer">
+				<div class="row">
+					<div class="col-xs-9 dnd">
+						<div class="dragzones-outer">
+							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
+									v-class="
+										is-correct-answer: answer.correct,
+										is-selected: answer.selected
+									">
+									<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
+									<span class="exercise__answer-text">
+										{{ answer.text }}
+									</span>
+								</li>
+							</ol>
+						</div>
+						<div class="dropzones-outer clearfix">
+							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+							</ol>
+						</div>
+						<svg id="draw-panel"></svg>
+					</div>
+					<div class="col-xs-3">
+						<div class="qtype__tof-outer">
+							<div class="qtype__tof">
+								<ol class="exercise__answer-list" v-repeat="answerSet: question.answers.tof" >
+									<li class="exercise__answer" v-repeat="answer: answerSet.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(answerSet, answer, answerSet.answers)">
+										<div class="exercise__answer-text">
+											<div class="exercise__answer-text-inner">
+												<i class="fa" 
+												v-class="
+												fa-check-square: $index == 0,
+												fa-times-circle: $index == 1,
+												selected: answer.selected
+												"></i>
+												{{ answer.text }}
+											</div>
+										</div>
+									</li>
+								</ol>
 							</div>
-						</li>
-					</ol>
-				</div>
-			</div>
-			<div class="row">
-				<div class="exercise__answer-list-outer col-xs-12 qtype__tof tof1">
-					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers[1]" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
-							<div class="exercise__answer-text" v-on="click: chooseMultipleSingleAnswers(question, answer, question.answers[1], 1)">
-								<div class="exercise__answer-text-inner">
-									<i class="fa fa-square-o" v-show="!answer.selected"></i>
-									<i class="fa fa-check-square" v-show="answer.selected"></i>
-									{{ answer.text }}
-								</div>
-							</div>
-						</li>
-					</ol>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

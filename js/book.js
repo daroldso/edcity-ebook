@@ -92,17 +92,17 @@ window.Book = {
 							{type: 1, text: ""}
 						],
 						answers: [
-							{ index: 0, correct: false, selected: false, text: "嘩！我好鍾意！"},
-							{ index: 1, correct: true, selected: false, text: "都唔靚嘅！"},
-							{ index: 2, correct: false, selected: false, text: "嘩！我想即刻試吓！"},
-							{ index: 3, correct: false, selected: false, text: "嘩！好靚呀！"},
-							{ index: 4, correct: false, selected: false, text: "我鍾意呢個顏色！"},
-							{ index: 5, correct: true, selected: false, text: "我覺得無乜用喎！"},
-							{ index: 6, correct: false, selected: false, text: "嘩！好嘢！"},
-							{ index: 7, correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
-							{ index: 8, correct: false, selected: false, text: "我啱啱想買…"},
-							{ index: 9, correct: true, selected: false, text: "呢個麻麻地啦…"},
-							{ index: 10, correct: false, selected: false, text: "啱晒，我無呢個。"},
+							{ index: 0, type: 0,correct: false, selected: false, text: "嘩！我好鍾意！"},
+							{ index: 1, type: 1,correct: true, selected: false, text: "都唔靚嘅！"},
+							{ index: 2, type: 0,correct: false, selected: false, text: "嘩！我想即刻試吓！"},
+							{ index: 3, type: 0,correct: false, selected: false, text: "嘩！好靚呀！"},
+							{ index: 4, type: 0,correct: false, selected: false, text: "我鍾意呢個顏色！"},
+							{ index: 5, type: 1,correct: true, selected: false, text: "我覺得無乜用喎！"},
+							{ index: 6, type: 0,correct: false, selected: false, text: "嘩！好嘢！"},
+							{ index: 7, type: 0,correct: false, selected: false, text: "我搵咗呢個款好耐啦！"},
+							{ index: 8, type: 0,correct: false, selected: false, text: "我啱啱想買…"},
+							{ index: 9, type: 1,correct: true, selected: false, text: "呢個麻麻地啦…"},
+							{ index: 10, type: 0,correct: false, selected: false, text: "啱晒，我無呢個。"},
 						],
 						numOfCorrectAnswers: 3,
 						correctAnswerCount: 0,
@@ -865,11 +865,11 @@ window.Book = {
 						questionText2: "",
 						answers: [
 							{correct: false, selected: false, text: ""},
-							{correct: true, selected: false, text: "你好"},
+							{correct: true, selected: false, text: ""},
 							{correct: false, selected: false, text: ""},
 							{correct: false, selected: false, text: ""},
 							{correct: false, selected: false, text: ""},
-							{correct: true, selected: false, text: "午安"},
+							{correct: true, selected: false, text: ""},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
@@ -890,8 +890,81 @@ window.Book = {
 				name: "基本故事理解",
 				instruction: "根據「唔識表達嘅亞美」故事內容，回答下列各題。從第2至6題，選出正確的情景，並依照故事內容，圈出亞美的表達方法是否正確。",
 				baseScore: 14,
-				type: "chooseSingleAndMultipleAnswers_SingleAnswerTwice",
+				type: "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer",
+				dragndropType: "multipleDropzone",
+				dragndropBehavior: "drawLines_vertical",
 				questions:  [
+					{
+						index: 1,
+						correct: false,
+						wrong: false,
+						questionText: "請根據故事內容，將相關情節連在一起，然後按「✔」或「×」判斷這是否正確的做法。",
+						lines: [],
+						dragPools: [
+							{type: 0, text: ""}
+						],
+						dropPools: [
+							{type: 1, text: "打身邊的人"},
+							{type: 2, text: "打自己個頭"},
+							{type: 3, text: "大聲叫"},
+							{type: 4, text: "把所想要求說出"},
+							{type: 5, text: "坐在地上"},
+						],
+						answers: {
+							'dnd': [
+								{ index: 0, type: 3, correct: false, selected: false, text: "吃早餐", atype: "dnd" },
+								{ index: 1, type: 2, correct: false, selected: false, text: "派試卷", atype: "dnd" },
+								{ index: 2, type: 1, correct: false, selected: false, text: "飯後找李老師", atype: "dnd" },
+								{ index: 3, type: 5, correct: false, selected: false, text: "亞輝取去新筆", atype: "dnd" },
+								{ index: 4, type: 4, correct: false, selected: false, text: "想看卡通片", atype: "dnd" },
+							],
+							'tof': [
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,								
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,
+									answers:[
+										{ correct: true, selected: false, text: "正確", atype: "tof" },
+										{ correct: false, selected: false, text: "不正確", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "正確", atype: "tof" },
+										{ correct: true, selected: false, text: "不正確", atype: "tof" },
+									]
+								}
+							],
+						},
+						numOfCorrectAnswers: 10,
+						correctAnswerCount: 0,
+						wrongAnswerCount: 0
+					},
 					{
 						index: 0,
 						qtype: "tof-mc",
@@ -915,126 +988,6 @@ window.Book = {
 						numOfCorrectAnswers: 4,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
-					},
-					{
-						index: 1,
-						qtype: "tofx2",
-						correct: false,
-						wrong: false,
-						questionText: "小美吃早餐時，她如何表達自己？",
-						answers: [
-							[
-								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
-								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
-								{correct: true, selected: false, text: "大聲叫", atype: "tof0"},
-								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
-								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
-							],
-							[
-								{correct: false, selected: false, text: "正確", atype: "tof1"},
-								{correct: true, selected: false, text: "不正確", atype: "tof1"}
-							],
-						],
-						numOfCorrectAnswers: 2,
-						correctAnswerCount: 0,
-						correctAnswerCount0: 0,
-						correctAnswerCount1: 0,
-					},
-					{
-						index: 2,
-						qtype: "tofx2",
-						correct: false,
-						wrong: false,
-						questionText: "派發試卷時，她如何表達自己？",
-						answers: [
-							[
-								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
-								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
-								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
-								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
-								{correct: true, selected: false, text: "打自己個頭", atype: "tof0"}
-							],
-							[
-								{correct: false, selected: false, text: "正確", atype: "tof1"},
-								{correct: true, selected: false, text: "不正確", atype: "tof1"}
-							],
-						],
-						numOfCorrectAnswers: 2,
-						correctAnswerCount: 0,
-						correctAnswerCount0: 0,
-						correctAnswerCount1: 0,
-					},
-					{
-						index: 3,
-						qtype: "tofx2",
-						correct: false,
-						wrong: false,
-						questionText: "小美飯後找李老師，她如何表達自己？",
-						answers: [
-							[
-								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
-								{correct: true, selected: false, text: "打身邊的人", atype: "tof0"},
-								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
-								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
-								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
-							],
-							[
-								{correct: false, selected: false, text: "正確", atype: "tof1"},
-								{correct: true, selected: false, text: "不正確", atype: "tof1"}
-							],
-						],
-						numOfCorrectAnswers: 2,
-						correctAnswerCount: 0,
-						correctAnswerCount0: 0,
-						correctAnswerCount1: 0,
-					},
-					{
-						index: 4,
-						qtype: "tofx2",
-						correct: false,
-						wrong: false,
-						questionText: "亞輝取去小美的新筆，她如何表達自己？",
-						answers: [
-							[
-								{correct: true, selected: false, text: "坐在地上", atype: "tof0"},
-								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
-								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
-								{correct: false, selected: false, text: "把所想要求說出", atype: "tof0"},
-								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
-							],
-							[
-								{correct: false, selected: false, text: "正確", atype: "tof1"},
-								{correct: true, selected: false, text: "不正確", atype: "tof1"}
-							],
-						],
-						numOfCorrectAnswers: 2,
-						correctAnswerCount: 0,
-						correctAnswerCount0: 0,
-						correctAnswerCount1: 0,
-					},
-					{
-						index: 5,
-						qtype: "tofx2",
-						correct: false,
-						wrong: false,
-						questionText: "派發試卷時，她如何表達自己？",
-						answers: [
-							[
-								{correct: false, selected: false, text: "坐在地上", atype: "tof0"},
-								{correct: false, selected: false, text: "打身邊的人", atype: "tof0"},
-								{correct: false, selected: false, text: "大聲叫", atype: "tof0"},
-								{correct: true, selected: false, text: "把所想要求說出", atype: "tof0"},
-								{correct: false, selected: false, text: "打自己個頭", atype: "tof0"}
-							],
-							[
-								{correct: true, selected: false, text: "正確", atype: "tof1"},
-								{correct: false, selected: false, text: "不正確", atype: "tof1"}
-							],
-						],
-						numOfCorrectAnswers: 2,
-						correctAnswerCount: 0,
-						correctAnswerCount0: 0,
-						correctAnswerCount1: 0,
 					},
 				]
 			},
@@ -1452,9 +1405,9 @@ window.Book = {
 						answers: {
 							'dnd': [
 								{ index: 0, type: 5, correct: false, selected: false, text: "小美", atype: "dnd" },
-								{ index: 1, type: 2, correct: false, selected: false, text: "陳老師", atype: "dnd" },
+								{ index: 1, type: 2, correct: false, selected: true, text: "陳老師", atype: "dnd" },
 								{ index: 2, type: 1, correct: false, selected: false, text: "鍾仔", atype: "dnd" },
-								{ index: 3, type: 3, correct: false, selected: false, text: "阿強", atype: "dnd" },
+								{ index: 3, type: 3, correct: false, selected: true, text: "阿強", atype: "dnd" },
 								{ index: 4, type: 4, correct: false, selected: false, text: "嘉兒", atype: "dnd" }
 							],
 							'tof': [
@@ -1463,6 +1416,14 @@ window.Book = {
 									wrongAnswerCount: 0,								
 									answers:[
 										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: true, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: true, text: "可以談話", atype: "tof" },
 										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
 									]
 								},
@@ -1471,15 +1432,7 @@ window.Book = {
 									wrongAnswerCount: 0,										
 									answers:[
 										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
-										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
-									]
-								},
-								{
-									correctAnswerCount: 0,
-									wrongAnswerCount: 0,										
-									answers:[
-										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
-										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+										{ correct: true, selected: true, text: "不應談話", atype: "tof" },
 									]
 								},
 								{

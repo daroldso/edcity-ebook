@@ -38,12 +38,6 @@ window.validateMethods = {
 		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleAnswers,
 	},
-	'chooseSingleAndMultipleAnswers_SingleAnswerTwice': {
-		chooseSingleAnswer: chooseAnswer_SingleAnswer,
-		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
-		chooseMultipleSingleAnswers: chooseAnswer_MultipleSingleAnswers,
-		checkAnswer: checkAnswer_SingleAndMultipleAnswers_SingleAnswerTwice,
-	},
 	/**
 	 * Drag n Drop One Dropzone
 	 */
@@ -80,6 +74,14 @@ window.validateMethods = {
 		chooseAnswer: chooseAnswer_MultipleDropzone,
 		chooseSingleAnswer: chooseAnswer_SingleAnswer,
 		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalseMultiple,
+	},
+	'dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer': {
+		chooseAnswer: chooseAnswer_MultipleDropzone,
+		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer,
+	
+		// checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalseMultiple,
 	},
 }
 
@@ -179,7 +181,6 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 
 function checkAnswer_MultipleDropzone () {
 	var question = vue.questions[vue.currentQuestion];
-	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
 	
 	// check if correctAnswerCount = answers.length
@@ -250,7 +251,6 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 	// Uncomment if once choose wrong, cannot increase score again
 	if(answer.correct && !question.isAnswered) {
-		vue.totalNumOfCorrect++;
 		vue.studentScore ++;
 	}
 	// Set the state of question to answered to prevent double answer
@@ -258,7 +258,6 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 	// even choose wrong, when you choose right the score will increase
 	// if(answer.correct && !question.isAnswered) {
-	// 	vue.totalNumOfCorrect++;
 	// 	question.isAnswered = true;
 	// }
 
@@ -274,13 +273,11 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 function checkAnswer_MultipleAnswers () {
 	var questions = vue.questions;
-	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
 	_.times(questions.length, function (i) {
 		if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
 			questions[i].correct = true;
 			questions[i].wrong = false;
-			vue.totalNumOfCorrect++;
 		} else {
 			questions[i].correct = false;
 			questions[i].wrong = true;
@@ -310,34 +307,35 @@ function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
 	answer.selected = !answer.selected;
 }
 
-function checkAnswer_SingleAndMultipleAnswers_SingleAnswerTwice () {
+function checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer () {
 	var questions = vue.questions;
-	vue.totalNumOfCorrect = 0;
 	vue.studentScore = 0;
+	var dndQuestion = vue.questions[0];
+	var tofQuestion = vue.questions[1];
+	dndQuestion.correctAnswerCount = 0;
 
-	_.times(questions.length, function (i) {
-		if(i === 0) {
-			if(!questions[i].wrongAnswerCount && questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
-				questions[i].correct = true;
-				questions[i].wrong = false;
-				vue.totalNumOfCorrect++;
-			} else {
-				questions[i].correct = false;
-				questions[i].wrong = true;
-			}
-		} else {
-			questions[i].correctAnswerCount = questions[i].correctAnswerCount0 + questions[i].correctAnswerCount1;
-			if(questions[i].correctAnswerCount === questions[i].numOfCorrectAnswers) {
-				questions[i].correct = true;
-				questions[i].wrong = false;
-				vue.totalNumOfCorrect++;
-			} else {
-				questions[i].correct = false;
-				questions[i].wrong = true;
-			}	
-		}
-		vue.studentScore += questions[i].correctAnswerCount;
+	// DND Question
+	var trueOrFalseAnswers = dndQuestion.answers.tof;
+	var dragAndDropAnswers = dndQuestion.answers.dnd;
+	_.times(trueOrFalseAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
 	});
+	_.times(dragAndDropAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
+	});
+
+	// check if correctAnswerCount = answers.length
+	dndQuestion.correct = (dndQuestion.correctAnswerCount === dndQuestion.numOfCorrectAnswers);
+
+	if(!tofQuestion.wrongAnswerCount && tofQuestion.correctAnswerCount === tofQuestion.numOfCorrectAnswers) {
+		tofQuestion.correct = true;
+		tofQuestion.wrong = false;
+	} else {
+		tofQuestion.correct = false;
+		tofQuestion.wrong = true;
+	}
+
+	vue.studentScore = dndQuestion.correctAnswerCount + tofQuestion.correctAnswerCount;
 
 	// Show "正確答案" button
 	actionsView.setCheckAnswerState(true);
