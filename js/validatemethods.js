@@ -203,17 +203,28 @@ function checkAnswer_MultipleDropzone () {
 function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 	actionsView.setCheckAnswerState(false);
 
-	// answers = (filterProp)
-	// 	? answers.filter(function(item) { return item.type === filterProp;	})
-	// 	: answers;
 
-	_.times(answers.length, function (i) {
-		answers[i].selected = false;
-	});
+	if(filterProp) {
+		_.times(answers.length, function (i) {
+			if(answers[i].atype === answer.atype) {
+				answers[i].selected = false;
+			}
+		});
+		var atypeNum = answer.atype.substr(-1); // tof1 => 1
+		question['correctAnswerCount'+atypeNum] = ~~answer.correct;
+		question['wrongAnswerCount'+atypeNum] = ~~!answer.correct;
+		question.correctAnswerCount = question.correctAnswerCount1 + question.correctAnswerCount2;
+		question.wrongAnswerCount = question.wrongAnswerCount1 + question.wrongAnswerCount2;
+	} else {
+		_.times(answers.length, function (i) {
+			answers[i].selected = false;
+		});
 
-	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
-	question.correctAnswerCount = ~~answer.correct;
-	question.wrongAnswerCount = ~~!answer.correct;
+		// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
+		question.correctAnswerCount = ~~answer.correct;
+		question.wrongAnswerCount = ~~!answer.correct;
+	}
+
 
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 	console.log("wrongAnswerCount: "+question.wrongAnswerCount);

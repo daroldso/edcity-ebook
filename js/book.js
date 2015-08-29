@@ -403,9 +403,9 @@ window.Book = {
 						index: 0,
 						correct: false,
 						wrong: false,
-						questionText: "情境一﹕身體不適，向救護人員求助。",
+						questionText: "情境一：身體不適，向救護人員求助。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -419,9 +419,9 @@ window.Book = {
 						index: 1,
 						correct: false,
 						wrong: false,
-						questionText: "情境二﹕遇到意外要求救。",
+						questionText: "情境二：遇到意外要求救。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -437,7 +437,7 @@ window.Book = {
 						wrong: false,
 						questionText: "情境三：被人搶劫要求救。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -453,7 +453,7 @@ window.Book = {
 						wrong: false,
 						questionText: "情境四：遺失重要物品要和上司報告，而上司正在工作。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -467,9 +467,9 @@ window.Book = {
 						index: 4,
 						correct: false,
 						wrong: false,
-						questionText: "情境五﹕遇到意外要求救。",
+						questionText: "情境五：遇到意外要求救。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -483,9 +483,9 @@ window.Book = {
 						index: 5,
 						correct: false,
 						wrong: false,
-						questionText: "情境六﹕主角想與人閒談，而那個人正在做家務。",
+						questionText: "情境六：主角想與人閒談，而那個人正在做家務。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -499,9 +499,9 @@ window.Book = {
 						index: 6,
 						correct: false,
 						wrong: false,
-						questionText: "情境七﹕廚房的水煲滾了，而媽媽正在接聽電話。",
+						questionText: "情境七：廚房的水煲滾了，而媽媽正在接聽電話。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -515,9 +515,9 @@ window.Book = {
 						index: 7,
 						correct: false,
 						wrong: false,
-						questionText: "情境八﹕有重要事情要向對方說，而他正在看圖書。",
+						questionText: "情境八：有重要事情要向對方說，而他正在看圖書。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -531,9 +531,9 @@ window.Book = {
 						index: 8,
 						correct: false,
 						wrong: false,
-						questionText: "情境九﹕想與人閒談，而那個人正在聽歌。",
+						questionText: "情境九：想與人閒談，而那個人正在聽歌。",
 						questionContent: [
-							"唔好意思！"
+							""
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -853,8 +853,8 @@ window.Book = {
 			'ex4': {
 				clientref: 3,
 				layout: 3,
-				name: "何處買禮物？",
-				instruction: '我可以到哪裡購買禮物呢？請在正確地方的圖片加上「✔」號。',
+				name: "非語言的打招呼",
+				instruction: '怎樣才算非語言的打招呼呢?請在適當的方格內加上「✔」號。',
 				type: "chooseMultipleAnswer",
 				questions:  [
 					{
@@ -1777,104 +1777,134 @@ window.Book = {
 				layout: 6,
 				name: "被人取笑考考你",
 				instruction: "以下人物被取笑時，他做得對嗎？請圈出對或錯，並按下適當的回應。",
-				type: "chooseSingleAndMultipleAnswers",
+				type: "chooseSingleAnswer",
 				questions:  [
 					{
 						index: 0,
 						correct: false,
 						wrong: false,
-						questionText: "適當的回應是甚麼？請按下正確的答案：",
+						questionText: "他做得對嗎？",
+						questionText2: "適當的回應是甚麼？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", atype: "tof"},
-							{correct: true, selected: false, text: "", atype: "tof"},
-							{correct: false, selected: false, text: "“你先係排骨仔呀。”", atype: "mc"},
-							{correct: false, selected: false, text: "“作死呀。”", atype: "mc"},
-							{correct: true, selected: false, text: "“你咁樣好無禮貌。”", atype: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: false, selected: false, text: "“你先係排骨仔呀。”", atype: "tof2"},
+							{correct: false, selected: false, text: "“作死呀。”", atype: "tof2"},
+							{correct: true, selected: false, text: "“你咁樣好無禮貌。”", atype: "tof2"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 					{
 						index: 1,
 						correct: false,
 						wrong: false,
-						text: "適當的回應是甚麼？請按下正確的答案：",
+						questionText: "她做得對嗎？",
+						questionText2: "適當的回應是甚麼？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: false, selected: false, text: "“你好叻咩！”", type: "mc"},
-							{correct: false, selected: false, text: "把紙張撕破。", type: "mc"},
-							{correct: true, selected: false, text: "不理會她，繼續摺飛機。", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: false, selected: false, text: "“你好叻咩！”", atype: "tof2"},
+							{correct: false, selected: false, text: "把紙張撕破。", atype: "tof2"},
+							{correct: true, selected: false, text: "不理會她，繼續摺飛機。", atype: "tof2"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 					{
 						index: 2,
 						correct: false,
 						wrong: false,
-						text: "適當的回應是甚麼？請按下正確的答案：",
+						questionText: "她做得對嗎？",
+						questionText2: "適當的回應是甚麼？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: false, selected: false, text: "“你唔抵得呀。”", type: "mc"},
-							{correct: false, selected: false, text: "請老師幫忙。", type: "mc"},
-							{correct: true, selected: false, text: "“你好乞人憎呀。”", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: false, selected: false, text: "“你唔抵得呀。”", atype: "tof2"},
+							{correct: false, selected: false, text: "請老師幫忙。", atype: "tof2"},
+							{correct: true, selected: false, text: "“你好乞人憎呀。”", atype: "tof2"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 					{
 						index: 3,
 						correct: false,
 						wrong: false,
-						text: "還有其他適當的回應嗎？請按下正確的答案：",
+						questionText: "他做得對嗎？",
+						questionText2: "還有其他適當的回應嗎？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: false, selected: false, text: "“關你咩事！”", type: "mc"},
-							{correct: false, selected: false, text: "哭起來。", type: "mc"},
-							{correct: true, selected: false, text: "冷靜下來，繼續抹枱。", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: false, selected: false, text: "“關你咩事！”", atype: "tof2"},
+							{correct: false, selected: false, text: "哭起來。", atype: "tof2"},
+							{correct: true, selected: false, text: "冷靜下來，繼續抹枱。", atype: "tof2"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 					{
 						index: 4,
 						correct: false,
 						wrong: false,
-						text: "適當的回應是甚麼？請按下正確的答案：",
+						questionText: "她做得對嗎？",
+						questionText2: "適當的回應是甚麼？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "不理他，轉身走開。", type: "mc"},
-							{correct: false, selected: false, text: "用粉擦擲向同學。", type: "mc"},
-							{correct: false, selected: false, text: "大叫。", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "不理他，轉身走開。", atype: "tof2"},
+							{correct: false, selected: false, text: "用粉擦擲向同學。", atype: "tof2"},
+							{correct: false, selected: false, text: "大叫。", atype: "tof2"},
 							
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 					{
 						index: 5,
 						correct: false,
 						wrong: false,
-						text: "還有其他適當的回應嗎？請按下正確的答案：",
+						questionText: "他做得對嗎？",
+						questionText2: "還有其他適當的回應嗎？請按下正確的答案：",
 						answers: [
-							{correct: false, selected: false, text: "", type: "tof"},
-							{correct: true, selected: false, text: "", type: "tof"},
-							{correct: false, selected: false, text: "大力推他。", type: "mc"},
-							{correct: false, selected: false, text: "繼續行樓梯，保持冷靜。", type: "mc"},
-							{correct: true, selected: false, text: "用腳踢同學。", type: "mc"},
+							{correct: false, selected: false, text: "", atype: "tof1"},
+							{correct: true, selected: false, text: "", atype: "tof1"},
+							{correct: false, selected: false, text: "大力推他。", atype: "tof2"},
+							{correct: false, selected: false, text: "繼續行樓梯，保持冷靜。", atype: "tof2"},
+							{correct: true, selected: false, text: "用腳踢同學。", atype: "tof2"},
 						],
 						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 				]
 			},
@@ -2131,8 +2161,8 @@ window.Book = {
 						wrong: false,
 						questionText: "吃午餐時，有同學笑我",
 						answers: [
-							{correct: true, selected: false, text: "收起飯盒不吃飯。"},
-							{correct: false, selected: false, text: "告訴老師或家人。"},
+							{correct: false, selected: false, text: "收起飯盒不吃飯。"},
+							{correct: true, selected: false, text: "告訴老師或家人。"},
 							{correct: false, selected: false, text: "推倒同學的飯盒。"},
 						],
 						numOfCorrectAnswers: 1,
