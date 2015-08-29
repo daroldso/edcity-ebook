@@ -240,7 +240,7 @@
 				<span class="exercise__question-text">{{question.questionText}}</span>
 			</div>
 			<div class="row">
-				<div class="exercise__question col-xs-8">
+				<div class="exercise__question col-xs-10">
 					<div class="exercise__question-content">
 						<img class="exercise__question-image" v-attr="src: imagePath + ($index + 1) + '-1.png'" alt="">
 						<div class="exercise__question-text">
@@ -248,9 +248,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="exercise__answer-list-outer col-xs-4 qtype__tof">
+				<div class="exercise__answer-list-outer col-xs-2 qtype__tof">
 					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers, 'tof')">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof1'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseAnswer(question, answer, question.answers, 'tof1')">
 							<div class="exercise__answer-text">
 								<div class="exercise__answer-text-inner">
 									<i class="fa " v-class="
@@ -271,10 +271,10 @@
 			</div>
 			<div class="row">
 				<div class="exercise__answer-list-outer col-xs-12 qtype__mc">
-					<p>{{question.text}}</p>
+					<p class="exercise__question-text">{{question.questionText2}}</p>
 					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'mc'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
-							<div class="exercise__answer-text" v-on="click: chooseMultipleAnswers(question, answer, question.answers)">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof2'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
+							<div class="exercise__answer-text" v-on="click: chooseAnswer(question, answer, question.answers, 'tof2')">
 								<div class="exercise__answer-text-inner">
 									<i class="fa fa-square-o" v-show="!answer.selected"></i>
 									<i class="fa fa-check-square" v-show="answer.selected"></i>
@@ -781,7 +781,7 @@
 				</div>
 				<div class="exercise__answer-list-outer col-xs-4 qtype__tof">
 					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers, 'tof')">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers)">
 							<div class="exercise__answer-text">
 								<div class="exercise__answer-text-inner">
 									<i class="fa " v-class="
