@@ -62,6 +62,7 @@ function dragnDropBehavior_revertAndWarningOnWrong () {
 			return false;
 		}
 		if(container.__vue__.dropPool.type !== el.__vue__.answer.type) {
+			el.__vue__.answer.selected = true;
 			this.cancel(true);
 			$(container).addClass('warning');
 			setTimeout( function() { $(container).removeClass('warning') }, 1000);

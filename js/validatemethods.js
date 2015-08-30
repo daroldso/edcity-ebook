@@ -73,6 +73,7 @@ window.validateMethods = {
 	'dragnDrop_MultipleDropzone_TrueOrFalseMultiple': {
 		chooseAnswer: chooseAnswer_MultipleDropzone,
 		chooseSingleAnswer: chooseAnswer_SingleAnswer,
+		chooseMultipleAnswer: chooseAnswer_MultipleAnswers,
 		checkAnswer: checkAnswer_MultipleDropzone_TrueOrFalseMultiple,
 	},
 	'dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer': {
@@ -159,7 +160,9 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		// check whether answer.type equal to dropPool.type
 		if(container.__vue__.dropPool.type === answer.type) {
 			// if true, correctAnswerCount++
-			question.correctAnswerCount++;
+			if(!increaseDragpoolCorrectCount || !answer.selected) {
+				question.correctAnswerCount++;
+			}
 			// set answer.correct = to  true;
 			answer.correct = true;
 			if(increaseDragpoolCorrectCount) {
