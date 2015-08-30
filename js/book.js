@@ -832,8 +832,8 @@ window.Book = {
 							{type: 0, text: ""}
 						],
 						dropPools: [
-							{type: 1, text: "有時間性"},
-							{type: 2, text: "沒有時間性"},
+							{type: 1, text: "語言 - 有時間性"},
+							{type: 2, text: "語言 - 沒有時間性"},
 							{type: 3, text: "非語言"}
 						],
 						answers: [
