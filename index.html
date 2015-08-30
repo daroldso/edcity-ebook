@@ -694,7 +694,7 @@
 			<p class="exercise__question-text">{{question.questionText2}}</p>
 			<div class="exercise__answer-list-outer">
 				<ol class="exercise__answer-list">
-					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers)">
+					<li class="exercise__answer" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseMultipleAnswer(question, answer, question.answers)">
 						<span class="exercise__answer-text">
 							<i class="fa " v-class="
 								fa-square-o: !answer.selected,

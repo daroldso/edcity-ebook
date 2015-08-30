@@ -2268,10 +2268,10 @@ window.Book = {
 						index: 1,
 						correct: false,
 						wrong: false,
-						questionText: "與別人談話時，要：",
+						questionText: "與別人談話時，要：（可選多於一個答案）",
 						questionText2: "",
 						answers: [
-							{correct: false, selected: false, text: "停一停，留心聽別人所講的話題"},
+							{correct: true, selected: false, text: "停一停，留心聽別人所講的話題"},
 							{correct: false, selected: false, text: "立即說出心裡的話"},
 							{correct: true, selected: false, text: "要與別人講相同的話題"}
 						],
