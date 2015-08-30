@@ -1470,9 +1470,22 @@ svg line {
 	margin: 0 3px;
 }
 .ch3.ex2 .exercise__question-number,
-.ch3.ex3 .exercise__question-number
-{display: none;}
+.ch3.ex3 .exercise__question-number,
+.ch6.ex1 .exercise__question-number,
+.ch7.ex1 .exercise__question-number,
+.ch7.ex2 .exercise__question-number,
+.ch9.ex2 .exercise__question-number,
+.ch9.ex3 .exercise__question-number,
+.ch10.ex2 .exercise__question-number
+{ display: none }
+
+.ch7.ex2 .check-answer-button
+{ display: none }
 
 .ch3.ex3 .dropzone {
 	padding: 10px;
+}
+
+.ch7.ex1 .dropzone {
+	margin-bottom: 0;
 }
