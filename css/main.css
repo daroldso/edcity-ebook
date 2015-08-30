@@ -1462,3 +1462,10 @@ svg line {
 .ch4.ex2 .dropzone:last-child,
 .ch10.ex3 .dropzone:last-child
 { background-color: #BF2441; color: #fff; }
+
+.ch3.ex2 .dragzone .exercise__answer
+{
+	margin: 0 3px;
+}
+.ch3.ex2 .exercise__question-number
+{display: none;}
