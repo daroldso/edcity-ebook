@@ -180,7 +180,7 @@ function initActionView () {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
 					
-					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse") {
+					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse" && vue.exercise.type !== "dragnDrop_OneDropzone") {
 						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers);
 					}
 
@@ -317,15 +317,13 @@ function getBaseScore () {
 	var baseScore = 0;
 	_.map(answers, function (item) {
 		_.times(item.length, function (i) {
+			// console.log(item[i]);
 			// if answer has type property which only drag and drop type questions have
-			if(typeof item[i].type !== 'undefined'
-				// && item[i].type !== 0
-			) {
-				baseScore++;
-				// baseScore = item.length;
-			} else {
+			// if(typeof item[i].type !== 'undefined'
+			if(vue.exercise.type === "chooseSingleCheckImmediate" || vue.exercise.type === "chooseSingleAnswer") {
 				baseScore += ~~item[i].correct;
-
+			} else {
+				baseScore++;
 			}
 		})
 	});

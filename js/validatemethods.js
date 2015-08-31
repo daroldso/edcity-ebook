@@ -296,7 +296,14 @@ function checkAnswer_MultipleAnswers () {
 			questions[i].correct = false;
 			questions[i].wrong = true;
 		}
-		vue.studentScore += questions[i].correctAnswerCount;
+		console.log("correctAnswerCount: " + questions[i].correctAnswerCount);
+		console.log("wrongAnswerCount: " + questions[i].wrongAnswerCount);
+		console.log("numOfCorrectAnswers: " + questions[i].numOfCorrectAnswers);
+		if(vue.exercise.type === "chooseSingleAnswer") {
+			vue.studentScore += questions[i].correctAnswerCount;
+		} else {
+			vue.studentScore += questions[i].correctAnswerCount + (questions[i].answers.length - questions[i].numOfCorrectAnswers - questions[i].wrongAnswerCount);
+		}
 	});
 
 	// Show "正確答案" button
