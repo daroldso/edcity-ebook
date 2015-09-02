@@ -4,7 +4,7 @@ var exerciseToInit = {
 	chapterNum: 0,
 	exerciseNum: 0,
 	isAnswerChecked: false,
-	isAnswerChecked: false,
+	isAnswerRevealed: false,
 	studentScore: 0,
 	clientref: 1,
 	layout: 1,

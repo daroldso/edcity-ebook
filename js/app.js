@@ -49,7 +49,7 @@ vue = new Vue({
 				chapterNum: vue.chapterNum,
 				exerciseNum: vue.exerciseNum,
 				isAnswerChecked: vue.isAnswerChecked,
-				isAnswerChecked: vue.isAnswerChecked,
+				isAnswerRevealed: vue.isAnswerRevealed,
 				studentScore: vue.studentScore,
 			};
 
