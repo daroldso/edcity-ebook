@@ -99,6 +99,8 @@ function dragnDropBehavior_drawLines () {
 
 		if (question.lines[answer.index] !== undefined) {
 			question.lines[answer.index].remove();
+			delete question.lines[answer.index];
+			delete question.linesSaved[answer.index];
 		}
 
 		svgOffset = $("#draw-panel").offset();
@@ -145,7 +147,7 @@ function dragnDropBehavior_drawLines () {
 
 		console.log(elX, elY);
 		console.log(dropX, dropY);
-		drawLine(elX, elY, dropX, dropY, question.lines, answer.index);
+		drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
 
 		questionView.chooseAnswer(question, answer, container, source);
 		// return false;
@@ -182,6 +184,8 @@ function dragnDropBehavior_drawLines_vertical () {
 
 		if ( question.lines[answer.index] !== undefined ) {
 			question.lines[answer.index].remove();
+			delete question.lines[answer.index];
+			delete question.linesSaved[answer.index];
 		}
 
 		svgOffset = $("#draw-panel").offset();
@@ -226,9 +230,9 @@ function dragnDropBehavior_drawLines_vertical () {
 		dropX = $('.dragzones-outer')[0].offsetWidth;
 		dropY = (container.offsetHeight * (container.__vue__.dropPool.type-1)) + container.offsetHeight / 2;
 
-		console.log(elX, elY);
-		console.log(dropX, dropY);
-		drawLine(elX, elY, dropX, dropY, question.lines, answer.index);
+		// console.log(elX, elY);
+		// console.log(dropX, dropY);
+		drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
 
 		questionView.chooseAnswer(question, answer, container, source);
 		// return false;

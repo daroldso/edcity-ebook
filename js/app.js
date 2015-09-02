@@ -387,12 +387,20 @@ function moveLine(x, y) {
         .attr("y2", y);
 }
 
-function drawLine(x1, y1, x2, y2, lines, index) {
+function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 	lines[index] = vis.append("line")
-        .attr("x1", x1)
-        .attr("y1", y1)
-        .attr("x2", x2)
-        .attr("y2", y2);
+		.attr("x1", x1)
+		.attr("y1", y1)
+		.attr("x2", x2)
+		.attr("y2", y2);
+	linesSaved[index] = {
+		index: index,
+		x1: x1,
+		y1: y1,
+		x2: x2,
+		y2: y2
+	};
+	console.log(x1, y1, x2, y2, index, lines, linesSaved);
 }
 
 function endLine() {
