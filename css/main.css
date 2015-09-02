@@ -57,12 +57,10 @@ a:focus {
 	cursor: pointer;
 }
 .button--exercise {
-	background: url(../img/button-exercise.png) no-repeat;
 	padding: 3px;
 	width: 136px;
 	overflow: hidden;
 	position: relative;
-	background-image: none;
 	background-color: #FFF;
 	text-align: left;
 }
@@ -72,7 +70,6 @@ a:focus {
 	
 }
 .button--exercise.small {
-	background-position: 0px -45px;
 	width: 96px;
 }
 .button--exercise .fa {
