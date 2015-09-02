@@ -189,6 +189,7 @@ function initActionView () {
 		methods: {
 			showAnswer: function() {
 				vue.isAnswerRevealed = true;
+				vue.saveState();
 			},
 			reset: function() {
 				vue.studentScore = 0;

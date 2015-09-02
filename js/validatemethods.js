@@ -121,7 +121,7 @@ function checkAnswer_MultipleDropzone_TrueOrFalseMultiple () {
 	removeFlash.call(this);
 	console.log("correctAnswerCount: "+dndQuestion.correctAnswerCount);
 
-	console.log(vue.questions);
+	vue.saveState();
 }
 
 function checkAnswer_MultipleDropzone_TrueOrFalse () {
@@ -139,6 +139,8 @@ function checkAnswer_MultipleDropzone_TrueOrFalse () {
 	});
 	checkAnswer_MultipleDropzone();
 	console.log(question.correctAnswerCount);
+
+	vue.saveState();
 }
 
 function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {
@@ -178,8 +180,9 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		answer.selected = true;
 	}
 	console.log("answer.correct: "+answer.correct);
-
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
+
+	vue.saveState();
 }
 
 function checkAnswer_MultipleDropzone () {
@@ -201,6 +204,8 @@ function checkAnswer_MultipleDropzone () {
 	vue.allCorrect = actionsView.isAllCorrect();
 	removeFlash.call(this);
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
+
+	vue.saveState();
 }
 
 function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
@@ -233,6 +238,8 @@ function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
 
 	answer.selected = !answer.selected;
+
+	vue.saveState();
 }
 
 function chooseAnswer_MultipleAnswers (question, answer) {
@@ -251,6 +258,8 @@ function chooseAnswer_MultipleAnswers (question, answer) {
 	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
 
 	answer.selected = !answer.selected;
+
+	vue.saveState();
 }
 
 function checkAnswer_Immediate (question, answer, answerIndex, answers) {
@@ -283,6 +292,7 @@ function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 	// Remove alert with setTimeout
 	removeFlash.call(this);
 
+	vue.saveState();
 }
 
 function checkAnswer_MultipleAnswers () {
@@ -311,6 +321,8 @@ function checkAnswer_MultipleAnswers () {
 
 	vue.allCorrect = actionsView.isAllCorrect();
 	removeFlash.call(this);
+
+	vue.saveState();
 }
 
 function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
@@ -326,6 +338,8 @@ function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
 	console.log("correctAnswerCount: "+question['correctAnswerCount'+index]);
 
 	answer.selected = !answer.selected;
+
+	vue.saveState();
 }
 
 function checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer () {
@@ -363,4 +377,6 @@ function checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer () {
 
 	vue.allCorrect = actionsView.isAllCorrect();
 	removeFlash.call(this);
+
+	vue.saveState();
 }
