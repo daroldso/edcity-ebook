@@ -9,6 +9,10 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
+if (typeof(hotspotDataCommunicator) === "undefined"){
+	var hotspotDataCommunicator = parent.hotspotDataCommunicator;
+}
+
 vue = new Vue({
     el:"#chapter",	
     data: {
@@ -21,25 +25,61 @@ vue = new Vue({
 		totalNumOfQuestion: 0,
 		isAnswerChecked: false,
 		isAnswerRevealed: false,
-        allCorrect: false,
-        layoutNumber: "",
-        baseScore: 0,
-        studentScore: 0,
-    },
-    computed: {
-    	status: function() {
-    		return (this.isAnswerChecked) ? 'submitted' : 'working';
-    	},
-    	display_model_ans: function() {
-    		return this.isAnswerRevealed;
-    	},
-    	user_ans: function() {
-    		var o = {};
-    		o[this.currentQuestion] = questionView.questions[this.currentQuestion];
-    		return o;
-    	}
-    }
+		allCorrect: false,
+		layoutNumber: "",
+		baseScore: 0,
+		studentScore: 0,
+	},
+	computed: {
+		status: function() {
+			return (this.isAnswerChecked) ? 'submitted' : 'working';
+		},
+		display_model_ans: function() {
+			return this.isAnswerRevealed;
+		},
+		user_ans: function() {
+			var o = {};
+			o[this.currentQuestion] = questionView.questions[this.currentQuestion];
+			return o;
+		}
+	},
+	methods: {
+		saveState: function () {
+			var objectWithAdditionalInfo = {
+				chapterNum: vue.chapterNum,
+				exerciseNum: vue.exerciseNum,
+				isAnswerChecked: vue.isAnswerChecked,
+				isAnswerChecked: vue.isAnswerChecked,
+				studentScore: vue.studentScore,
+			};
+
+			var saveObject = $.extend(vue.exercise, objectWithAdditionalInfo);
+
+			// Check if the ebook object exist
+			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+				parent.hotspotDataCommunicator.storeHotspotData(JSON.stringify(saveObject));
+			} else {
+				var jsonString = JSON.stringify(saveObject);
+				console.log(jsonString);
+				console.log(JSON.parse(jsonString));
+			}
+		},
+		retrieveState: function () {
+			// Check if the ebook object exist
+			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
+					load(data);
+				});
+			} 
+			else {
+				// init(data);
+				init(exerciseToInit);
+			}
+		},
+	}
 });
+
+vue.retrieveState(load);
 
 var router = Router();
 
@@ -48,8 +88,9 @@ router.on('/exercise/load/', load);
 
 router.init('/exercise/1/1');
 
-function load () {
-	exercise = exerciseToLoad;
+function load (data) {
+	console.log(exerciseToLoad);
+	exercise = JSON.parse(exerciseToLoad);
 
 	vue.chapterNum = exercise.chapterNum;
 	vue.exerciseNum = exercise.exerciseNum;
@@ -75,14 +116,18 @@ function load () {
 	initActionView();
 }
 
-function init(chapter, ex) {
+function init(exerciseToInit) {
 	// for getting the chapter name only
-	vue.chapterNum = chapter;
-	vue.exerciseNum = ex;
-	chapter = Book['ch'+vue.chapterNum];
+	// vue.chapterNum = parseInt(chapter);
+	// vue.exerciseNum = parseInt(ex);
+	// chapter = Book['ch'+vue.chapterNum];
 	// getting all the exercises in the chapter
-	exercise = chapter.exercises['ex'+vue.exerciseNum];
-
+	// exercise = chapter.exercises['ex'+vue.exerciseNum];
+	exercise = exerciseToInit;
+	
+	vue.chapterNum = exercise.chapterNum;
+	vue.exerciseNum = exercise.exerciseNum;
+	vue.exercise = exercise;
 	vue.layoutNumber = exercise.layout;
 	vue.exercise = exercise;
 	// assign all the questions in the exercise 1-3 to Vue
