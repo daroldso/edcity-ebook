@@ -111,8 +111,8 @@ function initQuestionView () {
 		replace: false,
 		data: {
 			currentQuestion: vue.currentQuestion,
-	    	questions : exercise.questions,
-	    	chapterNum: vue.chapterNum,
+			questions : exercise.questions,
+			chapterNum: vue.chapterNum,
 			exerciseNum: vue.exerciseNum,
 			imagePath: 'img/ch' + vue.chapterNum + '/ex' + vue.exerciseNum + '/' + vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
@@ -142,7 +142,7 @@ function initActionView () {
 			isAnswerChecked: vue.isAnswerChecked,
 		},
 		methods: {
-	    	showAnswer: function() {
+			showAnswer: function() {
 				vue.isAnswerRevealed = true;
 			},
 			reset: function() {
@@ -236,7 +236,7 @@ function initActionView () {
 			isAllCorrect: function() {
 				var questions = vue.questions;
 				for (var i = 0; i < questions.length; i++) {
-				    if(questions[i].correct === false) { return false; }
+					if(questions[i].correct === false) { return false; }
 				};
 				return true;
 			},
@@ -364,27 +364,27 @@ var line, vis;
 function initSvgCanvas () {
 
 	vis = d3.select("#draw-panel")
-	    // .attr("width", 570)
-	    // .attr("height", 100)
-	    // .on("mousedown", startLine)
-	    // .on("mouseup", endLine);
+		// .attr("width", 570)
+		// .attr("height", 100)
+		// .on("mousedown", startLine)
+		// .on("mouseup", endLine);
 
 }
 
 function startLine(x, y) {
 	// console.log(x, y);
-    line = vis.append("line")
-        .attr("x1", x)
-        .attr("y1", y)
-        .attr("x2", x)
-        .attr("y2", y);
-    
+	line = vis.append("line")
+		.attr("x1", x)
+		.attr("y1", y)
+		.attr("x2", x)
+		.attr("y2", y);
+	
 }
 
 function moveLine(x, y) {
 	// console.log(x, y);
-    line.attr("x2", x)
-        .attr("y2", y);
+	line.attr("x2", x)
+		.attr("y2", y);
 }
 
 function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
@@ -404,5 +404,6 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 }
 
 function endLine() {
-    vis.on("mousemove", null);
+	vis.on("mousemove", null);
 }
+

@@ -33,11 +33,11 @@ window.validateMethods = {
 	/**
 	 * MC 多選一 + 多選多
 	 */
-	'chooseSingleAndMultipleAnswers': {
-		chooseSingleAnswer: chooseAnswer_SingleAnswer,
-		chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
-		checkAnswer: checkAnswer_MultipleAnswers,
-	},
+	// 'chooseSingleAndMultipleAnswers': {
+	// 	chooseSingleAnswer: chooseAnswer_SingleAnswer,
+	// 	chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
+	// 	checkAnswer: checkAnswer_MultipleAnswers,
+	// },
 	/**
 	 * Drag n Drop One Dropzone
 	 */
