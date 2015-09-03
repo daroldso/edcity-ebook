@@ -226,7 +226,7 @@ function initActionView () {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
 					
-					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse" && vue.exercise.type !== "dragnDrop_OneDropzone") {
+					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse" && vue.exercise.type !== "dragnDrop_OneDropzone" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
 						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers);
 					}
 
@@ -244,7 +244,7 @@ function initActionView () {
 						});
 					});
 				}
-				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse") {
+				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
 					if(vue.questions[0].answers.dnd) {
 						resetAnswersCorrectAndSelectedToFalse(questions[0].answers.dnd);
 					}

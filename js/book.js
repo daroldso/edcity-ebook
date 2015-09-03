@@ -889,7 +889,7 @@ window.Book = {
 				layout: 18,
 				name: "基本故事理解",
 				instruction: "根據「唔識表達嘅亞美」故事內容，回答下列各題。從第2至6題，選出正確的情景，並依照故事內容，圈出亞美的表達方法是否正確。",
-				baseScore: 14,
+				baseScore: 19,
 				type: "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer",
 				dragndropType: "multipleDropzone",
 				dragndropBehavior: "drawLines_vertical",
@@ -974,9 +974,9 @@ window.Book = {
 						questionText: "誰是主角？請「✔」出正確的答案。",
 						questionText2: "下面哪些是適當的表達方法？",
 						answers: [
-							{correct: false, selected: false, text: "亞明", atype: "tof"},
-							{correct: false, selected: false, text: "亞東", atype: "tof"},
-							{correct: true, selected: false, text: "亞美", atype: "tof"},
+							{correct: false, selected: false, text: "亞明", atype: "tof1"},
+							{correct: false, selected: false, text: "亞東", atype: "tof1"},
+							{correct: true, selected: false, text: "亞美", atype: "tof1"},
 							{correct: false, selected: false, text: "保持安靜", atype: "mc"},       	
 							{correct: false, selected: false, text: "躺在地上大聲哭鬧", atype: "mc"},
 							{correct: false, selected: false, text: "大聲叫", atype: "mc"},	
@@ -988,7 +988,11 @@ window.Book = {
 						],
 						numOfCorrectAnswers: 4,
 						correctAnswerCount: 0,
-						wrongAnswerCount: 0
+						correctAnswerCount1: 0,
+						correctAnswerCount2: 0,
+						wrongAnswerCount: 0,
+						wrongAnswerCount1: 0,
+						wrongAnswerCount2: 0
 					},
 				]
 			},

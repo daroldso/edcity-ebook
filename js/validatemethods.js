@@ -342,6 +342,7 @@ function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
 	vue.saveState();
 }
 
+// Non reusable
 function checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer () {
 	var questions = vue.questions;
 	vue.studentScore = 0;
@@ -370,7 +371,10 @@ function checkAnswer_MultipleDropzone_TrueOrFalseMultipleAnswer () {
 		tofQuestion.wrong = true;
 	}
 
-	vue.studentScore = dndQuestion.correctAnswerCount + tofQuestion.correctAnswerCount;
+	vue.studentScore = dndQuestion.correctAnswerCount
+	+ tofQuestion.correctAnswerCount1
+	+ (tofQuestion.correctAnswerCount - tofQuestion.correctAnswerCount1)
+	+ (8 - 3 - (tofQuestion.wrongAnswerCount - tofQuestion.wrongAnswerCount1));
 
 	// Show "正確答案" button
 	actionsView.setCheckAnswerState(true);

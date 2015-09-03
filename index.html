@@ -781,7 +781,7 @@
 				</div>
 				<div class="exercise__answer-list-outer col-xs-4 qtype__tof">
 					<ol class="exercise__answer-list">
-						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers)">
+						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'tof'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected" v-on="click: chooseSingleAnswer(question, answer, question.answers, 'tof')">
 							<div class="exercise__answer-text">
 								<div class="exercise__answer-text-inner">
 									<i class="fa " v-class="
