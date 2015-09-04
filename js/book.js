@@ -2190,7 +2190,7 @@ window.Book = {
 				layout: 17,
 				name: "基本故事理解",
 				instruction: "聽完基本故事後，請回答下列問題。",
-				baseScore: 10,
+				baseScore: 12,
 				type: "dragnDrop_MultipleDropzone_TrueOrFalseMultiple",
 				dragndropType: "multipleDropzone",
 				dragndropBehavior: "drawLines_vertical",
@@ -2283,7 +2283,7 @@ window.Book = {
 							{correct: false, selected: false, text: "立即說出心裡的話"},
 							{correct: true, selected: false, text: "要與別人講相同的話題"}
 						],
-						numOfCorrectAnswers: 1,
+						numOfCorrectAnswers: 2,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					},

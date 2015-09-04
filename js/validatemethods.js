@@ -86,63 +86,6 @@ window.validateMethods = {
 	},
 }
 
-// Cannot be reuse
-function checkAnswer_MultipleDropzone_TrueOrFalseMultiple () {
-	vue.studentScore = 0;
-	var dndQuestion = vue.questions[0];
-	var tof1stQuestion = vue.questions[1];
-	var tof2ndQuestion = vue.questions[2];
-	dndQuestion.correctAnswerCount = 0;
-
-	// DND Question
-	var trueOrFalseAnswers = dndQuestion.answers.tof;
-	var dragAndDropAnswers = dndQuestion.answers.dnd;
-	_.times(trueOrFalseAnswers.length, function(i) {
-		dndQuestion.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
-	});
-	_.times(dragAndDropAnswers.length, function(i) {
-		dndQuestion.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
-	});
-
-	console.log(dndQuestion.correctAnswerCount);
-	// check if correctAnswerCount = answers.length
-	dndQuestion.correct = (dndQuestion.correctAnswerCount === dndQuestion.numOfCorrectAnswers);
-
-	// ToF Question
-	tof1stQuestion.correct = (tof1stQuestion.correctAnswerCount == tof1stQuestion.numOfCorrectAnswers);
-	tof2ndQuestion.correct = (tof2ndQuestion.correctAnswerCount == tof2ndQuestion.numOfCorrectAnswers);
-
-	vue.studentScore = dndQuestion.correctAnswerCount + tof1stQuestion.correctAnswerCount + tof2ndQuestion.correctAnswerCount;
-
-	// Show "正確答案" button
-	actionsView.setCheckAnswerState(true);
-
-	vue.allCorrect = actionsView.isAllCorrect();
-	removeFlash.call(this);
-	console.log("correctAnswerCount: "+dndQuestion.correctAnswerCount);
-
-	vue.saveState();
-}
-
-function checkAnswer_MultipleDropzone_TrueOrFalse () {
-	vue.studentScore = 0;
-	var question = vue.questions[vue.currentQuestion];
-	question.correctAnswerCount = 0;
-
-	var trueOrFalseAnswers = question.answers.tof;
-	var dragAndDropAnswers = question.answers.dnd;
-	_.times(trueOrFalseAnswers.length, function(i) {
-		question.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
-	});
-	_.times(dragAndDropAnswers.length, function(i) {
-		question.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
-	});
-	checkAnswer_MultipleDropzone();
-	console.log(question.correctAnswerCount);
-
-	vue.saveState();
-}
-
 function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, container, source) {
 	chooseAnswer_MultipleDropzone(question, answer, container, source, true);
 	checkAnswer_MultipleDropzone();
@@ -262,6 +205,23 @@ function chooseAnswer_MultipleAnswers (question, answer) {
 	vue.saveState();
 }
 
+function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
+	actionsView.setCheckAnswerState(false);
+
+	_.times(answers.length, function (i) {
+		answers[i].selected = false;
+	});
+
+	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
+	question['correctAnswerCount'+index] = ~~answer.correct;
+
+	console.log("correctAnswerCount: "+question['correctAnswerCount'+index]);
+
+	answer.selected = !answer.selected;
+
+	vue.saveState();
+}
+
 function checkAnswer_Immediate (question, answer, answerIndex, answers) {
 
 	// Reset all the answer to unchecked state
@@ -325,19 +285,61 @@ function checkAnswer_MultipleAnswers () {
 	vue.saveState();
 }
 
-function chooseAnswer_MultipleSingleAnswers (question, answer, answers, index) {
-	actionsView.setCheckAnswerState(false);
+function checkAnswer_MultipleDropzone_TrueOrFalse () {
+	vue.studentScore = 0;
+	var question = vue.questions[vue.currentQuestion];
+	question.correctAnswerCount = 0;
 
-	_.times(answers.length, function (i) {
-		answers[i].selected = false;
+	var trueOrFalseAnswers = question.answers.tof;
+	var dragAndDropAnswers = question.answers.dnd;
+	_.times(trueOrFalseAnswers.length, function(i) {
+		question.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
+	});
+	_.times(dragAndDropAnswers.length, function(i) {
+		question.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
+	});
+	checkAnswer_MultipleDropzone();
+	console.log(question.correctAnswerCount);
+
+	vue.saveState();
+}
+
+// Cannot be reuse
+function checkAnswer_MultipleDropzone_TrueOrFalseMultiple () {
+	vue.studentScore = 0;
+	var dndQuestion = vue.questions[0];
+	var tof1stQuestion = vue.questions[1];
+	var tof2ndQuestion = vue.questions[2];
+	dndQuestion.correctAnswerCount = 0;
+
+	// DND Question
+	var trueOrFalseAnswers = dndQuestion.answers.tof;
+	var dragAndDropAnswers = dndQuestion.answers.dnd;
+	_.times(trueOrFalseAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += trueOrFalseAnswers[i].correctAnswerCount;
+	});
+	_.times(dragAndDropAnswers.length, function(i) {
+		dndQuestion.correctAnswerCount += ~~dragAndDropAnswers[i].correct;
 	});
 
-	// This part cannot be used together with multiple answers, since it is hard setting, not increment/decrement
-	question['correctAnswerCount'+index] = ~~answer.correct;
+	console.log(dndQuestion.correctAnswerCount);
+	// check if correctAnswerCount = answers.length
+	dndQuestion.correct = (dndQuestion.correctAnswerCount === dndQuestion.numOfCorrectAnswers);
 
-	console.log("correctAnswerCount: "+question['correctAnswerCount'+index]);
+	// ToF Question
+	tof1stQuestion.correct = (tof1stQuestion.correctAnswerCount == tof1stQuestion.numOfCorrectAnswers);
+	tof2ndQuestion.correct = (tof2ndQuestion.correctAnswerCount == tof2ndQuestion.numOfCorrectAnswers);
 
-	answer.selected = !answer.selected;
+	vue.studentScore = dndQuestion.correctAnswerCount
+		+ tof1stQuestion.correctAnswerCount
+		+ (tof2ndQuestion.correctAnswerCount + (tof2ndQuestion.answers.length - tof2ndQuestion.numOfCorrectAnswers - tof2ndQuestion.wrongAnswerCount));
+
+	// Show "正確答案" button
+	actionsView.setCheckAnswerState(true);
+
+	vue.allCorrect = actionsView.isAllCorrect();
+	removeFlash.call(this);
+	console.log("correctAnswerCount: "+dndQuestion.correctAnswerCount);
 
 	vue.saveState();
 }
