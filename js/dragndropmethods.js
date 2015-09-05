@@ -66,6 +66,8 @@ function dragnDropBehavior_revertAndWarningOnWrong () {
 			this.cancel(true);
 			$(container).addClass('warning');
 			setTimeout( function() { $(container).removeClass('warning') }, 1000);
+			vue.saveState();
+			
 			return false;
 		} else {
 			$(container).addClass('correct');
