@@ -517,7 +517,7 @@
 							v-class="
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
-							" v-on="click: chooseAnswer(question, answer)">
+							" v-on="click: chooseAnswer(question, answer)" v-show="!answer.correct">
 							<span class="exercise__answer-text">
 								{{ answer.text }}
 							</span>
