@@ -53,6 +53,24 @@ vue = new Vue({
 				studentScore: vue.studentScore,
 			};
 
+			var questions = vue.questions;
+			var linesToDraw = [];
+
+			if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
+				_.times(questions.length, function(i) {
+
+					if(questions[i].linesSaved !== undefined && questions[i].linesSaved.length > 0) {
+						_.times(questions[i].linesSaved.length, function(j) {
+							if(questions[i].linesSaved[j] !== undefined) {
+								linesToDraw.push(questions[i].linesSaved[j]);
+							};
+						});
+					}
+					vue.questions[i].linesToDraw = linesToDraw;
+					
+				});
+			}
+
 			var saveObject = $.extend(vue.exercise, objectWithAdditionalInfo);
 
 			// Check if the ebook object exist
@@ -142,10 +160,26 @@ function init(exerciseToInit) {
 	// instantiate question view and mount to #exercise
 	initQuestionView(function() {
 		loadDragnDropState();
+		loadLinesSaved();
 	});
 	// instantiate action view and mount to #actions
 	initActionView();
 
+}
+
+function loadLinesSaved () {
+	var questions = vue.questions;
+	_.times(questions.length, function(i) {
+		if(questions[i].linesToDraw !== undefined && questions[i].linesToDraw.length > 0) {
+			console.log("has lines to draw");
+			var lines = questions[i].linesToDraw;
+			_.times(lines.length, function(j) {
+				var line = lines[j];
+				// console.log(lines[j]);
+				drawLine(line.x1, line.y1, line.x2, line.y2, line.index, questions[i].lines, questions[i].linesSaved);
+			});
+		}
+	});
 }
 
 function loadDragnDropState () {
@@ -256,14 +290,30 @@ function initActionView () {
 					}
 				}
 				// This is a line matching game
-				if($('#draw-panel').length > 0) {
+				// if($('#draw-panel').length > 0) {
+				// 	_.times(questions.length, function(i) {
+						
+				// 	});
+				// }
+
+				// This is a line matching game
+				if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
 					_.times(questions.length, function(i) {
 						if(questions[i].lines == undefined) return;
+
+						// Remove the line drawn
 						_.times(questions[i].lines.length, function(j) {
-							questions[i].lines[j].remove();
+							if(questions[i].lines[j] !== undefined) {
+								questions[i].lines[j].remove();
+							}
 						});
+
+						// Clear the linesSaved array
+						questions[i].linesSaved = [];
+
 					});
 				}
+
 				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
 					if(vue.questions[0].answers.dnd) {
 						resetAnswersCorrectAndSelectedToFalse(questions[0].answers.dnd);
@@ -473,7 +523,10 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 		x2: x2,
 		y2: y2
 	};
-	console.log(x1, y1, x2, y2, index, lines, linesSaved);
+	var jsonString = JSON.stringify(lines);
+	var jsonString2 = JSON.stringify(linesSaved);
+	console.log(jsonString);
+	console.log(jsonString2);
 }
 
 function endLine() {
