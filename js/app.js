@@ -184,7 +184,7 @@ function loadLinesSaved () {
 function loadDragnDropState () {
 	var questions = vue.questions;
 	_.times(questions.length, function(i) {
-		if(questions[i].dragPools !== undefined) {
+		if(questions[i].dragPools !== undefined && questions[i].linesToDraw === undefined) {
 			var answers = questions[i].answers;
 			_.times(answers.length, function(j) {
 				var attachTo = answers[j].attachTo;
@@ -302,7 +302,7 @@ function initActionView () {
 
 						// Remove the line drawn
 						_.times(questions[i].lines.length, function(j) {
-							if(questions[i].lines[j] !== undefined) {
+							if(questions[i].lines[j] !== undefined && questions[i].lines[j] !== null) {
 								questions[i].lines[j].remove();
 							}
 						});
