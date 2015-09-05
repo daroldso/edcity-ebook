@@ -140,13 +140,31 @@ function init(exerciseToInit) {
 	vue.baseScore = getBaseScore();
 
 	// instantiate question view and mount to #exercise
-	initQuestionView();
+	initQuestionView(function() {
+		loadDragnDropState();
+	});
 	// instantiate action view and mount to #actions
 	initActionView();
 
 }
 
-function initQuestionView () {
+function loadDragnDropState () {
+	var questions = vue.questions;
+	_.times(questions.length, function(i) {
+		if(questions[i].dragPools !== undefined) {
+			var answers = questions[i].answers;
+			_.times(answers.length, function(j) {
+				var attachTo = answers[j].attachTo;
+				if(attachTo !== undefined && attachTo > 0) {
+					var answer = $('#answer-'+j).detach();
+					$('.dropzone.type-'+attachTo).append(answer);
+				}
+			});
+		}
+	});
+}
+
+function initQuestionView (callback) {
 	QuestionView = Vue.extend({
 		template: "#layout-"+exercise.layout+"-template"
 	});
@@ -170,6 +188,7 @@ function initQuestionView () {
 				dragnDropInit[exercise.dragndropType]();
 				dragnDropBehaviors[exercise.dragndropBehavior]();
 				initSvgCanvas();
+				if(callback) { callback(); }
 			}
 		}
 	})
