@@ -385,7 +385,7 @@
 				<div class="col-xs-6">
 					<div class="exercise__answer-list-outer">
 						<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
-							<li class="exercise__answer  type-{{answer.type}}" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
+							<li id="answer-{{$index}}" class="exercise__answer  type-{{answer.type}}" v-repeat="answer: question.answers" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 								<span class="exercise__answer-text">
 									{{ answer.text }}
 								</span>
@@ -415,7 +415,7 @@
 				<div class="col-xs-6">
 					<div class="exercise__answer-list-outer">
 						<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
-							<li class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
+							<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
 								v-class="
 									is-correct-answer: answer.correct,
 									is-selected: answer.selected
@@ -448,7 +448,7 @@
 			<div class="exercise__answer-list-outer">
 				<div class="dragzones-outer">
 					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
-						<li class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
+						<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
 							v-class="
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
@@ -481,7 +481,7 @@
 			<div class="exercise__answer-list-outer">
 				<div class="dragzones-outer">
 					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
-						<li class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
+						<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
 							v-class="
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
@@ -513,7 +513,7 @@
 			<div class="exercise__answer-list-outer">
 				<div class="dragzones-outer">
 					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
-						<li class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
+						<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
 							v-class="
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
@@ -545,7 +545,7 @@
 			<div class="exercise__answer-list-outer">
 				<div class="dragzones-outer">
 					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-						<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
+						<li id="answer-{{$index}}" id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
 							v-class="
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
@@ -580,7 +580,7 @@
 					<div class="col-xs-9 dnd">
 						<div class="dragzones-outer">
 							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
+								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
 									v-class="
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
@@ -638,7 +638,7 @@
 					<div class="col-xs-12">
 						<div class="dragzones-outer">
 							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
+								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
 									v-class="
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
@@ -717,7 +717,7 @@
 					<div class="col-xs-9 dnd">
 						<div class="dragzones-outer">
 							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
+								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
 									v-class="
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
@@ -828,7 +828,7 @@
 					<div class="col-xs-9 dnd">
 						<div class="dragzones-outer">
 							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
+								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
 									v-class="
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
