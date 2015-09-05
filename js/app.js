@@ -99,16 +99,15 @@ vue = new Vue({
 
 vue.retrieveState(load);
 
-var router = Router();
+// var router = Router();
 
-router.on('/exercise/:chapter/:ex', init);
-router.on('/exercise/load/', load);
+// router.on('/exercise/:chapter/:ex', init);
+// router.on('/exercise/load/', load);
 
-router.init('/exercise/1/1');
+// router.init('/exercise/1/1');
 
 function load (data) {
-	console.log(exerciseToLoad);
-	exercise = JSON.parse(exerciseToLoad);
+	exercise = JSON.parse(data);
 
 	vue.chapterNum = exercise.chapterNum;
 	vue.exerciseNum = exercise.exerciseNum;
@@ -129,7 +128,10 @@ function load (data) {
 	vue.isAnswerRevealed = exercise.isAnswerRevealed;
 
 	// instantiate question view and mount to #exercise
-	initQuestionView();
+	initQuestionView(function() {
+		loadDragnDropState();
+		loadLinesSaved();
+	});
 	// instantiate action view and mount to #actions
 	initActionView();
 }
@@ -158,10 +160,7 @@ function init(exerciseToInit) {
 	vue.baseScore = getBaseScore();
 
 	// instantiate question view and mount to #exercise
-	initQuestionView(function() {
-		loadDragnDropState();
-		loadLinesSaved();
-	});
+	initQuestionView();
 	// instantiate action view and mount to #actions
 	initActionView();
 
