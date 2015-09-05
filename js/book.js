@@ -1422,14 +1422,6 @@ window.Book = {
 									wrongAnswerCount: 0,								
 									answers:[
 										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
-										{ correct: true, selected: true, text: "不應談話", atype: "tof" },
-									]
-								},
-								{
-									correctAnswerCount: 0,
-									wrongAnswerCount: 0,										
-									answers:[
-										{ correct: false, selected: true, text: "可以談話", atype: "tof" },
 										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
 									]
 								},
@@ -1438,7 +1430,15 @@ window.Book = {
 									wrongAnswerCount: 0,										
 									answers:[
 										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
-										{ correct: true, selected: true, text: "不應談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
+									]
+								},
+								{
+									correctAnswerCount: 0,
+									wrongAnswerCount: 0,										
+									answers:[
+										{ correct: false, selected: false, text: "可以談話", atype: "tof" },
+										{ correct: true, selected: false, text: "不應談話", atype: "tof" },
 									]
 								},
 								{
