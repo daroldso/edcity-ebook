@@ -42,8 +42,8 @@ window.validateMethods = {
 	 * Drag n Drop One Dropzone
 	 */
 	'dragnDrop_OneDropzone': {
-		chooseAnswer: chooseAnswer_MultipleAnswers,
-		checkAnswer: checkAnswer_MultipleAnswers,
+		chooseAnswer: chooseAnswer_OneDropzone,
+		checkAnswer: checkAnswer_OneDropzone,
 	},
 	/**
 	 * Drag n Drop Multiple Dropzone
@@ -91,6 +91,10 @@ function chooseAnswer_MultipleDropzone_HiddenOnCorrect (question, answer, contai
 	checkAnswer_MultipleDropzone();
 }
 
+function chooseAnswer_OneDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
+	chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount);
+}
+
 function chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
 	if(typeof container === 'undefined' || typeof source === 'undefined') {
 		return false;
@@ -125,6 +129,37 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		answer.attachTo = container.__vue__.dropPool.type;
 	}
 	console.log("answer.correct: "+answer.correct);
+	console.log("correctAnswerCount: "+question.correctAnswerCount);
+
+	vue.saveState();
+}
+
+function checkAnswer_OneDropzone () {
+	var question = vue.questions[vue.currentQuestion];
+	var answers = question.answers;
+	vue.studentScore = 0;
+	question.correctAnswerCount = 0;
+
+	_.times(answers.length, function(i) {
+		if(answers[i].type === answers[i].attachTo) {
+			question.correctAnswerCount++;
+		}
+	});
+	
+	// check if correctAnswerCount = answers.length
+	if(question.correctAnswerCount === vue.baseScore) {
+		question.correct = true;
+	} else {
+		question.correct = false;
+	}
+
+	vue.studentScore = question.correctAnswerCount;
+
+	// Show "正確答案" button
+	actionsView.setCheckAnswerState(true);
+
+	vue.allCorrect = actionsView.isAllCorrect();
+	removeFlash.call(this);
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 
 	vue.saveState();

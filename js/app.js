@@ -245,8 +245,9 @@ function initActionView () {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
 					
-					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse" && vue.exercise.type !== "dragnDrop_OneDropzone" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
+					if(vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalse" && vue.exercise.type !== "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
 						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers);
+						resetAnswersAttachtoToZero(questions[vue.currentQuestion].answers);
 					}
 
 					// only invoke for 7-2 when there need to have a box to show correctcount of each droppool
@@ -266,6 +267,7 @@ function initActionView () {
 				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
 					if(vue.questions[0].answers.dnd) {
 						resetAnswersCorrectAndSelectedToFalse(questions[0].answers.dnd);
+						resetAnswersAttachtoToZero(questions[0].answers.dnd);
 					}
 					if(vue.questions[0].answers.tof) {
 						var trueOrFalseAnswers = vue.questions[0].answers.tof;
@@ -281,6 +283,7 @@ function initActionView () {
 				} else {
 					if(vue.questions[vue.currentQuestion].answers.dnd) {
 						resetAnswersCorrectAndSelectedToFalse(questions[vue.currentQuestion].answers.dnd);
+						resetAnswersAttachtoToZero(questions[vue.currentQuestion].answers.dnd);
 					}
 					if(vue.questions[vue.currentQuestion].answers.tof) {
 						var trueOrFalseAnswers = vue.questions[vue.currentQuestion].answers.tof;
@@ -418,10 +421,15 @@ function moveAnswersBacktoDragzone () {
 }
 
 function resetAnswersCorrectAndSelectedToFalse (answers) {
-	console.log(answers);
 	_.times(answers.length, function(i) {
 		answers[i].correct = false;
 		answers[i].selected = false;
+	});
+}
+
+function resetAnswersAttachtoToZero (answers) {
+	_.times(answers.length, function(i) {
+		answers[i].attachTo = 0;
 	});
 }
 
