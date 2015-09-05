@@ -101,6 +101,7 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		}
 		answer.correct = false;
 		answer.selected = false;
+		answer.attachTo = 0;
 	} else {
 		// check whether answer.type equal to dropPool.type
 		if(container.__vue__.dropPool.type === answer.type) {
@@ -121,6 +122,7 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 			answer.correct = false;
 		}
 		answer.selected = true;
+		answer.attachTo = container.__vue__.dropPool.type;
 	}
 	console.log("answer.correct: "+answer.correct);
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
