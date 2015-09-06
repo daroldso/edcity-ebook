@@ -9,10 +9,6 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
-if (typeof(hotspotDataCommunicator) === "undefined"){
-	var hotspotDataCommunicator = parent.hotspotDataCommunicator;
-}
-
 vue = new Vue({
     el:"#chapter",	
     data: {
@@ -86,13 +82,26 @@ vue = new Vue({
 			// Check if the ebook object exist
 			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
-					load(data);
+					console.log("data json: ");
+					console.log(data);
+					var dataObj = JSON.parse(data);
+					console.log("data json parsed to object: ");
+					console.log(dataObj);  // {"userData":null,"config":{"tts":"","url":""}}
+					// Check if there is saved user data
+					if(dataObj.userData !== null) {
+						console.log("userData is not null");
+						console.log("trigger load function. Load the userData from record");
+						load(dataObj.userData);
+					} else {
+						console.log("userData is null");
+						console.log("trigger init function. Load the default exercise object.");
+						init(exerciseToInit);
+					}
 				});
-			} 
-			else {
-				// init(data);
+			} else {
 				init(exerciseToInit);
 			}
+
 		},
 	}
 });
@@ -106,8 +115,8 @@ vue.retrieveState(load);
 
 // router.init('/exercise/1/1');
 
-function load (data) {
-	exercise = JSON.parse(data);
+function load (userData) {
+	exercise = userData;
 
 	vue.chapterNum = exercise.chapterNum;
 	vue.exerciseNum = exercise.exerciseNum;
