@@ -68,14 +68,13 @@ vue = new Vue({
 			}
 
 			var saveObject = $.extend(vue.exercise, objectWithAdditionalInfo);
+			var saveObjectJson = JSON.stringify(saveObject);
 
 			// Check if the ebook object exist
 			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
-				parent.hotspotDataCommunicator.storeHotspotData(JSON.stringify(saveObject));
+				parent.hotspotDataCommunicator.storeHotspotData(saveObjectJson);
 			} else {
-				var jsonString = JSON.stringify(saveObject);
-				console.log(jsonString);
-				console.log(JSON.parse(jsonString));
+				console.log(saveObjectJson);
 			}
 		},
 		retrieveState: function () {
