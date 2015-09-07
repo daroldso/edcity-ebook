@@ -88,10 +88,10 @@ vue = new Vue({
 					console.log("data json parsed to object: ");
 					console.log(dataObj);  // {"userData":null,"config":{"tts":"","url":""}}
 					// Check if there is saved user data
-					if(dataObj.userData !== null) {
+					if(dataObj.userData === undefined) {
 						console.log("userData is not null");
 						console.log("trigger load function. Load the userData from record");
-						load(dataObj.userData);
+						load(dataObj);
 					} else {
 						console.log("userData is null");
 						console.log("trigger init function. Load the default exercise object.");
