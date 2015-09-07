@@ -343,7 +343,8 @@ function initActionView () {
 					
 				}
 
-
+				vue.saveState();
+				
 			},
 			isAllCorrect: function() {
 				var questions = vue.questions;
