@@ -26,19 +26,6 @@ vue = new Vue({
 		baseScore: 0,
 		studentScore: 0,
 	},
-	computed: {
-		status: function() {
-			return (this.isAnswerChecked) ? 'submitted' : 'working';
-		},
-		display_model_ans: function() {
-			return this.isAnswerRevealed;
-		},
-		user_ans: function() {
-			var o = {};
-			o[this.currentQuestion] = questionView.questions[this.currentQuestion];
-			return o;
-		}
-	},
 	methods: {
 		saveState: function () {
 			var objectWithAdditionalInfo = {
