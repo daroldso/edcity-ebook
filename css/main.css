@@ -411,7 +411,7 @@ a:focus {
 	color: #1EB53B;
 }
 .answer-checked .exercise__answer.is-selected.is-correct-answer:before {
-	background-image: url(../img/smile_face.svg);
+	background-image: url(../img/smile_face.png);
 }
 
 .is-wrong .exercise__answer-list:before,
@@ -429,7 +429,7 @@ a:focus {
 .answer-checked .exercise__answer.is-selected:before {
 	content: '';
 	display: block;
-	background-image: url(../img/sad_face.svg);
+	background-image: url(../img/sad_face.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 26px;
