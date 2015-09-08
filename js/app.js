@@ -68,21 +68,26 @@ vue = new Vue({
 			// Check if the ebook object exist
 			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
-					console.log("data json: ");
-					console.log(data);
-					var dataObj = JSON.parse(data);
-					console.log("data json parsed to object: ");
-					console.log(dataObj);  // {"userData":null,"config":{"tts":"","url":""}}
-					// Check if there is saved user data
-					if(dataObj.userData === undefined) {
-						console.log("userData is not null");
-						console.log("trigger load function. Load the userData from record");
-						load(dataObj);
-					} else {
-						console.log("userData is null");
-						console.log("trigger init function. Load the default exercise object.");
-						init(exerciseToInit);
+					// data could be empty / {"userData":null,"config":{"tts":"","url":""}} / our exercise JSON
+					console.log("data json: ");console.log(data);
+					if(data) {
+						var dataObj = JSON.parse(data);
+						console.log("data json parsed to object: ");console.log(dataObj);
+						
+						// Check if there is saved user data
+						if(dataObj.chapterNum !== undefined) {
+							console.log("userData is not null");
+							console.log("trigger load function. Load the userData from record");
+							load(dataObj);
+							return;
+						}
+
 					}
+
+					console.log("userData is null");
+					console.log("trigger init function. Load the default exercise object.");
+					init(exerciseToInit);
+
 				});
 			} else {
 				init(exerciseToInit);
