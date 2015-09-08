@@ -7,6 +7,11 @@ window.Book = {
 	'ch1': {
 		exercises: {
 			'ex1': {
+				chapterNum: 1,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 1,
 				layout: 1,
 				name: "練習講多謝",
@@ -72,6 +77,11 @@ window.Book = {
 			},
 			// 配對 句字放在一個方格
 			'ex2': {
+				chapterNum: 1,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 9,
 				layout: 8,
 				name: "說多謝的不同方式",
@@ -111,6 +121,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 1,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 2,
 				layout: 2,
 				name: "如何說多謝",
@@ -152,6 +167,11 @@ window.Book = {
 			},
 			// 配對 句字放在一個方格
 			'ex4': {
+				chapterNum: 1,
+				exerciseNum: 4,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 10,
 				layout: 9,
 				name: "何時說「唔該」",
@@ -187,6 +207,11 @@ window.Book = {
 				]
 			},
 			'ex5': {
+				chapterNum: 1,
+				exerciseNum: 5,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 1,
 				layout: 1,
 				name: "多謝唔該考考你",
@@ -258,6 +283,11 @@ window.Book = {
 	'ch2': {
 		exercises: {
 			'ex1': {
+				chapterNum: 2,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 3,
 				layout: 3,
 				name: "何時要說唔好意思",
@@ -283,6 +313,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 2,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 4,
 				layout: 4,
 				name: "阿偉練習講 “唔好意思”",
@@ -393,6 +428,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 2,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 4,
 				layout: 4,
 				name: "打招呼時會說甚麼呢？",
@@ -546,6 +586,11 @@ window.Book = {
 				]
 			},
 			'ex4': {
+				chapterNum: 2,
+				exerciseNum: 4,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 8,
 				layout: 7,
 				name: "何時要說唔好意思",
@@ -681,6 +726,11 @@ window.Book = {
 	'ch3': {
 		exercises: {
 			'ex1': {
+				chapterNum: 3,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 3,
 				layout: 4,
 				name: "打招呼時會說甚麼呢？",
@@ -781,6 +831,11 @@ window.Book = {
 			},
 			// 配對 三圖片排序分到三格
 			'ex2': {
+				chapterNum: 3,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 11,
 				layout: 10,
 				name: "打招呼程序",
@@ -815,6 +870,11 @@ window.Book = {
 			},
 			// 配對 一堆字格分到三個地方
 			'ex3': {
+				chapterNum: 3,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 12,
 				layout: 11,
 				name: "打招呼的方法",
@@ -851,6 +911,11 @@ window.Book = {
 				]
 			},
 			'ex4': {
+				chapterNum: 3,
+				exerciseNum: 4,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 3,
 				layout: 3,
 				name: "非語言的打招呼",
@@ -885,6 +950,11 @@ window.Book = {
 	'ch4': {
 		exercises: {
 			'ex1': {
+				chapterNum: 4,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 7,
 				layout: 18,
 				name: "基本故事理解",
@@ -998,6 +1068,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 4,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 10,
 				layout: 10,
 				name: "怎樣才是正確的表達方式？",
@@ -1035,6 +1110,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 4,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 5,
 				layout: 5,
 				name: "怎樣才是正確的表達方式？",
@@ -1083,6 +1163,11 @@ window.Book = {
 				]
 			},
 			'ex4': {
+				chapterNum: 4,
+				exerciseNum: 4,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 5,
 				layout: 5,
 				name: "怎樣才是正確的表達方式？",
@@ -1131,6 +1216,11 @@ window.Book = {
 				]
 			},
 			'ex5': {
+				chapterNum: 4,
+				exerciseNum: 5,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 5,
 				layout: 5,
 				name: "怎樣才是正確的表達方式？",
@@ -1186,6 +1276,11 @@ window.Book = {
 	'ch5': {
 		exercises: {
 			'ex1': {
+				chapterNum: 5,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 2,
 				layout: 2,
 				name: "何時送禮物？",
@@ -1219,6 +1314,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 5,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 2,
 				layout: 3,
 				name: "何處買禮物？",
@@ -1246,6 +1346,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 5,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 4,
 				layout: 4,
 				name: "送禮物時，可以講乜嘢？",
@@ -1383,6 +1488,11 @@ window.Book = {
 		exercises: {
 			// 連線 加對錯
 			'ex1': {
+				chapterNum: 6,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 15,
 				layout: 14,
 				name: "騷擾人的阿傑",
@@ -1468,6 +1578,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 6,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 6,
 				layout: 5,
 				name: "分辨忙碌不忙碌？",
@@ -1549,6 +1664,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 6,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 6,
 				layout: 5,
 				name: "適宜和哪些人談話？",
@@ -1686,6 +1806,11 @@ window.Book = {
 		exercises: {
 			// 連線 句字
 			'ex1': {
+				chapterNum: 7,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 14,
 				layout: 13,
 				name: "距離的變化",
@@ -1723,6 +1848,11 @@ window.Book = {
 			},
 			// 配對 一堆字咭分到四方格
 			'ex2': {
+				chapterNum: 7,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 13,
 				layout: 12,
 				name: "距離的變化",
@@ -1783,6 +1913,11 @@ window.Book = {
 	'ch8': {
 		exercises: {
 			'ex1': {
+				chapterNum: 8,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 7,
 				layout: 6,
 				name: "被人取笑考考你",
@@ -1919,6 +2054,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 8,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 4,
 				layout: 4,
 				name: "可以不可以？",
@@ -2033,6 +2173,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 8,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 5,
 				layout: 5,
 				name: "被取笑時，怎麼辦？",
@@ -2189,6 +2334,11 @@ window.Book = {
 	'ch9': {
 		exercises: {
 			'ex1': {
+				chapterNum: 9,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 15,
 				layout: 17,
 				name: "基本故事理解",
@@ -2294,6 +2444,11 @@ window.Book = {
 				]
 			},
 			'ex2': {
+				chapterNum: 9,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 14,
 				layout: 15,
 				name: "回應話題",
@@ -2334,6 +2489,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 9,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 14,
 				layout: 15,
 				name: "回應話題",
@@ -2377,6 +2537,11 @@ window.Book = {
 	'ch10': {
 		exercises: {
 			'ex1': {
+				chapterNum: 10,
+				exerciseNum: 1,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 2,
 				layout: 2,
 				name: "故事理解1",
@@ -2422,6 +2587,11 @@ window.Book = {
 			},
 			// 連線 加對錯
 			'ex2': {
+				chapterNum: 10,
+				exerciseNum: 2,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 15,
 				layout: 14,
 				name: "故事理解 2",
@@ -2507,6 +2677,11 @@ window.Book = {
 				]
 			},
 			'ex3': {
+				chapterNum: 10,
+				exerciseNum: 3,
+				isAnswerChecked: false,
+				isAnswerRevealed: false,
+				studentScore: 0,
 				clientref: 10,
 				layout: 10,
 				name: "恰當和沒有禮貌的說話",
