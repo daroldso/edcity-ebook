@@ -356,6 +356,7 @@ function initActionView () {
 				for (var i = 0; i < questions.length; i++) {
 					if(questions[i].correct === false) { return false; }
 				};
+				if(vue.studentScore < vue.baseScore) { return false; }
 				return true;
 			},
 			setCheckAnswerState: function(state) {
