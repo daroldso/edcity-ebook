@@ -61,6 +61,7 @@ vue = new Vue({
 			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.storeHotspotData(saveObjectJson);
 			} else {
+				console.log("Should be saved in production");
 				console.log(saveObjectJson);
 			}
 		},
@@ -69,10 +70,11 @@ vue = new Vue({
 			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
 					// data could be empty / {"userData":null,"config":{"tts":"","url":""}} / our exercise JSON
-					console.log("data json: ");console.log(data);
+					// console.log("data json: ");
+					// console.log(data);
 					if(data) {
 						var dataObj = JSON.parse(data);
-						console.log("data json parsed to object: ");console.log(dataObj);
+						// console.log("data json parsed to object: ");console.log(dataObj);
 						
 						// Check if there is saved user data
 						if(dataObj.chapterNum !== undefined) {
@@ -81,18 +83,14 @@ vue = new Vue({
 							load(dataObj);
 							return;
 						}
-
 					}
-
 					console.log("userData is null");
 					console.log("trigger init function. Load the default exercise object.");
 					init(exerciseToInit);
-
 				});
 			} else {
 				init(exerciseToInit);
 			}
-
 		},
 	}
 });
