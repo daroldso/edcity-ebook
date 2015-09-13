@@ -17,10 +17,12 @@ a:focus {
    Layout
    ========================================================================== */
 .container {
-	background: url(../img/bg.png) repeat;
-	width: 750px;
+	background-color: #541D00;
+	background-image: url(../img/bg.png);
+	background-repeat: repeat;
 	max-width: 750px;
 	width: 100%;
+	min-height: 600px;
 	/*max-height: 890px;*/
 	padding: 40px 30px 20px;
     padding: 20px;
@@ -128,8 +130,9 @@ a:focus {
 }
 #boy {
 	position: absolute;
-	background: url(../img/boy.png) no-repeat;
-	background-size: contain;
+	background-image: url(../img/boy.png);
+	background-repeat: no-repeat;
+	background-size: 120px;
 	width: 143px;
 	height: 146px;
 	top: -22px;
