@@ -878,7 +878,7 @@ window.Book = {
 				clientref: 12,
 				layout: 11,
 				name: "打招呼的方法",
-				instruction: "你們懂得打招呼的方法嗎？請把不同的打招呼方法拉放在○內。",
+				instruction: "你們懂得打招呼的方法嗎？請把不同的打招呼方法拉放在方格內。",
 				type: "dragnDrop_MultipleDropzone",
 				dragndropType: "multipleDropzone",
 				dragndropBehavior: "normal",
