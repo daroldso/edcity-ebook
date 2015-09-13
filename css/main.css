@@ -19,8 +19,11 @@ a:focus {
 .container {
 	background: url(../img/bg.png) repeat;
 	width: 750px;
+	max-width: 750px;
+	width: 100%;
 	/*max-height: 890px;*/
 	padding: 40px 30px 20px;
+    padding: 20px;
 	overflow: auto;
 	position: relative;
 }
@@ -116,13 +119,12 @@ a:focus {
 	
 }
 .exercise__name {
-	font-size: 2.4em;
+	font-size: 33px;
 	font-weight: bold;
 	margin-bottom: 12px;
 }
-.exercise__description {
-	color: #B1572B;
-	font-size: 1.3em;
+.exercise__instruction {
+	font-size: 18px;
 }
 #boy {
 	position: absolute;
@@ -136,6 +138,7 @@ a:focus {
 .score-board {
 	background: #FFFB9F;
 	padding: 20px;
+    padding: 20px 0;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
