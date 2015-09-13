@@ -89,20 +89,15 @@ vue = new Vue({
 					init(exerciseToInit);
 				});
 			} else {
-				init(exerciseToInit);
+				var router = Router();
+				router.on('/exercise/:chapter/:ex', init);
+				router.init('/exercise/1/1');
 			}
 		},
 	}
 });
 
-vue.retrieveState(load);
-
-// var router = Router();
-
-// router.on('/exercise/:chapter/:ex', init);
-// router.on('/exercise/load/', load);
-
-// router.init('/exercise/1/1');
+vue.retrieveState();
 
 function load (userData) {
 	exercise = userData;
@@ -134,17 +129,20 @@ function load (userData) {
 	initActionView();
 }
 
-function init(exerciseToInit) {
-	// for getting the chapter name only
-	// vue.chapterNum = parseInt(chapter);
-	// vue.exerciseNum = parseInt(ex);
-	// chapter = Book['ch'+vue.chapterNum];
-	// getting all the exercises in the chapter
-	// exercise = chapter.exercises['ex'+vue.exerciseNum];
-	exercise = exerciseToInit;
+function init(exerciseToInit, ex) {
+	if(ex !== undefined) {
+		// for getting the chapter name only
+		vue.chapterNum = exerciseToInit;
+		vue.exerciseNum = ex;
+		chapter = Book['ch'+vue.chapterNum];
+		// getting all the exercises in the chapter
+		exercise = chapter.exercises['ex'+vue.exerciseNum];
+	} else {
+		exercise = exerciseToInit;
+		vue.chapterNum = exercise.chapterNum;
+		vue.exerciseNum = exercise.exerciseNum;
+	}
 	
-	vue.chapterNum = exercise.chapterNum;
-	vue.exerciseNum = exercise.exerciseNum;
 	vue.exercise = exercise;
 	vue.layoutNumber = exercise.layout;
 	vue.exercise = exercise;
