@@ -245,6 +245,7 @@ function initActionView () {
 				vue.studentScore = 0;
 				vue.isAnswerRevealed = false;
 				vue.isAnswerChecked = false;
+				this.isAnswerChecked = false;
 				vue.allCorrect = false;
 
 				var questions = vue.questions;
