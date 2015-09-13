@@ -1424,9 +1424,9 @@ svg line {
 .ch8.ex1 .exercise__question-text {font-size: 24px}
 .ch1.ex2 .owl-carousel .owl-item {padding-bottom: 40px;}
 .ch1.ex2 .dropzone {
-	background-color: rgb(247,150,70);
-	border-left: 3px solid #CE6E1F;
-	border-right: 3px solid #CE6E1F;
+	background-color: #E0E0E0;
+	border-left: 3px solid #505050;
+	border-right: 3px solid #505050;
 	padding-top: 70px;
 	margin-top: 64px;
 	margin-bottom: 40px;
@@ -1434,7 +1434,7 @@ svg line {
 .ch1.ex2 .dropzone:before,
 .ch1.ex2 .dropzone:after {
 	content: '';
-	background-color: rgb(247,150,70);
+	background-color: #E0E0E0;
 	display: block;
 	width: 102.5%;
 	height: 100px;
@@ -1443,9 +1443,23 @@ svg line {
 	right: 0;
 	border-radius: 130px / 50px;
 	
-	border: 3px solid #CE6E1F;
+	border: 3px solid #505050;
 }
-.ch1.ex2 .dropzone:before {top: -49px;z-index: 1;}
+@media (max-width: 650px) {
+	.ch1.ex2 .dropzone:before,
+	.ch1.ex2 .dropzone:after {
+		width: 103%;
+	}
+}
+.ch1.ex2 .dropzone:before {
+	content: "垃圾桶";
+	top: -49px;
+	z-index: 1;
+	color: #505050;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 35px;
+}
 .ch1.ex2 .dropzone:after {bottom: -50px;z-index: -1;}
 .ch1.ex2 .dropzone .exercise__answer {
 	background-color: #CA610A;
