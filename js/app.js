@@ -94,6 +94,13 @@ vue = new Vue({
 				router.init('/exercise/1/1');
 			}
 		},
+		alertWindowInfo: function() {
+			var imgTest = (document.getElementById('bg') === null) ? "using inline style\n" : "using <img/>\n";
+			var innerWidth = 'inner width: '+window.innerWidth+ 'px\n';
+			var outerWidth = 'outer width: '+window.outerWidth+ 'px\n';
+			var screenWidth = 'screen width: '+window.screen.width+ 'px\n';
+			alert(imgTest + innerWidth + outerWidth + screenWidth);
+		}
 	}
 });
 

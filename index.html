@@ -30,8 +30,9 @@
 			<div id="chapter" class="ch{{chapterNum}} ex{{exerciseNum}} layout-{{layoutNumber}}" v-class="all-correct: allCorrect">
 				<div class="row header">
 					<div class="col-xs-9">
-						<div class="exercise__name-outer">
-							<div id="boy"></div>
+						<div class="exercise__name-outer" v-on="click: alertWindowInfo">
+							<div id="boy">
+							</div>
 							<div class="exercise__name">{{exerciseName}}</div>
 							<div class="exercise__instruction">
 								{{{exerciseInstruction}}}
