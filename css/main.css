@@ -16,18 +16,29 @@ a:focus {
 /* ==========================================================================
    Layout
    ========================================================================== */
-.container {
+body {
 	background-color: #541D00;
 	background-image: url(../img/bg.png);
 	background-repeat: repeat;
-	max-width: 750px;
-	width: 100%;
+}
+.container {
+	width: 750px;
+	/*width: 100%;*/
 	min-height: 600px;
 	/*max-height: 890px;*/
 	padding: 40px 30px 20px;
     padding: 20px;
 	overflow: auto;
 	position: relative;
+}
+@media (max-width: 650px) {
+	.container {
+		width: 595px;
+	}
+}
+#bg {
+	position: absolute;
+	left: 0;
 }
 .header {
 	margin-bottom: 20px;
