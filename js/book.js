@@ -130,7 +130,8 @@ window.Book = {
 				layout: 2,
 				name: "如何說多謝",
 				instruction: '請在適當的 ☐ 內加上「✔」。',
-				type: "chooseMultipleAnswer",
+				baseScore: 6,
+				type: "chooseSingleAndMultipleAnswers",
 				questions:  [
 					{
 						index: 0,
