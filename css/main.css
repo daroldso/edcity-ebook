@@ -41,7 +41,7 @@ body {
 	}
 }*/
 #bg {
-	position: absolute;
+	position: fixed;
 	left: 0;
 }
 .header {
