@@ -213,7 +213,7 @@ function initQuestionView (callback) {
 			questions : exercise.questions,
 			chapterNum: vue.chapterNum,
 			exerciseNum: vue.exerciseNum,
-			imagePath: 'img/ch' + vue.chapterNum + '/ex' + vue.exerciseNum + '/' + vue.chapterNum + '-' + vue.exerciseNum + '-'
+			imagePath: 'img/'+ vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
 
 		methods: validateMethods[exercise.type],
