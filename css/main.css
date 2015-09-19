@@ -1441,43 +1441,30 @@ svg line {
 .ch8.ex1 .exercise__question-text {font-size: 24px}
 .ch1.ex2 .owl-carousel .owl-item {padding-bottom: 40px;}
 .ch1.ex2 .dropzone {
-	background-color: #E0E0E0;
-	border-left: 3px solid #505050;
-	border-right: 3px solid #505050;
-	padding-top: 70px;
-	margin-top: 64px;
+	background-color: #AA562C;
+	margin-top: 44px;
 	margin-bottom: 40px;
-}
-.ch1.ex2 .dropzone:before,
-.ch1.ex2 .dropzone:after {
-	content: '';
-	background-color: #E0E0E0;
-	display: block;
-	width: 102.5%;
-	height: 100px;
-	position: absolute;
-	left: -3px;
-	right: 0;
-	border-radius: 130px / 50px;
-	
-	border: 3px solid #505050;
-}
-@media (max-width: 650px) {
-	.ch1.ex2 .dropzone:before,
-	.ch1.ex2 .dropzone:after {
-		width: 103%;
-	}
+	border-radius: 25px;
+	padding: 15px;
+	min-height: 420px;
 }
 .ch1.ex2 .dropzone:before {
-	content: "垃圾桶";
-	top: -49px;
-	z-index: 1;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background-image: url(../img/rubbish_bin.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	top: -30px;
 	color: #505050;
 	font-weight: bold;
 	text-align: center;
 	padding-top: 35px;
+	z-index: 1;
+	right: -28px;
 }
-.ch1.ex2 .dropzone:after {bottom: -50px;z-index: -1;}
 .ch1.ex2 .dropzone .exercise__answer {
 	background-color: #CA610A;
 }
