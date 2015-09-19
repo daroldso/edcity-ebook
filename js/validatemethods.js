@@ -33,11 +33,10 @@ window.validateMethods = {
 	/**
 	 * MC 多選一 + 多選多
 	 */
-	// 'chooseSingleAndMultipleAnswers': {
-	// 	chooseSingleAnswer: chooseAnswer_SingleAnswer,
-	// 	chooseMultipleAnswers: chooseAnswer_MultipleAnswers,
-	// 	checkAnswer: checkAnswer_MultipleAnswers,
-	// },
+	'chooseSingleAndMultipleAnswers': {
+		chooseAnswer: chooseAnswer_MultipleAnswers,
+		checkAnswer: checkAnswer_MultipleAnswers,
+	},
 	/**
 	 * Drag n Drop One Dropzone
 	 */
@@ -191,7 +190,6 @@ function checkAnswer_MultipleDropzone () {
 function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 	actionsView.setCheckAnswerState(false);
 
-
 	if(filterProp) {
 		_.times(answers.length, function (i) {
 			if(answers[i].atype === answer.atype) {
@@ -213,7 +211,6 @@ function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 		question.wrongAnswerCount = ~~!answer.correct;
 	}
 
-
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
 
@@ -223,6 +220,11 @@ function chooseAnswer_SingleAnswer (question, answer, answers, filterProp) {
 }
 
 function chooseAnswer_MultipleAnswers (question, answer) {
+	if(vue.exercise.type === "chooseSingleAndMultipleAnswers" && question.index === 0) {
+		chooseAnswer_SingleAnswer(question, answer, question.answers);
+		return;
+	}
+
 	actionsView.setCheckAnswerState(false);
 
 	if(answer.correct) {
@@ -234,10 +236,10 @@ function chooseAnswer_MultipleAnswers (question, answer) {
 			? question.wrongAnswerCount-1 // uncheck wrong answer
 			: question.wrongAnswerCount+1; // check wrong answer
 	}
+	answer.selected = !answer.selected;
+
 	console.log("correctAnswerCount: "+question.correctAnswerCount);
 	console.log("wrongAnswerCount: "+question.wrongAnswerCount);
-
-	answer.selected = !answer.selected;
 
 	vue.saveState();
 }
@@ -308,6 +310,10 @@ function checkAnswer_MultipleAnswers () {
 		console.log("numOfCorrectAnswers: " + questions[i].numOfCorrectAnswers);
 		if(vue.exercise.type === "chooseSingleAnswer") {
 			vue.studentScore += questions[i].correctAnswerCount;
+		}
+		// Non reusable
+		else if(vue.exercise.type === "chooseSingleAndMultipleAnswers") {
+			vue.studentScore = questions[0].correctAnswerCount + (questions[1].correctAnswerCount + (questions[1].answers.length - questions[1].numOfCorrectAnswers - questions[1].wrongAnswerCount));
 		} else {
 			vue.studentScore += questions[i].correctAnswerCount + (questions[i].answers.length - questions[i].numOfCorrectAnswers - questions[i].wrongAnswerCount);
 		}
