@@ -137,17 +137,17 @@ function load (userData) {
 }
 
 function init(exerciseToInit, ex) {
-	if(ex !== undefined) {
+	if(isNaN(parseInt(exerciseToInit))) {
+		exercise = exerciseToInit;
+		vue.chapterNum = exercise.chapterNum;
+		vue.exerciseNum = exercise.exerciseNum;
+	} else {
 		// for getting the chapter name only
 		vue.chapterNum = exerciseToInit;
 		vue.exerciseNum = ex;
 		chapter = Book['ch'+vue.chapterNum];
 		// getting all the exercises in the chapter
 		exercise = chapter.exercises['ex'+vue.exerciseNum];
-	} else {
-		exercise = exerciseToInit;
-		vue.chapterNum = exercise.chapterNum;
-		vue.exerciseNum = exercise.exerciseNum;
 	}
 	
 	vue.exercise = exercise;
