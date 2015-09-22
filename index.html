@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>HKEdcity exercises</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="vendor/owl.carousel/owl.carousel.css">
@@ -31,7 +29,7 @@
 			<div id="chapter" class="ch{{chapterNum}} ex{{exerciseNum}} layout-{{layoutNumber}}" v-class="all-correct: allCorrect">
 				<div class="row header">
 					<div class="col-xs-9">
-						<div class="exercise__name-outer">
+						<div class="exercise__name-outer" v-on="click: alertWindowInfo">
 							<div id="boy">
 								<img src="img/boy.png" style="width: 120px;" alt="">
 							</div>
