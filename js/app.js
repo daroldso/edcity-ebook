@@ -277,7 +277,8 @@ function initActionView () {
 				};
 
 				// Back to first question
-				owl.trigger('to.owl.carousel', [0,200,true]);
+				// owl.trigger('to.owl.carousel', [0,200,true]);
+				owl.goTo(0);
 				if(typeof drake !== "undefined" && drake.containers[0] !== null) {
 					moveAnswersBacktoDragzone();
 					sortAnswers();
@@ -376,45 +377,64 @@ function initActionView () {
 
 function initCarousel () {
 	owl = $(".owl-carousel").owlCarousel({
-		nav:true,
-		navText: ['<i class="fa fa-backward"></i> 上一頁','下一頁 <i class="fa fa-forward"></i>'],
-		responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:1
-			},
-			1000:{
-				items:1
-			}
-		},
-		dots: false,
+		singleItem: true,
+		navigation:true,
+		navigationText: ['<i class="fa fa-backward"></i> 上一頁','下一頁 <i class="fa fa-forward"></i>'],
+		pagination: false,
 		mouseDrag: false,
 		touchDrag: false,
-		onInitialized: function(e) {
-			var totalNumOfQuestion = this._items.length;
+		// onInitialized: function(e) {
+		afterInit: function(e) {
+			var totalNumOfQuestion = vue.questions.length;
 			$exerciseContainer.addClass('first-question');
 			if(totalNumOfQuestion === 1) {$exerciseContainer.addClass('last-question');}
 			vue.totalNumOfQuestion = totalNumOfQuestion;
+
+			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+				parent.setIndicatorVisiblity(false);
+				if(parent.frames["viewerPopupIFrame"].length !== undefined) {
+					_.times(parent.frames["viewerPopupIFrame"].length, function (i) {
+						parent.frames["viewerPopupIFrame"][i].style.overflow = "visible";
+					});
+				} else {
+					parent.frames["viewerPopupIFrame"].style.overflow = "visible";
+				}
+			}
+		},
+		afterMove: function(e) {
+			var totalNumOfQuestion = vue.totalNumOfQuestion;
+			var index = this.currentItem;
+			$exerciseContainer.removeClass('first-question last-question');
+			vue.currentQuestion = index;
+			if( index === 0 ) {
+				$exerciseContainer.addClass('first-question');
+				// Emit a at first page event
+				
+			} else if (index === totalNumOfQuestion - 1) {
+				$exerciseContainer.addClass('last-question');
+				// Emit a at last page event
+				
+			}
 		}
-	});
-	owl
-	.on('translated.owl.carousel', function(e) {
-		var totalNumOfQuestion = e.item.count;
-		var index = e.item.index;
-		$exerciseContainer.removeClass('first-question last-question');
-		vue.currentQuestion = index;
-		if( index === 0 ) {
-			$exerciseContainer.addClass('first-question');
-			// Emit a at first page event
+	})
+	.data('owlCarousel')
+	;
+	// owl
+	// .on('translated.owl.carousel', function(e) {
+	// 	var totalNumOfQuestion = e.item.count;
+	// 	var index = e.item.index;
+	// 	$exerciseContainer.removeClass('first-question last-question');
+	// 	vue.currentQuestion = index;
+	// 	if( index === 0 ) {
+	// 		$exerciseContainer.addClass('first-question');
+	// 		// Emit a at first page event
 			
-		} else if (index === totalNumOfQuestion - 1) {
-			$exerciseContainer.addClass('last-question');
-			// Emit a at last page event
+	// 	} else if (index === totalNumOfQuestion - 1) {
+	// 		$exerciseContainer.addClass('last-question');
+	// 		// Emit a at last page event
 			
-		}
-	});
+	// 	}
+	// });
 }
 
 function sortAnswers () {
