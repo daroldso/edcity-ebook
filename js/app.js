@@ -1,3 +1,7 @@
+if (!window.console) window.console = {};
+if (!window.console.log) window.console.log = function () { };
+if (!window.console.dir) window.console.dir = function () { };
+
 var vue,
 chapter,
 exercise,
