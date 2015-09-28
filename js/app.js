@@ -95,11 +95,16 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			var imgTest = (document.getElementById('bg') === null) ? "using inline style\n" : "using <img/>\n";
-			var innerWidth = 'inner width: '+window.innerWidth+ 'px\n';
-			var outerWidth = 'outer width: '+window.outerWidth+ 'px\n';
-			var screenWidth = 'screen width: '+window.screen.width+ 'px\n';
-			alert(imgTest + innerWidth + outerWidth + screenWidth);
+			// var bodyWidth = 'body width: '+$('body').width()+ 'px\n';
+			// var containerWidth = 'container width: '+$('.container').width()+ 'px\n';
+			// var innerWidth = 'inner width: '+window.innerWidth+ 'px\n';
+			// var outerWidth = 'outer width: '+window.outerWidth+ 'px\n';
+			// var screenWidth = 'screen width: '+window.screen.width+ 'px\n';
+			// alert(screenWidth + outerWidth + innerWidth + bodyWidth + containerWidth);
+			// console.log("parent");
+			// console.dir(parent);
+			// console.log("#viewerPopupIFrame");
+			// console.dir(parent.frames["viewerPopupIFrame"]);
 		}
 	}
 });
