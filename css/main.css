@@ -43,6 +43,12 @@ body {
 	position: relative;
 	width: 100%!important;
 }
+.wrapper {
+	width: 95%;
+	margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
 /*@media (max-width: 650px) {
 	.container {
 		width: 595px;
