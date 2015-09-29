@@ -62,7 +62,7 @@ vue = new Vue({
 			var saveObjectJson = JSON.stringify(saveObject);
 
 			// Check if the ebook object exist
-			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+			if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
 				parent.hotspotDataCommunicator.storeHotspotData(saveObjectJson);
 			} else {
 				console.log("Should be saved in production");
@@ -71,7 +71,7 @@ vue = new Vue({
 		},
 		retrieveState: function () {
 			// Check if the ebook object exist
-			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+			if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
 				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
 					// data could be empty / {"userData":null,"config":{"tts":"","url":""}} / our exercise JSON
 					// console.log("data json: ");
@@ -399,7 +399,7 @@ function initCarousel () {
 			if(totalNumOfQuestion === 1) {$exerciseContainer.addClass('last-question');}
 			vue.totalNumOfQuestion = totalNumOfQuestion;
 
-			if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
+			if (parent !== undefined && parent.setIndicatorVisiblity !== undefined) {
 				parent.setIndicatorVisiblity(false);
 				if(parent.frames["viewerPopupIFrame"].length !== undefined) {
 					_.times(parent.frames["viewerPopupIFrame"].length, function (i) {
