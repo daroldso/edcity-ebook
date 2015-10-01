@@ -604,8 +604,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23311&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c4e0ea003044b5204a7a1d7f025f05c88524c4db83c071af64923a9d99026b4a8", // right
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23313&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c1fc3528049c305c3ac29bc6fe44e28ec35b3ae44affda7fccf7702988a7e4fce" // wrong
+							"videos/C4_1correct_cough.mp4", // right
+							"videos/C4_1wrong_cough.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -621,8 +621,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23317&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c0431ed62d074fa47c092b35c4ab691bc5574c43b1dff580a6200a9d0b037b1c1", // wrong
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23315&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c7ef4ddd88de896726023e6a126d7fa1dfad6a6a72fd9cfbcb1ce108e0cd57f0e" // right
+							"videos/C4_2wrong_hiccup.mp4", // wrong
+							"videos/C4_2correct_hiccup.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -638,8 +638,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23319&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c45ead5f69d7612074fbba926da39a24111af652114cdd1c73a96359b36696200", // wrong
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23321&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c716ecee0aa4aa096f12151882257d447a730e657e05d1c8d6014ea49aab9357f" // right
+							"videos/C4_3wrong_bump.mp4", // wrong
+							"videos/C4_3correct_bump.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -655,8 +655,8 @@ window.Book = {
 						wrong: false,
 						text: "想得到別人的注意",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23323&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c3935af085f7a20a5c6f333c1c5fca6e115fba80349fff0449bf48f2869d1b198", // right
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23325&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c4058f2118b2e62fc5b5816089824ab7b2f33d98055688a86d50d82f281144ba1" // wrong
+							"videos/C4_4correct_excuse.mp4", // right
+							"videos/C4_4wrong_excuse.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -672,8 +672,8 @@ window.Book = {
 						wrong: false,
 						text: "想得到別人的注意",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23327&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6ccd82d54449c84d3e9cbe873e7b92c356b2bcb049cff0f13424e8632362a9ed00", // right
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23329&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6ce5d770c8a753651beefab480e6bddaaaae8db251536faa291e8565d9b853511f" // wrong
+							"videos/C4_5correct_ask.mp4", // right
+							"videos/C4_5wrong_ask.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -689,8 +689,8 @@ window.Book = {
 						wrong: false,
 						text: "危急的情況",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23331&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6cb14964ed8469ce52d11f17712dc113735cefbdd93a3cbb2c6cad31b7f4a158af", // right
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23333&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6ca30cf05b089e4ea4da7db05db476f5bb236e03bcb3405ce82211263a849eecc6" // wrong
+							"videos/C4_6correct_fall.mp4", // right
+							"videos/C4_6wrong_fall.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -706,8 +706,8 @@ window.Book = {
 						wrong: false,
 						text: "危急的情況",
 						videos: [
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23337&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6c085249829ef7cecd756d13f43a0eef35998d0fe42cc8725615c9192753e2d726", // wrong
-							"https://apps.hkedcity.net/media/play/playVideo_responsive.php?vFileID=23335&vLang=chi&vAutoStart=false&vStartTime=0&videoUrl=c3e200b83c69032ae5a760ecd8be52a266524c8b6f697e580829243dfe6ebe6cb1d91856315a62247ba9f552b1ed32ae7d17cbfd4505eb6f12124e44af4942bd" // right
+							"videos/C4_7wrong_faint.mp4", // wrong
+							"videos/C4_7correct_faint.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
