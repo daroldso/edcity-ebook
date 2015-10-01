@@ -347,7 +347,7 @@
 				<div class="col-xs-6" v-repeat="video: question.videos">
 					<div class="exercise__question-content">
 						<div class="exercise__question-video">
-							<iframe v-attr="src: video" scrolling='no' frameborder='0' style='width: 100%; height: 100%;'>[Your browser does not support frames or is currently configured not to display frames. Please use an up-to-date browser that is capable of displaying frames.]</iframe>	
+							<video v-attr="src: video" style='width: 100%; height: 100%;' controls></video>
 						</div>
 					</div>
 				</div>
