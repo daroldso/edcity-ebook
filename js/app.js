@@ -52,8 +52,8 @@ vue = new Vue({
 								linesToDraw.push(questions[i].linesSaved[j]);
 							};
 						});
+						vue.questions[i].linesToDraw = linesToDraw;
 					}
-					vue.questions[i].linesToDraw = linesToDraw;
 					
 				});
 			}
