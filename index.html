@@ -348,7 +348,9 @@
 				<div class="col-xs-6" v-repeat="video: question.videos">
 					<div class="exercise__question-content">
 						<div class="exercise__question-video">
-							<video v-attr="src: video" style='width: 100%; height: 100%;' controls></video>
+							<video style='width: 100%; height: 100%;' controls>
+						        <source v-attr="src: video" type="video/mp4">
+						    </video>
 						</div>
 					</div>
 				</div>

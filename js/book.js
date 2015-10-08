@@ -604,8 +604,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"videos/C4_1correct_cough.flv", // right
-							"videos/C4_1wrong_cough.flv" // wrong
+							"videos/C4_1correct_cough.mp4", // right
+							"videos/C4_1wrong_cough.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -621,8 +621,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"videos/C4_2wrong_hiccup.flv", // wrong
-							"videos/C4_2correct_hiccup.flv" // right
+							"videos/C4_2wrong_hiccup.mp4", // wrong
+							"videos/C4_2correct_hiccup.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -638,8 +638,8 @@ window.Book = {
 						wrong: false,
 						text: "做了令人不舒服的事情",
 						videos: [
-							"videos/C4_3wrong_bump.flv", // wrong
-							"videos/C4_3correct_bump.flv" // right
+							"videos/C4_3wrong_bump.mp4", // wrong
+							"videos/C4_3correct_bump.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
@@ -655,8 +655,8 @@ window.Book = {
 						wrong: false,
 						text: "想得到別人的注意",
 						videos: [
-							"videos/C4_4correct_excuse.flv", // right
-							"videos/C4_4wrong_excuse.flv" // wrong
+							"videos/C4_4correct_excuse.mp4", // right
+							"videos/C4_4wrong_excuse.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -672,8 +672,8 @@ window.Book = {
 						wrong: false,
 						text: "想得到別人的注意",
 						videos: [
-							"videos/C4_5correct_ask.flv", // right
-							"videos/C4_5wrong_ask.flv" // wrong
+							"videos/C4_5correct_ask.mp4", // right
+							"videos/C4_5wrong_ask.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -689,8 +689,8 @@ window.Book = {
 						wrong: false,
 						text: "危急的情況",
 						videos: [
-							"videos/C4_6correct_fall.flv", // right
-							"videos/C4_6wrong_fall.flv" // wrong
+							"videos/C4_6correct_fall.mp4", // right
+							"videos/C4_6wrong_fall.mp4" // wrong
 						],
 						answers: [
 							{correct: true, selected: false},
@@ -706,8 +706,8 @@ window.Book = {
 						wrong: false,
 						text: "危急的情況",
 						videos: [
-							"videos/C4_7wrong_faint.flv", // wrong
-							"videos/C4_7correct_faint.flv" // right
+							"videos/C4_7wrong_faint.mp4", // wrong
+							"videos/C4_7correct_faint.mp4" // right
 						],
 						answers: [
 							{correct: false, selected: false},
