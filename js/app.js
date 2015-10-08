@@ -109,6 +109,13 @@ vue = new Vue({
 			// console.dir(parent);
 			// console.log("#viewerPopupIFrame");
 			// console.dir(parent.frames["viewerPopupIFrame"]);
+		},
+		resetStoredJson: function() {
+			var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
+			if(response && (parent !== undefined && parent.hotspotDataCommunicator !== undefined)) {
+				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInit);
+				window.location.reload();
+			}
 		}
 	}
 });
