@@ -111,8 +111,9 @@ vue = new Vue({
 			// console.dir(parent.frames["viewerPopupIFrame"]);
 		},
 		resetStoredJson: function() {
-			var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
-			if(response && (parent !== undefined && parent.hotspotDataCommunicator !== undefined)) {
+			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
+			// if(response && (parent !== undefined && parent.hotspotDataCommunicator !== undefined)) {
+			if(parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
 				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInit);
 				window.location.reload();
 			}
@@ -369,7 +370,8 @@ function initActionView () {
 					
 				}
 
-				vue.saveState();
+				// vue.saveState();
+				vue.resetStoredJson();
 				
 			},
 			isAllCorrect: function() {
