@@ -114,7 +114,8 @@ vue = new Vue({
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
 			// if(response && (parent !== undefined && parent.hotspotDataCommunicator !== undefined)) {
 			if(parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
-				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInit);
+				var exerciseToInitJson = JSON.stringify(exerciseToInit);
+				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInitJson);
 				window.location.reload();
 			}
 		}
