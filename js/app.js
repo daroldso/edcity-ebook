@@ -427,11 +427,15 @@ function initCarousel () {
 			vue.currentQuestion = index;
 			if( index === 0 ) {
 				$exerciseContainer.addClass('first-question');
-				// Emit a at first page event
-				
 			} else if (index === totalNumOfQuestion - 1) {
 				$exerciseContainer.addClass('last-question');
-				// Emit a at last page event
+			}
+			// Only for trigger the opacity 0.3 effect of owl buttons because using old version owl carosel with absolute positioning the buttons, the opacity effect will fail to appear 
+			if( index === 0 || index === totalNumOfQuestion - 1) {
+				$('.owl-controls').css('display', 'inline-block');
+				setTimeout(function() {
+					$('.owl-controls').css('display', 'block');
+				}, 0);
 				
 			}
 		}
