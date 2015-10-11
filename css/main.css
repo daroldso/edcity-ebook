@@ -1532,3 +1532,13 @@ svg line {
 .ch7.ex1 .dropzone {
 	margin-bottom: 0;
 }
+
+.ch2.ex2 .exercise__question .exercise__question-image {
+	max-width: 100%;
+}
+.ch2.ex2 .exercise__question-content {
+	text-align: center;
+}
+.ch2.ex2 .exercise__question-text {
+	text-align: left;
+}
