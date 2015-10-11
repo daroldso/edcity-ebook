@@ -321,6 +321,9 @@ body {
 	pointer-events: all;
 }
 
+.single-question-ex .exercise__question-number
+{ display: none }
+
 .qtype__tof .exercise__answer-list {
 	list-style: none;
 	display: block;
@@ -1518,8 +1521,6 @@ svg line {
 {
 	margin: 0 3px;
 }
-.single-question-ex .exercise__question-number
-{ display: none }
 
 .ch7.ex2 .check-answer-button
 { display: none }
