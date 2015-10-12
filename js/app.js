@@ -116,7 +116,11 @@ vue = new Vue({
 			if(parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
 				var exerciseToInitJson = JSON.stringify(exerciseToInit);
 				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInitJson);
-				window.location.reload();
+				parent.setIndicatorVisiblity(true);
+				setTimeout(function() {
+					parent.setIndicatorVisiblity(false);
+					window.location.reload();
+				}, 1000);
 			}
 		}
 	}
