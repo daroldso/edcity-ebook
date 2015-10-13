@@ -930,14 +930,14 @@ window.Book = {
 						questionText: "",
 						questionText2: "",
 						answers: [
-							{correct: false, selected: false, text: ""},
 							{correct: true, selected: false, text: ""},
 							{correct: false, selected: false, text: ""},
-							{correct: false, selected: false, text: ""},
-							{correct: false, selected: false, text: ""},
 							{correct: true, selected: false, text: ""},
+							{correct: true, selected: false, text: ""},
+							{correct: true, selected: false, text: ""},
+							{correct: false, selected: false, text: ""},
 						],
-						numOfCorrectAnswers: 2,
+						numOfCorrectAnswers: 4,
 						correctAnswerCount: 0,
 						wrongAnswerCount: 0
 					}
