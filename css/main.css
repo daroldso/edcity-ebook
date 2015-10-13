@@ -1542,3 +1542,7 @@ svg line {
 .ch2.ex2 .exercise__question-text {
 	text-align: left;
 }
+
+.ch4.ex1 .qtype__tof-mc .exercise__question {
+	text-align: right;
+}

@@ -769,7 +769,7 @@
 				<span class="exercise__question-text">{{question.questionText}}</span>
 			</div>
 			<div class="row">
-				<div class="exercise__question col-xs-8">
+				<div class="exercise__question col-xs-6">
 					<div class="exercise__question-content">
 						<img class="exercise__question-image" v-attr="src: imagePath + ($index + 1) + '-1.png'" alt="">
 						<div class="exercise__question-text">
@@ -786,11 +786,6 @@
 										fa-square-o: !answer.selected,
 										fa-check-square: answer.selected
 									"></i>
-									<i class="fa" v-class="
-										fa-check-circle: $index == 0,
-										fa-times-circle: $index == 1,
-										selected: answer.selected
-									"></i>
 									{{ answer.text }}
 								</div>
 							</div>
@@ -805,8 +800,10 @@
 						<li class="exercise__answer" v-repeat="answer: question.answers | filterBy 'mc'" v-class="is-correct-answer: answer.correct, is-selected: answer.selected">
 							<div class="exercise__answer-text" v-on="click: chooseMultipleAnswers(question, answer, question.answers)">
 								<div class="exercise__answer-text-inner">
-									<i class="fa fa-square-o" v-show="!answer.selected"></i>
-									<i class="fa fa-check-square" v-show="answer.selected"></i>
+									<i class="fa " v-class="
+										fa-square-o: !answer.selected,
+										fa-check-square: answer.selected
+									"></i>
 									{{ answer.text }}
 								</div>
 							</div>
