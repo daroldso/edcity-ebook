@@ -1547,3 +1547,17 @@ svg line {
 .ch4.ex1 .qtype__tof-mc .exercise__question {
 	text-align: right;
 }
+.icon-face {
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	top: 50%;
+	margin-top: -13px;
+	right: -31px;
+	z-index: 10;
+	display: none;
+}
+.answer-checked .exercise__answer.is-selected .icon-face.sad { display: block;}
+.answer-checked .exercise__answer.is-selected.is-correct-answer .icon-face.smile { display: block;}
+.answer-checked .exercise__answer.is-selected.is-correct-answer .icon-face.sad { display: none;}
+.answer-checked .exercise__answer.is-selected:before {content: none;}
