@@ -761,8 +761,8 @@ window.Book = {
 							""
 						],
 						answers: [
-							{correct: true, selected: false},
-							{correct: false, selected: false}
+							{correct: false, selected: false},
+							{correct: true, selected: false}
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
@@ -776,8 +776,8 @@ window.Book = {
 							""
 						],
 						answers: [
-							{correct: true, selected: false},
-							{correct: false, selected: false}
+							{correct: false, selected: false},
+							{correct: true, selected: false}
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
@@ -791,8 +791,8 @@ window.Book = {
 							""
 						],
 						answers: [
-							{correct: true, selected: false},
-							{correct: false, selected: false}
+							{correct: false, selected: false},
+							{correct: true, selected: false}
 						],
 						numOfCorrectAnswers: 1,
 						correctAnswerCount: 0,
