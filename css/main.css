@@ -1472,7 +1472,8 @@ svg line {
 .ch8.ex2 .is-wrong .exercise__answer-list:after,
 .ch8.ex2 .answer-checked .exercise__answer.is-selected:after {right: -5px;left: initial;}
 
-.ch6.ex3 .exercise__question .exercise__question-image {width: auto;height: auto;}
+.ch6.ex3 .exercise__question-content {text-align: center;}
+.ch6.ex3 .exercise__question .exercise__question-image { min-width: 150px; min-height: 100px; }
 
 .ch8.ex1 .exercise__question {margin-bottom: 5px;}
 .ch8.ex1 .exercise__question-text {font-size: 24px}
