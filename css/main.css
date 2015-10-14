@@ -623,10 +623,19 @@ body {
 	left: 50%;
 	margin-left: -13px;;
 }
-.layout-13 .answer-checked .exercise__answer.is-selected:before {
+/*.layout-13 .answer-checked .exercise__answer.is-selected:before {
 	right: 50%;
 	top: 53px;
 	margin-right: -13px;
+}*/
+
+.layout-13 .answer-checked .exercise__answer .icon-face {
+	top: initial;
+	left: 50%;
+	right: initial;
+	margin-left: -13px;
+	margin-top: 0;
+	bottom: -10px;
 }
 
 .layout-14 .answer-checked .dragzone .exercise__answer.is-selected:before,
@@ -1561,4 +1570,4 @@ svg line {
 .answer-checked .exercise__answer.is-selected .icon-face.sad { display: block;}
 .answer-checked .exercise__answer.is-selected.is-correct-answer .icon-face.smile { display: block;}
 .answer-checked .exercise__answer.is-selected.is-correct-answer .icon-face.sad { display: none;}
-.answer-checked .exercise__answer.is-selected:before {content: none;}
+.answer-checked .dragzone .exercise__answer.is-selected:before {content: none;}

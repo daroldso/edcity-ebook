@@ -548,6 +548,8 @@
 								is-correct-answer: answer.correct,
 								is-selected: answer.selected
 							" v-on="click: chooseAnswer(question, answer)">
+							<img class="icon-face sad" src="img/sad_face.png" alt="">
+							<img class="icon-face smile" src="img/smile_face.png" alt="">
 							<span class="exercise__answer-text">
 								{{ answer.text }}
 							</span>
@@ -643,6 +645,8 @@
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
 									" v-on="click: chooseAnswer(question, answer)">
+									<img class="icon-face sad" src="img/sad_face.png" alt="">
+									<img class="icon-face smile" src="img/smile_face.png" alt="">
 									<span class="exercise__answer-text">
 										{{ answer.text }}
 									</span>
@@ -722,6 +726,8 @@
 										is-correct-answer: answer.correct,
 										is-selected: answer.selected
 									">
+									<img class="icon-face sad" src="img/sad_face.png" alt="">
+									<img class="icon-face smile" src="img/smile_face.png" alt="">
 									<span class="exercise__answer-text">
 										{{ answer.text }}
 									</span>
