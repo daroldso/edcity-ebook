@@ -1915,7 +1915,7 @@ window.Book = {
 		exercises: {
 			'ex1': {
 				chapterNum: 8,
-				exerciseNum: 2,
+				exerciseNum: 1,
 				isAnswerChecked: false,
 				isAnswerRevealed: false,
 				studentScore: 0,
@@ -2034,7 +2034,7 @@ window.Book = {
 			},
 			'ex2': {
 				chapterNum: 8,
-				exerciseNum: 1,
+				exerciseNum: 2,
 				isAnswerChecked: false,
 				isAnswerRevealed: false,
 				studentScore: 0,
