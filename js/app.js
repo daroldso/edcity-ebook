@@ -25,6 +25,7 @@ vue = new Vue({
 		totalNumOfQuestion: 0,
 		isAnswerChecked: false,
 		isAnswerRevealed: false,
+		needToReopen: false,
 		allCorrect: false,
 		layoutNumber: "",
 		baseScore: 0,
@@ -118,9 +119,10 @@ vue = new Vue({
 				console.log(exerciseToInitJson);
 				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInitJson);
 				console.log("Saved original json");
-				setTimeout(function() {
-					window.location.reload();
-				}, 1000);
+				// setTimeout(function() {
+				// 	window.location.reload();
+				// }, 1000);
+				alert("請關閉互動挑戰站並重新開啟");
 			}
 		}
 	}
@@ -148,6 +150,7 @@ function load (userData) {
 
 	vue.isAnswerChecked = exercise.isAnswerChecked;
 	vue.isAnswerRevealed = exercise.isAnswerRevealed;
+	vue.needToReopen = exercise.needToReopen;
 
 	// instantiate question view and mount to #exercise
 	initQuestionView(function() {
@@ -274,6 +277,7 @@ function initActionView () {
 				vue.isAnswerRevealed = false;
 				vue.isAnswerChecked = false;
 				this.isAnswerChecked = false;
+				vue.needToReopen = true;
 				vue.allCorrect = false;
 
 				var questions = vue.questions;

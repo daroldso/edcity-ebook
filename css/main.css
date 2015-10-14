@@ -457,9 +457,17 @@ body {
    States control
    ========================================================================== */
 /* User can only choose answer when they click "Reset" to remove the .answer-checked */
-.answer-checked .exercise__answer {
+.answer-checked .exercise__answer,
+.need-to-reopen .exercise__answer {
 	pointer-events: none;
 }
+
+.need-to-reopen.last-question .check-answer-button,
+.need-to-reopen.last-question .show-answer-button,
+.need-to-reopen.answer-checked .show-answer-button {
+	pointer-events: none;
+}
+
 .answer-checked .exercise__answer.is-selected.is-correct-answer:after {
 	content: "答對了！";
 	color: #1EB53B;
