@@ -238,8 +238,7 @@ function initQuestionView (callback) {
 			questions : exercise.questions,
 			chapterNum: vue.chapterNum,
 			exerciseNum: vue.exerciseNum,
-			imagePath: 'img/'+ vue.chapterNum + '-' + vue.exerciseNum + '-',
-			value: 99
+			imagePath: 'img/'+ vue.chapterNum + '-' + vue.exerciseNum + '-'
 		},
 
 		methods: validateMethods[exercise.type],
@@ -599,10 +598,3 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 function endLine() {
 	vis.on("mousemove", null);
 }
-
-var videoSize = 100;
-$('video').on('play', function() {
-	console.log(videoSize);
-	videoSize = (videoSize === 100) ? 99.7 : 100;
-	this.style.width = videoSize + '%';
-});
