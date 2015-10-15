@@ -246,6 +246,7 @@ function initQuestionView (callback) {
 
 		ready: function() {
 			initCarousel();
+			initVideo();
 			if(typeof exercise.dragndropType !== "undefined") {
 				dragnDropInit[exercise.dragndropType]();
 				dragnDropBehaviors[exercise.dragndropBehavior]();
@@ -467,6 +468,15 @@ function initCarousel () {
 			
 	// 	}
 	// });
+}
+
+function initVideo () {
+	var questions = vue.questions;
+	_.times(questions.length, function(i) {
+		_.times(questions[i].videos.length, function(j) {
+			videojs("video-"+i+"-"+j, { "controls": true, "autoplay": false, "preload": "auto" });
+		});
+	});
 }
 
 function sortAnswers () {
