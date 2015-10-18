@@ -94,9 +94,10 @@ vue = new Vue({
 					init(exerciseToInit);
 				});
 			} else {
-				var router = Router();
-				router.on('/exercise/:chapter/:ex', init);
-				router.init('/exercise/1/1');
+				load(exerciseToInit);
+				// var router = Router();
+				// router.on('/exercise/:chapter/:ex', init);
+				// router.init('/exercise/1/1');
 			}
 		},
 		alertWindowInfo: function() {
@@ -133,17 +134,17 @@ vue.retrieveState();
 function load (userData) {
 	exercise = userData;
 
-	vue.chapterNum = exercise.chapterNum;
-	vue.exerciseNum = exercise.exerciseNum;
+	vue.chapterNum = exerciseToInit.chapterNum;
+	vue.exerciseNum = exerciseToInit.exerciseNum;
 
-	vue.layoutNumber = exercise.layout;
+	vue.layoutNumber = exerciseToInit.layout;
 	vue.exercise = exercise;
 	// assign all the questions in the exercise 1-3 to Vue
-	vue.questions = exercise.questions;
+	vue.questions = exerciseToInit.questions;
 	// assign exercise name to Vue
-	vue.exerciseName = exercise.name;
+	vue.exerciseName = exerciseToInit.name;
 	// assign exercise instruction to Vue
-	vue.exerciseInstruction = exercise.instruction;
+	vue.exerciseInstruction = exerciseToInit.instruction;
 
 	vue.baseScore = getBaseScore();
 	vue.studentScore = exercise.studentScore;
@@ -236,19 +237,19 @@ function initQuestionView (callback) {
 		data: {
 			currentQuestion: vue.currentQuestion,
 			questions : exercise.questions,
-			chapterNum: vue.chapterNum,
-			exerciseNum: vue.exerciseNum,
-			imagePath: 'img/'+ vue.chapterNum + '-' + vue.exerciseNum + '-'
+			chapterNum: exerciseToInit.chapterNum,
+			exerciseNum: exerciseToInit.exerciseNum,
+			imagePath: 'img/'+ exerciseToInit.chapterNum + '-' + exerciseToInit.exerciseNum + '-'
 		},
 
-		methods: validateMethods[exercise.type],
+		methods: validateMethods[exerciseToInit.type],
 
 		ready: function() {
 			initCarousel();
 			// initVideo();
-			if(typeof exercise.dragndropType !== "undefined") {
-				dragnDropInit[exercise.dragndropType]();
-				dragnDropBehaviors[exercise.dragndropBehavior]();
+			if(typeof exerciseToInit.dragndropType !== "undefined") {
+				dragnDropInit[exerciseToInit.dragndropType]();
+				dragnDropBehaviors[exerciseToInit.dragndropBehavior]();
 				initSvgCanvas();
 				if(callback) { callback(); }
 			}
