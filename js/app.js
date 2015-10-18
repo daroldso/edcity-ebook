@@ -245,7 +245,7 @@ function initQuestionView (callback) {
 
 		ready: function() {
 			initCarousel();
-			initVideo();
+			// initVideo();
 			if(typeof exercise.dragndropType !== "undefined") {
 				dragnDropInit[exercise.dragndropType]();
 				dragnDropBehaviors[exercise.dragndropBehavior]();
