@@ -377,8 +377,8 @@ function initActionView () {
 					
 				}
 
-				// vue.saveState();
-				vue.resetStoredJson();
+				vue.saveState();
+				// vue.resetStoredJson();
 				
 			},
 			isAllCorrect: function() {
