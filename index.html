@@ -51,12 +51,7 @@
 					</div>
 				</div>
 
-				<div id="exercise-container" class="exercise-container" v-class="
-					answer-revealed:isAnswerRevealed,
-					answer-checked: isAnswerChecked,
-					single-question-ex: totalNumOfQuestion == 1,
-					need-to-reopen: needToReopen
-				">
+				<div id="exercise-container" class="exercise-container" v-class="answer-revealed:isAnswerRevealed, answer-checked: isAnswerChecked, single-question-ex: totalNumOfQuestion == 1">
 					<div class="pager">
 						頁 {{currentQuestion + 1}} / {{totalNumOfQuestion}}
 					</div>
