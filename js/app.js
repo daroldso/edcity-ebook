@@ -93,10 +93,10 @@ vue = new Vue({
 					init(exerciseToInit);
 				});
 			} else {
-				load(exerciseToInit);
-				// var router = Router();
-				// router.on('/exercise/:chapter/:ex', init);
-				// router.init('/exercise/1/1');
+				// load(exerciseToInit);
+				var router = Router();
+				router.on('/exercise/:chapter/:ex', init);
+				router.init('/exercise/1/1');
 			}
 		},
 		alertWindowInfo: function() {
@@ -114,15 +114,15 @@ vue = new Vue({
 		resetStoredJson: function() {
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
 			// if(response && (parent !== undefined && parent.hotspotDataCommunicator !== undefined)) {
-			if(parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
-				var exerciseToInitJson = JSON.stringify(exerciseToInit);
-				console.log(exerciseToInitJson);
-				parent.hotspotDataCommunicator.storeHotspotData(exerciseToInitJson);
-				console.log("Saved original json");
-				setTimeout(function() {
-					window.location.reload();
-				}, 1000);
-			}
+			// if(parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
+			// 	var exerciseToInitJson = JSON.stringify(exerciseToInit);
+			// 	console.log(exerciseToInitJson);
+			// 	parent.hotspotDataCommunicator.storeHotspotData(exerciseToInitJson);
+			// 	console.log("Saved original json");
+			// 	setTimeout(function() {
+			// 		window.location.reload();
+			// 	}, 1000);
+			// }
 		}
 	}
 });
@@ -138,7 +138,7 @@ function load (userData) {
 	vue.layoutNumber = exerciseToInit.layout;
 	vue.exercise = exercise;
 	// assign all the questions in the exercise 1-3 to Vue
-	vue.questions = exerciseToInit.questions;
+	vue.questions = exercise.questions;
 	// assign exercise name to Vue
 	vue.exerciseName = exerciseToInit.name;
 	// assign exercise instruction to Vue
@@ -239,14 +239,14 @@ function initQuestionView (callback) {
 			imagePath: 'img/'+ exerciseToInit.chapterNum + '-' + exerciseToInit.exerciseNum + '-'
 		},
 
-		methods: validateMethods[exerciseToInit.type],
+		methods: validateMethods[exercise.type],
 
 		ready: function() {
 			initCarousel();
 			// initVideo();
-			if(typeof exerciseToInit.dragndropType !== "undefined") {
-				dragnDropInit[exerciseToInit.dragndropType]();
-				dragnDropBehaviors[exerciseToInit.dragndropBehavior]();
+			if(typeof exercise.dragndropType !== "undefined") {
+				dragnDropInit[exercise.dragndropType]();
+				dragnDropBehaviors[exercise.dragndropBehavior]();
 				initSvgCanvas();
 				if(callback) { callback(); }
 			}
