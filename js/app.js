@@ -58,6 +58,9 @@ vue = new Vue({
 				});
 			}
 
+			delete vue.exercise.questions;
+			vue.exercise.questions = vue.questions;
+
 			var saveObject = $.extend(vue.exercise, objectWithAdditionalInfo);
 			var saveObjectJson = JSON.stringify(saveObject);
 
