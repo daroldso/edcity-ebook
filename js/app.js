@@ -97,10 +97,10 @@ vue = new Vue({
 					init(exerciseToInit);
 				});
 			} else {
-				// load(exerciseToInit);
-				var router = Router();
-				router.on('/exercise/:chapter/:ex', init);
-				router.init('/exercise/1/1');
+				load(JSON.parse(exerciseToLoad));
+				// var router = Router();
+				// router.on('/exercise/:chapter/:ex', init);
+				// router.init('/exercise/1/1');
 			}
 		},
 		alertWindowInfo: function() {
