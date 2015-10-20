@@ -340,7 +340,9 @@ function initActionView () {
 						});
 
 						// Clear the linesSaved array
+						questions[i].lines = [];
 						questions[i].linesSaved = [];
+						questions[i].linesToDraw = [];
 
 					});
 				}
