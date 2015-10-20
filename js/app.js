@@ -48,10 +48,11 @@ vue = new Vue({
 
 					if(questions[i].linesSaved !== undefined && questions[i].linesSaved.length > 0) {
 						_.times(questions[i].linesSaved.length, function(j) {
-							if(questions[i].linesSaved[j] !== undefined) {
+							if(questions[i].linesSaved[j] !== undefined && questions[i].linesSaved[j] !== null) {
 								linesToDraw.push(questions[i].linesSaved[j]);
 							};
 						});
+						vue.questions[i].linesSaved = linesToDraw;
 						vue.questions[i].linesToDraw = linesToDraw;
 					}
 					
