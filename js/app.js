@@ -13,6 +13,8 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
+var versionNum = "0.9.0";
+
 vue = new Vue({
     el:"#chapter",	
     data: {
@@ -104,16 +106,10 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			// var bodyWidth = 'body width: '+$('body').width()+ 'px\n';
-			// var containerWidth = 'container width: '+$('.container').width()+ 'px\n';
-			// var innerWidth = 'inner width: '+window.innerWidth+ 'px\n';
-			// var outerWidth = 'outer width: '+window.outerWidth+ 'px\n';
-			// var screenWidth = 'screen width: '+window.screen.width+ 'px\n';
-			// alert(screenWidth + outerWidth + innerWidth + bodyWidth + containerWidth);
-			// console.log("parent");
-			// console.dir(parent);
-			// console.log("#viewerPopupIFrame");
-			// console.dir(parent.frames["viewerPopupIFrame"]);
+			var version = "Version: " + versionNum + "\n";
+			var message = "Fixed line matching error and included all the changes in word doc\n";
+			var date = "Updated at: 2015-10-22 23:20";
+			alert(version + message + date);
 		},
 		resetStoredJson: function() {
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
