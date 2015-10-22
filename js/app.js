@@ -13,7 +13,7 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
-var versionNum = "0.9.0";
+var versionNum = "0.9.1";
 
 vue = new Vue({
     el:"#chapter",	
@@ -107,8 +107,8 @@ vue = new Vue({
 		},
 		alertWindowInfo: function() {
 			var version = "Version: " + versionNum + "\n";
-			var message = "Fixed line matching error and included all the changes in word doc\n";
-			var date = "Updated at: 2015-10-22 23:20";
+			var message = "Fixed line matching 'remove is not a function' error and included all the changes in word doc\n";
+			var date = "Updated at: 2015-10-23 00:39";
 			alert(version + message + date);
 		},
 		resetStoredJson: function() {
@@ -331,7 +331,7 @@ function initActionView () {
 
 						// Remove the line drawn
 						_.times(questions[i].lines.length, function(j) {
-							if(questions[i].lines[j] !== undefined && questions[i].lines[j] !== null) {
+							if(questions[i].lines[j] !== undefined && questions[i].lines[j] !== null && questions[i].lines[j].remove !== undefined) {
 								questions[i].lines[j].remove();
 							}
 						});
