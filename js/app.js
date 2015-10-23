@@ -13,7 +13,7 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
-var versionNum = "0.9.1";
+var versionNum = "0.9.2";
 
 vue = new Vue({
     el:"#chapter",	
@@ -68,7 +68,8 @@ vue = new Vue({
 			var saveObjectJson = JSON.stringify(saveObject);
 
 			// Check if the ebook object exist
-			if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
+			// if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
+            if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.storeHotspotData(saveObjectJson);
 			} else {
 				console.log("Should be saved in production");
@@ -77,7 +78,8 @@ vue = new Vue({
 		},
 		retrieveState: function () {
 			// Check if the ebook object exist
-			if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
+			// if (parent !== undefined && parent.hotspotDataCommunicator !== undefined) {
+            if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.retrieveHotspotData(function (data) {
 					// data could be empty / {"userData":null,"config":{"tts":"","url":""}} / our exercise JSON
 					// console.log("data json: ");
@@ -107,9 +109,9 @@ vue = new Vue({
 		},
 		alertWindowInfo: function() {
 			var version = "Version: " + versionNum + "\n";
-			var message = "Fixed line matching 'remove is not a function' error and included all the changes in word doc\n";
-			var date = "Updated at: 2015-10-23 00:39";
-			alert(version + message + date);
+			var message = "Revert back to old way of checking parent object\n";
+			var date = "Updated at: 2015-10-23 00:39\n";
+			alert(version + message + date + vue.questions);
 		},
 		resetStoredJson: function() {
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
@@ -417,7 +419,8 @@ function initCarousel () {
 			if(totalNumOfQuestion === 1) {$exerciseContainer.addClass('last-question');}
 			vue.totalNumOfQuestion = totalNumOfQuestion;
 
-			if (parent !== undefined && parent.setIndicatorVisiblity !== undefined) {
+			// if (parent !== undefined && parent.setIndicatorVisiblity !== undefined) {
+            if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined' && typeof (parent.setIndicatorVisiblity) != 'undefined' ) {
 				parent.setIndicatorVisiblity(false);
 				if(parent.frames["viewerPopupIFrame"].length !== undefined) {
 					_.times(parent.frames["viewerPopupIFrame"].length, function (i) {
