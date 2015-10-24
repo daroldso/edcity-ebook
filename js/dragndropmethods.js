@@ -223,6 +223,13 @@ function dragnDropBehavior_drawLines_vertical () {
 
 	})
 	.on('drop', function(el, container, source) {
+		alert("start of drop event");
+		alert("el: "+el.className);
+		alert("container: "+container.className);
+		alert("source: "+source.className);
+		alert("question: "+JSON.stringify(question));
+		alert("answer: "+JSON.stringify(answer));
+
 		$('body').off('mousemove');
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
 			return false;
@@ -235,8 +242,12 @@ function dragnDropBehavior_drawLines_vertical () {
 		// console.log(elX, elY);
 		// console.log(dropX, dropY);
 		drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
+		alert("line drawn");
 
+		alert("before questionView.chooseAnswer");
 		questionView.chooseAnswer(question, answer, container, source);
+		alert("after questionView.chooseAnswer");
+		alert("end of drop event");
 		// return false;
 
 	})

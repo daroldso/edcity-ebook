@@ -13,7 +13,7 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
-var versionNum = "0.9.2";
+var versionNum = "0.9.3";
 
 vue = new Vue({
     el:"#chapter",	
@@ -109,9 +109,8 @@ vue = new Vue({
 		},
 		alertWindowInfo: function() {
 			var version = "Version: " + versionNum + "\n";
-			var message = "Revert back to old way of checking parent object\n";
-			var date = "Updated at: 2015-10-23 00:39\n";
-			alert(version + message + date + vue.questions);
+			var message = "Add debug messages\n";
+			alert(version + message + JSON.stringify(vue.questions));
 		},
 		resetStoredJson: function() {
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
