@@ -99,8 +99,10 @@ function dragnDropBehavior_drawLines () {
 	.on('drag', function(el, source) {
 		answer = el.__vue__.answer;
 
-		if (question.lines[answer.index] !== undefined &&  question.lines[answer.index].remove !== undefined) {
-			question.lines[answer.index].remove();
+		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
+			if(question.lines[answer.index].remove !== undefined) {
+				question.lines[answer.index].remove();
+			}
 			delete question.lines[answer.index];
 			delete question.linesSaved[answer.index];
 		}
@@ -184,8 +186,10 @@ function dragnDropBehavior_drawLines_vertical () {
 	.on('drag', function(el, source) {
 		answer = el.__vue__.answer;
 
-		if ( question.lines[answer.index] !== undefined && question.lines[answer.index] !== null && question.lines[answer.index].remove !== undefined ) {
-			question.lines[answer.index].remove();
+		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
+			if(question.lines[answer.index].remove !== undefined) {
+				question.lines[answer.index].remove();
+			}
 			delete question.lines[answer.index];
 			delete question.linesSaved[answer.index];
 		}

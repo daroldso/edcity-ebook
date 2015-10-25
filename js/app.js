@@ -13,8 +13,6 @@ $exerciseContainer = $('#exercise-container'),
 owl,
 drake;
 
-var versionNum = "0.9.3";
-
 vue = new Vue({
     el:"#chapter",	
     data: {
@@ -54,7 +52,7 @@ vue = new Vue({
 								linesToDraw.push(questions[i].linesSaved[j]);
 							};
 						});
-						vue.questions[i].linesSaved = linesToDraw;
+						// vue.questions[i].linesSaved = linesToDraw;
 						vue.questions[i].linesToDraw = linesToDraw;
 					}
 					
@@ -108,8 +106,9 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
+			var versionNum = "0.9.4";
 			var version = "Version: " + versionNum + "\n";
-			var message = "Add debug messages\n";
+			var message = "Fix linesSaved = linesToDraw. Add debug messages in drawLine function\n";
 			alert(version + message + JSON.stringify(vue.questions));
 		},
 		resetStoredJson: function() {
@@ -578,6 +577,7 @@ function moveLine(x, y) {
 }
 
 function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
+	alert("start of drawLine function");
 	lines[index] = vis.append("line")
 		.attr("x1", x1)
 		.attr("y1", y1)
@@ -592,8 +592,9 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 	};
 	var jsonString = JSON.stringify(lines);
 	var jsonString2 = JSON.stringify(linesSaved);
-	console.log(jsonString);
-	console.log(jsonString2);
+	alert("jsonString:\n" + jsonString);
+	alert("jsonString2:\n" + jsonString2);
+	alert("end of drawLine function");
 }
 
 function endLine() {
