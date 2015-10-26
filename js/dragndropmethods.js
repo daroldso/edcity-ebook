@@ -228,11 +228,11 @@ function dragnDropBehavior_drawLines_vertical () {
 	})
 	.on('drop', function(el, container, source) {
 		alert("start of drop event");
-		alert("el: "+el.className);
-		alert("container: "+container.className);
-		alert("source: "+source.className);
-		alert("question: "+JSON.stringify(question));
-		alert("answer: "+JSON.stringify(answer));
+		// alert("el: "+el.className);
+		// alert("container: "+container.className);
+		// alert("source: "+source.className);
+		// alert("question: "+JSON.stringify(question));
+		// alert("answer: "+JSON.stringify(answer));
 
 		$('body').off('mousemove');
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {

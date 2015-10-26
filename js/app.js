@@ -106,9 +106,9 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			var versionNum = "0.9.4";
+			var versionNum = "0.9.5";
 			var version = "Version: " + versionNum + "\n";
-			var message = "Fix linesSaved = linesToDraw. Add debug messages in drawLine function\n";
+			var message = "Add more debug messages in drawLine function and use try catch\n";
 			alert(version + message + JSON.stringify(vue.questions));
 		},
 		resetStoredJson: function() {
@@ -578,18 +578,33 @@ function moveLine(x, y) {
 
 function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 	alert("start of drawLine function");
-	lines[index] = vis.append("line")
-		.attr("x1", x1)
-		.attr("y1", y1)
-		.attr("x2", x2)
-		.attr("y2", y2);
-	linesSaved[index] = {
-		index: index,
-		x1: x1,
-		y1: y1,
-		x2: x2,
-		y2: y2
-	};
+	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	try {
+		lines[index] = vis.append("line")
+			.attr("x1", x1)
+			.attr("y1", y1)
+			.attr("x2", x2)
+			.attr("y2", y2);
+	}
+	catch(e) {
+	    alert('An error has occurred: '+e.message)
+	}
+	alert("end of lines[index]");
+	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	try {
+		linesSaved[index] = {
+			index: index,
+			x1: x1,
+			y1: y1,
+			x2: x2,
+			y2: y2
+		};
+	}
+	catch(e) {
+	    alert('An error has occurred: '+e.message)
+	}
+	alert("end of linesSaved[index]");
+	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
 	var jsonString = JSON.stringify(lines);
 	var jsonString2 = JSON.stringify(linesSaved);
 	alert("jsonString:\n" + jsonString);
