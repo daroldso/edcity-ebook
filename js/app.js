@@ -40,25 +40,6 @@ vue = new Vue({
 				studentScore: vue.studentScore,
 			};
 
-			var questions = vue.questions;
-			var linesToDraw = [];
-
-			if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
-				_.times(questions.length, function(i) {
-
-					if(questions[i].linesSaved !== undefined && questions[i].linesSaved.length > 0) {
-						_.times(questions[i].linesSaved.length, function(j) {
-							if(questions[i].linesSaved[j] !== undefined && questions[i].linesSaved[j] !== null) {
-								linesToDraw.push(questions[i].linesSaved[j]);
-							};
-						});
-						// vue.questions[i].linesSaved = linesToDraw;
-						vue.questions[i].linesToDraw = linesToDraw;
-					}
-					
-				});
-			}
-
 			delete vue.exercise.questions;
 			vue.exercise.questions = vue.questions;
 
@@ -106,9 +87,9 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			var versionNum = "0.9.5";
+			var versionNum = "0.10.0";
 			var version = "Version: " + versionNum + "\n";
-			var message = "Add more debug messages in drawLine function and use try catch\n";
+			var message = "Change lines and linesSaved data type from array to object\n";
 			alert(version + message + JSON.stringify(vue.questions));
 		},
 		resetStoredJson: function() {
@@ -195,14 +176,16 @@ function init(exerciseToInit, ex) {
 function loadLinesSaved () {
 	var questions = vue.questions;
 	_.times(questions.length, function(i) {
-		if(questions[i].linesToDraw !== undefined && questions[i].linesToDraw.length > 0) {
-			console.log("has lines to draw");
-			var lines = questions[i].linesToDraw;
-			_.times(lines.length, function(j) {
-				var line = lines[j];
-				// console.log(lines[j]);
-				drawLine(line.x1, line.y1, line.x2, line.y2, line.index, questions[i].lines, questions[i].linesSaved);
-			});
+		if(questions[i].linesSaved !== undefined) {
+			if(getObjectLength(questions[i].linesSaved) > 0) {
+				for(var p in questions[i].linesSaved) {
+					var lineObj = questions[i].linesSaved[p];
+					drawLine(lineObj.x1, lineObj.y1, lineObj.x2, lineObj.y2, lineObj.index, questions[i].lines, questions[i].linesSaved);
+				}
+			} else {
+				questions[i].lines = {};
+				questions[i].linesSaved = {};
+			}
 		}
 	});
 }
@@ -210,7 +193,7 @@ function loadLinesSaved () {
 function loadDragnDropState () {
 	var questions = vue.questions;
 	_.times(questions.length, function(i) {
-		if(questions[i].dragPools !== undefined && questions[i].linesToDraw === undefined) {
+		if(questions[i].dragPools !== undefined && questions[i].linesSaved === undefined) {
 			var answers = questions[i].answers;
 			_.times(answers.length, function(j) {
 				var attachTo = answers[j].attachTo;
@@ -327,19 +310,19 @@ function initActionView () {
 				// This is a line matching game
 				if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
 					_.times(questions.length, function(i) {
-						if(questions[i].lines == undefined) return;
-
-						// Remove the line drawn
-						_.times(questions[i].lines.length, function(j) {
-							if(questions[i].lines[j] !== undefined && questions[i].lines[j] !== null && questions[i].lines[j].remove !== undefined) {
-								questions[i].lines[j].remove();
+						if(questions[i].lines !== undefined) {
+							if(getObjectLength(questions[i].lines) > 0) {
+								for(var p in questions[i].lines) {
+									if(questions[i].lines[p][0][0].remove !== undefined) {
+										questions[i].lines[p][0][0].remove();
+									}
+								}
 							}
-						});
+						}
 
 						// Clear the linesSaved array
-						questions[i].lines = [];
-						questions[i].linesSaved = [];
-						questions[i].linesToDraw = [];
+						questions[i].lines = {};
+						questions[i].linesSaved = {};
 
 					});
 				}
@@ -614,4 +597,17 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 
 function endLine() {
 	vis.on("mousemove", null);
+}
+
+function getObjectLength(obj) {
+	var count = 0;
+	var p;
+
+	for(p in obj) {
+		if(obj.hasOwnProperty(p)) {
+			count++;
+		}
+	}
+
+	return count;
 }

@@ -96,14 +96,10 @@ function chooseAnswer_OneDropzone (question, answer, container, source, increase
 
 function chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
 	alert("start of chooseAnswer_MultipleDropzone");
-	alert("container: "+container.className);
-	alert("source: "+source.className);
-	alert("question: "+JSON.stringify(question));
-	alert("answer: "+JSON.stringify(answer));
 	if(typeof container === 'undefined' || typeof source === 'undefined') {
 		return false;
 	}
-	alert("container and source not undefined");
+	// alert("container and source not undefined");
 	if($(container).hasClass('dragzone')) {
 		if (answer.correct) {
 			question.correctAnswerCount--

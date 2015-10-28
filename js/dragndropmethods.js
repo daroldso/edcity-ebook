@@ -100,8 +100,8 @@ function dragnDropBehavior_drawLines () {
 		answer = el.__vue__.answer;
 
 		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
-			if(question.lines[answer.index].remove !== undefined) {
-				question.lines[answer.index].remove();
+			if(question.lines[answer.index][0][0].remove !== undefined) {
+				question.lines[answer.index][0][0].remove();
 			}
 			delete question.lines[answer.index];
 			delete question.linesSaved[answer.index];
@@ -187,8 +187,8 @@ function dragnDropBehavior_drawLines_vertical () {
 		answer = el.__vue__.answer;
 
 		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
-			if(question.lines[answer.index].remove !== undefined) {
-				question.lines[answer.index].remove();
+			if(question.lines[answer.index][0][0].remove !== undefined) {
+				question.lines[answer.index][0][0].remove();
 			}
 			delete question.lines[answer.index];
 			delete question.linesSaved[answer.index];
@@ -228,11 +228,6 @@ function dragnDropBehavior_drawLines_vertical () {
 	})
 	.on('drop', function(el, container, source) {
 		alert("start of drop event");
-		// alert("el: "+el.className);
-		// alert("container: "+container.className);
-		// alert("source: "+source.className);
-		// alert("question: "+JSON.stringify(question));
-		// alert("answer: "+JSON.stringify(answer));
 
 		$('body').off('mousemove');
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {

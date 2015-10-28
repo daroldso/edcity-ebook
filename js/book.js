@@ -1508,9 +1508,9 @@ window.Book = {
 						correct: false,
 						wrong: false,
 						questionText: "",
-						lines: [],
-						linesSaved: [],
-						linesToDraw: [],
+						lines: {},
+						linesSaved: {},
+						linesToDraw: {},
 						dragPools: [
 							{type: 0, text: ""}
 						],
