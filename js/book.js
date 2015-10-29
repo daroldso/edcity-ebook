@@ -1524,9 +1524,9 @@ window.Book = {
 						answers: {
 							'dnd': [
 								{ index: 0, type: 5, correct: false, selected: false, text: "小美", atype: "dnd" },
-								{ index: 1, type: 2, correct: false, selected: true, text: "陳老師", atype: "dnd" },
+								{ index: 1, type: 2, correct: false, selected: false, text: "陳老師", atype: "dnd" },
 								{ index: 2, type: 1, correct: false, selected: false, text: "鍾仔", atype: "dnd" },
-								{ index: 3, type: 3, correct: false, selected: true, text: "阿強", atype: "dnd" },
+								{ index: 3, type: 3, correct: false, selected: false, text: "阿強", atype: "dnd" },
 								{ index: 4, type: 4, correct: false, selected: false, text: "嘉兒", atype: "dnd" }
 							],
 							'tof': [
