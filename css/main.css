@@ -1632,7 +1632,6 @@ svg line {
 .a4c1 .lines-container .a4-line-tr-bl
 { height: 98%; }
 
-
 .a0c2 .lines-container .a0-line-tl-br { top: 43px; }
 .a0c3 .lines-container .a0-line-tl-br { top: 27px; }
 .a0c4 .lines-container .a0-line-tl-br { top: 10px; }
@@ -1680,88 +1679,4 @@ svg line {
 	left: 111%;
 	top: 50%;
 	height: 105%;	
-}
-/*
-.a0c1 .dragzone .answer-0:before {
-	border-top-width: 2px;
-	left: 111%;
-	transform: skew(0deg);
-}
-.a0c2 .dragzone .answer-0:before {
-	border-right-width: 2px;
-	left: 70%;
-	transform: skew(43deg);
-}*/
-.a0c3 .dragzone .answer-0:before {
-	
-}
-.a0c4 .dragzone .answer-0:before {
-	
-}
-.a0c5 .dragzone .answer-0:before {
-	
-}
-
-.a1c1 .dragzone .answer-1:before {
-	
-}
-.a1c2 .dragzone .answer-1:before {
-	
-}
-.a1c3 .dragzone .answer-1:before {
-	
-}
-.a1c4 .dragzone .answer-1:before {
-	
-}
-.a1c5 .dragzone .answer-1:before {
-	
-}
-
-.a2c1 .dragzone .answer-2:before {
-	
-}
-.a2c2 .dragzone .answer-2:before {
-	
-}
-.a2c3 .dragzone .answer-2:before {
-	
-}
-.a2c4 .dragzone .answer-2:before {
-	
-}
-.a2c5 .dragzone .answer-2:before {
-	
-}
-
-.a3c1 .dragzone .answer-3:before {
-	
-}
-.a3c2 .dragzone .answer-3:before {
-	
-}
-.a3c3 .dragzone .answer-3:before {
-	
-}
-.a3c4 .dragzone .answer-3:before {
-	
-}
-.a3c5 .dragzone .answer-3:before {
-	
-}
-
-.a4c1 .dragzone .answer-4:before {
-	
-}
-.a4c2 .dragzone .answer-4:before {
-	
-}
-.a4c3 .dragzone .answer-4:before {
-	
-}
-.a4c4 .dragzone .answer-4:before {
-	
-}
-.a4c5 .dragzone .answer-4:before {
-	
 }
