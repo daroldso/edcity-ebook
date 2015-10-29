@@ -186,13 +186,16 @@ function dragnDropBehavior_drawLines_vertical () {
 	.on('drag', function(el, source) {
 		answer = el.__vue__.answer;
 
-		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
-			if(question.lines[answer.index][0][0].remove !== undefined) {
-				question.lines[answer.index][0][0].remove();
-			}
-			delete question.lines[answer.index];
-			delete question.linesSaved[answer.index];
-		}
+		var re = new RegExp("\\ba"+answer.index+".+?(?=\\b)");
+		$('#dnd-area')[0].className = $('#dnd-area')[0].className.replace(re, '');
+
+		// if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
+		// 	if(question.lines[answer.index][0][0].remove !== undefined) {
+		// 		question.lines[answer.index][0][0].remove();
+		// 	}
+		// 	delete question.lines[answer.index];
+		// 	delete question.linesSaved[answer.index];
+		// }
 
 		svgOffset = $("#draw-panel").offset();
 		// clientXXX = content + padding
@@ -227,26 +230,28 @@ function dragnDropBehavior_drawLines_vertical () {
 
 	})
 	.on('drop', function(el, container, source) {
-		alert("start of drop event");
-
+		// alert("start of drop event");
+		$('#dnd-area').addClass('a'+answer.index+'c'+container.__vue__.dropPool.type);
+		question.dndAreaClassName = $('#dnd-area')[0].className;
+		
 		$('body').off('mousemove');
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
 			return false;
 		}
 		drake.remove();
 
-		dropX = $('.dragzones-outer')[0].offsetWidth;
-		dropY = (container.offsetHeight * (container.__vue__.dropPool.type-1)) + container.offsetHeight / 2;
+		// dropX = $('.dragzones-outer')[0].offsetWidth;
+		// dropY = (container.offsetHeight * (container.__vue__.dropPool.type-1)) + container.offsetHeight / 2;
 
 		// console.log(elX, elY);
 		// console.log(dropX, dropY);
-		drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
-		alert("line drawn");
+		// drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
+		// alert("line drawn");
 
-		alert("before questionView.chooseAnswer");
+		// alert("before questionView.chooseAnswer");
 		questionView.chooseAnswer(question, answer, container, source);
-		alert("after questionView.chooseAnswer");
-		alert("end of drop event");
+		// alert("after questionView.chooseAnswer");
+		// alert("end of drop event");
 		// return false;
 
 	})

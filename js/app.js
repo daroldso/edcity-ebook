@@ -51,7 +51,7 @@ vue = new Vue({
             if (typeof (parent) != 'undefined' && typeof (parent.hotspotDataCommunicator) != 'undefined') {
 				parent.hotspotDataCommunicator.storeHotspotData(saveObjectJson);
 			} else {
-				console.log("Should be saved in production");
+				// console.log("Should be saved in production");
 				console.log(saveObjectJson);
 			}
 		},
@@ -87,10 +87,15 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			var versionNum = "0.10.0";
+			var versionNum = "0.11.0";
 			var version = "Version: " + versionNum + "\n";
-			var message = "Change lines and linesSaved data type from array to object\n";
-			alert(version + message + JSON.stringify(vue.questions));
+			var message = "Remove lines and linesSaved. Use CSS and Image for line matching\n";
+			try {
+				alert(version + message + JSON.stringify(vue.questions));
+			}
+			catch(e) {
+			    alert('An error has occurred: '+e.message)
+			}
 		},
 		resetStoredJson: function() {
 			// var response = confirm("你確定要清除本題已儲存的紀錄嗎？");
@@ -176,16 +181,19 @@ function init(exerciseToInit, ex) {
 function loadLinesSaved () {
 	var questions = vue.questions;
 	_.times(questions.length, function(i) {
-		if(questions[i].linesSaved !== undefined) {
-			if(getObjectLength(questions[i].linesSaved) > 0) {
-				for(var p in questions[i].linesSaved) {
-					var lineObj = questions[i].linesSaved[p];
-					drawLine(lineObj.x1, lineObj.y1, lineObj.x2, lineObj.y2, lineObj.index, questions[i].lines, questions[i].linesSaved);
-				}
-			} else {
-				questions[i].lines = {};
-				questions[i].linesSaved = {};
-			}
+		if(questions[i].dndAreaClassName !== "" && questions[i].dndAreaClassName !== undefined) {
+
+			// if(getObjectLength(questions[i].linesSaved) > 0) {
+			// 	for(var p in questions[i].linesSaved) {
+			// 		var lineObj = questions[i].linesSaved[p];
+			// 		drawLine(lineObj.x1, lineObj.y1, lineObj.x2, lineObj.y2, lineObj.index, questions[i].lines, questions[i].linesSaved);
+			// 	}
+			// } else {
+			// 	questions[i].lines = {};
+			// 	questions[i].linesSaved = {};
+			// }
+			$('#dnd-area')[0].className = questions[i].dndAreaClassName;
+
 		}
 	});
 }
@@ -217,9 +225,9 @@ function initQuestionView (callback) {
 		data: {
 			currentQuestion: vue.currentQuestion,
 			questions : exercise.questions,
-			chapterNum: exerciseToInit.chapterNum,
-			exerciseNum: exerciseToInit.exerciseNum,
-			imagePath: 'img/'+ exerciseToInit.chapterNum + '-' + exerciseToInit.exerciseNum + '-'
+			chapterNum: exercise.chapterNum,
+			exerciseNum: exercise.exerciseNum,
+			imagePath: 'img/'+ exercise.chapterNum + '-' + exercise.exerciseNum + '-'
 		},
 
 		methods: validateMethods[exercise.type],
@@ -309,22 +317,24 @@ function initActionView () {
 
 				// This is a line matching game
 				if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
-					_.times(questions.length, function(i) {
-						if(questions[i].lines !== undefined) {
-							if(getObjectLength(questions[i].lines) > 0) {
-								for(var p in questions[i].lines) {
-									if(questions[i].lines[p][0][0].remove !== undefined) {
-										questions[i].lines[p][0][0].remove();
-									}
-								}
-							}
-						}
+					$('#dnd-area')[0].className = "";
 
-						// Clear the linesSaved array
-						questions[i].lines = {};
-						questions[i].linesSaved = {};
+					// _.times(questions.length, function(i) {
+					// 	if(questions[i].lines !== undefined) {
+					// 		if(getObjectLength(questions[i].lines) > 0) {
+					// 			for(var p in questions[i].lines) {
+					// 				if(questions[i].lines[p][0][0].remove !== undefined) {
+					// 					questions[i].lines[p][0][0].remove();
+					// 				}
+					// 			}
+					// 		}
+					// 	}
 
-					});
+					// 	// Clear the linesSaved array
+					// 	questions[i].lines = {};
+					// 	questions[i].linesSaved = {};
+
+					// });
 				}
 
 				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
@@ -560,8 +570,8 @@ function moveLine(x, y) {
 }
 
 function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
-	alert("start of drawLine function");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	// alert("start of drawLine function");
+	// alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
 	try {
 		lines[index] = vis.append("line")
 			.attr("x1", x1)
@@ -570,10 +580,10 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 			.attr("y2", y2);
 	}
 	catch(e) {
-	    alert('An error has occurred: '+e.message)
+	    // alert('An error has occurred: '+e.message)
 	}
-	alert("end of lines[index]");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	// alert("end of lines[index]");
+	// alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
 	try {
 		linesSaved[index] = {
 			index: index,
@@ -584,15 +594,15 @@ function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
 		};
 	}
 	catch(e) {
-	    alert('An error has occurred: '+e.message)
+	    // alert('An error has occurred: '+e.message)
 	}
-	alert("end of linesSaved[index]");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	// alert("end of linesSaved[index]");
+	// alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
 	var jsonString = JSON.stringify(lines);
 	var jsonString2 = JSON.stringify(linesSaved);
-	alert("jsonString:\n" + jsonString);
-	alert("jsonString2:\n" + jsonString2);
-	alert("end of drawLine function");
+	// console.log("jsonString:\n" + jsonString);
+	// console.log("jsonString2:\n" + jsonString2);
+	// alert("end of drawLine function");
 }
 
 function endLine() {

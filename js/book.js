@@ -1511,6 +1511,7 @@ window.Book = {
 						lines: {},
 						linesSaved: {},
 						linesToDraw: {},
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
