@@ -319,22 +319,11 @@ function initActionView () {
 				if(vue.exercise.dragndropBehavior !== undefined && /drawLines/.test(vue.exercise.dragndropBehavior)) {
 					$('#dnd-area')[0].className = "";
 
-					// _.times(questions.length, function(i) {
-					// 	if(questions[i].lines !== undefined) {
-					// 		if(getObjectLength(questions[i].lines) > 0) {
-					// 			for(var p in questions[i].lines) {
-					// 				if(questions[i].lines[p][0][0].remove !== undefined) {
-					// 					questions[i].lines[p][0][0].remove();
-					// 				}
-					// 			}
-					// 		}
-					// 	}
-
-					// 	// Clear the linesSaved array
-					// 	questions[i].lines = {};
-					// 	questions[i].linesSaved = {};
-
-					// });
+					_.times(questions.length, function(i) {
+						if(questions[i].dndAreaClassName !== undefined) {
+							questions[i].dndAreaClassName = "";
+						}
+					});
 				}
 
 				if(vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultiple" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalse" || vue.exercise.type === "dragnDrop_MultipleDropzone_TrueOrFalseMultipleAnswer") {
