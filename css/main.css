@@ -916,7 +916,7 @@ body {
 }
 .layout-13 .dragzones-outer
 {
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 	margin-bottom: 0px;
 }
 .layout-13 .exercise__answer-text:after,
@@ -943,7 +943,10 @@ body {
 	left: 50%;
 	margin-left: -5px;
 }
-.layout-13 .exercise__answer-text:after,
+.layout-13 .exercise__answer-text:after {
+	bottom: -8px;
+}
+
 .layout-14 .exercise__answer:after,
 .layout-18 .exercise__answer:after,
 .layout-17 .exercise__answer-text:after,
@@ -976,6 +979,7 @@ body {
 }
 
 .layout-14 .dnd,
+.layout-17 .dnd,
 .layout-18 .dnd
 {
 	height: 610px;
@@ -1081,17 +1085,23 @@ body {
 }
 .layout-14 .exercise__answer:after,
 .layout-18 .exercise__answer:after,
-.layout-17 .exercise__answer-text:after,
-.layout-15 .exercise__answer-text:after
+.layout-17 .exercise__answer-text:after
 {
 	right: -23px;
 }
+.layout-15 .exercise__answer-text:after
+{
+	right: -30px;
+}
 .layout-14 .dropzone:after,
 .layout-18 .dropzone:after,
-.layout-17 .dropzone:after,
-.layout-15 .dropzone:after
+.layout-17 .dropzone:after
 {
 	left: -22px;
+}
+.layout-15 .dropzone:after 
+{
+	left: -27px;
 }
 .layout-14 .qtype__tof .exercise__answer-list,
 .layout-18 .qtype__tof .exercise__answer-list,
@@ -1583,25 +1593,166 @@ svg line {
 .answer-checked .exercise__answer.is-selected.is-correct-answer .icon-face.sad { display: none;}
 .answer-checked .dragzone .exercise__answer.is-selected:before {content: none;}
 
-.layout-14 .dragzones-outer {
-	width: 33%;
-	padding-right: 0;
+
+.layout-15 .exercise__answer-list-outer {
+	height: 610px;
 }
 #dnd-area {
 	height: 100%;
 }
-.layout-14 .lines-container {
+.lines-container {
+	position: relative;
+}
+.lines-container .line {
+	position: absolute;
+}
+.layout-13 .lines-container {
+	height: 100px;
+}
+.layout-13 .lines-container .line {
+	width: 0;
+	height: 100%;
+	left: -14px;
+}
+
+.a0c2 .lines-container .a0-hline-tl-br,
+.a1c1 .lines-container .a1-hline-tr-bl,
+.a1c3 .lines-container .a1-hline-tl-br,
+.a2c2 .lines-container .a2-hline-tr-bl,
+.a2c4 .lines-container .a2-hline-tl-br,
+.a3c3 .lines-container .a3-hline-tr-bl,
+.a3c5 .lines-container .a3-hline-tl-br,
+.a4c4 .lines-container .a4-hline-tr-bl
+{ width: 36%; }
+
+.a0c3 .lines-container .a0-hline-tl-br,
+.a1c4 .lines-container .a1-hline-tl-br,
+.a2c1 .lines-container .a2-hline-tr-bl,
+.a2c5 .lines-container .a2-hline-tl-br,
+.a3c2 .lines-container .a3-hline-tr-bl,
+.a4c3 .lines-container .a4-hline-tr-bl
+{ width: 73%; }
+
+.a0c4 .lines-container .a0-hline-tl-br,
+.a0c4 .lines-container .a0-hline-tl-br,
+.a1c5 .lines-container .a1-hline-tl-br,
+.a3c1 .lines-container .a3-hline-tr-bl,
+.a4c2 .lines-container .a4-hline-tr-bl
+{ width: 110%; }
+
+.a0c2 .lines-container .a0-hline-tl-br { left: 43px; }
+.a0c3 .lines-container .a0-hline-tl-br { left: 8px; }
+.a0c4 .lines-container .a0-hline-tl-br { left: -32px; }
+.a0c5 .lines-container .a0-hline-tl-br { left: -10px; }
+
+.a1c1 .lines-container .a1-hline-tr-bl { left: 43px; }
+.a1c3 .lines-container .a1-hline-tl-br { left: 190px; }
+.a1c4 .lines-container .a1-hline-tl-br { left: 154px; }
+.a1c5 .lines-container .a1-hline-tl-br { left: 130px; }
+
+.a2c1 .lines-container .a2-hline-tr-bl { left: 4px; }
+.a2c2 .lines-container .a2-hline-tr-bl { left: 190px; }
+.a2c4 .lines-container .a2-hline-tl-br { left: 340px; }
+.a2c5 .lines-container .a2-hline-tl-br { left: 266px; }
+
+.a3c1 .lines-container .a3-hline-tr-bl { left: -30px; }
+.a3c2 .lines-container .a3-hline-tr-bl { left: 155px; }
+.a3c3 .lines-container .a3-hline-tr-bl { left: 340px; }
+.a3c5 .lines-container .a3-hline-tl-br { left: 400px; }
+
+.layout-13 .dragzone .exercise__answer:before,
+.layout-14 .dragzone .exercise__answer:before,
+.layout-15 .dragzone .exercise__answer:before,
+.layout-17 .dragzone .exercise__answer:before,
+.layout-18 .dragzone .exercise__answer:before
+{
+	content: ''!important;
+	background-image: none!important;
+	margin-top: 0;
+	position: absolute;
+	display: block;
+	border-width: 0;
+	border-style: solid;
+	border-color: #4682B4;
+}
+
+.layout-13 .dragzone .exercise__answer:before {
+	width: 20%;
+}
+
+.layout-13 .a0c1 .dragzone .answer-0:before,
+.layout-13 .a1c2 .dragzone .answer-1:before,
+.layout-13 .a2c3 .dragzone .answer-2:before,
+.layout-13 .a3c4 .dragzone .answer-3:before
+{
+	border-left-width: 2px;
+	top: 97%;
+	left: 49.5%;
+	height: 107px;
+}
+
+.layout-14 .dragzones-outer,
+.layout-15 .dragzones-outer,
+.layout-17 .dragzones-outer,
+.layout-18 .dragzones-outer
+{
+	width: 33%;
+	padding-right: 0;
+}
+.layout-14 .lines-container,
+.layout-15 .lines-container,
+.layout-17 .lines-container,
+.layout-18 .lines-container
+{
 	float: left;
 	width: 33%;
 	height: 100%;
-	position: relative;
 }
-.layout-14 .lines-container .line {
+.layout-14 .lines-container .line,
+.layout-15 .lines-container .line,
+.layout-17 .lines-container .line,
+.layout-18 .lines-container .line
+{
 	width: 100%;
 	height: 0;
-	position: absolute;
 	top: -14px;
 }
+
+.layout-14 .dragzone .exercise__answer:before,
+.layout-15 .dragzone .exercise__answer:before,
+.layout-17 .dragzone .exercise__answer:before,
+.layout-18 .dragzone .exercise__answer:before
+{
+	width: 84%;
+}
+
+.layout-14 .a0c1 .dragzone .answer-0:before,
+.layout-15 .a0c1 .dragzone .answer-0:before,
+.layout-17 .a0c1 .dragzone .answer-0:before,
+.layout-18 .a0c1 .dragzone .answer-0:before,
+.layout-14 .a1c2 .dragzone .answer-1:before,
+.layout-15 .a1c2 .dragzone .answer-1:before,
+.layout-17 .a1c2 .dragzone .answer-1:before,
+.layout-18 .a1c2 .dragzone .answer-1:before,
+.layout-14 .a2c3 .dragzone .answer-2:before,
+.layout-15 .a2c3 .dragzone .answer-2:before,
+.layout-17 .a2c3 .dragzone .answer-2:before,
+.layout-18 .a2c3 .dragzone .answer-2:before,
+.layout-14 .a3c4 .dragzone .answer-3:before,
+.layout-15 .a3c4 .dragzone .answer-3:before,
+.layout-17 .a3c4 .dragzone .answer-3:before,
+.layout-18 .a3c4 .dragzone .answer-3:before,
+.layout-14 .a4c5 .dragzone .answer-4:before,
+.layout-15 .a4c5 .dragzone .answer-4:before,
+.layout-17 .a4c5 .dragzone .answer-4:before,
+.layout-18 .a4c5 .dragzone .answer-4:before
+{
+	border-top-width: 2px;
+	left: 111%;
+	top: 50%;
+	height: 105%;	
+}
+
 
 .a0c2 .lines-container .a0-line-tl-br,
 .a1c1 .lines-container .a1-line-tr-bl,
@@ -1656,27 +1807,3 @@ svg line {
 .a4c2 .lines-container .a4-line-tr-bl { top: 144px; }
 .a4c3 .lines-container .a4-line-tr-bl { top: 275px; }
 .a4c4 .lines-container .a4-line-tr-bl { top: 406px; }
-
-.layout-14 .dragzone .exercise__answer:before {
-	content: ''!important;
-	background-image: none!important;
-	margin-top: 0;
-	position: absolute;
-	display: block;
-	width: 84%;
-	border-width: 0;
-	border-style: solid;
-	border-color: #4682B4;
-}
-
-.layout-14 .a0c1 .dragzone .answer-0:before,
-.layout-14 .a1c2 .dragzone .answer-1:before,
-.layout-14 .a2c3 .dragzone .answer-2:before,
-.layout-14 .a3c4 .dragzone .answer-3:before,
-.layout-14 .a4c5 .dragzone .answer-4:before
-{
-	border-top-width: 2px;
-	left: 111%;
-	top: 50%;
-	height: 105%;	
-}

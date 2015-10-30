@@ -99,19 +99,22 @@ function dragnDropBehavior_drawLines () {
 	.on('drag', function(el, source) {
 		answer = el.__vue__.answer;
 
-		if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
-			if(question.lines[answer.index][0][0].remove !== undefined) {
-				question.lines[answer.index][0][0].remove();
-			}
-			delete question.lines[answer.index];
-			delete question.linesSaved[answer.index];
-		}
+		var re = new RegExp("\\ba"+answer.index+".+?(?=\\b)");
+		$('#dnd-area')[0].className = $('#dnd-area')[0].className.replace(re, '');
+
+		// if (question.lines[answer.index] !== undefined && question.lines[answer.index] !== null) {
+		// 	if(question.lines[answer.index][0][0].remove !== undefined) {
+		// 		question.lines[answer.index][0][0].remove();
+		// 	}
+		// 	delete question.lines[answer.index];
+		// 	delete question.linesSaved[answer.index];
+		// }
 
 		svgOffset = $("#draw-panel").offset();
 		// clientXXX = content + padding
 		// offsetXXX = content + padding + border
 		elX = (el.offsetWidth * answer.index) + el.offsetWidth / 2;
-		elY = el.clientHeight;
+		elY = el.clientHeight + 6;
 		startLine(elX, elY);
 
 		$('body').on('mousemove', function(e) {
@@ -140,18 +143,18 @@ function dragnDropBehavior_drawLines () {
 
 	})
 	.on('drop', function(el, container, source) {
+		$('#dnd-area').addClass('a'+answer.index+'c'+container.__vue__.dropPool.type);
+		question.dndAreaClassName = $('#dnd-area')[0].className;
+
 		$('body').off('mousemove');
 		if(($(container).hasClass('dragzone') && $(source).hasClass('dragzone'))) {
 			return false;
 		}
 		drake.remove();
-		dropX = (container.offsetWidth * (container.__vue__.dropPool.type-1)) + container.offsetWidth / 2;
-		dropY = $('.dragzones-outer')[0].offsetHeight;
+		// dropX = (container.offsetWidth * (container.__vue__.dropPool.type-1)) + container.offsetWidth / 2;
+		// dropY = $('.dragzones-outer')[0].offsetHeight;
 
-
-		console.log(elX, elY);
-		console.log(dropX, dropY);
-		drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
+		// drawLine(elX, elY, dropX, dropY, answer.index, question.lines, question.linesSaved);
 
 		questionView.chooseAnswer(question, answer, container, source);
 		// return false;

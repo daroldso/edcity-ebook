@@ -541,26 +541,38 @@
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
 			<div class="exercise__answer-list-outer">
-				<div class="dragzones-outer">
-					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-						<li id="answer-{{$index}}" id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
-							v-class="
-								is-correct-answer: answer.correct,
-								is-selected: answer.selected
-							" v-on="click: chooseAnswer(question, answer)">
-							<img class="icon-face sad" src="img/sad_face.png" alt="">
-							<img class="icon-face smile" src="img/smile_face.png" alt="">
-							<span class="exercise__answer-text">
-								{{ answer.text }}
-							</span>
-						</li>
-					</ol>
+				<div id="dnd-area" class"">
+					<div class="dragzones-outer">
+						<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+							<li id="answer-{{$index}}" id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3 answer-{{$index}}" v-repeat="answer: question.answers"
+								v-class="
+									is-correct-answer: answer.correct,
+									is-selected: answer.selected
+								" v-on="click: chooseAnswer(question, answer)">
+								<img class="icon-face sad" src="img/sad_face.png" alt="">
+								<img class="icon-face smile" src="img/smile_face.png" alt="">
+								<span class="exercise__answer-text">
+									{{ answer.text }}
+								</span>
+							</li>
+						</ol>
+					</div>
+					<div id="lines-container" class="lines-container">
+						<img class="a0-hline-tl-br line" src="img/hline-tl-br.png" alt="">
+						<img class="a1-hline-tl-br line" src="img/hline-tl-br.png" alt="">
+						<img class="a1-hline-tr-bl line" src="img/hline-tr-bl.png" alt="">
+						<img class="a2-hline-tl-br line" src="img/hline-tl-br.png" alt="">
+						<img class="a2-hline-tr-bl line" src="img/hline-tr-bl.png" alt="">
+						<img class="a3-hline-tl-br line" src="img/hline-tl-br.png" alt="">
+						<img class="a3-hline-tr-bl line" src="img/hline-tr-bl.png" alt="">
+						<img class="a4-hline-tr-bl line" src="img/hline-tr-bl.png" alt="">
+					</div>
+					<div class="dropzones-outer clearfix">
+						<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+						</ol>
+					</div>
+					<svg id="draw-panel"></svg>
 				</div>
-				<div class="dropzones-outer clearfix">
-					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
-					</ol>
-				</div>
-				<svg id="draw-panel"></svg>
 			</div>
 		</div>
 	</div>
@@ -647,29 +659,37 @@
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
 			<div class="exercise__answer-list-outer">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="dragzones-outer">
-							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers"
-									v-class="
-										is-correct-answer: answer.correct,
-										is-selected: answer.selected
-									" v-on="click: chooseAnswer(question, answer)">
-									<img class="icon-face sad" src="img/sad_face.png" alt="">
-									<img class="icon-face smile" src="img/smile_face.png" alt="">
-									<span class="exercise__answer-text">
-										{{ answer.text }}
-									</span>
-								</li>
-							</ol>
-						</div>
-						<div class="dropzones-outer clearfix">
-							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
-							</ol>
-						</div>
-						<svg id="draw-panel"></svg>
+				<div id="dnd-area" class="">
+					<div class="dragzones-outer">
+						<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+							<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3 answer-{{$index}}" v-repeat="answer: question.answers"
+								v-class="
+									is-correct-answer: answer.correct,
+									is-selected: answer.selected
+								" v-on="click: chooseAnswer(question, answer)">
+								<img class="icon-face sad" src="img/sad_face.png" alt="">
+								<img class="icon-face smile" src="img/smile_face.png" alt="">
+								<span class="exercise__answer-text">
+									{{ answer.text }}
+								</span>
+							</li>
+						</ol>
 					</div>
+					<div id="lines-container" class="lines-container">
+						<img class="a0-line-tl-br line" src="img/line-tl-br.png" alt="">
+						<img class="a1-line-tl-br line" src="img/line-tl-br.png" alt="">
+						<img class="a1-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+						<img class="a2-line-tl-br line" src="img/line-tl-br.png" alt="">
+						<img class="a2-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+						<img class="a3-line-tl-br line" src="img/line-tl-br.png" alt="">
+						<img class="a3-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+						<img class="a4-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+					</div>
+					<div class="dropzones-outer clearfix">
+						<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+						</ol>
+					</div>
+					<svg id="draw-panel"></svg>
 				</div>
 			</div>
 		</div>
@@ -730,26 +750,38 @@
 			<div class="exercise__answer-list-outer">
 				<div class="row">
 					<div class="col-xs-9 dnd">
-						<div class="dragzones-outer">
-							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
-									v-class="
-										is-correct-answer: answer.correct,
-										is-selected: answer.selected
-									">
-									<img class="icon-face sad" src="img/sad_face.png" alt="">
-									<img class="icon-face smile" src="img/smile_face.png" alt="">
-									<span class="exercise__answer-text">
-										{{ answer.text }}
-									</span>
-								</li>
-							</ol>
+						<div id="dnd-area" class="">
+							<div class="dragzones-outer">
+								<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+									<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3 answer-{{$index}}" v-repeat="answer: question.answers.dnd"
+										v-class="
+											is-correct-answer: answer.correct,
+											is-selected: answer.selected
+										">
+										<img class="icon-face sad" src="img/sad_face.png" alt="">
+										<img class="icon-face smile" src="img/smile_face.png" alt="">
+										<span class="exercise__answer-text">
+											{{ answer.text }}
+										</span>
+									</li>
+								</ol>
+							</div>
+							<div id="lines-container" class="lines-container">
+								<img class="a0-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a1-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a1-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a2-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a2-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a3-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a3-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a4-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+							</div>
+							<div class="dropzones-outer clearfix">
+								<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+								</ol>
+							</div>
+							<svg id="draw-panel"></svg>
 						</div>
-						<div class="dropzones-outer clearfix">
-							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
-							</ol>
-						</div>
-						<svg id="draw-panel"></svg>
 					</div>
 					<div class="col-xs-3">
 						<div class="qtype__tof-outer">
@@ -840,27 +872,39 @@
 			<div class="exercise__answer-list-outer">
 				<div class="row">
 					<div class="col-xs-9 dnd">
-						<div class="dragzones-outer">
-							<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
-								<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3" v-repeat="answer: question.answers.dnd"
-									v-class="
-										is-correct-answer: answer.correct,
-										is-selected: answer.selected
-									">
-									<img class="icon-face sad" src="img/sad_face.png" alt="">
-									<img class="icon-face smile" src="img/smile_face.png" alt="">
-									<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
-									<span class="exercise__answer-text">
-										{{ answer.text }}
-									</span>
-								</li>
-							</ol>
+						<div id="dnd-area" class="">
+							<div class="dragzones-outer">
+								<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}} row">
+									<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}} col-xs-3 answer-{{$index}}" v-repeat="answer: question.answers.dnd"
+										v-class="
+											is-correct-answer: answer.correct,
+											is-selected: answer.selected
+										">
+										<img class="icon-face sad" src="img/sad_face.png" alt="">
+										<img class="icon-face smile" src="img/smile_face.png" alt="">
+										<img class="exercise__answer-image" v-attr="src: imagePath + (question.index + 1) + '-' + ($index + 1) +'.png'" alt="">
+										<span class="exercise__answer-text">
+											{{ answer.text }}
+										</span>
+									</li>
+								</ol>
+							</div>
+							<div id="lines-container" class="lines-container">
+								<img class="a0-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a1-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a1-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a2-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a2-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a3-line-tl-br line" src="img/line-tl-br.png" alt="">
+								<img class="a3-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+								<img class="a4-line-tr-bl line" src="img/line-tr-bl.png" alt="">
+							</div>
+							<div class="dropzones-outer clearfix">
+								<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
+								</ol>
+							</div>
+							<svg id="draw-panel"></svg>
 						</div>
-						<div class="dropzones-outer clearfix">
-							<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text">
-							</ol>
-						</div>
-						<svg id="draw-panel"></svg>
 					</div>
 					<div class="col-xs-3">
 						<div class="qtype__tof-outer">

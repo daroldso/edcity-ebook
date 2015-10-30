@@ -87,9 +87,9 @@ vue = new Vue({
 			}
 		},
 		alertWindowInfo: function() {
-			var versionNum = "0.11.0";
+			var versionNum = "0.11.1";
 			var version = "Version: " + versionNum + "\n";
-			var message = "Remove lines and linesSaved. Use CSS and Image for line matching\n";
+			var message = "Fix reset lines. Applied to all line matching games\n";
 			try {
 				alert(version + message + JSON.stringify(vue.questions));
 			}
@@ -225,9 +225,9 @@ function initQuestionView (callback) {
 		data: {
 			currentQuestion: vue.currentQuestion,
 			questions : exercise.questions,
-			chapterNum: exercise.chapterNum,
-			exerciseNum: exercise.exerciseNum,
-			imagePath: 'img/'+ exercise.chapterNum + '-' + exercise.exerciseNum + '-'
+			chapterNum: exerciseToInit.chapterNum,
+			exerciseNum: exerciseToInit.exerciseNum,
+			imagePath: 'img/'+ exerciseToInit.chapterNum + '-' + exerciseToInit.exerciseNum + '-'
 		},
 
 		methods: validateMethods[exercise.type],

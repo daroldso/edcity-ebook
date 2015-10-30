@@ -972,7 +972,7 @@ window.Book = {
 						questionText: "請根據故事內容，將相關情節連在一起，然後按「✔」或「×」判斷這是否正確的做法。",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
@@ -1828,7 +1828,7 @@ window.Book = {
 						questionText: "",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
@@ -2357,7 +2357,7 @@ window.Book = {
 						questionText: "請根據故事內容，將相關情節連在一起，然後按「✔」或「×」判斷這是否正確的做法。",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
@@ -2466,7 +2466,7 @@ window.Book = {
 						questionText: "",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
@@ -2511,7 +2511,7 @@ window.Book = {
 						questionText: "",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
@@ -2610,7 +2610,7 @@ window.Book = {
 						questionText: "",
 						lines: [],
 						linesSaved: [],
-						linesToDraw: [],
+						dndAreaClassName: "",
 						dragPools: [
 							{type: 0, text: ""}
 						],
