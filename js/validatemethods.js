@@ -95,11 +95,9 @@ function chooseAnswer_OneDropzone (question, answer, container, source, increase
 }
 
 function chooseAnswer_MultipleDropzone (question, answer, container, source, increaseDragpoolCorrectCount) {
-	alert("start of chooseAnswer_MultipleDropzone");
 	if(typeof container === 'undefined' || typeof source === 'undefined') {
 		return false;
 	}
-	// alert("container and source not undefined");
 	if($(container).hasClass('dragzone')) {
 		if (answer.correct) {
 			question.correctAnswerCount--
@@ -107,7 +105,6 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		answer.correct = false;
 		answer.selected = false;
 		answer.attachTo = 0;
-		alert("answer.selected = false");
 	} else {
 		// check whether answer.type equal to dropPool.type
 		if(container.__vue__.dropPool.type === answer.type) {
@@ -129,7 +126,6 @@ function chooseAnswer_MultipleDropzone (question, answer, container, source, inc
 		}
 		answer.selected = true;
 		answer.attachTo = container.__vue__.dropPool.type;
-		alert("answer.selected = true");
 	}
 	console.log("answer.correct: "+answer.correct);
 	console.log("correctAnswerCount: "+question.correctAnswerCount);

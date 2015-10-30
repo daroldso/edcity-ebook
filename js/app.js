@@ -560,39 +560,24 @@ function moveLine(x, y) {
 }
 
 function drawLine(x1, y1, x2, y2, index, lines, linesSaved) {
-	alert("start of drawLine function");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
-	try {
-		lines[index] = vis.append("line")
-			.attr("x1", x1)
-			.attr("y1", y1)
-			.attr("x2", x2)
-			.attr("y2", y2);
-	}
-	catch(e) {
-	    alert('An error has occurred: '+e.message)
-	}
-	alert("end of lines[index]");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
-	try {
-		linesSaved[index] = {
-			index: index,
-			x1: x1,
-			y1: y1,
-			x2: x2,
-			y2: y2
-		};
-	}
-	catch(e) {
-	    alert('An error has occurred: '+e.message)
-	}
-	alert("end of linesSaved[index]");
-	alert("x1:" + x1 + "\n" + "y1:" + y1 + "\n" + "x2:" + x2 + "\n" + "y2:" + y2 + "\n" + "index:" + index + "\n" + "lines:" + JSON.stringify(lines) + "\n" + "linesSaved:" + JSON.stringify(linesSaved) + "\n");
+	lines[index] = vis.append("line")
+		.attr("x1", x1)
+		.attr("y1", y1)
+		.attr("x2", x2)
+		.attr("y2", y2);
+
+	linesSaved[index] = {
+		index: index,
+		x1: x1,
+		y1: y1,
+		x2: x2,
+		y2: y2
+	};
+
 	var jsonString = JSON.stringify(lines);
 	var jsonString2 = JSON.stringify(linesSaved);
-	alert("jsonString:\n" + jsonString);
-	alert("jsonString2:\n" + jsonString2);
-	alert("end of drawLine function");
+	console.log("jsonString:\n" + jsonString);
+	console.log("jsonString2:\n" + jsonString2);
 }
 
 function endLine() {
