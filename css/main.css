@@ -781,7 +781,10 @@ body {
 	border: 3px dashed #800A20!important;
 }
 .layout-10 .dragzone {min-height: 100px}
-.layout-10 .dropzone {min-height: 320px;}
+.layout-10 .dropzone {min-height: 190px;}
+.layout-10 .dropzones-outer {
+	margin-bottom: 20px;
+}
 
 .layout-10 .dragzone .exercise__answer {
 	display: inline-block;
@@ -1563,6 +1566,11 @@ svg line {
 
 .ch7.ex1 .dropzone {
 	margin-bottom: 0;
+}
+
+.ch3.ex2 .owl-carousel .owl-item {padding-top: 40px;}
+.ch3.ex2 .dropzone .exercise__answer-image {
+	width: 100%;
 }
 
 .ch2.ex2 .exercise__question .exercise__question-image {

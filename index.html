@@ -444,6 +444,10 @@
 				<i class="fa " v-class="fa-check-circle:question.correct, fa-times-circle:question.wrong"></i>
 			</h1>
 			<div class="exercise__answer-list-outer">
+				<div class="dropzones-outer clearfix">
+					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text, data-answer: dropPool.answer">
+					</ol>
+				</div>
 				<div class="dragzones-outer">
 					<ol id="dragzone-{{$index}}" v-repeat="dragPool: question.dragPools" class="dragzone exercise__answer-list type-{{dragPool.type}}">
 						<li id="answer-{{$index}}" class="exercise__answer type-{{answer.type}}" v-repeat="answer: question.answers"
@@ -456,10 +460,6 @@
 								{{ answer.text }}
 							</span>
 						</li>
-					</ol>
-				</div>
-				<div class="dropzones-outer">
-					<ol id="dropzone-{{$index}}" v-repeat="dropPool: question.dropPools" class="dropzone exercise__answer-list type-{{dropPool.type}}" v-attr="data-text: dropPool.text, data-answer: dropPool.answer">
 					</ol>
 				</div>
 			</div>
