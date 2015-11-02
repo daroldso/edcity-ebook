@@ -2547,7 +2547,8 @@ window.Book = {
 				layout: 2,
 				name: "故事理解1",
 				instruction: '聽完「講錯話的亞南」故事後，請回答下列問題。',
-				type: "chooseMultipleAnswer",
+				baseScore: 9,
+				type: "chooseSingleAndMultipleAnswers",
 				questions:  [
 					{
 						index: 0,
