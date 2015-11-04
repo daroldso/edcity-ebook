@@ -45,6 +45,7 @@ body {
 }
 .wrapper {
 	width: 95%;
+	min-width: 610px;
 	max-width: 750px;
 	margin: 0 auto;
 	padding: 20px;
@@ -1361,7 +1362,10 @@ svg line {
 {padding: 0;}
 .ch4.ex2 .dragzone .exercise__answer,
 .ch10.ex3 .dragzone .exercise__answer
-{width: 48%;}
+{
+	width: 48%;
+	margin-bottom: 5px;
+}
 
 .ch4.ex2 .dropzone .exercise__answer,
 .ch10.ex3 .dropzone .exercise__answer
@@ -1500,12 +1504,15 @@ svg line {
 .ch2.ex3 .exercise__answer-list-outer {margin-left: 370px;}
 
 .ch8.ex1 .exercise__question {width: 70%;}
-.ch8.ex1 .exercise__question .exercise__question-image { width: 100%; }
+/*.ch8.ex1 .exercise__question .exercise__question-image { width: 100%; }*/
 .ch8.ex1 .exercise__answer-list-outer {margin-left: 410px;}
 .ch8.ex1 .is-wrong .exercise__answer-list:after,
 .ch8.ex1 .answer-checked .exercise__answer.is-selected:after {right: -5px;left: initial;}
 
-.ch6.ex3 .exercise__question-content {text-align: center;}
+.ch6.ex2 .exercise__question-content,
+.ch6.ex3 .exercise__question-content,
+.ch8.ex1 .exercise__question-content
+{text-align: center;}
 .ch6.ex3 .exercise__question .exercise__question-image { min-width: 150px; min-height: 100px; }
 
 .ch8.ex2 .exercise__question {margin-bottom: 5px;}
@@ -1582,10 +1589,14 @@ svg line {
 .ch2.ex2 .exercise__question-text {
 	text-align: left;
 }
-
 .ch4.ex1 .qtype__tof-mc .exercise__question {
 	text-align: right;
 }
+
+.ch9.ex2 .exercise__answer-list-outer {
+	height: 750px;
+}
+
 .icon-face {
 	position: absolute;
 	width: 26px;
@@ -1667,6 +1678,62 @@ svg line {
 .a3c2 .lines-container .a3-hline-tr-bl { left: 155px; }
 .a3c3 .lines-container .a3-hline-tr-bl { left: 340px; }
 .a3c5 .lines-container .a3-hline-tl-br { left: 400px; }
+
+@media (min-width: 750px) {
+	.wrapper {
+		width: 750px;
+	}
+}
+
+@media (max-width: 749px) {
+	.wrapper {
+		width: 610px;
+	}
+	.a0c2 .lines-container .a0-hline-tl-br,
+	.a1c1 .lines-container .a1-hline-tr-bl,
+	.a1c3 .lines-container .a1-hline-tl-br,
+	.a2c2 .lines-container .a2-hline-tr-bl,
+	.a2c4 .lines-container .a2-hline-tl-br,
+	.a3c3 .lines-container .a3-hline-tr-bl,
+	.a3c5 .lines-container .a3-hline-tl-br,
+	.a4c4 .lines-container .a4-hline-tr-bl
+	{ width: 36%; }
+
+	.a0c3 .lines-container .a0-hline-tl-br,
+	.a1c4 .lines-container .a1-hline-tl-br,
+	.a2c1 .lines-container .a2-hline-tr-bl,
+	.a2c5 .lines-container .a2-hline-tl-br,
+	.a3c2 .lines-container .a3-hline-tr-bl,
+	.a4c3 .lines-container .a4-hline-tr-bl
+	{ width: 73%; }
+
+	.a0c4 .lines-container .a0-hline-tl-br,
+	.a0c4 .lines-container .a0-hline-tl-br,
+	.a1c5 .lines-container .a1-hline-tl-br,
+	.a3c1 .lines-container .a3-hline-tr-bl,
+	.a4c2 .lines-container .a4-hline-tr-bl
+	{ width: 110%; }
+
+	.a0c2 .lines-container .a0-hline-tl-br { left: 31px; }
+	.a0c3 .lines-container .a0-hline-tl-br { left: 2px; }
+	.a0c4 .lines-container .a0-hline-tl-br { left: -24px; }
+	.a0c5 .lines-container .a0-hline-tl-br { left: -10px; }
+
+	.a1c1 .lines-container .a1-hline-tr-bl { left: 33px; }
+	.a1c3 .lines-container .a1-hline-tl-br { left: 144px; }
+	.a1c4 .lines-container .a1-hline-tl-br { left: 116px; }
+	.a1c5 .lines-container .a1-hline-tl-br { left: 130px; }
+
+	.a2c1 .lines-container .a2-hline-tr-bl { left: 4px; }
+	.a2c2 .lines-container .a2-hline-tr-bl { left: 148px; }
+	.a2c4 .lines-container .a2-hline-tl-br { left: 260px; }
+	.a2c5 .lines-container .a2-hline-tl-br { left: 266px; }
+
+	.a3c1 .lines-container .a3-hline-tr-bl { left: -24px; }
+	.a3c2 .lines-container .a3-hline-tr-bl { left: 120px; }
+	.a3c3 .lines-container .a3-hline-tr-bl { left: 262px; }
+	.a3c5 .lines-container .a3-hline-tl-br { left: 400px; }
+}
 
 .layout-13 .dragzone .exercise__answer:before,
 .layout-14 .dragzone .exercise__answer:before,
@@ -1753,7 +1820,8 @@ svg line {
 .layout-14 .a4c5 .dragzone .answer-4:before,
 .layout-15 .a4c5 .dragzone .answer-4:before,
 .layout-17 .a4c5 .dragzone .answer-4:before,
-.layout-18 .a4c5 .dragzone .answer-4:before
+.layout-18 .a4c5 .dragzone .answer-4:before,
+.layout-15 .a5c6 .dragzone .answer-5:before
 {
 	border-top-width: 2px;
 	left: 111%;
@@ -1815,3 +1883,83 @@ svg line {
 .a4c2 .lines-container .a4-line-tr-bl { top: 144px; }
 .a4c3 .lines-container .a4-line-tr-bl { top: 275px; }
 .a4c4 .lines-container .a4-line-tr-bl { top: 406px; }
+
+
+.ch9.ex2 .a0c2 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a1c1 .lines-container .a1-line-tr-bl,
+.ch9.ex2 .a1c3 .lines-container .a1-line-tl-br,
+.ch9.ex2 .a2c2 .lines-container .a2-line-tr-bl,
+.ch9.ex2 .a2c4 .lines-container .a2-line-tl-br,
+.ch9.ex2 .a3c3 .lines-container .a3-line-tr-bl,
+.ch9.ex2 .a3c5 .lines-container .a3-line-tl-br,
+.ch9.ex2 .a4c4 .lines-container .a4-line-tr-bl,
+.ch9.ex2 .a4c6 .lines-container .a4-line-tl-br,
+.ch9.ex2 .a5c5 .lines-container .a5-line-tr-bl
+{ height: 20%; }
+
+.ch9.ex2 .a0c3 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a1c4 .lines-container .a1-line-tl-br,
+.ch9.ex2 .a2c1 .lines-container .a2-line-tr-bl,
+.ch9.ex2 .a2c5 .lines-container .a2-line-tl-br,
+.ch9.ex2 .a3c2 .lines-container .a3-line-tr-bl,
+.ch9.ex2 .a3c6 .lines-container .a3-line-tl-br,
+.ch9.ex2 .a4c3 .lines-container .a4-line-tr-bl,
+.ch9.ex2 .a5c4 .lines-container .a5-line-tr-bl
+{ height: 40%; }
+
+.ch9.ex2 .a0c4 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a0c4 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a1c5 .lines-container .a1-line-tl-br,
+.ch9.ex2 .a2c6 .lines-container .a2-line-tl-br,
+.ch9.ex2 .a3c1 .lines-container .a3-line-tr-bl,
+.ch9.ex2 .a4c2 .lines-container .a4-line-tr-bl,
+.ch9.ex2 .a5c3 .lines-container .a5-line-tr-bl
+{ height: 60%; }
+
+.ch9.ex2 .a0c5 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a1c6 .lines-container .a1-line-tl-br,
+.ch9.ex2 .a4c1 .lines-container .a4-line-tr-bl,
+.ch9.ex2 .a5c2 .lines-container .a5-line-tr-bl
+{ height: 80%; }
+
+.ch9.ex2 .a0c6 .lines-container .a0-line-tl-br,
+.ch9.ex2 .a4c1 .lines-container .a4-line-tr-bl,
+.ch9.ex2 .a5c1 .lines-container .a5-line-tr-bl
+{ height: 100%; }
+
+.ch9.ex2 .a0c2 .lines-container .a0-line-tl-br { top: 43px; }
+.ch9.ex2 .a0c3 .lines-container .a0-line-tl-br { top: 27px; }
+.ch9.ex2 .a0c4 .lines-container .a0-line-tl-br { top: 6px; }
+.ch9.ex2 .a0c5 .lines-container .a0-line-tl-br { top: -10px; }
+.ch9.ex2 .a0c6 .lines-container .a0-line-tl-br { top: -28px; }
+
+.ch9.ex2 .a1c1 .lines-container .a1-line-tr-bl { top: 48px; }
+.ch9.ex2 .a1c3 .lines-container .a1-line-tl-br { top: 160px; }
+.ch9.ex2 .a1c4 .lines-container .a1-line-tl-br { top: 146px; }
+.ch9.ex2 .a1c5 .lines-container .a1-line-tl-br { top: 130px; }
+.ch9.ex2 .a1c5 .lines-container .a1-line-tl-br { top: 130px; }
+.ch9.ex2 .a1c6 .lines-container .a1-line-tl-br { top: 108px; }
+
+.ch9.ex2 .a2c1 .lines-container .a2-line-tr-bl { top: 36px; }
+.ch9.ex2 .a2c2 .lines-container .a2-line-tr-bl { top: 166px; }
+.ch9.ex2 .a2c4 .lines-container .a2-line-tl-br { top: 280px; }
+.ch9.ex2 .a2c5 .lines-container .a2-line-tl-br { top: 266px; }
+.ch9.ex2 .a2c6 .lines-container .a2-line-tl-br { top: 246px; }
+
+.ch9.ex2 .a3c1 .lines-container .a3-line-tr-bl { top: 25px; }
+.ch9.ex2 .a3c2 .lines-container .a3-line-tr-bl { top: 155px; }
+.ch9.ex2 .a3c3 .lines-container .a3-line-tr-bl { top: 286px; }
+.ch9.ex2 .a3c5 .lines-container .a3-line-tl-br { top: 400px; }
+.ch9.ex2 .a3c6 .lines-container .a3-line-tl-br { top: 385px; }
+
+.ch9.ex2 .a4c1 .lines-container .a4-line-tr-bl { top: 12px; }
+.ch9.ex2 .a4c2 .lines-container .a4-line-tr-bl { top: 144px; }
+.ch9.ex2 .a4c3 .lines-container .a4-line-tr-bl { top: 275px; }
+.ch9.ex2 .a4c4 .lines-container .a4-line-tr-bl { top: 406px; }
+.ch9.ex2 .a4c6 .lines-container .a4-line-tl-br { top: 522px; }
+
+.ch9.ex2 .a5c1 .lines-container .a5-line-tr-bl { top: -2px; }
+.ch9.ex2 .a5c2 .lines-container .a5-line-tr-bl { top: 130px; }
+.ch9.ex2 .a5c3 .lines-container .a5-line-tr-bl { top: 264px; }
+.ch9.ex2 .a5c5 .lines-container .a5-line-tr-bl { top: 528px; }
+.ch9.ex2 .a5c4 .lines-container .a5-line-tr-bl { top: 396px; }
